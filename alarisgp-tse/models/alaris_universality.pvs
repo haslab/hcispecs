@@ -1,0 +1,267 @@
+alaris_universality_pattern[
+  maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
+% universality template
+% \forall s1, s2 in S:  transit(s1, s2) & universal(s1) =>
+% universal(s2)
+% where
+% universal(s) := filter1(s) = filter2(s)
+
+
+state_transitions(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+ (per_on(pre) & post = on(pre)) OR  
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+ state_transitions_noton(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+
+
+guard_univ_quit(st: state): boolean =
+     true
+
+pred_filter_topline_Quit(st: state): boolean =
+ ((topline(st) = dispvtbi) AND (entrymode(st) = vtmode)) OR
+ ((topline(st) = vtbitime) AND (entrymode(st) = vttmode)) OR
+ (topline(st) = options) OR
+ (topline(st) = volume) OR
+ (topline(st) = dispinfo)
+
+pred_filter_quit(st: state): boolean =
+           fndisp3(st) = fquit
+
+universality_quit(st:state): boolean =
+   guard_univ_quit(st) =>
+     (pred_filter_topline_Quit(st) = pred_filter_quit(st))
+% QED Run time  = 499.56 secs. 16/1/17
+universality_quit_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_quit(pre)) AND
+       ((state_transitions(pre, post) AND universality_quit(pre))  
+                  => universality_quit(post))
+
+guard_univ_volume_keys(st: state): boolean =
+     true
+
+pred_filter_volume_keys(st: state): boolean =
+ (topline(st) = volume)
+
+pred_filter_keys_volume(st: state): boolean =
+            (fndisp1(st) = fnull AND
+	    fndisp2(st) = fclear AND
+	    fndisp3(st) = fquit)
+
+universality_volume_keys(st:state): boolean =
+   guard_univ_volume_keys(st) =>
+     (pred_filter_volume_keys(st) = pred_filter_keys_volume(st))
+% QED Run time  = 333.49 secs. 16/1/17
+universality_volume_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_volume_keys(pre)) AND
+       ((state_transitions(pre, post) AND universality_volume_keys(pre))  
+                  => universality_volume_keys(post))
+
+% the following theorem does not include bags mode
+
+guard_univ_vtbi_keys(st: state): boolean =
+     (entrymode(st) /= tbagmode) AND
+     (entrymode(st) /= bagmode) AND
+      (entrymode(st) /= ttmode)
+
+pred_filter_vtbi_keys(st: state): boolean =
+      (topline(st) = dispvtbi) OR
+           (topline(st) = vtbitime)
+
+pred_filter_keys_vtbi(st: state): boolean =
+            (fndisp1(st) = fok AND fndisp2(st) = fbags AND
+	    fndisp3(st) = fquit)
+
+
+universality_vtbi_keys(st:state): boolean =
+   guard_univ_vtbi_keys(st) =>
+     (pred_filter_vtbi_keys(st) = pred_filter_keys_vtbi(st))
+% QED Run time  = 659.44 secs. 16/1/17
+universality_vtbi_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_vtbi_keys(pre)) AND
+       ((state_transitions(pre, post) AND universality_vtbi_keys(pre))  
+                  => universality_vtbi_keys(post))
+ 
+guard_univ_bags_keys(st: state): boolean =
+     (entrymode(st) /= vtmode) AND
+     (entrymode(st) /= vttmode) 
+
+pred_filter_bags_keys(st: state): boolean =
+      (topline(st) = dispvtbi) OR
+           (topline(st) = vtbitime)
+
+pred_filter_keys_bags(st: state): boolean =
+            (fndisp1(st) = fok AND fndisp2(st) = fnull AND
+	    fndisp3(st) = fback)
+
+
+universality_bags_keys(st:state): boolean =
+   guard_univ_bags_keys(st) =>
+     (pred_filter_bags_keys(st) = pred_filter_keys_bags(st))
+
+% QED Run time  = 630.83 secs. 16/1/17
+universality_bags_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_bags_keys(pre)) AND
+       ((state_transitions(pre, post) AND universality_bags_keys(pre))  
+                  => universality_bags_keys(post))
+
+guard_univ_hold_or_infuse_keys(st: state): boolean =
+    true
+
+pred_filter_hold_or_infuse_keys(st: state): boolean =
+      (topline(st) = holding) OR
+      (topline(st) = setrate) OR
+      (topline(st) = infusing)
+          
+
+pred_filter_keys_hold_or_infuse(st: state): boolean =
+        (fndisp1(st) = fvol AND fndisp2(st) = fvtbi AND
+	fndisp3(st) = fnull)
+
+
+
+universality_hold_or_infuse_keys(st:state): boolean =
+   guard_univ_hold_or_infuse_keys(st) =>
+     (pred_filter_hold_or_infuse_keys(st) =
+          pred_filter_keys_hold_or_infuse(st))
+
+% QED Run time  = 499.85 secs. 16/1/17
+universality_hold_or_infuse_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_hold_or_infuse_keys(pre)) AND
+       ((state_transitions(pre, post) AND
+       universality_hold_or_infuse_keys(pre))  
+                  => universality_hold_or_infuse_keys(post))
+
+guard_univ_query_keys(st: state): boolean =
+    true
+
+pred_filter_query_keys(st: state): boolean =
+      (topline(st) = options) 
+
+pred_filter_keys_query(st: state): boolean =
+       (fndisp1(st) = fok AND fndisp2(st) = fnull AND
+        fndisp3(st) = fquit)
+
+
+
+universality_query_keys(st:state): boolean =
+   guard_univ_query_keys(st) =>
+     (pred_filter_query_keys(st) =
+          pred_filter_keys_query(st))
+
+% QED Run time  = 387.67 secs. 16/1/17
+universality_query_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_query_keys(pre)) AND
+       ((state_transitions(pre, post) AND
+       universality_query_keys(pre))  
+                  => universality_query_keys(post))
+
+guard_univ_neutral_keys(st: state): boolean =
+    true
+
+pred_filter_neutral_keys(st: state): boolean =
+      (topline(st) = vtbidone OR
+       topline(st) = attention OR
+       topline(st) = batterylow OR 
+       topline(st) = setnotfitted) 
+
+pred_filter_keys_neutral(st: state): boolean =
+       (fndisp1(st) = fnull AND fndisp2(st) = fnull AND
+        fndisp3(st) = fcancel)
+
+
+
+universality_neutral_keys(st:state): boolean =
+   guard_univ_neutral_keys(st) =>
+     (pred_filter_neutral_keys(st) =
+          pred_filter_keys_neutral(st))
+
+% QED Run time  = 831.17 secs. 16/1/17
+universality_neutral_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_neutral_keys(pre)) AND
+       ((state_transitions(pre, post) AND
+       universality_neutral_keys(pre))  
+                  => universality_neutral_keys(post))
+
+guard_univ_dispkvo_keys(st: state): boolean =
+    true
+
+pred_filter_dispkvo_keys(st: state): boolean =
+     (topline(st) = dispkvo)
+
+pred_filter_keys_dispkvo(st: state): boolean =
+       (fndisp1(st) = fvol AND fndisp2(st) = fnull AND fndisp3(st) = fnull)
+
+
+
+universality_dispkvo_keys(st:state): boolean =
+   guard_univ_dispkvo_keys(st) =>
+     (pred_filter_dispkvo_keys(st) =
+          pred_filter_keys_dispkvo(st))
+
+% QED Run time  = 394.93 secs. 16/1/17
+universality_dispkvo_keys_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => universality_dispkvo_keys(pre)) AND
+       ((state_transitions(pre, post) AND
+       universality_dispkvo_keys(pre))  
+                  => universality_dispkvo_keys(post))
+
+
+
+END alaris_universality_pattern
+

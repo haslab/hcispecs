@@ -1,0 +1,435 @@
+% Michael Harrison and Paolo Masci (QMUL and Newcastle University) April 2014
+alaris_consistency_pattern[
+   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
+% Consistency Template
+% A_c is a set of actions \subseteq S -> S
+% \forall a in A_c, s in S, m in MS
+% guard(s, m) => 
+% pre_filter(s, m) R post_filter(a(s), m)
+
+% state consistency
+% \forall s in S: guard(s) => invariant(s)
+
+
+paused_state(st: state): boolean =
+         (device(st)`powered_on? AND NOT device(st)`infusing?)
+
+state_transitions(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+ (per_on(pre) & post = on(pre)) OR  
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+state_transitions_release(pre, post: state): boolean =
+  (per_sup(pre) & post = release_sup(sup(pre))) OR  
+  (per_fup(pre) & post = release_fup(fup(pre))) OR  
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+  (per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  (per_key2(pre) & post = key2(pre)) OR (per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR (per_on(pre) & post = on(pre)) OR 
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR 
+  (post = pre) OR (per_switch(pre) & post = switch(pre)) OR 
+   (per_fit_set(pre) & post = fit_set(pre))
+
+state_transitions_nochevrons(pre, post: state): boolean =
+%  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre))
+
+state_transitions_chevrons(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre))
+
+
+switchedon?(p: state): bool =
+     device(p)`powered_on?
+
+rate_entry_ready(st: state): boolean = switchedon?(st) AND NOT rlock(st) AND (((entrymode(st) = rmode) AND (topline(st) = holding)) OR ((entrymode(st) = infusemode) AND (topline(st)=infusing)))
+
+dispvtbi_entry_ready(st: state): boolean = 
+                  switchedon?(st) AND
+                  (topline(st) = dispvtbi AND entrymode(st) = vtmode)
+
+vtbitime_entry_ready(st: state): boolean = 
+                  switchedon?(st) AND
+                  NOT device(st)`infusing? AND
+                   (topline(st) = vtbitime AND entrymode(st) = vttmode)
+
+time_entry_ready(st: state): boolean = 
+                  switchedon?(st) AND
+                  NOT device(st)`infusing? AND
+                   (topline(st) = vtbitime AND entrymode(st) = ttmode)
+
+
+% mode change consistency
+filterem(st: state): emodes = entrymode(st)
+guardem(st: state): boolean = true
+
+% QED Run time  = 4.76 secs. 11/1/17 template paper
+nochevfeed: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions_nochevrons(pre, post) AND guardem(pre)) IMPLIES 
+           (filterem(pre) /= filterem(post))
+
+% pause also changes mode except when infusion rate is locked
+%QED Run time  = 5.11 secs. 11/1/17
+genkeymode_consistency: THEOREM
+  FORALL (st: state):
+      (per_pause(st) & (topline(st) /= locked) =>
+                entrymode(pause(st)) /= entrymode(st)) AND
+      (per_key1(st) & NOT ((topline(st) = options & 
+              (optionsmenu(st)(qcursor(st)) = setvtbiovertime)) & 
+                                  rlock(st)) =>
+		entrymode(key1(st)) /= entrymode(st))
+
+% mode invariant consistency template paper
+% QED Run time  = 69.73 secs. 11/1/17
+chevconsistent: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions_chevrons(pre, post)) IMPLIES 
+           (filterem(pre) = filterem(post))
+
+
+
+preweakguardok(st: state): boolean =  
+       fndisp1(st) = fok AND NOT device(st)`infusing?
+
+%goal consistent
+preguardok(st: state): boolean =  
+       fndisp1(st) = fok AND NOT device(st)`infusing? AND 
+           NOT ((topline(st) = options ) OR 
+                (topline(st) = vtbitime AND (entrymode(st) = vttmode)) OR
+                (topline(st) = dispvtbi AND ((entrymode(st) = bagmode) OR 
+                                             (entrymode(st) = tbagmode))))
+goalok(st: state): boolean =
+         (device(st)`infusionrate = 0 & topline(st) = setrate) OR
+         (device(st)`infusionrate /= 0 & topline(st) = holding)
+
+okgoalweakconsistent(st: state): boolean =
+          (per_key1(st) & preweakguardok(st)) IMPLIES 
+           goalok(key1(st))
+
+okgoalconsistent(st: state): boolean =
+          (per_key1(st) & preguardok(st)) IMPLIES 
+           goalok(key1(st))
+
+okgoalconsistent_thm_weakguard: THEOREM
+ FORALL (pre, post: state):
+       (init?(pre) =>  okgoalweakconsistent(pre)) AND
+       ((state_transitions(pre, post) AND  okgoalweakconsistent(pre)) 
+           IMPLIES okgoalweakconsistent(post))
+
+% this is also consistency
+%QED Run time  = 395.23 secs. 11/1/17
+okgoalconsistent_thm: THEOREM
+ FORALL (pre, post: state):
+       (init?(pre) =>  okgoalconsistent(pre)) AND
+       ((state_transitions(pre, post) AND  okgoalconsistent(pre))
+           IMPLIES okgoalconsistent(post))
+
+
+preguardquit(st: state): boolean =  
+       fndisp3(st) = fquit AND NOT device(st)`infusing?
+
+goalquit(st: state): boolean =
+         (device(st)`infusionrate = 0 & topline(st) = setrate) OR
+         (device(st)`infusionrate /= 0 & topline(st) = holding)
+
+quitgoalconsistent(st: state): boolean =
+          (per_key3(st) & preguardquit(st)) IMPLIES 
+           goalquit(key3(st))
+
+%also completeness
+%QED Run time  = 541.44 secs. 11/1/17
+
+quitgoalconsistent_thm: THEOREM
+   FORALL (pre, post: state):
+      (init?(pre) =>  quitgoalconsistent(pre)) AND
+       (state_transitions(pre, post) AND  quitgoalconsistent(pre) 
+           IMPLIES quitgoalconsistent(post))
+
+volume0_guard(st: state): boolean =
+   per_key2(st) & topline(st) = volume
+
+volume0_goal(st: state): boolean =
+  (device(st)`volumeinfused = 0) AND
+  ((entrymode(st) = rmode) OR (entrymode(st) = infusemode))
+
+volume0_key2_consistent(st: state): boolean =
+  (volume0_guard(st) IMPLIES volume0_goal(key2(st)))
+% QED Run time  = 108.98 secs. 17/1/17
+volume0_key2_consistent_theorem: THEOREM
+    FORALL (pre, post: state):
+       (init?(pre) =>  volume0_key2_consistent(pre)) AND
+       (state_transitions(pre, post) AND  volume0_key2_consistent(pre) 
+           IMPLIES volume0_key2_consistent(post))
+
+  
+pre_guard_quit_inv(st: state): bool = fndisp3(st) = fquit
+filter_rate(st: state): irates = device(st)`infusionrate
+filter_time(st: state): itimes = device(st)`time
+filter_vtbi(st: state): ivols = device(st)`vtbi   
+
+% QED Run time  = 0.77 secs. 11/1/17
+thm_quit_inv: THEOREM
+  FORALL(st: state):
+       (per_key3(st) AND pre_guard_quit_inv(st)) IMPLIES
+              (filter_rate(st) = filter_rate(key3(st)))
+
+pre_guard_quit_inv_paused(st: state): bool = fndisp3(st) = fquit & NOT device(st)`infusing?
+% QED Run time  = 0.98 secs. 11/1/17
+thm_quit_paused: THEOREM
+  FORALL(st: state):
+       (per_key3(st) AND pre_guard_quit_inv_paused(st)) IMPLIES
+              (filter_time(st) = filter_time(key3(st))) AND (filter_vtbi(st) = filter_vtbi(key3(st)))
+
+% when key3 is associated with quit then the values of the pump variables are not changed
+% QED Run time  = 5.79 secs. 11/1/17
+quitleavesuntouched: THEOREM
+    FORALL (pre, post: state):
+       ((fndisp3(pre) = fquit AND per_key3(pre) AND post = key3(pre))
+                IMPLIES
+         (device(pre)`infusionrate = device(post)`infusionrate)) 
+                   AND
+         ((NOT device(pre)`infusing? AND fndisp3(pre) = fquit AND per_key3(pre) AND 
+              post = key3(pre)) IMPLIES
+          (device(pre)`vtbi = device(post)`vtbi AND
+           device(pre)`time = device(post)`time AND
+           device(pre)`volumeinfused = device(post)`volumeinfused))
+
+% other keys leave untouched
+nochevrons_or_key1(pre, post: state): boolean =
+  (per_key2(pre) & post = key2(pre)) OR 
+  (per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+  (per_tick(pre) & post = tick(pre))
+
+guard_untouched(st: state): boolean =
+   paused_state(st)
+% QED Run time  = 11.25 secs. 11/1/17
+nochevrons_untouched: THEOREM
+   FORALL (pre, post: state):
+     (guard_untouched(pre) AND 
+     (nochevrons_or_key1(pre, post) OR
+      (per_key1(pre) AND ((fndisp1(pre) /= fok) AND (topline(pre) /= clearsetup)) AND 
+           (post = key1(pre))))) IMPLIES
+        ((filter_rate(pre) = filter_rate(post)) AND
+         (filter_vtbi(pre) = filter_vtbi(post)) AND
+         (filter_time(pre) = filter_time(post)))
+
+filter_newvtbi(st: state): ivols = newvtbi(st)
+pre_guard_fnkeyok(st: state): bool = fndisp1(st) = fok
+mode_ttvtt(st: state): boolean = (entrymode(st) = ttmode) OR (entrymode(st) = vtmode)
+%QED Run time  = 0.91 secs. 11/1/17
+thm_ok_ttvtt: THEOREM
+   FORALL(st: state):
+       (per_key1(st) AND pre_guard_fnkeyok(st) AND mode_ttvtt(st)) IMPLIES
+              (filter_newvtbi(st) = filter_vtbi(key1(st)))
+
+guard_consistent_change_vtbi(st: state): boolean =
+    fndisp1(st) = fok AND per_key1(st) AND
+    (((topline(st) = vtbitime) AND (entrymode(st) = ttmode)) OR
+          ((topline(st) = dispvtbi) AND (entrymode(st) = vtmode)))
+
+filter_pre_vtbi_ok(st: state): ivols =
+           newvtbi(st)
+
+filter_post_vtbi_ok(st: state): ivols =
+          device(st)`vtbi
+
+ok_vtbi_consistent(st: state): boolean =
+   guard_consistent_change_vtbi(st) IMPLIES
+        (filter_pre_vtbi_ok(st) = filter_post_vtbi_ok(key1(st)))
+   
+% QED Run time  = 0.97 secs. 11/1/17
+ok_vtbi_consistent_theorem: THEOREM
+    FORALL (st: state):
+        ok_vtbi_consistent(st)
+
+% in the relevant mode ok changes time to new time
+filter_newtime(st: state): itimes = newtime(st)
+pre_guard_fnkeyoktt(st: state): bool = fndisp1(st) = fok
+mode_tt(st: state): boolean = (entrymode(st) = ttmode)
+%QED Run time  = 1.00 secs. 11/1/17
+thm_ok_tt: THEOREM
+   FORALL(st: state):
+       (per_key1(st) AND pre_guard_fnkeyoktt(st) AND mode_tt(st)) IMPLIES
+              (filter_newtime(st) = filter_time(key1(st)))
+
+% reformulation of the ok consistency property
+guard_em_ok(em: emodes, st: state): boolean =
+   per_key1(st) AND (fndisp1(st) = fok) AND (entrymode(st) = em) AND
+   (entrymode(st) /= vttmode)
+
+temp_mode_filter(em: emodes, st: state): real =
+    COND
+     em = rmode -> device(st)`infusionrate,
+     em = infusemode -> device(st)`infusionrate,
+     em = vtmode -> newvtbi(st),
+     em = vttmode -> newvtbi(st),
+     (em = bagmode OR em = tbagmode) ->
+         COND bagscursor(st) = 0 -> 0,
+              bagscursor(st) = 1 -> 50,
+              bagscursor(st) = 2 -> 100,
+              bagscursor(st) = 3 -> 200,
+              bagscursor(st) = 4 -> 250,
+              bagscursor(st) = 5 -> 500,
+              bagscursor(st) = 6 -> 1000,
+              bagscursor(st) = 7 -> 1500,
+              bagscursor(st) = 8 -> 2000,
+              ELSE -> 3000
+         ENDCOND,
+     em = ttmode -> newtime(st),
+     ELSE -> device(st)`infusionrate
+    ENDCOND
+
+real_mode_filter(em: emodes, st: state): real =
+    COND
+     em = rmode -> device(st)`infusionrate,
+     em = rmode -> device(st)`infusionrate,
+     em = vtmode -> device(st)`vtbi,
+     em = vttmode -> device(st)`vtbi,
+     em = bagmode -> newvtbi(st),
+     em = tbagmode -> newvtbi(st),
+     em = ttmode -> device(st)`time,
+     ELSE -> device(st)`infusionrate
+    ENDCOND
+%QED Run time  = 1.28 secs. templates paper 11/1/17
+  consistency_ok_em: THEOREM
+    FORALL (em: emodes, st: state):
+      guard_em_ok(em, st) IMPLIES
+          (temp_mode_filter(em, st) = real_mode_filter(em, key1(st)))
+
+display_mode_dispvtbi(st: state): boolean = (topline(st) = dispvtbi)
+display_mode_vtbitime(st: state): boolean = (topline(st) = vtbitime)
+guard_paused(st: state): boolean = NOT device(st)`infusing?
+%QED Run time  = 31.79 secs. 11/1/17
+dispvtbimode_basic_invariant: THEOREM
+  FORALL(pre, post: state):
+       (guard_paused(pre) AND state_transitions(pre, post) AND 
+        display_mode_dispvtbi(pre) AND display_mode_dispvtbi(post)) IMPLIES
+              ((filter_rate(pre) = filter_rate(post)) AND
+               (filter_vtbi(pre) = filter_vtbi(post)) AND
+               (filter_time(pre) = filter_time(post)))
+%QED Run time  = 52.51 secs. 11/1/17
+vtbitimemode_basic_invariant: THEOREM
+  FORALL(pre, post: state):
+       (guard_paused(pre) AND state_transitions(pre, post) AND 
+        display_mode_vtbitime(pre) AND display_mode_vtbitime(post)) IMPLIES
+              ((filter_rate(pre) = filter_rate(post)) AND
+               (filter_vtbi(pre) = filter_vtbi(post)) AND
+               (filter_time(pre) = filter_time(post)))
+
+
+% if through a transition topline remains vtbi or vtbitime when not infusing the pump variables do not change
+% QED Run time  = 80.78 secs. 11/1/17
+pump_invariant_inmode: THEOREM
+       FORALL (pre, post:state):
+          (NOT device(pre)`infusing? AND state_transitions(pre, post) AND
+          (((topline(pre) = vtbitime) AND (topline(post) = vtbitime)) OR
+          ((topline(pre) = dispvtbi) AND (topline(post) = dispvtbi)))) IMPLIES
+          (device(pre)`vtbi = device(post)`vtbi AND
+           device(pre)`infusionrate = device(post)`infusionrate AND
+           device(pre)`time = device(post)`time)
+
+
+
+
+
+guard_em_quit(em: emodes, st: state): boolean =
+     per_key3(st) AND (fndisp3(st) = fquit) AND (entrymode(st) = em)
+% QED Run time  = 1.96 secs. 11/1/17
+consistency_quit_em: THEOREM
+    FORALL (em: emodes, st: state):
+       guard_em_quit(em, st) IMPLIES
+          real_mode_filter(em, st) = real_mode_filter(em, key3(st))
+
+
+% Quit only appears associated with key3
+%
+f3quit_invariant_guard(st: state): boolean = true
+f3quit_invariant(st: state): boolean =
+    fndisp1(st) /= fquit AND fndisp2(st) /= fquit
+
+f3quit_consistent(st: state): boolean =
+   f3quit_invariant_guard(st) IMPLIES f3quit_invariant(st)
+%QED Run time  = 162.65 secs. 11/1/17
+f3quit_consistent_theorem: THEOREM
+FORALL (pre, post: state):
+    (init?(pre)  => f3quit_consistent(pre)) AND
+     (state_transitions(pre, post) AND f3quit_consistent(pre) => 
+                f3quit_consistent(post))
+
+f1ok_invariant_guard(st: state): boolean = true
+f1ok_invariant(st: state): boolean =
+    fndisp2(st) /= fok AND fndisp3(st) /= fok
+
+f1ok_consistent(st: state): boolean =
+   f1ok_invariant_guard(st) IMPLIES f1ok_invariant(st)
+% QED Run time  = 157.85 secs. 11/1/17
+f1ok_consistent_theorem: THEOREM
+FORALL (pre, post: state):
+    (init?(pre)  => f1ok_consistent(pre)) AND
+     (state_transitions(pre, post) AND f1ok_consistent(pre) => 
+                f1ok_consistent(post))
+
+alwayskey1_invariant_guard(st: state): boolean = true
+alwayskey1_invariant(st: state): boolean =
+    (fndisp1(st) /= fnull) <=>
+    ((fndisp1(st) = fok) OR (fndisp1(st) = fclear) OR 
+     (fndisp1(st) = fvol) OR (fndisp1(st) = fyes))
+
+alwayskey1_consistent(st: state): boolean =
+   alwayskey1_invariant_guard(st) IMPLIES f1ok_invariant(st)
+%QED Run time  = 156.50 secs. 11/1/17
+alwayskey1_consistent_theorem: THEOREM
+FORALL (pre, post: state):
+    (init?(pre)  => alwayskey1_consistent(pre)) AND
+     (state_transitions(pre, post) AND alwayskey1_consistent(pre) => 
+                alwayskey1_consistent(post))
+
+
+
+
+
+
+
+END alaris_consistency_pattern

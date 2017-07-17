@@ -1,0 +1,246 @@
+% Michael Harrison and Paolo Masci (QMUL and Newcastle University) April 2014
+alaris_completeness_pattern[
+   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
+% Completeness template
+% \all s in S : guard(s) & ~goal(s)
+% => \exists a in A & per(a)(s) & goal(a(s))
+
+paused_state(st: state): boolean =
+         (device(st)`powered_on? AND NOT device(st)`infusing?)
+infuse_state(st: state): boolean =
+         (device(st)`powered_on? AND device(st)`infusing?)
+
+% used in the induction
+
+state_transitions(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+(per_on(pre) & post = on(pre)) OR  
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+
+% used in inductions relating to chevron functions, including release
+
+state_transitions_release(pre, post: state): boolean =
+  (per_sup(pre) & post = release_sup(sup(pre))) OR  
+  (per_fup(pre) & post = release_fup(fup(pre))) OR  
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+  (per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  (per_key2(pre) & post = key2(pre)) OR (per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR 
+  (per_on(pre) & post = on(pre)) OR 
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & no_button_down(pre) & post = pause(pre)) OR 
+  (post = pre) OR (per_switch(pre) & post = switch(pre)) OR 
+   (per_fit_set(pre) & post = fit_set(pre))
+% Completeness template
+% A set of actions
+% for all s in S : guard(s) & ~goal(s) =>
+% exists a in A & per(a)(s) & goal(a(s))
+
+goal_infuse(st: state): boolean = entrymode(st) = infusemode
+
+goal_infuse_line(st: state): boolean =
+       (topline(st) = infusing) OR (topline(st) = dispkvo)
+
+
+
+guard_infuse(st: state): boolean =
+   infuse_state(st) AND
+   ((topline(st) /= locked) AND
+  NOT ((topline(st) = dispvtbi) AND
+    (entrymode(st) = bagmode)))
+
+
+state_nokey13_transitions_release(pre, post: state): boolean =
+    (per_sup(pre) & post = release_sup(sup(pre))) OR  
+  (per_fup(pre) & post = release_fup(fup(pre))) OR  
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+  (per_tick(pre) & post = tick(pre)) OR
+  (per_key2(pre) & post = key2(pre)) OR
+  (per_query(pre) & post = query(pre)) OR 
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR (post = pre)
+
+
+
+simple_guard_rmode(st: state): boolean = paused_state(st)
+
+simple_guard_hors(st: state): boolean = paused_state(st)
+
+
+% completeness (Section 6.1 templates paper)
+guard_rmode(st: state): boolean =
+         paused_state(st) & 
+                  ((topline(st) /= locked) AND
+		    (topline(st) /= lockrate) AND
+                   NOT((topline(st) = dispvtbi) AND 
+                   ((entrymode(st) = bagmode) OR
+		      (entrymode(st) = tbagmode))))
+		      
+goal_rmode(st: state): boolean = (entrymode(st) = rmode)
+
+goal_hosr(st: state): boolean = ((topline(st) = holding) OR
+                                 (topline(st) = setrate))
+
+simple_completeness_rmode(st: state): boolean =
+    (simple_guard_rmode(st) AND NOT goal_rmode(st)) IMPLIES
+         ((per_key1(st) AND goal_rmode(key1(st))) OR
+	 (per_key3(st) AND goal_rmode(key3(st))))
+
+simple_complete_to_hosr(st: state): boolean =
+    (simple_guard_hors(st) AND NOT goal_hosr(st)) IMPLIES
+         ((per_key1(st) AND goal_hosr(key1(st))) OR
+	 (per_key3(st) AND goal_hosr(key3(st))))
+
+
+comple_to_rmode(st: state): boolean =
+      (guard_rmode(st) AND NOT goal_rmode(st)) IMPLIES
+         ((per_key1(st) AND goal_rmode(key1(st))) OR
+	 (per_key3(st) AND goal_rmode(key3(st))))
+
+complete_to_hosr(st: state): boolean =
+      (guard_rmode(st) AND NOT goal_hosr(st)) IMPLIES
+         ((per_key1(st) AND goal_hosr(key1(st))) OR
+	 (per_key3(st) AND goal_hosr(key3(st))))
+
+comple_to_infusemode(st: state): boolean =
+      (guard_infuse(st) AND NOT goal_infuse(st)) IMPLIES
+	 (per_key3(st) => goal_infuse(key3(st)))
+
+complete_to_infuse(st: state): boolean =
+      (guard_infuse(st) AND NOT goal_infuse_line(st)) IMPLIES
+	 (per_key3(st) AND goal_infuse_line(key3(st)))
+
+
+simple_comp_rmode: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => simple_completeness_rmode(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        simple_completeness_rmode(pre))  => simple_completeness_rmode(post))
+
+simple_comp_pause: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => simple_complete_to_hosr(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        simple_complete_to_hosr(pre))  => simple_complete_to_hosr(post))
+
+
+%QED Run time  = 2960.50 secs. 7/7/17
+% rmode completeness
+completemplate_to_rmode: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => comple_to_rmode(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        comple_to_rmode(pre))  => comple_to_rmode(post))
+
+%
+% holding or setrate completeness -- wont work
+univ_complete_to_holdingorsetrate: THEOREM
+  FORALL (st: state):
+    (guard_rmode(st) AND NOT goal_hosr(st)) IMPLIES
+         ((per_key1(st) AND goal_hosr(key1(st))) OR
+	 (per_key3(st) AND goal_hosr(key3(st))))
+
+% QEDRun time  = 6769.22 secs. 8/7/17
+% holding or setrate completeness
+% used in the paper
+complete_to_holdingorsetrate: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => complete_to_hosr(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        complete_to_hosr(pre))  => complete_to_hosr(post))
+
+
+
+%QED Run time  = 100.19 secs. 10/1/17
+no_other_to_rmode: THEOREM
+  FORALL (pre, post: state):
+     (paused_state(pre) AND state_nokey13_transitions_release(pre, post) AND entrymode(pre) /= rmode AND 
+                           (device(pre)`elapse < shorttimeout) AND 
+                           (topline(pre) /= volume)
+) IMPLIES
+               entrymode(post) /= rmode
+
+
+
+% QED Run time  = 964.87 secs. 10/1/17
+completemplate_to_infusemode: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => comple_to_infusemode(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        comple_to_infusemode(pre))  => comple_to_infusemode(post))
+	
+% QED Run time  = 2074.93 secs. 10/1/17
+complete_to_infuse_thm: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => complete_to_infuse(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        complete_to_infuse(pre))  => complete_to_infuse(post))
+
+
+
+state_transitions_releasewpause(pre, post: state): boolean =
+  (per_sup(pre) & post = release_sup(sup(pre))) OR  
+  (per_fup(pre) & post = release_fup(fup(pre))) OR  
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+  (per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  (per_key2(pre) & post = key2(pre)) OR (per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR 
+  (per_on(pre) & post = on(pre)) OR 
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & (pressed(pause(pre)) = maxpress => post = pause(pre))
+                                                         AND (pressed(pause(pre)) < maxpress => post = release_key(pause(pre)))) OR 
+  (post = pre) OR (per_switch(pre) & post = switch(pre)) OR 
+   (per_fit_set(pre) & post = fit_set(pre))
+
+guard_vtmode(st: state): boolean =
+(device(st)`powered_on? & ((topline(st) = holding) OR (topline(st) = setrate) OR
+                          (topline(st) = infusing)))
+goal_vtmode(st: state): boolean = entrymode(st) = vtmode
+
+comple_to_vtmode(st: state): boolean =
+      (guard_vtmode(st) AND NOT goal_vtmode(st)) IMPLIES
+	 (per_key3(st) => goal_vtmode(key3(st)))
+
+% QED Run time  = 238.98 secs. 10/1/16
+complete_vtmode_thm: THEOREM
+  FORALL (pre, post: state):
+    (init?(pre) AND post = on(pre) => comple_to_vtmode(post)) AND
+     ((state_transitions_release(pre, post) AND 
+        comple_to_vtmode(pre))  => comple_to_vtmode(post))
+	
+
+
+
+
+END alaris_completeness_pattern

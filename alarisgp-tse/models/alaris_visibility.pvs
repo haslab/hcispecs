@@ -1,0 +1,443 @@
+alaris_visibility_pattern[
+maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
+% Visibility
+% \forall s1, s2 in S:  transit(s1, s2) &
+% visible(s1) => visible(s2)
+
+% visible(s) :=  filter(s) = p_filter_p(s)
+
+state_transitions(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+ (per_on(pre) & post = on(pre)) OR  
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+ state_transitions_noton(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+
+
+
+vtbi_entry_ready(st: state): boolean = 
+                 device(st)`powered_on? AND
+                  ((topline(st) = dispvtbi AND entrymode(st) = vtmode) OR 
+                   (topline(st) = vtbitime AND entrymode(st) = vttmode))
+
+dispvtbi_entry_ready(st: state): boolean = 
+                  device(st)`powered_on? AND
+                  (topline(st) = dispvtbi AND entrymode(st) = vtmode)
+
+vtbitime_entry_ready(st: state): boolean = 
+                  device(st)`powered_on? AND
+                  NOT device(st)`infusing? AND
+                   (topline(st) = vtbitime AND entrymode(st) = vttmode)
+
+time_entry_ready(st: state): boolean = 
+                  device(st)`powered_on? AND
+                  NOT device(st)`infusing? AND
+                   (topline(st) = vtbitime AND entrymode(st) = ttmode)
+
+ rate_entry_ready(st: state): boolean = device(st)`powered_on? AND NOT rlock(st) AND ((entrymode(st) = rmode) OR (entrymode(st) = infusemode)) 
+
+rate_entry_ready_locked(st: state): boolean = device(st)`powered_on? AND rlock(st) AND (((entrymode(st) = rmode) AND (topline(st) = holding)) OR ((entrymode(st) = infusemode) AND (topline(st)=infusing)))
+
+
+univ_guard(st: state): boolean = true
+
+
+paused(st: state): boolean = device(st)`powered_on? AND
+                           NOT device(st)`infusing?
+
+infusing_state(st: state): boolean = device(st)`powered_on? AND
+                                device(st)`infusing?
+
+holding_guard(st: state): boolean = (topline(st) /= locked) AND
+                                     (topline(st) /= batterylow) AND
+				     (topline(st) /= volume) AND
+				     (topline(st) /= dispvtbi) AND
+				     (topline(st) /= options) AND
+				     (topline(st) /= dispinfo)
+
+infusing_guard(st: state): boolean = holding_guard(st)
+
+holding_filter(st:state): boolean = paused(st)
+infusing_filter(st: state): boolean = infusing_state(st)
+
+holding_p_filter(st: state): boolean =
+     (topline(st) = holding OR topline(st) = setvtbi OR
+      topline(st) = setrate OR topline(st) = vtbitime OR
+      topline(st) = clearsetup OR topline(st) = attention OR
+      topline(st) = lockrate OR topline(st) = setnotfitted)
+
+infusing_p_filter(st: state): boolean =
+      (topline(st) = infusing) OR (topline(st) = dispkvo) OR
+      (topline(st) = vtbidone)
+
+holding_visibility(st: state): boolean =
+      holding_guard(st) IMPLIES
+         (holding_filter(st) = holding_p_filter(st))
+
+infusing_visibility(st: state): boolean =
+      infusing_guard(st) IMPLIES
+         (infusing_filter(st) = infusing_p_filter(st))
+      
+%QED Real time = 370.67 secs. 15/12/16
+holding_visibility_theorem: THEOREM 
+FORALL (pre, post: state):
+    (init?(pre)  => holding_visibility(pre)) AND
+     (state_transitions(pre, post) AND holding_visibility(pre)
+          => holding_visibility(post))
+%QED Run time  = 416.21 secs. 15/12/16
+infusing_visibility_theorem: THEOREM 
+FORALL (pre, post: state):
+    (init?(pre)  => infusing_visibility(pre)) AND
+     (state_transitions(pre, post) AND infusing_visibility(pre)
+          => infusing_visibility(post))
+
+
+
+
+run_filter(st: state): boolean =
+    device(st)`powered_on? AND device(st)`infusing?
+run_p_filter(st: state): boolean =
+     runlight(st) AND (NOT pauselight(st))
+
+pause_filter(st: state): boolean =
+     device(st)`powered_on? AND (NOT device(st)`infusing?)
+pause_p_filter(st: state): boolean =
+      NOT runlight(st) AND pauselight(st)
+
+ac_on_filter(st: state): boolean =
+      device(st)`powered_on? & device(st)`ac_connect
+
+ac_on_p_filter(st: state): boolean =
+      ac_light(st)
+
+battery_on_filter(st: state): boolean =
+      device(st)`powered_on? & NOT device(st)`ac_connect
+
+battery_on_p_filter(st: state): boolean =
+       battery_light(st)
+
+visible_run(st: state): boolean =
+    run_filter(st) = run_p_filter(st)
+
+visible_pause(st: state): boolean =
+    pause_filter(st) = pause_p_filter(st)
+
+visible_ac_on(st: state): boolean =
+     ac_on_filter(st) = ac_on_p_filter(st)
+
+visible_battery_on(st:state): boolean =
+     battery_on_filter(st) = battery_on_p_filter(st)
+
+  
+   
+% QED Run time  = 1005.53 secs. 12/1/17
+visible_run_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_run(pre)) AND
+       ((state_transitions(pre, post) AND visible_run(pre))  
+                  => visible_run(post))
+%QED Run time  = 280.20 secs. 12/1/17
+visible_pause_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_pause(pre)) AND
+       ((state_transitions(pre, post) AND visible_pause(pre))  
+                  => visible_pause(post)) 
+
+%QED Run time  = 314.31 secs. 12/1/17
+visible_ac_on_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_ac_on(pre)) AND
+       ((state_transitions(pre, post) AND visible_ac_on(pre))  
+                  => visible_ac_on(post)) 
+%QED Run time  = 504.39 secs. 12/1/17
+visible_battery_on_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_battery_on(pre)) AND
+       ((state_transitions(pre, post) AND visible_battery_on(pre))  
+                  => visible_battery_on(post))
+
+guard_vis_rmode(st: state): boolean =
+        topline(st) /= locked
+
+rmode_filter(st: state): boolean = entrymode(st) = rmode
+
+rmode_p_filter(st: state): boolean =
+        (topline(st) = holding) OR (topline(st) = setrate)
+
+visible_rmode(st:state): boolean =
+   guard_vis_rmode(st) IMPLIES
+     (rmode_filter(st) = rmode_p_filter(st))
+% QED Run time  = 552.95 secs. 13/1/17
+visible_rmode_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_rmode(pre)) AND
+       ((state_transitions(pre, post) AND visible_rmode(pre))  
+                  => visible_rmode(post))
+
+guard_vis_infusemode(st: state): boolean =
+        topline(st) /= locked
+
+infusemode_filter(st: state): boolean = entrymode(st) = infusemode
+
+infusemode_p_filter(st: state): boolean =
+        (topline(st) = infusing) OR (topline(st) = dispkvo)
+
+visible_infusemode(st:state): boolean =
+   guard_vis_infusemode(st) IMPLIES
+     (infusemode_filter(st) = infusemode_p_filter(st))
+% QED Run time  = 572.38 secs. 13/1/17
+visible_infusemode_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_infusemode(pre)) AND
+       ((state_transitions(pre, post) AND visible_infusemode(pre))  
+                  => visible_infusemode(post))
+
+guard_vis_kvo(st: state): boolean = true
+ %       topline(st) /= locked
+
+kvo_filter(st: state): boolean =
+       entrymode(st) = infusemode AND device(st)`kvoflag
+
+kvo_p_filter(st: state): boolean =
+        (topline(st) = dispkvo)
+
+visible_kvo(st:state): boolean =
+   guard_vis_kvo(st) IMPLIES
+     (kvo_filter(st) = kvo_p_filter(st))
+% QED Run time  = 525.05 secs. 13/1/17
+visible_kvo_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_kvo(pre)) AND
+       ((state_transitions(pre, post) AND visible_kvo(pre))  
+                  => visible_kvo(post))
+
+guard_vis_dispvtbi(st: state): boolean = true
+
+dispvtbi_filter(st: state): boolean =
+       entrymode(st) = vtmode OR
+       entrymode(st) = bagmode OR
+       entrymode(st) = tbagmode
+
+dispvtbi_p_filter(st: state): boolean =
+        topline(st) = dispvtbi
+
+visible_dispvtbi(st:state): boolean =
+   guard_vis_dispvtbi(st) IMPLIES
+     (dispvtbi_filter(st) = dispvtbi_p_filter(st))
+% Run time  = 637.53 secs. secs. 13/1/17
+visible_dispvtbi_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_dispvtbi(pre)) AND
+       ((state_transitions(pre, post) AND visible_dispvtbi(pre))  
+                  => visible_dispvtbi(post))
+
+guard_vis_vtbitime(st: state): boolean = true
+
+vtbitime_filter(st: state): boolean =
+       entrymode(st) = vttmode OR
+       entrymode(st) = ttmode 
+
+vtbitime_p_filter(st: state): boolean =
+        topline(st) = vtbitime
+
+visible_vtbitime(st:state): boolean =
+   guard_vis_vtbitime(st) IMPLIES
+     (vtbitime_filter(st) = vtbitime_p_filter(st))
+% QED Run time  = 457.74 secs. 13/1/17
+visible_vtbitime_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_vtbitime(pre)) AND
+       ((state_transitions(pre, post) AND visible_vtbitime(pre))  
+                  => visible_vtbitime(post))
+
+guard_vis_nullmode(st: state): boolean = true
+
+nullmode_filter(st: state): boolean =
+       entrymode(st) = nullmode AND device(st)`powered_on?
+
+nullmode_p_filter(st: state): boolean =
+        topline(st) = clearsetup OR
+        topline(st) = vtbidone OR
+        topline(st) = setvtbi OR
+        topline(st) = attention OR
+        topline(st) = volume OR
+        topline(st) = dispinfo OR
+        topline(st) = batterylow OR
+        topline(st) = lockrate OR
+        topline(st) = setnotfitted
+
+visible_nullmode(st:state): boolean =
+   guard_vis_nullmode(st) IMPLIES
+     (nullmode_filter(st) = nullmode_p_filter(st))
+% QED Run time  = 1172.49 secs. 13/1/17
+visible_nullmode_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_nullmode(pre)) AND
+       ((state_transitions(pre, post) AND visible_nullmode(pre))  
+                  => visible_nullmode(post))
+
+
+guard_vis_qmode(st: state): boolean = NOT rlock(st)
+
+qmode_filter(st: state): boolean =
+       entrymode(st) = qmode
+
+qmode_p_filter(st: state): boolean =
+        topline(st) = options
+	
+visible_qmode(st:state): boolean =
+   guard_vis_qmode(st) IMPLIES
+     (qmode_filter(st) = qmode_p_filter(st))
+% QED Run time  = 386.13 secs. 13/1/17
+visible_qmode_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_qmode(pre)) AND
+       ((state_transitions(pre, post) AND visible_qmode(pre))  
+                  => visible_qmode(post))
+
+guard_vis_rmode_rate(st: state): boolean = NOT rlock(st)
+
+rmode_rate_filter(st: state): boolean =
+       entrymode(st) = rmode
+
+rmode_rate_p_filter(st: state): boolean =
+        middisp(st)(drate)
+	
+part_visible_rmode_rate(st:state): boolean =
+   (guard_vis_rmode_rate(st) AND
+     rmode_rate_filter(st)) => rmode_rate_p_filter(st)
+% QED Run time  = 190.46 secs. 13/1/17
+Visible_rmode_rate_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => part_visible_rmode_rate(pre)) AND
+       ((state_transitions(pre, post) AND part_visible_rmode_rate(pre))  
+                  => part_visible_rmode_rate(post))
+  
+guard_vis_infusemode_rate(st: state): boolean = NOT rlock(st)
+
+infusemode_rate_filter(st: state): boolean =
+       entrymode(st) = infusemode
+
+infusemode_rate_p_filter(st: state): boolean =
+        middisp(st)(drate) OR middisp(st)(dkvorate)
+	
+part_visible_infusemode_rate(st:state): boolean =
+   (guard_vis_infusemode_rate(st) AND
+     infusemode_rate_filter(st)) => infusemode_rate_p_filter(st)
+% QED Run time  = 223.88 secs. 13/1/17
+Visible_infusemode_rate_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => part_visible_infusemode_rate(pre)) AND
+       ((state_transitions(pre, post) AND part_visible_infusemode_rate(pre))  
+                  => part_visible_infusemode_rate(post))
+
+guard_vis_vtvttmode_vtbi(st: state): boolean = true
+
+vtvttmode_vtbi_filter(st: state): boolean =
+       (entrymode(st) = vtmode) OR
+       (entrymode(st) = vttmode) OR
+       (entrymode(st) = ttmode)
+
+vtvttmode_vtbi_p_filter(st: state): boolean =
+        middisp(st)(dnewvtbi)
+	
+visible_vtvttmode_vtbi(st:state): boolean =
+   guard_vis_vtvttmode_vtbi(st) =>
+     (vtvttmode_vtbi_filter(st) = vtvttmode_vtbi_p_filter(st))
+% Run time  = 239.60 secs. 13/1/17
+visible_vtvttmode_vtbi_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_vtvttmode_vtbi(pre)) AND
+       ((state_transitions(pre, post) AND visible_vtvttmode_vtbi(pre))  
+                  => visible_vtvttmode_vtbi(post))
+
+guard_vis_vtttmode_time(st: state): boolean = true
+
+vtttmode_time_filter(st: state): boolean =
+       (entrymode(st) = vttmode) OR
+       (entrymode(st) = ttmode)
+
+vtttmode_time_p_filter(st: state): boolean =
+        middisp(st)(dnewtime)
+	
+visible_vtttmode_time(st:state): boolean =
+   guard_vis_vtttmode_time(st) =>
+     (vtttmode_time_filter(st) = vtttmode_time_p_filter(st))
+% Run time  = 145.62 secs. 13/1/17
+visible_vtttmode_time_theorem: THEOREM
+   FORALL (pre, post: state):
+       (init?(pre) => visible_vtttmode_time(pre)) AND
+       ((state_transitions(pre, post) AND visible_vtttmode_time(pre))  
+                  => visible_vtttmode_time(post))
+
+
+
+pred_off_filter(st: state): boolean =
+          NOT device(st)`powered_on?
+
+pred_p_off_filter(st: state): boolean =
+          topline(st) = dispblank
+
+
+
+
+off_visibility(st: state): boolean =
+   (pred_off_filter(st) = pred_p_off_filter(st))
+
+% QED Run time  = 193.39 secs. 13/1/17
+off_visibility_theorem: THEOREM 
+FORALL (pre, post: state):
+    (init?(pre)  => off_visibility(pre)) AND
+     (state_transitions(pre, post) AND off_visibility(pre)
+          => off_visibility(post))
+
+
+
+END alaris_visibility_pattern

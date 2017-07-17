@@ -1,0 +1,581 @@
+% Michael Harrison and Paolo Masci (QMUL and Newcastle University) December 2015
+alaris_reversibility_pattern[
+   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
+% reversibility template
+% \forall s in S: guard(s) => \exists b : S -> S:
+%filter(a(b(s)) = filter(s)
+
+%QED Run time  = 0.08 secs. 16/11/16
+divbynratesndx: LEMMA
+   FORALL (x: irates, n:posnat, d: steprate):
+      (n*(x/n) -n*d)/n = x/n - d
+%QED Run time  = 0.08 secs. 16/11/16
+divbynratespndx: LEMMA
+   FORALL (x: irates, n:posnat, d: steprate):
+      (n*(x/n) + n*d)/n = x/n + d
+%QED Run time  = 0.07 secs. 16/11/16
+divbynrealndx: LEMMA
+   FORALL (x: real, n:posnat, d: steprate):
+      (n*(x/n) -n*d)/n = x/n - d
+%QED Run time  = 0.08 secs. 16/11/16
+divbynrealpndx: LEMMA
+   FORALL (x: real, n:posnat, d: steprate):
+      (n*(x/n) + n*d)/n = x/n + d
+
+low_range_rate(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= small_step/10) AND v <100 AND
+  (floor(v*10) = v*10) AND (ceil_rate(v*10) = v*10)
+
+mid_range_rate(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= (100 + small_step)) AND (v < 1000) AND 
+          (ceil_rate(v) = v) AND 
+          (floor(v) = v)
+
+high_range_rate(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= (1000 + small_step*10)) AND (v < maxrate) AND 
+         (ceil_rate(v/10) = v/10) AND 
+         (floor(v/10) = v/10)
+
+low_range_rate_f(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+ (v >= d) AND (v <100) AND
+ (floor(v) = v) AND
+ (ceil_rate(v) = v)
+
+mid_range_rate_f(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+  (v >= 100 + 10*d) AND
+  (v < 1000) AND
+  (ceil_rate(v/10) = v/10) AND
+  (floor(v/10) = v/10)
+
+high_range_rate_f(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+  (v>=1000 + 100*d) AND
+  (v < maxrate) AND
+  (ceil_rate(v/100) = v/100) AND
+  (floor(v/100) = v/100)
+
+low_range_rate_du(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= 0) AND ((v + small_step/10) <100) AND
+  (floor(v*10) = v*10) AND (ceil_rate(v*10) = v*10)
+
+mid_range_rate_du(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= 100) AND ((v + small_step) < 1000) AND 
+          (ceil_rate(v) = v) AND 
+          (floor(v) = v)
+
+high_range_rate_du(v: irates): boolean =
+  (maxrate > 1000) AND
+  (v >= 1000) AND ((v + small_step*10) < maxrate) AND 
+         (ceil_rate(v/10) = v/10) AND 
+         (floor(v/10) = v/10)
+
+low_range_rate_duf(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+ (v >= 0) AND (v+d <100) AND
+ (floor(v) = v) AND
+ (ceil_rate(v) = v)
+
+mid_range_rate_duf(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+  (v >= 100) AND
+  (v + 10*d < 1000) AND
+  (ceil_rate(v/10) = v/10) AND
+  (floor(v/10) = v/10)
+
+high_range_rate_duf(v: irates, d: steprate): boolean =
+  (maxrate > 1000) AND
+  (v>=1000) AND
+  (v + 100*d < maxrate) AND
+  (ceil_rate(v/100) = v/100) AND
+  (floor(v/100) = v/100)
+
+low_range_vols(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= small_step/10) AND v <100 AND
+  (floor(v*10) = v*10) AND (ceil_vtbi(v*10) = v*10)
+
+mid_range_vols(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= (100 + small_step)) AND (v < 1000) AND 
+          (ceil_vtbi(v) = v) AND 
+          (floor(v) = v)
+
+high_range_vols(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= (1000 + small_step*10)) AND (v < maxinfuse) AND 
+         (ceil_vtbi(v/10) = v/10) AND 
+         (floor(v/10) = v/10)
+
+low_range_vols_f(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+ (v >= d) AND (v <100) AND
+ (floor(v) = v) AND
+ (ceil_vtbi(v) = v)
+
+mid_range_vols_f(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+  (v >= 100 + 10*d) AND
+  (v < 1000) AND
+  (ceil_vtbi(v/10) = v/10) AND
+  (floor(v/10) = v/10)
+
+high_range_vols_f(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+  (v>=1000 + 100*d) AND
+  (v < maxinfuse) AND
+  (ceil_vtbi(v/100) = v/100) AND
+  (floor(v/100) = v/100)
+
+low_range_vols_du(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= 0) AND ((v + small_step/10) <100) AND
+  (floor(v*10) = v*10) AND (ceil_vtbi(v*10) = v*10)
+
+mid_range_vols_du(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= 100) AND ((v + small_step) < 1000) AND 
+          (ceil_vtbi(v) = v) AND 
+          (floor(v) = v)
+
+high_range_vols_du(v: ivols): boolean =
+  (maxinfuse > 1000) AND
+  (v >= 1000) AND ((v + small_step*10) < maxinfuse) AND 
+         (ceil_vtbi(v/10) = v/10) AND 
+         (floor(v/10) = v/10)
+
+low_range_vols_duf(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+ (v >= 0) AND (v+d <100) AND
+ (floor(v) = v) AND
+ (ceil_vtbi(v) = v)
+
+mid_range_vols_duf(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+  (v >= 100) AND
+  (v + 10*d < 1000) AND
+  (ceil_vtbi(v/10) = v/10) AND
+  (floor(v/10) = v/10)
+
+high_range_vols_duf(v: ivols, d: steprate): boolean =
+  (maxinfuse > 1000) AND
+  (v>=1000) AND
+  (v + 100*d < maxinfuse) AND
+  (ceil_vtbi(v/100) = v/100) AND
+  (floor(v/100) = v/100)
+
+range_time_ud(v: itimes, d: steptime): boolean =
+    (maxtime > 1000) AND
+    (v >= d) AND (v < maxtime) AND
+        (floor(v/d) = v/d) AND (ceil_time(v/d) = v/d)
+
+range_time_ud_f(v: itimes, d: steptime): boolean =
+    (maxtime > 1000) AND
+    (v >= d*10) AND v < (maxtime) AND
+        (floor(v/(d*10)) = v/(d*10)) AND (ceil_time(v/(d*10)) = v/(d*10))
+
+range_time_du(v: itimes, d: steptime): boolean =
+    (maxtime > 1000) AND
+    (v >= 0) AND ((v + d) < maxtime) AND
+     (floor(v/d) = v/d) AND (ceil_time(v/d) = v/d)
+
+range_time_du_f(v: itimes, d: steptime): boolean =
+    (maxtime > 1000) AND
+    (v >= 0) AND ((v + d*10) < maxtime) AND
+     (floor(v/(10*d)) = v/(10*d)) AND (ceil_time(v/(10*d)) = v/(10*d))
+% QED Run time  = 1.73 secs. 11/1/17
+simpleupdown: THEOREM
+     FORALL (v: irates):
+     (low_range_rate(v)
+          IMPLIES  (state_up_rate(small_step, state_dn_rate(small_step, v)) = v))
+     AND
+     (mid_range_rate(v)
+          IMPLIES  (state_up_rate(small_step, state_dn_rate(small_step, v)) = v))     AND
+     (high_range_rate(v)
+          IMPLIES  (state_up_rate(small_step, state_dn_rate(small_step, v)) = v))
+%QED Run time  = 18.01 secs. 11/1/17
+simpleUPDOWNd: THEOREM
+     FORALL (v: irates, d: steprate):
+     (low_range_rate_f(v, d)
+          IMPLIES  (state_UP_rate(d, state_DN_rate(d, v)) = v)) AND
+     (mid_range_rate_f(v, d) IMPLIES
+             (state_UP_rate(d, state_DN_rate(d, v)) = v)) AND
+     (high_range_rate_f(v, d) 
+       IMPLIES
+      (state_UP_rate(d, state_DN_rate(d, v)) = v))
+
+% QED Run time  = 2.29 secs. 11/1/17
+Simpledownup: THEOREM
+     FORALL (v: irates):
+    (low_range_rate_du(v) IMPLIES
+      state_dn_rate(small_step, state_up_rate(small_step, v)) = v) AND
+    (mid_range_rate_du(v) IMPLIES
+       state_dn_rate(small_step, state_up_rate(small_step, v)) = v) AND
+    (high_range_rate_du(v) 
+       IMPLIES
+      state_dn_rate(small_step, state_up_rate(small_step, v)) = v)
+
+% QED Run time  = 8.69 secs. 11/1/17
+SimpleDOWNUPd: THEOREM
+     FORALL (d: steprate, v: irates):
+     (low_range_rate_duf(v, d) IMPLIES
+      state_DN_rate(d, state_UP_rate(d, v)) = v) AND
+     (mid_range_rate_duf(v, d) IMPLIES
+      state_DN_rate(d, state_UP_rate(d, v)) = v) AND
+      (high_range_rate_duf(v, d) IMPLIES
+      state_DN_rate(d, state_UP_rate(d, v)) = v)
+
+% QED Run time  = 1.65 secs. 11/1/17
+simpleupdownvtbi: THEOREM
+     FORALL (v: ivols):
+     (low_range_vols(v)
+          IMPLIES  (state_up_vtbi(small_step, state_dn_vtbi(small_step, v)) = v))
+     AND
+     (mid_range_vols(v)
+          IMPLIES  (state_up_vtbi(small_step, state_dn_vtbi(small_step, v)) = v))     AND
+     (high_range_vols(v)
+          IMPLIES  (state_up_vtbi(small_step, state_dn_vtbi(small_step, v)) = v))
+% QED Run time  = 3.37 secs. 11/1/17
+simpleUPDOWNdvtbi: THEOREM
+     FORALL (v: ivols, d: steprate):
+     (low_range_vols_f(v, d)
+          IMPLIES  (state_UP_vtbi(d, state_DN_vtbi(d, v)) = v)) AND
+     (mid_range_vols_f(v, d) IMPLIES
+             (state_UP_vtbi(d, state_DN_vtbi(d, v)) = v)) AND
+     (high_range_vols_f(v, d) 
+       IMPLIES
+      (state_UP_vtbi(d, state_DN_vtbi(d, v)) = v))
+
+% QED Run time  = 2.38 secs. 11/1/17
+Simpledownupvtbi: THEOREM
+     FORALL (v: ivols):
+    (low_range_vols_du(v) IMPLIES
+      state_dn_vtbi(small_step, state_up_vtbi(small_step, v)) = v) AND
+    (mid_range_vols_du(v) IMPLIES
+       state_dn_vtbi(small_step, state_up_vtbi(small_step, v)) = v) AND
+    (high_range_vols_du(v) 
+       IMPLIES
+      state_dn_vtbi(small_step, state_up_vtbi(small_step, v)) = v)
+
+% QED Run time  = 6.83 secs. 11/1/17
+SimpleDOWNUPdvtbi: THEOREM
+     FORALL (d: steprate, v: ivols):
+     (low_range_vols_duf(v, d) IMPLIES
+      state_DN_vtbi(d, state_UP_vtbi(d, v)) = v) AND
+     (mid_range_vols_duf(v, d) IMPLIES
+      state_DN_vtbi(d, state_UP_vtbi(d, v)) = v) AND
+      (high_range_vols_duf(v, d) IMPLIES
+      state_DN_vtbi(d, state_UP_vtbi(d, v)) = v)
+
+% QED Run time  = 0.39 secs. 11/1/17
+simpleupdowntime: THEOREM
+     FORALL (v: itimes, d: steptime):
+     range_time_ud(v, d)
+          IMPLIES  (state_up_time(d, state_dn_time(d, v)) = v)
+
+% QED Run time  = 7.63 secs. 11/1/17
+simpleUPDOWNdtime: THEOREM
+     FORALL (v: itimes, d: steptime):
+     range_time_ud_f(v, d)
+          IMPLIES  (state_UP_time(d, state_DN_time(d, v)) = v)
+
+% QED Run time  = 0.42 secs. 11/1/17
+Simpledownuptime: THEOREM
+     FORALL (v: itimes, d: steptime):
+    range_time_du(v, d) IMPLIES
+      (state_dn_time(d, state_up_time(d, v)) = v) 
+
+
+% QED Run time  = 8.40 secs. 11/1/17
+SimpleDOWNUPdtime: THEOREM
+     FORALL (v: itimes, d: steptime):
+    range_time_du_f(v, d) IMPLIES
+      (state_DN_time(d, state_UP_time(d, v)) = v) 
+
+
+     
+
+
+
+
+switchedon?(p: state): bool =
+     device(p)`powered_on?
+
+rate_entry_ready(st: state): boolean =
+      switchedon?(st) AND NOT rlock(st) AND
+      (((entrymode(st) = rmode) AND
+         ((topline(st) = holding) OR (topline(st) = setrate))) OR
+	 ((entrymode(st) = infusemode) AND (topline(st)=infusing)))
+
+vtbi_entry_ready(st: state): boolean = 
+                  switchedon?(st) AND
+                  ((topline(st) = dispvtbi AND entrymode(st) = vtmode) OR 
+                   (topline(st) = vtbitime AND entrymode(st) = vttmode))
+
+time_entry_ready(st: state): boolean = 
+                  switchedon?(st) AND
+                  NOT device(st)`infusing? AND
+                   (topline(st) = vtbitime AND entrymode(st) = ttmode)
+
+
+
+filter_rate(st: state): irates = device(st)`infusionrate
+filter_vtbi(st: state): ivols = newvtbi(st)
+filter_time(st: state): itimes = newtime(st)
+
+guard_supsdown_rate(st: state): boolean = rate_entry_ready(st) & per_sdown(st) &
+                                           per_sup(release_sdown(sdown(st)))
+
+guard_fupfdown_rate(st: state, d:steprate): boolean =
+   rate_entry_ready(st) & per_fdown(st) &
+  current_sr(st) = d AND pressed(st) = maxpress AND
+    per_fup(release_fdown(fdown(st)))
+
+guard_sdownsup_rate(st: state): boolean = rate_entry_ready(st) & per_sup(st) &
+                                           per_sdown(release_sup(sup(st)))
+
+guard_fdownfup_rate(st: state, d:steprate): boolean =
+   rate_entry_ready(st) & per_fup(st) &
+  current_sr(st) = d AND pressed(st) = maxpress AND
+    per_fdown(release_fup(fup(st)))
+
+guard_supsdown_vtbi(st: state): boolean = vtbi_entry_ready(st) & per_sdown(st) &
+                                           per_sup(release_sdown(sdown(st)))
+
+guard_fupfdown_vtbi(st: state, d:steprate): boolean =
+   vtbi_entry_ready(st) & per_fdown(st) &
+  current_sv(st) = d AND pressed(st) = maxpress AND
+    per_fup(release_fdown(fdown(st)))
+
+guard_sdownsup_vtbi(st: state): boolean = vtbi_entry_ready(st) & per_sup(st) &
+                                           per_sdown(release_sup(sup(st)))
+
+guard_fdownfup_vtbi(st: state, d:steprate): boolean =
+   vtbi_entry_ready(st) & per_fup(st) &
+  current_sv(st) = d AND pressed(st) = maxpress AND
+    per_fdown(release_fup(fup(st)))
+
+guard_supsdown_time(st: state, d: steptime): boolean =
+    time_entry_ready(st) AND
+        per_sdown(st) AND per_sup(release_sdown(sdown(st))) AND
+        current_st(st) = d AND pressed(st) = maxpress
+
+guard_fupfdown_time(st: state, d: steptime): boolean =
+    time_entry_ready(st) AND
+        per_fdown(st) AND per_fup(release_fdown(fdown(st))) AND
+        current_st(st) = d AND pressed(st) = maxpress
+
+guard_sdownsup_time(st: state, d: steptime): boolean =
+    time_entry_ready(st) AND
+        per_sup(st) AND per_sdown(release_sup(sup(st))) AND
+        current_st(st) = d AND pressed(st) = maxpress
+
+guard_fdownfup_time(st: state, d: steptime): boolean =
+    time_entry_ready(st) AND
+        per_fup(st) AND per_fdown(release_fup(fup(st))) AND
+        current_st(st) = d AND pressed(st) = maxpress
+
+%QED Run time  = 214.31 secs. 11/1/17
+low_supsdown: THEOREM
+  FORALL (st: state):
+  guard_supsdown_rate(st) AND low_range_rate(filter_rate(st)) IMPLIES
+    filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
+
+
+% QED Run time  = 211.15 secs. 11/1/17
+mid_supsdown_rate: THEOREM
+  FORALL (st: state):
+  guard_supsdown_rate(st) AND mid_range_rate(filter_rate(st)) IMPLIES
+    filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
+
+
+% QED Run time  = 220.22 secs. 11/1/17
+high_supsdown_rate: THEOREM
+  FORALL (st: state):
+  guard_supsdown_rate(st) AND high_range_rate(filter_rate(st)) IMPLIES
+    filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
+
+% QED Run time  = 3698.54 secs. 11/1/17
+low_fupfdown_rate: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_rate(st, small_step) AND low_range_rate_f(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
+
+
+% QED Run time  = 137.73 secs. 11/1/17
+mid_fupfdown_rate: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_rate(st, small_step) AND mid_range_rate_f(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
+
+
+% QED Run time  = 230.22 secs. 11/1/17
+high_fupfdown_rate: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_rate(st, small_step) AND high_range_rate_f(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
+
+% QED Run time  = 59.13 secs. 12/1/17
+low_sdownsup_rate: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_rate(st) AND low_range_rate_du(filter_rate(st)) IMPLIES
+    filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
+
+
+% QED Run time  = 53.75 secs. 12/1/17
+mid_sdownsup_rate: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_rate(st) AND mid_range_rate_du(filter_rate(st)) IMPLIES
+    filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
+
+
+% QED Run time  = 67.51 secs. 12/1/17
+high_sdownsup_rate: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_rate(st) AND high_range_rate_du(filter_rate(st)) IMPLIES
+    filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
+
+%QED Run time  = 60.80 secs. 12/1/17
+low_fdownfup_rate: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_rate(st, small_step) AND low_range_rate_duf(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
+
+
+% QED Run time  = 63.60 secs. 12/1/17
+mid_fdownfup_rate: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_rate(st, small_step) AND mid_range_rate_duf(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
+
+
+% QED Run time  = 61.20 secs. 12/1/17
+high_fdownfup_rate: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_rate(st, small_step) AND high_range_rate_duf(filter_rate(st), small_step) IMPLIES
+    filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
+
+%QED Run time  = 9.03 secs. 12/1/17
+low_supsdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_supsdown_vtbi(st) AND low_range_vols(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
+
+
+%QED Run time  = 12.72 secs. 12/1/17
+mid_supsdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_supsdown_vtbi(st) AND mid_range_vols(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
+
+
+%QED Run time  = 14.01 secs. 12/1/17
+high_supsdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_supsdown_vtbi(st) AND high_range_vols(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
+
+% QED Run time  = 19.02 secs. 12/1/17
+low_fupfdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_vtbi(st, small_step) AND low_range_vols_f(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 15.63 secs. 12/1/17
+mid_fupfdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_vtbi(st, small_step) AND mid_range_vols_f(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 17.50 secs. 12/1/17
+high_fupfdown_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_vtbi(st, small_step) AND high_range_vols_f(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
+
+% QED Run time  = 10.77 secs. 12/1/17
+low_sdownsup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_vtbi(st) AND low_range_vols_du(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 10.10 secs. 12/1/17
+mid_sdownsup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_vtbi(st) AND mid_range_vols_du(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 10.65 secs. 12/1/17
+high_sdownsup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_vtbi(st) AND high_range_vols_du(filter_vtbi(st)) IMPLIES
+    filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
+
+% QED Run time  = 12.41 secs. 12/1/17
+low_fdownfup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_vtbi(st, small_step) AND low_range_vols_duf(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 12.02 secs. 12/1/17
+mid_fdownfup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_vtbi(st, small_step) AND mid_range_vols_duf(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
+
+
+% QED Run time  = 11.89 secs. 12/1/17
+high_fdownfup_vtbi: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_vtbi(st, small_step) AND high_range_vols_duf(filter_vtbi(st), small_step) IMPLIES
+    filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
+% QED Run time  = 14.99 secs. 12/1/17
+supsdown_time: THEOREM
+  FORALL (st: state):
+  guard_supsdown_time(st, small_step) AND range_time_ud(filter_time(st), small_step) IMPLIES
+    filter_time(release_sup(sup(release_sdown(sdown(st))))) = filter_time(st)
+%QED Run time  = 12.28 secs. 12/1/17
+fupfdown_time: THEOREM
+  FORALL (st: state):
+  guard_fupfdown_time(st, small_step) AND range_time_ud_f(filter_time(st), small_step) IMPLIES
+    filter_time(release_fup(fup(release_fdown(fdown(st))))) = filter_time(st)
+%QED Run time  = 15.45 secs. 12/1/17
+sdownsup_time: THEOREM
+  FORALL (st: state):
+  guard_sdownsup_time(st, small_step) AND range_time_du(filter_time(st), small_step) IMPLIES
+    filter_time(release_sdown(sdown(release_sup(sup(st))))) = filter_time(st)
+%QED Run time  = 11.25 secs. 12/1/17
+fdownfup_time: THEOREM
+  FORALL (st: state):
+  guard_fdownfup_time(st, small_step) AND range_time_du_f(filter_time(st), small_step) IMPLIES
+    filter_time(release_fdown(fdown(release_fup(fup(st))))) = filter_time(st)
+
+
+END alaris_reversibility_pattern

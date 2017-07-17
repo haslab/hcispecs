@@ -1,0 +1,262 @@
+% Michael Harrison and Paolo Masci (QMUL and Newcastle University) April 2014
+
+% State feedback
+% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND 
+% filter(s1) \neq filter(s2)
+% \implies filter_p(s1) \neq filter_p(s2)
+
+% State feedback
+% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND 
+% filter(s1) \neq filter(s2)
+% \implies vis_filter(s1) AND vis_filter(s2)
+
+% Action feedback
+% FORALL a in S -> S, FORALL s in S : per(a)(s) AND
+% guard(s) AND filter(s) \neq filter(a(s)) IMPLIES
+% p_filter(s) \neq p_filter(a(s))
+
+% Action feedback
+% FORALL a in S -> S, FORALL s in S : per(a)(s) AND
+% guard(s) AND filter(s) \neq filter(a(s)) IMPLIES
+% vis_filter(s) AND vis_filter(a(s))
+
+alaris_feedback_pattern[
+   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   infusemin: { infusemin: posreal | infusemin <= maxinfuse },
+   timeout  : posnat,
+   shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
+   maxtime  : { maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse },
+   bat_max : {bat_max: posnat | bat_max+1 < maxtime},
+   bat_min: {bat_min: posnat | bat_min < bat_max}
+]: THEORY
+BEGIN
+  ASSUMING
+    timeoutLTmaxtime: ASSUMPTION timeout < maxtime
+    shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
+    maxinfuseVal: ASSUMPTION maxinfuse >= 3000
+  ENDASSUMING
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min] 
+ 
+state_transitions(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+ (per_on(pre) & post = on(pre)) OR  
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+state_transitions_noton(pre, post: state): boolean =
+  (per_sup(pre) & post = sup(pre)) OR  
+  (per_release_sup(pre) & post = release_sup(pre)) OR
+  (per_fup(pre) & post = fup(pre)) OR
+(per_release_fup(pre) & post = release_fup(pre)) OR  
+ (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_sdown(pre) & post = release_sdown(pre)) OR
+  (per_fdown(pre) & post = fdown(pre)) OR 
+(per_release_fdown(pre) & post = release_fdown(pre)) OR
+(per_tick(pre) & post = tick(pre)) OR
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+(per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
+(per_switch(pre) & post = switch(pre)) OR 
+(per_fit_set(pre) & post = fit_set(pre))
+
+state_transitions_nochevrons(pre, post: state): boolean =
+  (per_key1(pre) & post = key1(pre)) OR  
+(per_key2(pre) & post = key2(pre)) OR 
+(per_key3(pre) & post = key3(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre))
+
+filter_rate(st: state): irates = device(st)`infusionrate
+vis_filter_rate(st: state): boolean = middisp(st)(drate)
+guard_vis_rate(st: state): boolean =
+    NOT(topline(st) = vtbitime) % temporary rate shown
+% QED Run time  = 286.18 secs. 10/1/17
+feedback_rate_theorem: THEOREM
+   FORALL (pre, post: state):
+      (state_transitions(pre, post) AND
+      guard_vis_rate(pre) AND
+      guard_vis_rate(post) AND
+      filter_rate(pre) /= filter_rate(post)) =>
+         vis_filter_rate(pre) AND vis_filter_rate(post)
+	 
+filter_vtbi(st: state): ivols = device(st)`vtbi
+vis_filter_vtbi(st: state): boolean = middisp(st)(dvtbi) OR middisp(st)(dnewvtbi)
+guard_vis_vtbi(st: state): boolean =
+        (topline(st) /= dispkvo) % shows the kvo value not the rate
+	AND (topline(st) /= locked)
+	AND (topline(st) /= batterylow)
+	AND (topline(st) /= vtbidone)
+	AND NOT ((topline(st) = holding OR topline(st) = infusing OR
+	          topline(st) = setrate)
+	         AND device(st)`vtbi = 0)
+% QED Run time  = 905.44 secs.. 10/1/17
+feedback_vtbi_theorem: THEOREM
+   FORALL (pre, post: state):
+      (state_transitions(pre, post) AND
+      guard_vis_vtbi(pre) AND
+      guard_vis_vtbi(post) AND
+      filter_vtbi(pre) /= filter_vtbi(post)) =>
+         vis_filter_vtbi(pre) AND vis_filter_vtbi(post)
+	 
+
+
+
+
+filter_time(st: state): itimes =
+      device(st)`time
+guard_vis_time(st: state): boolean = 
+            (topline(st) /= vtbidone) AND
+             (topline(st) /= batterylow) AND
+	     (topline(st) /= locked) AND
+	     NOT ((topline(st) = dispvtbi) AND (entrymode(st) = vtmode)) AND
+	     NOT (((topline(st) = dispinfo) OR
+	     (topline(st) = options)) AND device(st)`infusing?) AND
+	     (device(st)`vtbi /= 0)
+	     
+vis_filter_time(st: state): boolean =
+        middisp(st)(dtime) OR middisp(st)(dnewtime)
+% QEDRun time  = 1086.74 secs. 11/1/17
+feedback_time_theorem: THEOREM
+   FORALL (pre, post: state):
+      (state_transitions(pre, post) AND
+      guard_vis_time(pre) AND
+      guard_vis_time(post) AND
+      filter_time(pre) /= filter_time(post)) =>
+         vis_filter_time(pre) AND vis_filter_time(post)
+
+guardvolfull(st: state): boolean = ((topline(st) /= vtbidone) AND
+            (topline(st) /= batterylow) AND (topline(st) /= locked))
+
+filtervolfull(st: state): ivols = device(st)`volumeinfused
+
+visvolfull(st: state): boolean = middisp(st)(dvol)
+% QED Run time  = 261.47 secs. 11/1/17
+feedbackvolfull: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions(pre, post) AND guardvolfull(post) AND
+          (filtervolfull(pre) /= filtervolfull(post))) =>
+           visvolfull(post)
+% 
+filternewratefull(st: state): irates = newrate(st)
+filternewvtbifull(st: state): ivols = newvtbi(st)
+filternewtimefull(st: state): itimes = newtime(st)
+visnewratefull(st: state): boolean = middisp(st)(dnewrate)
+visnewvtbifull(st: state): boolean = middisp(st)(dnewvtbi)
+visnewtimefull(st: state): boolean = middisp(st)(dnewtime)
+% QED Run time  = 132.29 secs. 11/1/17
+feedbacknewratefull: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions(pre, post) AND
+          (filternewratefull(pre) /= filternewratefull(post))) =>
+           visnewratefull(post)
+% QED Run time  = 125.56 secs. 11/1/17
+feedbacknewvtbifull: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions(pre, post) AND
+          (filternewvtbifull(pre) /= filternewvtbifull(post))) =>
+           visnewvtbifull(post)
+% QED Run time  = 126.48 secs. 11/1/17
+feedbacknewtimefull: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions(pre, post) AND
+          (filternewtimefull(pre) /= filternewtimefull(post))) =>
+           visnewtimefull(post)
+
+
+
+guardem(st: state): boolean = NOT((topline(st) = dispvtbi) OR (topline(st) = vtbitime) OR 
+                                   (topline(st) = batterylow))
+filterem(st: state): emodes = entrymode(st)
+pem(st: state): iline = topline(st)
+%QED Run time  = 696.75 secs. 11/1/17
+feedbackeml: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions_noton(pre, post) AND guardem(pre) AND
+          guardem(post) AND
+          (filterem(pre) /= filterem(post))) =>
+           (pem(pre) /= pem(post))
+
+
+
+guardnc(st: state): boolean = NOT((topline(st) = dispvtbi) OR (topline(st) = vtbitime))
+% QED Run time  = 62.74 secs. 11/1/17
+% could also be considered consistency
+nochevfeed: THEOREM
+         FORALL (pre, post: state):
+          (state_transitions_nochevrons(pre, post) AND guardnc(pre) AND
+          guardnc(post)) =>
+           (pem(pre) /= pem(post))
+
+
+
+guard_switch(st: state): boolean = per_switch(st)
+% QED Run time  = 0.22 secs. 11/1/17
+action_switch_feedback: THEOREM
+FORALL (st: state):
+     guard_switch(st) IMPLIES
+          ((battery_light(st) /= battery_light(switch(st))) AND
+	  (ac_light(st) /= ac_light(switch(st))))
+% specific property related to exhausting VTBI	  
+%QED Run time  = 0.42 secs. 11/1/17
+tick_infusionrate_ge_vtbi: THEOREM
+       FORALL (st: state):
+           (device(st)`infusionrate >= device(st)`vtbi &
+	   per_tick(st) &
+	   NOT device(st)`kvoflag &
+             device(st)`infusing? & device(st)`ac_connect) 
+          IMPLIES
+	   (LET stprime = tick(st) IN
+             (topline(stprime) = vtbidone & device(stprime)`kvoflag))
+
+% specific property relating to exhaustion of VTBI
+%QED Run time  = 0.61 secs. 11/1/17
+tick_infusionrate_ge_vtbi_kvoflag: THEOREM
+       FORALL (st: state):
+           (per_tick(st) AND
+           (device(st)`infusionrate >= device(st)`vtbi) & device(st)`kvoflag &
+             device(st)`infusing? & device(st)`ac_connect) 
+          IMPLIES
+              LET stprime = tick(st) IN
+	        (topline(stprime) = topline(st) & device(stprime)`kvoflag)
+
+% General tick feedback
+
+guard_tick(st: state): boolean = device(st)`infusing? AND NOT device(st)`kvoflag AND 
+                               device(st)`ac_connect AND topline(st) /= vtbidone
+
+vis_tick(st: state): boolean = middisp(st)(drate) AND middisp(st)(dtime) AND middisp(st)(dvtbi)
+% QED Run time  = 1.29 secs. 11/1/17  templates paper
+feedback_tick: THEOREM
+    FORALL (st: state):
+       (per_tick(st) AND guard_tick(st) AND guard_tick(tick(st))) IMPLIES
+               vis_tick(tick(st))
+
+guard_tick_vtbidone(st: state): boolean =
+   device(st)`infusionrate >= device(st)`vtbi AND
+   NOT device(st)`kvoflag AND device(st)`infusing? AND
+   device(st)`ac_connect AND topline(st) = infusing
+vis_tick_vtbidone(st: state): boolean = topline(st) = vtbidone
+%QED Run time  = 0.79 secs. 11/1/17
+feedback_tick_vtbidone: THEOREM
+    FORALL (st: state):
+       (per_tick(st) AND guard_tick_vtbidone(st)) IMPLIES
+               vis_tick_vtbidone(tick(st))
+
+
+END alaris_feedback_pattern
