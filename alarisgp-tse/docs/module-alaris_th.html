@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: alaris theory</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+<div id="main">
+    <h1 class="page-title">Module: alaris theory</h1>
+<section>
+<header>
+</header>
+<article>
+    <div class="container-overview">
+            <div class="description">includes reals, and data entry accelerators.</div>
+<dl class="details">
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Michael Harrison and Paolo Masci (QMUL and Newcastle University)</li>
+        </ul>
+    </dd>
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line2">line 2</a>
+    </li></ul></dd>
+</dl>
+    </div>
+    <h3 class="subsection-title">Imported modules</h3>
+        <h4 class="name" id="importing"><a href="module-pump_th.html">pump_th</a></h4><br>
+
+    <h3 class="subsection-title">Type Definitions</h3>
+        <h4 class="name" id="state">state</h4>
+        <div class="description">
+        Interactor main, aggregates pump via device
+        </div>
+        <h5 class="subsection-title">Properties:</h5>
+        <table class="props">
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="name"><code>device</code></td>
+            <td class="type">
+            <span class="param-type">pump</span>
+            </td>
+            <td class="description last">Device controller and infusion process model</td>
+            </tr>
+            <tr>
+            <td class="name"><code>topline</code></td>
+            <td class="type">
+            <span class="param-type">iline</span>
+            </td>
+            <td class="description last">Topline of the display</td>
+            </tr>
+            <tr>
+            <td class="name"><code>middisp</code></td>
+            <td class="type">
+            <span class="param-type">imid</span>
+            </td>
+            <td class="description last">Central part of the display</td>
+            </tr>
+            <tr>
+            <td class="name"><code>optionsmenu</code></td>
+            <td class="type">
+            <span class="param-type">o_menu</span>
+            </td>
+            <td class="description last">Options menu</td>
+            </tr>
+            <tr>
+            <td class="name"><code>bagscursor</code></td>
+            <td class="type">
+            <span class="param-type">ibagscursor</span>
+            </td>
+            <td class="description last">Bags display</td>
+            </tr>
+            <tr>
+            <td class="name"><code>qcursor</code></td>
+            <td class="type">
+            <span class="param-type">qcurse</span>
+            </td>
+            <td class="description last">Cursor for selecting bags</td>
+            </tr>
+            <tr>
+            <td class="name"><code>bagsval</code></td>
+            <td class="type">
+            <span class="param-type">abags</span>
+            </td>
+            <td class="description last">Bags values</td>
+            </tr>
+            <tr>
+            <td class="name"><code>fndisp1</code></td>
+            <td class="type">
+            <span class="param-type">ifunctions</span>
+            </td>
+            <td class="description last">Soft function 1</td>
+            </tr>
+            <tr>
+            <td class="name"><code>fndisp2</code></td>
+            <td class="type">
+            <span class="param-type">ifunctions</span>
+            </td>
+            <td class="description last">Soft function 2</td>
+            </tr>
+            <tr>
+            <td class="name"><code>fndisp3</code></td>
+            <td class="type">
+            <span class="param-type">ifunctions</span>
+            </td>
+            <td class="description last">Soft function 3</td>
+            </tr>
+            <tr>
+            <td class="name"><code>runlight</code></td>
+            <td class="type">
+            <span class="param-type">boolean</span>
+            </td>
+            <td class="description last">LED light indicating a running infusion</td>
+            </tr>
+            <tr>
+            <td class="name"><code>pauselight</code></td>
+            <td class="type">
+            <span class="param-type">boolean</span>
+            </td>
+            <td class="description last">LED light indicating a paused infusion</td>
+            </tr>
+            <tr>
+            <td class="name"><code>ac_light</code></td>
+            <td class="type">
+            <span class="param-type">boolean</span>
+            </td>
+            <td class="description last">LED light indicating connection to mains</td>
+            </tr>
+            <tr>
+            <td class="name"><code>boolean</code></td>
+            <td class="type">
+            <span class="param-type">battery_light</span>
+            </td>
+            <td class="description last">LED light indicating running on battery</td>
+            </tr>
+            <tr>
+            <td class="name"><code>emodes</code></td>
+            <td class="type">
+            <span class="param-type">entrymode</span>
+            </td>
+            <td class="description last">Data entry mode</td>
+            </tr>
+            <tr>
+            <td class="name"><code>rlock</code></td>
+            <td class="type">
+            <span class="param-type">boolean</span>
+            </td>
+            <td class="description last">Whether the keypad is locked</td>
+            </tr>
+            <tr>
+            <td class="name"><code>rdisabled</code></td>
+            <td class="type">
+            <span class="param-type">boolean</span>
+            </td>
+            <td class="description last">Whether the keypad is disabled</td>
+            </tr>
+            <tr>
+            <td class="name"><code>newvtbi</code></td>
+            <td class="type">
+            <span class="param-type">ivols</span>
+            </td>
+            <td class="description last">VTBI value during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>newrate</code></td>
+            <td class="type">
+            <span class="param-type">irates</span>
+            </td>
+            <td class="description last">Rate value during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>newtime</code></td>
+            <td class="type">
+            <span class="param-type">itimes</span>
+            </td>
+            <td class="description last">Time value during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>pressed</code></td>
+            <td class="type">
+            <span class="param-type">presstime</span>
+            </td>
+            <td class="description last">Whether a button is pressed</td>
+            </tr>
+            <tr>
+            <td class="name"><code>current_sr</code></td>
+            <td class="type">
+            <span class="param-type">steprate</span>
+            </td>
+            <td class="description last">Increment step for rate during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>current_sv</code></td>
+            <td class="type">
+            <span class="param-type">stepvol</span>
+            </td>
+            <td class="description last">Increment step for volume during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>current_st</code></td>
+            <td class="type">
+            <span class="param-type">steptime</span>
+            </td>
+            <td class="description last">Increment step for time during data entry</td>
+            </tr>
+            <tr>
+            <td class="name"><code>which_press</code></td>
+            <td class="type">
+            <span class="param-type">chev_buttons</span>
+            </td>
+            <td class="description last">Which button is pressed</td>
+            </tr>
+            </tbody>
+        </table>
+        <h3 class="subsection-title">Functions</h3>
+            <h4 class="name" id=".ceil_rate"><span class="type-signature">  </span>ceil_rate<span class="signature">(x)</span><span class="type-signature"> &rarr; irates</span></h4>
+            <div class="description">
+            Utility function, truncates a rate value by removing the fractional part from the value
+            </div>
+            <h5>Parameters:</h5>
+            <table class="params">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th class="last">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                <td class="name"><code>x</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">real</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Rate value</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line69">line 69</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Truncated rate value
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">irates</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".ceil_time"><span class="type-signature">  </span>ceil_time<span class="signature">(x)</span><span class="type-signature"> &rarr; irates</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, truncates a time value by removing the fractional part from the value
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>x</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">real</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Time value</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line83">line 83</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Truncated time value
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">irates</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".ceil_vtbi"><span class="type-signature">  </span>ceil_vtbi<span class="signature">(x)</span><span class="type-signature"> &rarr; irates</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, truncates a vtbi value by removing the fractional part from the value
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>x</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">real</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">VTBI value</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line76">line 76</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Truncated VTBI value
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">irates</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".decrement"><span class="type-signature">  </span>decrement<span class="signature">(t, n)</span><span class="type-signature"> &rarr; presstime</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function for updating state attribute 'pressed'
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>t</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">presstime</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Amount of time the button can be pressed continuously without changing step increment</td>
+                </tr>
+
+
+
+                <tr>
+
+                <td class="name"><code>n</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">delta</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Discrete time advance</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line40">line 40</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Remaining amount of time the button can be pressed continuously without changing step increment
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">presstime</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".dispblank?"><span class="type-signature">  </span>dispblank?<span class="signature">(st)</span><span class="type-signature"> &rarr; bool</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, checks whether the display is switched off
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line111">line 111</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                True if the display is switched off, false otherwise
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">bool</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".init?"><span class="type-signature">  </span>init?<span class="signature">(st)</span><span class="type-signature"> &rarr; bool</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Iniitialization predicate, checks if the model is in the initial state
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line90">line 90</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                True if parameter st is the initial state, false otherwise
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">bool</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".no_button_down"><span class="type-signature">  </span>no_button_down<span class="signature">(st)</span><span class="type-signature"> &rarr; bool</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function to check if a button is currently pressed
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line97">line 97</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                True if a button is pressed, false otherwise
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">bool</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".per_switch"><span class="type-signature">  </span>per_switch<span class="signature">(st)</span><span class="type-signature"> &rarr; bool</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Permission predicate, associated with action for switching between battery and mains
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line118">line 118</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                True if the pump is powered on and can be switched between battery and mains
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">bool</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".release_key"><span class="type-signature">  </span>release_key<span class="signature">(st)</span><span class="type-signature"> &rarr; state</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function to reset state attributes related to key presses
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line104">line 104</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                State where state attributes related to key presses have been reset
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">state</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".switch"><span class="type-signature">  </span>switch<span class="signature">(st)</span><span class="type-signature"> &rarr; state</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Switch from/to battery and mains
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line139">line 139</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Next state
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">state</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".switch_battery_low"><span class="type-signature">  </span>switch_battery_low<span class="signature">(st)</span><span class="type-signature"> &rarr; state</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Switch to battery, case battery low
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line132">line 132</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Next state
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">state</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".switch_from_battery_low"><span class="type-signature">  </span>switch_from_battery_low<span class="signature">(st)</span><span class="type-signature"> &rarr; state</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Switch to mains when battery was low
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>st</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">state</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Current state</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line125">line 125</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Next state
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">state</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".trim_rate"><span class="type-signature">  </span>trim_rate<span class="signature">(x)</span><span class="type-signature"> &rarr; irates</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, limits rate value to maxrate
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>x</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">real</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Rate value</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line48">line 48</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Rate value between [0..maxrate]
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">irates</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".trim_time"><span class="type-signature">  </span>trim_time<span class="signature">(x)</span><span class="type-signature"> &rarr; itimes</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, limits time value to maxtime
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+
+
+                <table class="params">
+                <thead>
+                <tr>
+
+                <th>Name</th>
+
+
+                <th>Type</th>
+
+
+
+
+
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                <tr>
+
+                <td class="name"><code>x</code></td>
+
+
+                <td class="type">
+
+
+                <span class="param-type">real</span>
+
+
+
+                </td>
+
+
+
+
+
+                <td class="description last">Time value</td>
+                </tr>
+
+
+                </tbody>
+                </table>
+
+
+
+
+
+
+                <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <dt class="tag-source">Source:</dt>
+                <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line62">line 62</a>
+                </li></ul></dd>
+
+
+
+
+
+
+
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h5>Returns:</h5>
+
+
+                <div class="param-desc">
+                Time value between [0..maxtime]
+                </div>
+
+
+
+                <dl>
+                <dt>
+                Type
+                </dt>
+                <dd>
+
+                <span class="param-type">itimes</span>
+
+
+                </dd>
+                </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h4 class="name" id=".trim_vtbi"><span class="type-signature">  </span>trim_vtbi<span class="signature">(x)</span><span class="type-signature"> &rarr; ivols</span></h4>
+
+
+
+
+
+
+                <div class="description">
+                Utility function, limits vtbi value to maxvtbi
+                </div>
+
+
+
+
+
+
+
+
+
+                <h5>Parameters:</h5>
+                <table class="params">
+                <thead>
+                <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th class="last">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td class="name"><code>x</code></td>
+                <td class="type">
+                <span class="param-type">real</span>
+                </td>
+                <td class="description last">VTBI value</td>
+                </tr>
+            </tbody>
+            </table>
+
+
+
+
+
+
+            <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.pvs.html">alaris2lnewmodes.pvs</a>, <a href="alaris2lnewmodes.pvs.html#line55">line 55</a>
+            </li></ul></dd>
+
+
+
+
+
+
+
+            </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h5>Returns:</h5>
+
+
+            <div class="param-desc">
+            VTBI value between [0..maxvtbi]
+            </div>
+
+
+
+            <dl>
+            <dt>
+            Type
+            </dt>
+            <dd>
+
+            <span class="param-type">ivols</span>
+
+
+            </dd>
+            </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sun Jul 16 2017 20:04:07 GMT+0100 (WEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

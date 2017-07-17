@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: types and constants theory</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    <h1 class="page-title">Module: types and constants theory</h1>
+<section>
+<header>
+</header>
+
+<article>
+    <div class="container-overview">
+        <div class="description">Types and constants used generically by a range of infusion devices.
+         Maximum infusion rate, maximum and minimum vtbi, timeouts, battery maximum and minimums are parameterised</div>
+        <dl class="details">
+            <dt class="tag-author">Author:</dt>
+            <dd class="tag-author">
+                <ul>
+                    <li>Michael Harrison and Paolo Masci (QMUL and Newcastle University)</li>
+                </ul>
+            </dd>
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line2">line 2</a>
+            </li></ul></dd>
+        </dl>
+    </div>
+        <h3 class="subsection-title">Type Definitions</h3>
+        <h4 class="name" id="~abags"><span class="type-signature"></span>abags<span class="type-signature"></span></h4>
+        <div class="description">
+            function type associated with the bags menu
+        </div>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line152">line 152</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~chev_buttons">chev_buttons</h4>
+        <div class="description">
+            identifies and enumerates the chevron keys
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line206">line 206</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~delta">delta</h4>
+        <div class="description">
+            size of the step associated with a chevron key
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line170">line 170</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~emodes">emodes</h4>
+        <div class="description">
+            the range of modes that determine how a function is to be interpreted
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line133">line 133</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~ibags">ibags</h4>
+        <div class="description">
+            the sizes of bags indicated by the menu
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">upto(maxbags)</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line140">line 140</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~ibagscursor">ibagscursor</h4>
+        <div class="description">
+            determines the range associated with movement of bags in the cursor menu
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">upto(mbags)</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line146">line 146</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~ifunctions">ifunctions</h4>
+        <div class="description">
+            information that may appear in the displays associated with key1, key2 or key3
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line126">line 126</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~iline">iline</h4>
+        <div class="description">
+            topline display modes
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line97">line 97</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~imid">imid</h4>
+        <div class="description">
+            functional type indicating whether a display is visible in the middle part of the display
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line120">line 120</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~imid_type">imid_type</h4>
+        <div class="description">
+            range of possible entries in the middle part of the display
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line114">line 114</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~irates">irates</h4>
+        <div class="description">
+            infusion rate
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nonneg_real</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line78">line 78</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~itimes">itimes</h4>
+        <div class="description">
+            elapsed time
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nonneg_real</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line90">line 90</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~ivols">ivols</h4>
+        <div class="description">
+            volume infused, or to be infused
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nonneg_real</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line84">line 84</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~o_menu"><span class="type-signature"></span>o_menu<span class="type-signature"></span></h4>
+        <div class="description">
+            the function type associated with the options menu
+        </div>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line164">line 164</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~options_tags">options_tags</h4>
+        <div class="description">
+            used in effecting an appropriate action associated with the options menu
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line106">line 106</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~pausetime">pausetime</h4>
+        <div class="description">
+            defines time device paused respectively
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">upto(maxtime)</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line182">line 182</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~presstime">presstime</h4>
+        <div class="description">
+            define time button pressed
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">upto(maxpress)</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line176">line 176</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~qcurse">qcurse</h4>
+        <div class="description">
+            determines the range associated with the options menu
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">upto(dpdtls)</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line158">line 158</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~steprate">steprate</h4>
+        <div class="description">
+            size of the step for each of rate when using the chevron keys
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line188">line 188</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~steptime">steptime</h4>
+        <div class="description">
+            size of the step for time when using the chevron keys
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line200">line 200</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~stepvol">stepvol</h4>
+        <div class="description">
+            size of the step for volume when using the chevron keys
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">enum</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+            <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line194">line 194</a>
+        </li></ul></dd>
+        </dl><br>
+
+        <h3 class="subsection-title">Constants</h3>
+        <h4 class="name" id="~bigstep"><span class="type-signature">(constant) </span>bigstep<span class="type-signature"> :nat</span></h4>
+        <div class="description">
+        used by pump device in functions that are used by the alaris pump theory
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line33">line 33</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~drate%7Cdvtbi%7Cdvol%7Cdtime%7Cetc"><span class="type-signature">(constant) </span>drate|dvtbi|dvol|dtime|etc<span class="type-signature"> :nat</span></h4>
+        <div class="description">
+        used in display and menu lists
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line39">line 39</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~maxbag"><span class="type-signature">(constant) </span>maxbag<span class="type-signature"> :nat</span></h4>
+        <div class="description">
+        maximum size of infusion bags, available via bags menu
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line27">line 27</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~maxpress"><span class="type-signature">(constant) </span>maxpress<span class="type-signature"> :nat</span></h4>
+        <div class="description">
+        maximum number of times the chevron key can be pressed
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line63">line 63</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~mbags%7Cmidbags"><span class="type-signature">(constant) </span>mbags|midbags<span class="type-signature"> :nat</span></h4>
+        <div class="description">
+        used as bags menu offsets
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">nat</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line56">line 56</a>
+        </li></ul></dd>
+        </dl>
+        <h4 class="name" id="~small_step%7Cbigstep"><span class="type-signature">(constant) </span>small_step|bigstep<span class="type-signature"> :real</span></h4>
+        <div class="description">
+        increment steps used during data entry
+        </div>
+        <h5>Type:</h5>
+        <ul>
+        <li>
+        <span class="param-type">real</span>
+        </li>
+        </ul>
+        <dl class="details">
+        <dt class="tag-source">Source:</dt>
+        <dd class="tag-source"><ul class="dummy"><li>
+        <a href="alaris2lnewmodes.types_and_constants.pvs.html">alaris2lnewmodes.types_and_constants.pvs</a>, <a href="alaris2lnewmodes.types_and_constants.pvs.html#line69">line 69</a>
+        </li></ul></dd>
+        </dl>
+</article>
+</section>
+</div>
+
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Thu Jul 13 2017 13:44:24 GMT+0100 (WEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
