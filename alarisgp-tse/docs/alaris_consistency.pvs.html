@@ -1,4 +1,22 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_consistency.pvs</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+<div id="main">
+    <h1 class="page-title">Source: alaris_consistency.js</h1>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>%%
 % @module alaris_consistency
 % @author Michael Harrison and Paolo Masci (QMUL and Newcastle University)
 % @date April 2017
@@ -6,7 +24,7 @@
 %%
 alaris_consistency_pattern[
    maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -25,7 +43,7 @@ BEGIN
 % Consistency Template
 % A_c is a set of actions \subseteq S -> S
 % \forall a in A_c, s in S, m in MS
-% guard(s, m) => 
+% guard(s, m) =>
 % pre_filter(s, m) R post_filter(a(s), m)
 % state consistency
 % \forall s in S: guard(s) => invariant(s)
@@ -49,23 +67,23 @@ paused_state(st: state): boolean =
   % @memberof module:alaris_consistency
   %%
 state_transitions(pre, post: state): boolean =
-  (per_sup(pre) & post = sup(pre)) 
-  OR (per_release_sup(pre) & post = release_sup(pre)) 
-  OR (per_fup(pre) & post = fup(pre)) 
-  OR (per_release_fup(pre) & post = release_fup(pre)) 
-  OR (per_sdown(pre) & post = sdown(pre)) 
-  OR (per_release_sdown(pre) & post = release_sdown(pre)) 
-  OR (per_fdown(pre) & post = fdown(pre)) 
-  OR (per_release_fdown(pre) & post = release_fdown(pre)) 
-  OR (per_tick(pre) & post = tick(pre)) 
-  OR (per_key1(pre) & post = key1(pre)) 
-  OR (per_key2(pre) & post = key2(pre)) 
-  OR (per_key3(pre) & post = key3(pre)) 
-  OR (per_query(pre) & post = query(pre)) 
-  OR (per_on(pre) & post = on(pre)) 
-  OR (per_run(pre) & post = run(pre)) 
-  OR (per_pause(pre) & post = pause(pre)) 
-  OR (per_switch(pre) & post = switch(pre)) 
+  (per_sup(pre) & post = sup(pre))
+  OR (per_release_sup(pre) & post = release_sup(pre))
+  OR (per_fup(pre) & post = fup(pre))
+  OR (per_release_fup(pre) & post = release_fup(pre))
+  OR (per_sdown(pre) & post = sdown(pre))
+  OR (per_release_sdown(pre) & post = release_sdown(pre))
+  OR (per_fdown(pre) & post = fdown(pre))
+  OR (per_release_fdown(pre) & post = release_fdown(pre))
+  OR (per_tick(pre) & post = tick(pre))
+  OR (per_key1(pre) & post = key1(pre))
+  OR (per_key2(pre) & post = key2(pre))
+  OR (per_key3(pre) & post = key3(pre))
+  OR (per_query(pre) & post = query(pre))
+  OR (per_on(pre) & post = on(pre))
+  OR (per_run(pre) & post = run(pre))
+  OR (per_pause(pre) & post = pause(pre))
+  OR (per_switch(pre) & post = switch(pre))
   OR (per_fit_set(pre) & post = fit_set(pre))
 
 %%
@@ -77,9 +95,9 @@ state_transitions(pre, post: state): boolean =
   % @memberof module:alaris_consistency
   %%
 state_transitions_nochevrons(pre, post: state): boolean =
-%  (per_key1(pre) & post = key1(pre)) OR  
-  (per_key2(pre) & post = key2(pre)) OR 
-  (per_key3(pre) & post = key3(pre)) OR 
+%  (per_key1(pre) & post = key1(pre)) OR
+  (per_key2(pre) & post = key2(pre)) OR
+  (per_key3(pre) & post = key3(pre)) OR
   (per_query(pre) & post = query(pre)) OR
   (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre))
 
@@ -92,8 +110,8 @@ state_transitions_nochevrons(pre, post: state): boolean =
   % @memberof module:alaris_consistency
   %%
 state_transitions_nochevrons_or_key1(pre, post: state): boolean =
-  (per_key2(pre) & post = key2(pre)) OR 
-  (per_key3(pre) & post = key3(pre)) OR 
+  (per_key2(pre) & post = key2(pre)) OR
+  (per_key3(pre) & post = key3(pre)) OR
   (per_query(pre) & post = query(pre)) OR
   (per_tick(pre) & post = tick(pre))
 
@@ -106,13 +124,13 @@ state_transitions_nochevrons_or_key1(pre, post: state): boolean =
   % @memberof module:alaris_consistency
   %%
 state_transitions_chevrons(pre, post: state): boolean =
-  (per_sup(pre) & post = sup(pre)) OR  
+  (per_sup(pre) & post = sup(pre)) OR
   (per_release_sup(pre) & post = release_sup(pre)) OR
   (per_fup(pre) & post = fup(pre)) OR
-  (per_release_fup(pre) & post = release_fup(pre)) OR  
-  (per_sdown(pre) & post = sdown(pre)) OR 
+  (per_release_fup(pre) & post = release_fup(pre)) OR
+  (per_sdown(pre) & post = sdown(pre)) OR
   (per_release_sdown(pre) & post = release_sdown(pre)) OR
-  (per_fdown(pre) & post = fdown(pre)) OR 
+  (per_fdown(pre) & post = fdown(pre)) OR
   (per_release_fdown(pre) & post = release_fdown(pre))
 %%
   % @function switched on?
@@ -137,10 +155,10 @@ rate_entry_ready(st: state): boolean = switchedon?(st) AND NOT rlock(st) AND (((
   % @function dispvtbi_entry_ready
   % @description circumstances when ready to enter vtbi, in vtbi over rate
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_consistency
   %%
-dispvtbi_entry_ready(st: state): boolean = 
+dispvtbi_entry_ready(st: state): boolean =
                   switchedon?(st) AND
                   (topline(st) = dispvtbi AND entrymode(st) = vtmode)
 
@@ -151,7 +169,7 @@ dispvtbi_entry_ready(st: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_consistency
   %%
-vtbitime_entry_ready(st: state): boolean = 
+vtbitime_entry_ready(st: state): boolean =
                   switchedon?(st) AND
                   NOT device(st)`infusing? AND
                    (topline(st) = vtbitime AND entrymode(st) = vttmode)
@@ -163,7 +181,7 @@ vtbitime_entry_ready(st: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_consistency
   %%
-time_entry_ready(st: state): boolean = 
+time_entry_ready(st: state): boolean =
                   switchedon?(st) AND
                   NOT device(st)`infusing? AND
                    (topline(st) = vtbitime AND entrymode(st) = ttmode)
@@ -173,7 +191,7 @@ time_entry_ready(st: state): boolean =
   % @function filter_entrymode
   % @description extract the entrymode from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 filter_entrymode(st: state): emodes = entrymode(st)
@@ -182,7 +200,7 @@ filter_entrymode(st: state): emodes = entrymode(st)
   % @function guard_entrymode
   % @description predicate is true
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 guard_entrymode(st: state): boolean = true
@@ -196,7 +214,7 @@ guard_entrymode(st: state): boolean = true
 %%
 consistency_entrymode_theorem_nochevrons: THEOREM
          FORALL (pre, post: state):
-          (state_transitions_nochevrons(pre, post) AND guard_entrymode(pre)) IMPLIES 
+          (state_transitions_nochevrons(pre, post) AND guard_entrymode(pre)) IMPLIES
            (filter_entrymode(pre) /= filter_entrymode(post))
 
 %%
@@ -211,8 +229,8 @@ consistency_entrymode_theorem_generalkey: THEOREM
   FORALL (st: state):
       (per_pause(st) & (topline(st) /= locked) =>
                 filter_entrymode(pause(st)) /= filter_entrymode(st)) AND
-      (per_key1(st) & NOT ((topline(st) = options & 
-              (optionsmenu(st)(qcursor(st)) = setvtbiovertime)) & 
+      (per_key1(st) & NOT ((topline(st) = options &
+              (optionsmenu(st)(qcursor(st)) = setvtbiovertime)) &
                                   rlock(st)) =>
 		filter_entrymode(key1(st)) /= filter_entrymode(st))
 
@@ -225,7 +243,7 @@ consistency_entrymode_theorem_generalkey: THEOREM
 %%
 consistency_entrymode_theorem_chevronkeys: THEOREM
          FORALL (pre, post: state):
-          (state_transitions_chevrons(pre, post)) IMPLIES 
+          (state_transitions_chevrons(pre, post)) IMPLIES
            (filter_entrymode(pre) = filter_entrymode(post))
 
 
@@ -233,21 +251,21 @@ consistency_entrymode_theorem_chevronkeys: THEOREM
   % @function guard_ok
   % @description function display 1 is okay, not infusing and excludes three toplines
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
-guard_ok(st: state): boolean =  
-       fndisp1(st) = fok AND NOT device(st)`infusing? AND 
-           NOT ((topline(st) = options ) OR 
+guard_ok(st: state): boolean =
+       fndisp1(st) = fok AND NOT device(st)`infusing? AND
+           NOT ((topline(st) = options ) OR
                 (topline(st) = vtbitime AND (entrymode(st) = vttmode)) OR
-                (topline(st) = dispvtbi AND ((entrymode(st) = bagmode) OR 
+                (topline(st) = dispvtbi AND ((entrymode(st) = bagmode) OR
                                              (entrymode(st) = tbagmode))))
 
 %%
   % @function goal_ok
   % @description topline is either holding or set rate depending on value of infusion rate
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 goal_ok(st: state): boolean =
@@ -258,11 +276,11 @@ goal_ok(st: state): boolean =
   % @function ok_goal_consistent
   % @description formulation of consistency peoperty key1 always leads to the ok goal
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 ok_goal_consistent(st: state): boolean =
-          (per_key1(st) & guard_ok(st)) IMPLIES 
+          (per_key1(st) & guard_ok(st)) IMPLIES
            goal_ok(key1(st))
 
 %%
@@ -281,17 +299,17 @@ ok_goal_consistent_theorem: THEOREM
   % @function guard_quit
   % @description function display 3 is quit
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
-guard_quit(st: state): boolean =  
+guard_quit(st: state): boolean =
        fndisp3(st) = fquit AND NOT device(st)`infusing?
 
 %%
   % @function goal_quit
   % @description topline is either holding or set rate depending on value of infusion rate
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 goal_quit(st: state): boolean =
@@ -302,11 +320,11 @@ goal_quit(st: state): boolean =
   % @function quit_goal_consistent
   % @description formulation of consistency property key3 always leads to the quit goal
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 quit_goal_consistent(st: state): boolean =
-          (per_key3(st) & guard_quit(st)) IMPLIES 
+          (per_key3(st) & guard_quit(st)) IMPLIES
            goal_quit(key3(st))
 
 %%
@@ -318,14 +336,14 @@ quit_goal_consistent(st: state): boolean =
 quit_goal_consistent_theorem: THEOREM
    FORALL (pre, post: state):
       (init?(pre) =>  quit_goal_consistent(pre)) AND
-       (state_transitions(pre, post) AND  quit_goal_consistent(pre) 
+       (state_transitions(pre, post) AND  quit_goal_consistent(pre)
            IMPLIES quit_goal_consistent(post))
 
 %%
   % @function guard_init_volume
   % @description key2 permitted and volume in topline
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 guard_init_volume(st: state): boolean =
@@ -335,7 +353,7 @@ guard_init_volume(st: state): boolean =
   % @function goal_init_volume
   % @description volume infused set to zero and return to rmode or infusemode
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 goal_init_volume(st: state): boolean =
@@ -346,7 +364,7 @@ goal_init_volume(st: state): boolean =
   % @function init_volume_goal_consistent
   % @description formulation of consistency property key2 always leads to the volume init goal
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 init_volume_goal_consistent(st: state): boolean =
@@ -361,22 +379,22 @@ init_volume_goal_consistent(st: state): boolean =
 init_volume_goal_consistent_theorem: THEOREM
     FORALL (pre, post: state):
        (init?(pre) =>  init_volume_goal_consistent(pre)) AND
-       (state_transitions(pre, post) AND  init_volume_goal_consistent(pre) 
+       (state_transitions(pre, post) AND  init_volume_goal_consistent(pre)
            IMPLIES init_volume_goal_consistent(post))
 %%
   % @function guard_quit_pump_nochange
   % @description key 3 display quit
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
-  
+
 guard_quit_pump_nochange(st: state): bool = fndisp3(st) = fquit
 %%
   % @function filter_rate
   % @description extract the infusion rate parameter from the state
   % @param {state} st The state of the system
-  % @returns {irates} 
+  % @returns {irates}
   % @memberof module:alaris_consistency
   %%
 filter_rate(st: state): irates = device(st)`infusionrate
@@ -385,7 +403,7 @@ filter_rate(st: state): irates = device(st)`infusionrate
   % @function filter_time
   % @description extract the time parameter from the pump state
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 
@@ -394,10 +412,10 @@ filter_time(st: state): itimes = device(st)`time
   % @function filter_vtbi
   % @description extract the vtbi parameter from the state
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
-filter_vtbi(st: state): ivols = device(st)`vtbi   
+filter_vtbi(st: state): ivols = device(st)`vtbi
 
 %%
 % @theorem quit_pump_nochange_consistent_theorem
@@ -408,8 +426,8 @@ filter_vtbi(st: state): ivols = device(st)`vtbi
 quit_pump_nochange_consistent_theorem: THEOREM
   FORALL(st: state):
        (per_key3(st) AND guard_quit_pump_nochange(st)) IMPLIES
-              ((filter_rate(st) = filter_rate(key3(st))) AND 
-              (filter_time(st) = filter_time(key3(st))) AND 
+              ((filter_rate(st) = filter_rate(key3(st))) AND
+              (filter_time(st) = filter_time(key3(st))) AND
               (filter_vtbi(st) = filter_vtbi(key3(st))))
 
 
@@ -421,9 +439,9 @@ quit_pump_nochange_consistent_theorem: THEOREM
 %%
 pump_parameters_untouched_theorem: THEOREM
    FORALL (pre, post: state):
-     (paused_state(pre) AND 
+     (paused_state(pre) AND
      (state_transitions_nochevrons_or_key1(pre, post) OR
-      (per_key1(pre) AND ((fndisp1(pre) /= fok) AND (topline(pre) /= clearsetup)) AND 
+      (per_key1(pre) AND ((fndisp1(pre) /= fok) AND (topline(pre) /= clearsetup)) AND
            (post = key1(pre))))) IMPLIES
         ((filter_rate(pre) = filter_rate(post)) AND
          (filter_vtbi(pre) = filter_vtbi(post)) AND
@@ -433,7 +451,7 @@ pump_parameters_untouched_theorem: THEOREM
   % @function filter_newvtbi
   % @description extract the temporary vtbi from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 filter_newvtbi(st: state): ivols = newvtbi(st)
@@ -442,7 +460,7 @@ filter_newvtbi(st: state): ivols = newvtbi(st)
   % @function guard_fnkeyok
   % @description key1 permitted with okay and entrymode vtmode or ttmode
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 guard_fnkeyok_vt(st: state): bool = per_key1(st) AND (fndisp1(st) = fok)
@@ -465,7 +483,7 @@ consistent_fnkeyok_vt_theorem: THEOREM
   % @function filter_newtime
   % @description extract the temporary time from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 filter_newtime(st: state): itimes = newtime(st)
@@ -474,10 +492,10 @@ filter_newtime(st: state): itimes = newtime(st)
   % @function guard_ok_ttmode
   % @description key1 permitted with okay and entrymode ttmode
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
-guard_ok_ttmode(st: state): bool = per_key1(st) AND (fndisp1(st) = fok) AND (entrymode(st) = ttmode) 
+guard_ok_ttmode(st: state): bool = per_key1(st) AND (fndisp1(st) = fok) AND (entrymode(st) = ttmode)
 
 %%
 % @theorem consistent_ok_ttmode_theorem
@@ -495,7 +513,7 @@ consistent_ok_ttmode_theorem: THEOREM
   % @description key1 permitted with okay parameterised by entrymode
   % @param {emodes} em The entrymode
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 guard_em_ok(em: emodes, st: state): boolean =
@@ -507,7 +525,7 @@ guard_em_ok(em: emodes, st: state): boolean =
   % @description extract the relevant temporary value depending on entrymode
   % @param {emodes} em The entrymode
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 temp_mode_filter(em: emodes, st: state): real =
@@ -537,7 +555,7 @@ temp_mode_filter(em: emodes, st: state): real =
   % @description extract the relevant actual paramter depending on entrymode
   % @param {emodes} em The entrymode
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_consistency
   %%
 real_mode_filter(em: emodes, st: state): real =
@@ -569,7 +587,7 @@ real_mode_filter(em: emodes, st: state): real =
   % @function vis_dispvtbi
   % @description predicate that is true if topline shows dispvtbi
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 vis_dispvtbi(st: state): boolean = (topline(st) = dispvtbi)
@@ -578,7 +596,7 @@ vis_dispvtbi(st: state): boolean = (topline(st) = dispvtbi)
   % @function vis_vtbitime
   % @description predicate that is true if topline shows vtbitime
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 vis_vtbitime(st: state): boolean = (topline(st) = vtbitime)
@@ -591,7 +609,7 @@ vis_vtbitime(st: state): boolean = (topline(st) = vtbitime)
 %%
 dispvtbimode_unchanged_parameters: THEOREM
   FORALL(pre, post: state):
-       (paused_state(pre) AND state_transitions(pre, post) AND 
+       (paused_state(pre) AND state_transitions(pre, post) AND
         vis_dispvtbi(pre) AND vis_dispvtbi(post)) IMPLIES
               ((filter_rate(pre) = filter_rate(post)) AND
                (filter_vtbi(pre) = filter_vtbi(post)) AND
@@ -605,7 +623,7 @@ dispvtbimode_unchanged_parameters: THEOREM
 %%
 vtbitimemode_unchanged_parameters: THEOREM
   FORALL(pre, post: state):
-       (paused_state(pre) AND state_transitions(pre, post) AND 
+       (paused_state(pre) AND state_transitions(pre, post) AND
         vis_vtbitime(pre) AND vis_vtbitime(post)) IMPLIES
               ((filter_rate(pre) = filter_rate(post)) AND
                (filter_vtbi(pre) = filter_vtbi(post)) AND
@@ -618,7 +636,7 @@ vtbitimemode_unchanged_parameters: THEOREM
   % @description key3 permitted with quit parameterised by entrymode
   % @param {emodes} em The entrymode
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 guard_em_quit(em: emodes, st: state): boolean =
@@ -639,30 +657,30 @@ consistency_quit_em: THEOREM
   % @function f3quit_invariant
   % @description Quit only appears associated with key3
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
-% 
+%
 f3quit_invariant(st: state): boolean =
     fndisp1(st) /= fquit AND fndisp2(st) /= fquit
 
 %%
 % @theorem f3quit_consistent_theorem
-% @description quit is only associated with key3 
+% @description quit is only associated with key3
 % @yields QED
 % @stats Run time  = 139.27 secs. 20/7/17
 %%
 f3quit_consistent_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => f3quit_invariant(pre)) AND
-     (state_transitions(pre, post) AND f3quit_invariant(pre) => 
+     (state_transitions(pre, post) AND f3quit_invariant(pre) =>
                 f3quit_invariant(post))
 
 %%
   % @function f1ok_invariant
   % @description OK only appears associated with key1
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 f1ok_invariant(st: state): boolean =
@@ -670,38 +688,67 @@ f1ok_invariant(st: state): boolean =
 
 %%
 % @theorem f1ok_consistent_theorem
-% @description ok is only associated with key1 
+% @description ok is only associated with key1
 % @yields QED
 % @stats Run time  = 151.13 secs. 20/7/17
 %%
 f1ok_consistent_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => f1ok_invariant(pre)) AND
-     (state_transitions(pre, post) AND f1ok_invariant(pre) => 
+     (state_transitions(pre, post) AND f1ok_invariant(pre) =>
                 f1ok_invariant(post))
 
 %%
   % @function alwayskey1_invariant
   % @description  key1 limited to a subset of function displays
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_consistency
   %%
 alwayskey1_invariant(st: state): boolean =
     (fndisp1(st) /= fnull) <=>
-    ((fndisp1(st) = fok) OR (fndisp1(st) = fclear) OR 
+    ((fndisp1(st) = fok) OR (fndisp1(st) = fclear) OR
      (fndisp1(st) = fvol) OR (fndisp1(st) = fyes))
 
 %%
 % @theorem always_key1_invariant_theorem
-% @description  key1 is only associated with a subset of displays 
+% @description  key1 is only associated with a subset of displays
 % @yields QED
 % @stats Run time  = 236.97 secs. 20/7/17
 %%
 alwayskey1_consistent_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => alwayskey1_invariant(pre)) AND
-     (state_transitions(pre, post) AND alwayskey1_invariant(pre) => 
+     (state_transitions(pre, post) AND alwayskey1_invariant(pre) =>
                 alwayskey1_invariant(post))
 
-END alaris_consistency_pattern
+END alaris_consistency_pattern</code></pre>
+        </article>
+    </section>
+</div>
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+    <h3>Theorems</h3>
+    <ul>
+        <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+        <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+        <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+        <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+        <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+        <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+    <ul>
+</nav>
+<br class="clear">
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 18:40:28 GMT+0100 (WEST)
+</footer>
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

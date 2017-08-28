@@ -17,28 +17,26 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: alaris2lnewmodes.pvs</h1>
-
-
-
-
-
-
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>
-%%
-% @module alaris_th
+<h1 class="page-title">Source: alaris2lnewmodes.pvs</h1>
+<section>
+<article>
+<pre class="prettyprint source linenums">
+<code>%%
+% @module alaris2lnewmodes
 % @author Michael Harrison and Paolo Masci (QMUL and Newcastle University)
-% @date 4/8/2015
-% @description includes reals, accelerators and only updates vtbi and time as exits vtbi mode - bug found when checking properties
-%              relating to visibility of vtbi and time and when switching off
-%              adds stronger constraints ok keys to allow proof of properties relating to
-%              function displays
+% @date April 2015
+% @description Theory associated with the interface to the Alaris GP
+%              Maximum infusion rate, maximum and minimum vtbi, timeouts, battery maximum and minimums are parameterised
+%              Further constraints minimum infusion must be less than or equal to maximum infusion
+%              shorttimeout must be less than timeout (two stage timeout showing different error messages)
+%              Maximum time must exceed time out
+%              Maximum battery time plus one must be less than maximum time
+%              Battery time minimum must be less than battery time maximum
 %%
+
 alaris_th [
-   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
+   maxrate  : posnat,
+   maxinfuse: posnat,
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -46,38 +44,34 @@ alaris_th [
    bat_max : {bat_max: posnat | bat_max+1 < maxtime},
    bat_min: {bat_min: posnat | bat_min < bat_max}
 ]: THEORY
- BEGIN IMPORTING pump_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+ BEGIN
+  IMPORTING pump_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
 
-  %%
+ %%
   % @type state
-  % @description Interactor main, aggregates pump via device
-  % @property {pump} device Device controller and infusion process model
-  % @property {iline} topline Topline of the display
-  % @property {imid} middisp Central part of the display
-  % @property {o_menu} optionsmenu Options menu
-  % @property {ibagscursor} bagscursor Bags display
-  % @property {qcurse} qcursor Cursor for selecting bags
-  % @property {abags} bagsval Bags values
-  % @property {ifunctions} fndisp1 Soft function 1
-  % @property {ifunctions} fndisp2 Soft function 2
-  % @property {ifunctions} fndisp3 Soft function 3
-  % @property {boolean} runlight LED light indicating a running infusion
-  % @property {boolean} pauselight LED light indicating a paused infusion
-  % @property {boolean} ac_light LED light indicating connection to mains
-  % @property {battery_light} boolean LED light indicating running on battery
-  % @property {entrymode} emodes Data entry mode
-  % @property {boolean} rlock Whether the keypad is locked
-  % @property {boolean} rdisabled Whether the keypad is disabled
-  % @property {ivols} newvtbi VTBI value during data entry
-  % @property {irates} newrate Rate value during data entry
-  % @property {itimes} newtime Time value during data entry
-  % @property {presstime} pressed Whether a button is pressed
-  % @property {steprate} current_sr Increment step for rate during data entry
-  % @property {stepvol} current_sv Increment step for volume during data entry
-  % @property {steptime} current_st Increment step for time during data entry
-  % @property {chev_buttons} which_press Which button is pressed
+  % @description The user interface state associated with the Alaris GP
+  % @property {pump} device The imported state of the pump theory
+  % @property {iline} topline Describes the current display on the top line
+  % @property {imid} middisp Describes which parameters are currently visible in the middle of the display
+  % @property {o_menu} optionsmenu Describes the menu of options invoked by the query function
+  % @property {ibagscursor} bagscursor The current position of the bags menu cursor
+  % @property {qcurse} qcursor The current position of the options menu cursor
+  % @property {abags} bagsval The infusion bags menu
+  % @property {ifunctions} fndisp1, fndisp2, fndisp3 function key displays
+  % @property {boolean} runlight, pauselight, ac_light, battery_light lights switched on or off
+  % @property {emodes} entrymode The current entry mode
+  % @property {boolean} rlock true if infusion rate locked
+  % @property {boolean} rdisabled true if the means to lock or unlock the infusion rate is disabled
+  % @property {ivols} newvtbi Temporary value of vtbi (used when updating the value)
+  % @property {irates} newrate Temporary value of infusion rate (used when updating the value)
+  % @property {itimes} newtime Temporary value of time (used when updating the value)
+  % @property {presstime} pressed How long has a chevron key been pressed (used to decide accelerator)
+  % @property {steprate} current_sr Current step used by chevron key use in rate entry mode
+  % @property {stepvol} current_sv Current step used by chevron key use in vtbi entry mode
+  % @property {steptime} current_st Current step used by chevron key use in time entry mode
+  % @property {chev_buttons} which_press Which chevron key is currently being pressed
   %%
-  state: TYPE = [#
+state: TYPE = [#
     device : pump,
     topline: iline, % [vis]
     middisp: imid,  % [vis]
@@ -105,78 +99,25 @@ alaris_th [
     which_press: chev_buttons
   #]
 
-  %%
-  % @function decrement
-  % @description Utility function for updating state attribute 'pressed'
-  % @param {presstime} t Amount of time the button can be pressed continuously without changing step increment
-  % @param {delta} n Discrete time advance
-  % @returns {presstime} Remaining amount of time the button can be pressed continuously without changing step increment
-  % @memberof module:alaris_th
-  %%
-  decrement(t: presstime, n: delta): presstime = IF t-n>=0 THEN t-n ELSE t ENDIF
+%%
+% @description The following functions are utility functions that decrement, trim or give ceilings for standard parameters
+%%
+decrement(t: presstime, n: delta): presstime = IF t-n>=0 THEN t-n ELSE t ENDIF
+trim_rate(x: real): irates = IF x>maxrate THEN maxrate ELSIF x<0 THEN 0 ELSE x ENDIF
+trim_vtbi(x: real): ivols = IF x>maxinfuse THEN maxinfuse ELSIF x<0 THEN 0 ELSE x ENDIF
+trim_time(x: real): itimes = IF x>maxtime THEN maxtime ELSIF x<0 THEN 0 ELSE x ENDIF
+ceil_rate(x: irates): irates = ceiling(x)
+ceil_vtbi(x: ivols): ivols = ceiling(x)
+ceil_time(x: itimes): itimes = ceiling(x)
 
-  %%
-  % @function trim_rate
-  % @description Utility function, limits rate value to maxrate
-  % @param {real} x Rate value
-  % @returns {irates} Rate value between [0..maxrate]
-  % @memberof module:alaris_th
-  %%
-  trim_rate(x: real): irates = IF x>maxrate THEN maxrate ELSIF x<0 THEN 0 ELSE x ENDIF
-
-  %%
-  % @function trim_vtbi
-  % @description Utility function, limits vtbi value to maxvtbi
-  % @param {real} x VTBI value
-  % @returns {ivols} VTBI value between [0..maxvtbi]
-  % @memberof module:alaris_th
-  %%
-  trim_vtbi(x: real): ivols = IF x>maxinfuse THEN maxinfuse ELSIF x<0 THEN 0 ELSE x ENDIF
-
-  %%
-  % @function trim_time
-  % @description Utility function, limits time value to maxtime
-  % @param {real} x Time value
-  % @returns {itimes} Time value between [0..maxtime]
-  % @memberof module:alaris_th
-  %%
-  trim_time(x: real): itimes = IF x>maxtime THEN maxtime ELSIF x<0 THEN 0 ELSE x ENDIF
-
-  %%
-  % @function ceil_rate
-  % @description Utility function, truncates a rate value by removing the fractional part from the value
-  % @param {real} x Rate value
-  % @returns {irates} Truncated rate value
-  % @memberof module:alaris_th
-  %%
-  ceil_rate(x: irates): irates = ceiling(x)
-
-  %%
-  % @function ceil_vtbi
-  % @description Utility function, truncates a vtbi value by removing the fractional part from the value
-  % @param {real} x VTBI value
-  % @returns {irates} Truncated VTBI value
-  % @memberof module:alaris_th
-  %%
-  ceil_vtbi(x: ivols): ivols = ceiling(x)
-
-  %%
-  % @function ceil_time
-  % @description Utility function, truncates a time value by removing the fractional part from the value
-  % @param {real} x Time value
-  % @returns {irates} Truncated time value
-  % @memberof module:alaris_th
-  %%
-  ceil_time(x: itimes): itimes = ceiling(x)
-
-  %%
+%%
   % @function init?
-  % @description Iniitialization predicate, checks if the model is in the initial state
-  % @param {state} st Current state
-  % @returns {bool} True if parameter st is the initial state, false otherwise
-  % @memberof module:alaris_th
+  % @description predicate that initialises the state
+  % @param {state} st The state of the system
+  % @returns {bool} True when state initialised
+  % @memberof module:alaris2lnewmodes
   %%
-  init?(st: state): bool =
+init?(st: state): bool =
     init?(st`device) and
     topline(st) = dispblank and
     middisp(st)(drate) = FALSE and
@@ -220,62 +161,65 @@ alaris_th [
     current_st(st) = small_step and
     pressed(st) = maxpress
 
-  %%
+%%
+% actions relating to the pressing of chevron keys
+%%
+
+%%
   % @function no_button_down
-  % @description Utility function to check if a button is currently pressed
-  % @param {state} st Current state
-  % @returns {bool} True if a button is pressed, false otherwise
-  % @memberof module:alaris_th
-  %%
-  no_button_down(st: state): bool =
+  % @description predicate which is true if the chevron key is not pressed (normal state of the alaris)
+  % @param {state} st
+  % @returns {bool} true if the pressed value is maximum (decrements on each press) and no button indicated as pressed (nob)
+  % @memberof module:alaris2lnewmodes
+%%
+ no_button_down(st: state): bool =
     which_press(st) = nob AND pressed(st) = maxpress
 
-  %%
+%%
   % @function release_key
-  % @description Utility function to reset state attributes related to key presses
-  % @param {state} st Current state
-  % @returns {state} State where state attributes related to key presses have been reset
-  % @memberof module:alaris_th
-  %%
-  release_key(st:state): state =
+  % @description chevron key is released and return to no button press state
+  % @param {state} st
+  % @returns {state} maxpress is decrement when the chevron key is pressed
+  % @memberof module:alaris2lnewmodes
+%%
+ release_key(st:state): state =
     st WITH [ which_press := nob,
               current_sr := small_step,
               current_sv := small_step,
               current_st := small_step,
               pressed := maxpress ]
 
-  %%
+%%
   % @function dispblank?
-  % @description Utility function, checks whether the display is switched off
-  % @param {state} st Current state
-  % @returns {bool} True if the display is switched off, false otherwise
-  % @memberof module:alaris_th
-  %%
-  dispblank?(st: state): bool = st`topline = dispblank <=> NOT device(st)`powered_on?
+  % @description predicate which is true if top line is blank and the device is not powered on
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
+dispblank?(st: state): bool = (st`topline = dispblank) AND NOT device(st)`powered_on?
 
-  %%
+%%
   % @function per_switch
-  % @description Permission predicate, associated with action for switching between battery and mains
-  % @param {state} st Current state
-  % @returns {bool} True if the pump is powered on and can be switched between battery and mains
-  % @memberof module:alaris_th
-  %%
-  per_switch(st: state): boolean =
+  % @description switch is permitted if device on, no chevron key is depressed, connected to the battery, or connected to the mains
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
+per_switch(st: state): boolean =
          device(st)`powered_on? AND no_button_down(st) AND
            ((device(st)`ac_connect AND ac_light(st) AND NOT(battery_light(st)))
 	   OR (NOT device(st)`ac_connect AND NOT ac_light(st) AND
 	             battery_light(st)))
 
 
-
-  %%
+%%
   % @function switch_from_battery_low
-  % @description Switch to mains when battery was low
-  % @param {state} st Current state
-  % @returns {state} Next state
-  % @memberof module:alaris_th
-  %%
-  switch_from_battery_low(st: state): state =
+  % @description switches to mains: sets top line depending on infusing status, shows the relevant parameters in the middle display and function keys, and specifies entry mode, invokes the device level change to mains
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+switch_from_battery_low(st: state): state =
       st WITH [ topline := COND device(st)`infusing? AND NOT device(st)`kvoflag -> infusing,
                                 device(st)`infusing? AND device(st)`kvoflag -> dispkvo,
                                 NOT device(st)`infusing? & device(st)`infusionrate = 0
@@ -285,11 +229,9 @@ alaris_th [
                 middisp :=
                   COND NOT device(st)`infusing? ->
                            LAMBDA(x: imid_type):
-		            COND x = drate -> TRUE,
-			         x = dvtbi -> device(st)`vtbi /= 0,
-			         x = dtime -> device(st)`vtbi /= 0,
-				 x = dvol -> TRUE,
-                  		 ELSE -> FALSE ENDCOND,
+		            COND (x = drate) OR (x = dvol)  -> TRUE,
+			         (x = dvtbi) OR (x = dtime)  -> device(st)`vtbi /= 0,
+			         ELSE -> FALSE ENDCOND,
                         ELSE ->
                           LAMBDA(x: imid_type):
                            COND x = drate -> NOT device(st)`kvoflag,
@@ -309,14 +251,14 @@ alaris_th [
                 battery_light := FALSE
 	        ]
 
-  %%
+%%
   % @function switch_battery_low
-  % @description Switch to battery, case battery low
-  % @param {state} st Current state
-  % @returns {state} Next state
-  % @memberof module:alaris_th
-  %%
-  switch_battery_low(st: state): state =
+  % @description switches to to battery, because the battery is low shows message in top line; otherwise the display is blank; invokes the device level change to battery.
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+switch_battery_low(st: state): state =
        st WITH [ topline := batterylow,
                 middisp := LAMBDA(x: imid_type): FALSE,
                 fndisp1 := fnull,
@@ -327,14 +269,14 @@ alaris_th [
                 ac_light := FALSE,
                 battery_light := TRUE ]
 
-  %%
+%%
   % @function switch
-  % @description Switch from/to battery and mains
-  % @param {state} st Current state
-  % @returns {state} Next state
-  % @memberof module:alaris_th
-  %%
-  switch(st: (per_switch)): state =
+  % @description switches from mains to battery or battery to mains
+  % @param {per_switch} st
+  % @returns {state} shows cases
+  % @memberof module:alaris2lnewmodes
+%%
+switch(st: (per_switch)): state =
      COND
        device(st)`ac_connect -> switch_battery_low(st),
        NOT device(st)`ac_connect & (topline(st) = batterylow) ->
@@ -344,10 +286,23 @@ alaris_th [
                     battery_light := FALSE]
       ENDCOND
 
-% fitting the giving set
-
+%%
+  % @function per_fit_set
+  % @description fit_set is permitted if device on, no chevron key is depressed
+  % @param {per_fit_set} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
 per_fit_set(st: state): boolean =
       device(st)`powered_on? AND no_button_down(st)
+
+%%
+  % @function fit_to_hold
+  % @description Utility function used by fit_set
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
 fit_to_hold(st: state): state =
    st WITH [ topline := COND device(st)`infusionrate = 0 -> setrate,
                            ELSE -> holding ENDCOND,
@@ -359,6 +314,14 @@ fit_to_hold(st: state): state =
 	     entrymode  := rmode,
 	     device  := resetElapsed(device(st))]
 
+
+%%
+  % @function fit_set
+  % @description Fits the giving set, only if not fitted and paused. Invokes pump level fit function, shows holding or setrate (if infusion rate is zero) and resets time since user action
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
 fit_set(st: (per_fit_set)): state =
       COND
         topline(st) = setnotfitted & NOT device(st)`infusing? ->
@@ -366,12 +329,25 @@ fit_set(st: (per_fit_set)): state =
         ELSE -> st
       ENDCOND WITH [ device := connect_set(st`device)]
 
-% switching the device on
-
+%%
+  % @function per_on
+  % @description on is permitted if device is off and top line display blank, or if device is on and top line display not blank
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
  per_on(st:state): bool =
     (NOT device(st)`powered_on? AND topline(st) = dispblank) OR
     (device(st)`powered_on? AND topline(st) /= dispblank)
 
+
+%%
+  % @function on_case_infusionstatusblank
+  % @description on from power off
+  % @param {state} st
+  % @returns {state} The return state shows the stored pump parameters and sets up the initial display which invites to clear the parameters
+  % @memberof module:alaris2lnewmodes
+%%
   on_case_infusionstatusblank(st: state): state =
          st WITH [ device := on(st`device),
                    topline := COND
@@ -417,6 +393,13 @@ fit_set(st: (per_fit_set)): state =
                    current_st := small_step,
                    pressed := maxpress ]
 
+%%
+  % @function on_case_infusionstatusNOTblank
+  % @description off from power on; clears the display.
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   on_case_infusionstatusNOTblank(st: state): state =
      st WITH [
         device := on(st`device),
@@ -432,7 +415,13 @@ fit_set(st: (per_fit_set)): state =
         fndisp2    := fnull,
         fndisp3    := fnull ]
 
-
+%%
+  % @function on
+  % @description Switches the alaris on or off
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   on(st: (per_on)): state =
    COND
      NOT device(st)`powered_on? AND topline(st) = dispblank -> on_case_infusionstatusblank(st),
@@ -440,13 +429,25 @@ fit_set(st: (per_fit_set)): state =
    ENDCOND
 
 
-% starting the infusion when the device is paused
-
+%%
+  % @function per_run
+  % @description run is permitted if device start is permitted, the top line shows holding, entry mode is rmode and the chevron keys are not depressed
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_run(st: state): bool = per_start(st`device) AND
                               topline(st) = holding AND
                               entrymode(st) = rmode AND no_button_down(st)
 
 
+%%
+  % @function run_cond_NZ
+  % @description uncomplicated run, device paused, no locks, no zero parameters
+  % @param {state} st
+  % @returns {state} sets the display for infusing, and starts the pump device
+  % @memberof module:alaris2lnewmodes
+%%
   run_cond_NZ(st: {st: state | per_run(st)}): state =
     st WITH [ device := start(st`device),
               topline := infusing,
@@ -458,6 +459,13 @@ fit_set(st: (per_fit_set)): state =
               runlight := TRUE,
               pauselight := FALSE ]
 
+%%
+  % @function run_check_rlock
+  % @description uncomplicated run, invites to the lock infusion rate (to prevent future tampering)
+  % @param {per_run(st)} st
+  % @returns {state} sets the display with function keys for yes / no response to top line question
+  % @memberof module:alaris2lnewmodes
+%%
   run_check_rlock(st: (per_run)): state =
      st WITH [topline := lockrate,
               middisp := LAMBDA (x: imid_type): FALSE,
@@ -466,6 +474,13 @@ fit_set(st: (per_fit_set)): state =
               fndisp3 := fno,
               entrymode := nullmode]
 
+%%
+  % @function run_cond_vtbi0_kvoflag
+  % @description run when vtbi is zero and kvo mode
+  % @param {state} st
+  % @returns {state} shows vtbi done in top line, starts the pump device, offers possibility of cancel (key3)
+  % @memberof module:alaris2lnewmodes
+%%
   run_cond_vtbi0_kvoflag(st: {st: state | per_run(st)}): state =
      st WITH [ device := start(st`device),
                topline := vtbidone,
@@ -477,6 +492,13 @@ fit_set(st: (per_fit_set)): state =
                pauselight := false,
                entrymode  := nullmode]
 
+%%
+  % @function run_vtbi0_NOTkvoflag
+  % @description run when vtbi is zero and kvoflag not set
+  % @param {state} st
+  % @returns {state} invites to set vtbi (top line), and invokes pump device start which sets kvoflag
+  % @memberof module:alaris2lnewmodes
+%%
   run_cond_vtbi0_NOTkvoflag(st: {st: state | per_run(st)}): state =
        st WITH [ device := start(st`device),
                  topline := setvtbi,
@@ -486,8 +508,13 @@ fit_set(st: (per_fit_set)): state =
                  fndisp3 := fcancel,
                  entrymode  := nullmode]
 
-
-
+ %%
+  % @function run_cond_setnotfitted
+  % @description attempt to run when the giving set has not been fitted
+  % @param {state} st
+  % @returns {state} indicates that the set has not been fitted (top line)
+  % @memberof module:alaris2lnewmodes
+%%
   run_cond_setnotfitted(st: {st: state | per_run(st)}): state =
        st WITH [ topline := setnotfitted,
                  middisp := LAMBDA(x: imid_type): FALSE,
@@ -496,6 +523,13 @@ fit_set(st: (per_fit_set)): state =
                  fndisp3 := fcancel,
                  entrymode  := nullmode]
 
+%%
+  % @function run
+  % @description Starts an infusion
+  % @param {per_run(st)} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   run(st: {st: state | per_run(st)}): state =
       COND device(st)`vtbi /= 0	&
                 device(st)`infusionrate /= 0 & rlock(st) &
@@ -512,7 +546,13 @@ fit_set(st: (per_fit_set)): state =
            NOT device(st)`set_fitted -> run_cond_setnotfitted(st)
       ENDCOND
 
-% pausing the device when infusing
+%%
+  % @function per_pause
+  % @description pause is permitted if pause is perimitted in the pump, and a range of top lines associated with infusing are visible
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
    per_pause(st: state): bool =
        per_pause(st`device) AND
       ((((topline(st) = infusing) OR (topline(st) = dispkvo)) & entrymode(st) = infusemode) OR
@@ -520,7 +560,13 @@ fit_set(st: (per_fit_set)): state =
        (topline(st) = volume & entrymode(st) = nullmode) OR
        (topline(st) = locked & entrymode(st) = infusemode))
 
-
+%%
+  % @function pause
+  % @description pauses the pump device and shows the top line of holding, the device becomes paused
+  % @param {per_pause(st)} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
    pause(st: {st: state | per_pause(st)}): state =
        st
          WITH [device := pause(st`device),
@@ -538,13 +584,26 @@ fit_set(st: (per_fit_set)): state =
                pauselight := TRUE,
                runlight := FALSE]
 
-% the query action invokes menu for additional functions
+%%
+  % @function per_query
+  % @description query is permitted if the device is paused and the top line shows holding or set rate, or device infusing and shows top line of infusing
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_query(st: state): bool =
          ((((topline(st) = holding OR topline(st) = setrate) & entrymode(st) = rmode) & NOT device(st)`infusing?) OR
                                 ((topline(st) = infusing & entrymode(st) = infusemode) & device(st)`infusing? &
                                   NOT device(st)`kvoflag)) AND
                                 device(st)`powered_on? AND no_button_down(st)
 
+%%
+  % @function query
+  % @description  shows the options menu, the entries in the menu vary depending on whether the infusion rate has been locked or disabled
+  % @param {per_query(st)} st
+  % @returns {state} sets the time since last action to zero
+  % @memberof module:alaris2lnewmodes
+%%
   query(st: {st: state | per_query(st)}): state =
           st WITH [ qcursor := 0,
                     topline := options,
@@ -622,8 +681,13 @@ fit_set(st: (per_fit_set)): state =
                     device  := resetElapsed(device(st)) ]
 
 
-% the tick function which describes the evolution of the process or elapsed time when the device is paused
-
+%%
+  % @function per_tick
+  % @description tick is permitted if tick is perimitted in the pump, and a range of top lines associated with holding and infusing are visible
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_tick(st: state): bool =
       per_tick(device(st)) AND
         ((NOT device(st)`infusing? AND no_button_down(st) AND
@@ -642,7 +706,7 @@ fit_set(st: (per_fit_set)): state =
              ((topline(st) = batterylow) AND NOT device(st)`ac_connect) OR
              (topline(st) = dispinfo)) & (entrymode(st) = nullmode)) OR
          ((entrymode(st) = qmode) & (topline(st) = options)))) OR
-% infusing
+	 %-- case infusing
          (device(st)`infusing? AND no_button_down(st) AND
                ((entrymode(st) = infusemode) &
                (NOT device(st)`kvoflag &
@@ -658,11 +722,24 @@ fit_set(st: (per_fit_set)): state =
                                   middisp(st)(dvol) & middisp(st)(dvtbi)) OR
                (((topline(st) = vtbidone) OR (topline(st) = batterylow AND NOT device(st)`ac_connect)) AND (entrymode(st) = nullmode))))))
 
-
+%%
+  % @function tick_case_holding_volume_etc_elapseLTtimeout
+  % @description  invoked when paused and elapsed time since action does not exceed time out
+  % @param {per_tick} invokes pump device tick
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
     tick_case_holding_volume_etc_elapseLTtimeout
      (st: {st: state | per_tick(device(st))}): state =
       st WITH [ device := tick(st`device)]
 
+%%
+  % @function tick_case_holding_volume_etc_elapseLTtimeoutlocked
+  % @description  device shows infusion rate locked, tick will return the top line display to previous state and other relevant attributes
+  % @param {per_tick} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
     tick_case_holding_volume_etc_elapseLTtimeoutlocked
      (st: {st: state | per_tick(device(st))}): state =
       st WITH [ device := tick(st`device),
@@ -692,6 +769,13 @@ fit_set(st: (per_fit_set)): state =
                              ELSE -> fnull
                            ENDCOND]
 
+%%
+  % @function tick_case_holding_volume_etc_elapseEQtimeout
+  % @description  deals with the case when holding and elapsed time since last action equals timeout
+  % @param {per_tick} st
+  % @returns {state} top line shows attention, otherwise screen blank apart from function key 3 enables cancel, invokes the pump device tick
+  % @memberof module:alaris2lnewmodes
+%%
     tick_case_holding_volume_etc_elapseEQtimeout
       (st: {st: state | per_tick(device(st))}): state =
       st WITH [ device := tick(st`device),
@@ -702,6 +786,13 @@ fit_set(st: (per_fit_set)): state =
 		fndisp3 := fcancel,
               	entrymode   := nullmode ]
 
+%%
+  % @function tick_case_battery_warning
+  % @description  when the battery runs low the tick shows the battery low warning
+  % @param {per_tick} st
+  % @returns {state} invokes the pump device tick
+  % @memberof module:alaris2lnewmodes
+%%
     tick_case_battery_warning
       (st: {st: state | per_tick(device(st))}): state =
       st WITH [ device := tick(st`device),
@@ -712,6 +803,13 @@ fit_set(st: (per_fit_set)): state =
 		fndisp3 := fcancel,
               	entrymode   := nullmode ]
 
+%%
+  % @function tick_case_holding_volume_etc_elapsedEQshorttimeout
+  % @description  deals with the case when paused at the short time out (prior to the result of the longer time out)
+  % @param {per_tick} st
+  % @returns {state} takes the alaris to rmode and topline holding or set-rate (if rate is zero) and pump device ticks
+  % @memberof module:alaris2lnewmodes
+%%
 tick_case_holding_volume_etc_elapseEQshorttimeout
       (st: {st: state | per_tick(device(st))}): state =
       LET newdevice = tick(device(st)) IN
@@ -721,19 +819,31 @@ tick_case_holding_volume_etc_elapseEQshorttimeout
                            ELSE -> holding
                            ENDCOND,
                 middisp := LAMBDA(x: imid_type):
- 		             COND x = drate -> TRUE,
-			          x = dvtbi ->newdevice`vtbi /= 0,
-				  x = dvol  -> TRUE,
-              			  x = dtime -> newdevice`vtbi /= 0,
+ 		             COND (x = drate) OR (x = dvol) -> TRUE,
+			          (x = dvtbi) OR (x = dtime)  -> newdevice`vtbi /= 0,
 				  ELSE -> FALSE ENDCOND,
                 fndisp1 := fvol,
                 fndisp2 := fvtbi,
 		fndisp3 := fnull,
               	entrymode   := rmode ]
 
+%%
+  % @function tick_case_infuse_infusionrateLTvtbi
+  % @description  the case that the device is infusing and infusion rate is less than VTBI
+  % @param {per_tick} invokes pump device tick otherwise unchanged
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
     tick_case_infuse_infusionrateLTvtbi(st: {st: state | per_tick(device(st))}): state =
        st WITH [device := tick(st`device)]
 
+%%
+  % @function tick_case_infuse_infusionrateLTvtbilocked
+  % @description normal tick while pump infusing and infusion rate locked, and rate locked shown in previous top line
+  % @param {per_tick} st
+  % @returns {state} reverts to normal infusing display
+  % @memberof module:alaris2lnewmodes
+%%
      tick_case_infuse_infusionrateLTvtbilocked(st: {st: state | per_tick(device(st))}): state =
        st WITH [device := tick(st`device),
                 topline := infusing,
@@ -748,10 +858,24 @@ tick_case_holding_volume_etc_elapseEQshorttimeout
                 fndisp3 := fnull,
                 entrymode  := infusemode]
 
+%%
+  % @function tick_case_infuse_infusionrateEQvtbi_kvoflag
+  % @description  the device is in KVO mode and infusing at minimal level
+  % @param {per_tick} st
+  % @returns {state} display is not affected
+  % @memberof module:alaris2lnewmodes
+%%
 tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st))}): state =
       st WITH [device := tick(st`device)]
 
-    tick_case_infuse_infusionrateEQvtbi_notkvoflag(st: {st: state | per_tick(device(st))}): state =
+%%
+  % @function tick_case_infuse_infusionrateEQvtbi_notkvoflag
+  % @description  vtbi is exhausted and KVO not set and infusing
+  % @param {per_tick} st
+  % @returns {state} Displays that vtbi done in top line, invokes tick in pump device continues to infuse at KVO level - setting kvo flag
+  % @memberof module:alaris2lnewmodes
+%%
+tick_case_infuse_infusionrateEQvtbi_notkvoflag(st: {st: state | per_tick(device(st))}): state =
       release_key(st) WITH [ device := tick(st`device),
                 topline := vtbidone,
                 middisp := LAMBDA(x: imid_type): FALSE,
@@ -760,6 +884,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
 		fndisp3 := fcancel,
               	entrymode   := nullmode ]
 
+%%
+  % @function tick
+  % @description Models clock ticks
+  % @param {per_tick} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
     tick(st: (per_tick)): state =
       IF
        NOT device(st)`ac_connect AND
@@ -799,14 +930,19 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
          ENDIF
        ENDIF
 
-% when pressing key1
-
+%%
+  % @function per_key1
+  % @description Permission predicate for soft function key 1
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_key1(st: state): bool =
    device(st)`powered_on? & no_button_down(st) &
     (( NOT device(st)`infusing? &
        (((topline(st) = holding OR topline(st) = setrate) AND entrymode(st) = rmode AND
                    fndisp1(st) = fvol) OR
-        (((topline(st) = clearsetup & fndisp1(st) = fclear & middisp(st)(drate) &
+        (((topline(st) = clearsetup & fndisp1(st) = fclear & middisp(st)(dvol) & middisp(st)(drate) &
                   ((device(st)`vtbi /= 0) IMPLIES middisp(st) (dvtbi)) &
                   (((device(st)`vtbi /= 0) OR (device(st)`infusionrate /= 0)) =>
                             middisp(st)(dtime))) OR
@@ -831,19 +967,29 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
                            (optionsmenu(st)(qcursor(st)) /= disableratelock) AND
                            (optionsmenu(st)(qcursor(st)) /= enableratelock))))) )
 
-  key1_case_clearsetup(st: (per_key1)):state =
-     st WITH [ topline :=
-              COND
-                device(st)`infusionrate = 0 -> setrate,
-                 ELSE -> holding
-               ENDCOND,
-      	        middisp := LAMBDA(x: imid_type): (x = drate) OR (x = dvol),
-                device := reset(device(st)),
-                fndisp1 := fvol,
-		fndisp2 := fvtbi,
-		fndisp3 := fnull,
-                entrymode  := rmode ]
 
+%%
+  % @function key1_case_clearsetup
+  % @description Used by key1 when top line shows clear set up
+  % @param {per_key1} st
+  % @returns {state} alaris pump takes rmode and shows setrate because infusion rate has been set to 0
+  % @memberof module:alaris2lnewmodes
+%%
+  key1_case_clearsetup(st: (per_key1)):state =
+     st WITH [ topline := setrate,
+      	       middisp := LAMBDA(x: imid_type): (x = drate) OR (x = dvol),
+               device := reset(device(st)),
+               fndisp1 := fvol,
+	       fndisp2 := fvtbi,
+	       fndisp3 := fnull,
+               entrymode  := rmode ]
+%%
+  % @function key1_case_infuselocked
+  % @description Used by key1 when trying to start an infusion and request to lock rate; if permitted then starts device, sets rlock to true, and starts infusing with appropriate displays
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_infuselocked(st: (per_key1)): state =
        st WITH [ device :=
                   IF per_start(st`device) THEN start(st`device)
@@ -864,6 +1010,14 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
               runlight := TRUE,
               pauselight := FALSE ]
 
+%%
+  % @function key1_case_holdinginfusingdispkvo
+  % @description Used by key1 when top line shows keep vein open
+  % @param {per_key1} st
+  % @returns {state} top line shows volume, provides the option to clear the volume infused, sets elapsed time since last action to zero
+  % @memberof module:alaris2lnewmodes
+%%
+
   key1_case_holdinginfusingdispkvo(st: (per_key1)): state =
       st WITH [ topline := volume,
       	        middisp := LAMBDA(x: imid_type): x = dvol,
@@ -873,7 +1027,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
 		fndisp3 := fquit,
                 entrymode  := nullmode ]
 
-
+%%
+  % @function key1_dispvtbi_vtmode
+  % @description Used by key1 when in vtmode and top line shows volume to be infused; exits the mode and enters rmode or infusemode depending whether the device is infusing or not, updates pump variable vtbi with temporary value newvtbi
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_dispvtbi_vtmode(st: (per_key1)): state =
                  st WITH [ topline := COND NOT device(st)`infusing? &
                                            device(st)`infusionrate /= 0 -> holding,
@@ -893,6 +1053,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
 			   fndisp3 := fnull,
 			   device  := aug_vtbi(device(st), newvtbi(st)) ]
 
+%%
+  % @function key1_case_dispvtbi_bagmode
+  % @description Used by key1 when mode is bagmode and top line shows volume to be infused. Goes to vtmode, adjusts displays, and sets temporary newvtbi to the appropriate bag volume, clears elapsed time
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_dispvtbi_bagmode(st: (per_key1)): state =
                   st WITH [ topline := dispvtbi,
 	       	            middisp := LAMBDA(x: imid_type): x = dnewvtbi,
@@ -900,7 +1067,6 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
 			    fndisp2 := fbags,
 			    fndisp3 := fquit,
 			    entrymode  := vtmode,
- %-- This has been modified to the actual settings on the Alaris GP
 			    newvtbi  := COND bagscursor(st) = 0 -> 0,
                                             bagscursor(st) = 1 -> 50,
                                             bagscursor(st) = 2 -> 100,
@@ -913,6 +1079,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
                                             bagscursor(st) = mbags -> 3000 ENDCOND,
                             device := resetElapsed(device(st))]
 
+%%
+  % @function key1_case_dispvtbi_tbagmode
+  % @description Used by key1 when top line shows vtbi and bag menu appears as part of setting vtbi over time (tbagmode); sets newrate and newvtbi depending on bag choice and clears elapsed time, adjusting displays
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_dispvtbi_tbagmode(st: (per_key1)): state =
          LET nvtbi: nonneg_real = COND bagscursor(st) = 0 -> 0,
                                             bagscursor(st) = 1 -> 50,
@@ -937,8 +1110,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
                              device := resetElapsed(device(st))
                            ]
 
-
-
+%%
+  % @function key1_case_options_dlock
+  % @description Used by key1 when infusion rate is locked and the unlock option is selected from the menu; goes to rmode or infusemode depending on whether the device is infusing or not and sets displays appropriately and clears elapsed time
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_options_dlock(st: (per_key1)): state =
      st WITH [ rlock := NOT rlock(st),
                topline := COND NOT device(st)`infusing? &
@@ -959,6 +1137,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
 	       fndisp3 := fnull,
 	       device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key1_case_options_dsetvtbi
+  % @description Used by key1 when set vtbi over time is chosen from the options menu
+  % @param {per_key1} st
+  % @returns {state} top line shows vtbi over time, mode vttmode, temporary newvtbi and newtime initialised as defined by actual device, appropriate displays and clears elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_options_dsetvtbi(st: (per_key1)): state =
      st WITH [ topline := vtbitime,
                newvtbi := 0,
@@ -970,6 +1155,13 @@ tick_case_infuse_infusionrateEQvtbi_kvoflag(st: {st: state | per_tick(device(st)
                fndisp3 := fquit,
 	       entrymode  := vttmode ]
 
+%%
+  % @function key1_case_options_dsetvtbilocked
+  % @description Used by key1 when trying to set vtbi over time when the infusion rate is locked
+  % @param {per_key1} st
+  % @returns {state} Shows top line of locked, and stays in options menu mode
+  % @memberof module:alaris2lnewmodes
+%%
 key1_case_options_dsetvtbilocked(st: (per_key1)): state =
      st WITH [ topline := locked,
                middisp := LAMBDA(x: imid_type): FALSE,
@@ -978,6 +1170,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                fndisp3 := fnull,
 	       entrymode  := qmode ]
 
+%%
+  % @function key1_case_options_ddosing_dsetup_dadjustav_dpdtls
+  % @description Used by key1 when selecting other information entries from the options menu.
+  % @param {per_key1} st
+  % @returns {state} shows top line of information - this element is not populated in the model
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_options_ddosing_dsetup_dadjustav_dpdtls(st: (per_key1)): state =
      st WITH [ topline := dispinfo,
                middisp := LAMBDA(x: imid_type): FALSE,
@@ -987,6 +1186,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	       entrymode  := nullmode,
                device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key1_case_options_ddisablerate
+  % @description Used by key1 when disabling infusion rate lock / unlock in the options menu. Returns to rmode or infusemode, depending whether paused or infusing
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_options_ddisablerate(st: (per_key1)): state =
       st WITH [ rdisabled := NOT rdisabled(st),
                 topline := COND NOT device(st)`infusing? &
@@ -1007,6 +1213,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	        fndisp3 := fnull,
 	        device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key1_case_vtbitime_vttmode
+  % @description Used by key1 to continue the sequence for setting vtbi over time when vtbi non zero, shows top line vtbi over time; sets mode to ttmode and clears elapsed time, back will take to vttmode
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_vtbitime_vttmode(st: (per_key1)): state =
       st WITH [ topline := vtbitime,
                 middisp := LAMBDA(x: imid_type): (x = dnewrate) OR (x = dnewvtbi) OR (x = dnewtime),
@@ -1016,6 +1229,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                 fndisp3 := fback,
 		entrymode  := ttmode ]
 
+%%
+  % @function key1_case_vtbitime_vtbiZ
+  % @description Used by key1 to continue the sequence for setting vtbi over time when vtbi zero; returns to holding (rmode) only available when device paused.
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1_case_vtbitime_vttmode_vtbiZ(st: (per_key1)): state =
       st WITH [ topline :=
                     COND
@@ -1023,21 +1243,19 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                       ELSE -> holding
                     ENDCOND,
       	        middisp := LAMBDA(x: imid_type): (x = drate) OR (x = dvol),
-                device := reset(device(st)),
+                device := aug_vtbi(device(st), 0),
                 fndisp1 := fvol,
 		fndisp2 := fvtbi,
 		fndisp3 := fnull,
                 entrymode  := rmode ]
 
-  key1_case_vtbitime_ttmode_rateNZ(st: (per_key1)): state =
-     st WITH [ topline :=  holding,
-               middisp := LAMBDA(x: imid_type): (x = drate) OR (x = dvtbi) OR (x = dtime) OR (x = dvol),
-	       fndisp1 := fvol,
-	       fndisp2 := fvtbi,
-               fndisp3 := fnull,
-	       entrymode  := rmode,
-	       device  := modvtbitime(newvtbi(st), newtime(st))(device(st)) ]
-
+%%
+  % @function key1_case_vtbitime_ttmode
+  % @description Used by key1 to complete the sequence for setting vtbi over time. Escapes the sequence and returns to holding (rmode) only available when device paused and updates vtbi and time with the temporary values newvtbi and newtime
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
    key1_case_vtbitime_ttmode(st: (per_key1)): state =
      LET newdevice = modvtbitime(newvtbi(st), newtime(st))(device(st))
       IN st WITH [
@@ -1051,6 +1269,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	       entrymode  := rmode,
 	       device  := newdevice ]
 
+ %%
+  % @function key1
+  % @description Soft function key 1. Deals with fifteen cases depending on conditions
+  % @param {per_key1} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key1(st:  (per_key1)): state =
         COND
          (topline(st) = holding OR topline(st) = setrate) OR (topline(st) = infusing) OR
@@ -1088,15 +1313,21 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                         ->  key1_case_vtbitime_ttmode(st)
         ENDCOND
 
-% when pressing key2
-
+%%
+  % @function per_key2
+  % @description Permission predicate for soft function key 2
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
    per_key2(st: state): bool =
    	no_button_down(st) &
                (((topline(st) = holding OR topline(st) = setrate) &
                      entrymode(st) = rmode & fndisp2(st) = fvtbi) OR
                 (topline(st) = infusing & fndisp2(st) = fvtbi &
                  entrymode(st) = infusemode & NOT device(st)`kvoflag) OR
-                (topline(st) = volume & entrymode(st) = nullmode & fndisp2(st) = fclear) OR
+                (topline(st) = volume & entrymode(st) = nullmode &
+                 fndisp2(st) = fclear & middisp(st)(dvol)) OR
                  ((((topline(st) = dispvtbi) AND (entrymode(st) = vtmode)) OR
                   ((topline(st) = vtbitime) AND (entrymode(st) = vttmode))) AND
                    (fndisp2(st) = fbags)) OR
@@ -1105,7 +1336,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 
 
 
-
+%%
+  % @function key2_case_holding_infusing
+  % @description Used by key2; moves from rmode to vtmode; sets up the display appropriately, and clears elapsed time.
+  % @param {per_key2} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key2_case_holding_infusing(st: (per_key2)): state =
       st WITH [ topline := dispvtbi,
                 newvtbi := device(st)`vtbi,
@@ -1116,7 +1353,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 		entrymode := vtmode,
                 device  := resetElapsed(device(st)) ]
 
-
+%%
+  % @function key2_case_volume
+  % @description Used by key2; returns from topline of volume (clears volume infused) to rmode or infusemode with appropriate displays and clears the volume infused, sets function key2 to fvtbi unless infusing and in KVO mode.
+  % @param {per_key2} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key2_case_volume(st: (per_key2)): state =
    st WITH [ topline := COND device(st)`infusing? AND device(st)`powered_on? AND
                                      NOT device(st)`kvoflag -> infusing,
@@ -1146,6 +1389,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                              ELSE -> fvtbi ENDCOND,
 	     fndisp3 := fnull ]
 
+%%
+  % @function key2_case_dispvtbiORvtbitime
+  % @description Used by key2; takes from vtmode or vttmode to appropriate bagmode; clears elapsed time and sets displays appropriately.
+  % @param {per_key2} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key2_case_dispvtbiORvtbitime(st: (per_key2)): state =
       st WITH [ topline := dispvtbi,
                 middisp := LAMBDA(x: imid_type): x = dbags,
@@ -1158,8 +1408,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                              ELSIF topline(st) = vtbitime THEN tbagmode
                              ELSE nullmode ENDIF ]
 
-
-
+%%
+  % @function key2
+  % @description Soft function key 2. Deals with three cases depending on conditions.
+  % @param {per_key2} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key2(st: (per_key2)): state =
         COND
           (topline(st) = holding OR topline(st) = setrate OR topline(st) = infusing OR topline(st) = setvtbi)
@@ -1170,8 +1425,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                  -> key2_case_dispvtbiORvtbitime(st)
         ENDCOND
 
-% when pressing key3
-
+%%
+  % @function per_key3
+  % @description Permission predicate for soft function key 3
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_key3(st: state): bool =
      device(st)`powered_on? & no_button_down(st) &
      (((((topline(st) = vtbidone) AND (fndisp3(st) = fcancel) AND (entrymode(st) = nullmode) AND
@@ -1203,6 +1463,14 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
        (topline(st) = volume & entrymode(st) = nullmode & fndisp3(st) = fquit) OR
        (topline(st) = batterylow & entrymode(st) = nullmode & fndisp3(st) = fcancel))
 
+
+%%
+  % @function key3_case_attention_clearsetup
+  % @description Used by key3 when starting the device and top line shows clear set up, and old pump parameters kept; goes to rmode, with appropriate top line if rate zero, resets elapsed time.
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key3_case_attention_clearsetup(st: (per_key3)): state =
       st WITH [ topline :=
                  COND device(st)`infusionrate = 0 -> setrate,
@@ -1217,6 +1485,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 		entrymode  := rmode,
 		device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_case_battery_low
+  % @description key3 pressed when topline battery low, returns to top line infusing, KVO, setrate, holding; sets displays and clears elapsed time
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
    key3_case_battery_low(st: (per_key3)): state =
       st WITH [ topline := COND device(st)`infusing? AND NOT device(st)`kvoflag -> infusing,
                                 device(st)`infusing? AND device(st)`kvoflag -> dispkvo,
@@ -1246,6 +1521,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                               ENDCOND,
 		device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_case_infuse
+  % @description key3 pressed when lock rate displayed - starts the infusion if permitted; sets display for infusing without locking the rate.
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key3_case_infuse(st: (per_key3)): state =
          st WITH [ device :=
                   IF per_start(st`device) THEN start(st`device)
@@ -1260,6 +1542,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
               runlight := TRUE,
               pauselight := FALSE ]
 
+%%
+  % @function key3_case_volume
+  % @description key3 pressed when topline shows volume; sets displys depending on whether the device is infusing or paused, or in KVO mode
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key3_case_volume(st: (per_key3)): state =
        st WITH [ topline := COND
                               device(st)`infusing? AND device(st)`powered_on? ->
@@ -1285,10 +1574,8 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                                 NOT device(st)`powered_on?  -> nullmode
                             ENDCOND,
 
-                 fndisp1 := COND
-                              device(st)`powered_on? -> fvol,
-                              ELSE -> fnull
-                            ENDCOND,
+                 fndisp1 :=  fvol,
+
                  fndisp2 := COND
                              device(st)`infusing? AND device(st)`powered_on? AND
                                    NOT device(st)`kvoflag -> fvtbi,
@@ -1299,6 +1586,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 		 fndisp3 := fnull,
               	 device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_case_vtbidone
+  % @description key3 pressed when vtbi done; continues infusing in KVO mode, only available key enables check of volume
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key3_case_vtbidone(st: (per_key3)): state =
    st WITH [ topline := dispkvo,
              middisp := LAMBDA(x: imid_type): (x = dkvorate) OR (x = dvtbi) OR (x = dvol) OR (x = dtime),
@@ -1308,6 +1602,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
              entrymode := infusemode,
              device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_dispvtbi_vtmode
+  % @description key3 pressed when in vtmode; returns to holding or infusing, depending on mode of device. When holding and infusion rate is zero then shows set rate, clears elapsed time, shows KVO if infusing when vtbi zero
+  % @param {per_key3} st
+  % @returns {state}
+%%
   key3_case_dispvtbi_vtmode(st: (per_key3)): state =
         st WITH [ topline := COND
                               NOT device(st)`infusing? AND
@@ -1341,6 +1641,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                                 NOT device(st)`powered_on? -> nullmode
                                ENDCOND ]
 
+%%
+  % @function key3_case_dispvtbi_bagmode
+  % @description key3 pressed when in bag mode
+  % @param {per_key3} st
+  % @returns {state} returns to vtmode, resets elapsed
+%%
   key3_case_dispvtbi_bagmode(st: (per_key3)): state =
    st WITH [ topline := dispvtbi,
              middisp := LAMBDA(x: imid_type): x = dnewvtbi,
@@ -1350,6 +1656,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	     entrymode := vtmode,
 	     device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_case_dispvtbi_tbagmode
+  % @description key3 pressed when in tbagmode (ie bag mode when entering vtbi over time
+  % @param {per_key3} st
+  % @returns {state} returns to vttmode, vtbi over time resets elapsed
+%%
  key3_case_dispvtbi_tbagmode(st: (per_key3)): state =
    st WITH [ topline := vtbitime,
              middisp := LAMBDA(x: imid_type): (x = dnewtime) OR (x = dnewrate) OR (x = dnewvtbi),
@@ -1359,6 +1671,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	     entrymode := vttmode,
 	     device  := resetElapsed(device(st)) ]
 
+%%
+  % @function key3_case_setvtbi_rate_notfitted
+  % @description key3 pressed when warning that giving set not fitted
+  % @param {per_key3} st
+  % @returns {state} returns to holding or set rate depending on whether infusion rate is zero
+%%
   key3_case_setvtbi_rate_notfitted(st: (per_key3)): state =
    st WITH [ topline := COND device(st)`infusionrate /= 0 -> holding,
                              ELSE -> setrate ENDCOND,
@@ -1372,6 +1690,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	     entrymode  := rmode,
 	     device  := resetElapsed(device(st))]
 
+%%
+  % @function key3_case_optionsORdispinfo
+  % @description key3 pressed when showing options menu or information display within options menu
+  % @param {per_key3} st
+  % @returns {state} returns to holding or infusing depending on the mode of the device, resets elapsed
+%%
   key3_case_optionsORdispinfo(st: (per_key3)): state =
    st WITH [ topline := COND NOT device(st)`infusing? &
                               device(st)`infusionrate /= 0-> holding,
@@ -1392,7 +1716,12 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                             ENDCOND,
 	      device  := resetElapsed(device(st)) ]
 
-
+%%
+  % @function key3_case_vtbitime_vttmode
+  % @description key3 pressed when entering vtbi within vtbi over time
+  % @param {per_key3} st
+  % @returns {state} returns to holding or set rate depending on value of infusion rate, resets elapsed time
+%%
   key3_case_vtbitime_vttmode(st: (per_key3)): state =
     st WITH [ topline := COND device(st)`infusionrate /= 0 -> holding,
                               ELSE -> setrate ENDCOND,
@@ -1406,16 +1735,28 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 	       entrymode  := rmode,
 	       device  := resetElapsed(device(st)) ]
 
-
+%%
+  % @function key3_case_vtbitime_ttmode
+  % @description key3 pressed when entering time in vtbi over time
+  % @param {per_key3} st
+  % @returns {state} returns to the state when entering vtbi in vtbi over time
+%%
   key3_case_vtbitime_ttmode(st: (per_key3)): state =
     st WITH [ topline := vtbitime,
               middisp := LAMBDA(x: imid_type): x = dnewrate OR x = dnewvtbi OR x = dnewtime,
               fndisp1 := fok,
 	      fndisp2 := fbags,
 	      fndisp3 := fquit,
-	      entrymode := vttmode ]
+	      entrymode := vttmode,
+              device  := resetElapsed(device(st)) ]
 
-
+%%
+  % @function key3
+  % @description Soft function key 3. Deals with ten cases depending on conditions.
+  % @param {per_key3} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   key3(st: (per_key3)): state =
          COND
             (topline(st) = attention OR topline(st) = clearsetup)
@@ -1445,8 +1786,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                   ->  key3_case_vtbitime_ttmode(st)
         ENDCOND
 
-% General permission associated with chevron keys
-
+%%
+  % @function per_chevron
+  % @description Permission predicate for chevron keys (general for of sup, fup, sdown, fdown)
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_chevron(st: state): bool =
              device(st)`powered_on? &
       (NOT device(st)`infusing? &
@@ -1483,28 +1829,73 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                (fndisp1(st) = fok) & (fndisp2(st) = fnull) &
                (fndisp3(st) = fquit))
 
-% specific permissions associated with the chevron keys that use the general permission above
 
+%%
+  % @function per_fup
+  % @description Permission predicate for fup; uses general chevron permission
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_fup(st:state): bool = (no_button_down(st) OR
                                        (which_press(st) = fupb AND pressed(st) < maxpress)) &
                               per_chevron(st)
+
+%%
+  % @function per_sup
+  % @description Permission predicate for sup; uses general chevron permission
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_sup(st: state): bool = (no_button_down(st) OR
                               (which_press(st) = supb AND pressed(st) < maxpress)) &
                               per_chevron(st)
+
+%%
+  % @function per_fdown
+  % @description Permission predicate for fdown; uses general chevron permission
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_fdown(st: state): bool = (no_button_down(st) OR
                                        (which_press(st) = fdownb AND pressed(st) < maxpress)) &
                               per_chevron(st)
+
+%%
+  % @function per_sdown
+  % @description Permission predicate for sdown; uses general chevron permission
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
   per_sdown(st: state): bool = (no_button_down(st) OR
                                        (which_press(st) = sdownb AND pressed(st) < maxpress)) &
                               per_chevron(st)
 
-% Fast up chevron key associated with infusion rate
 
+%%
+  % @function state_UP_rate
+  % @description Used by fup to increment rate by step defined by the value of the rate
+  % @param {steprate} d
+  % @param {irates} v
+  % @returns {irates} returns new value of infusion rate
+%%
   state_UP_rate(d: steprate, v: irates): irates =
     IF v<100 THEN trim_rate(floor(v) + d)
     ELSIF v>=100 AND v<1000 THEN trim_rate((floor(v/10) + d)*10)
     ELSE trim_rate((floor(v/100) + d) * 100) ENDIF
 
+
+%%
+  % @function fup_case_holding_NOTrlock
+  % @description Used by fup when pump holding and infusion rate not locked
+  % @param {presstime} d pressing of key which accelerates the step, augments infusion rate
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_holding_NOTrlock(d: presstime, st: (per_fup)): state =
     LET v: irates = device(st)`infusionrate,
         s: steprate =
@@ -1519,6 +1910,14 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                                    ELSE -> holding ENDCOND,
                    current_sr := s]
 
+%%
+  % @function fup_case_infusing_NOTrlock
+  % @description Used by fup when pump infusing and infusion rate not locked
+  % @param {presstime} d pressing of key which accelerates the step augments the infusion rate
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
    fup_case_infusing_NOTrlock(d: presstime, st: (per_fup)): state =
     LET v: irates = device(st)`infusionrate,
         s: steprate =
@@ -1531,8 +1930,13 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
           st WITH [device := aug_rate(device(st), r),
                    current_sr := s]
 
-
-
+%%
+  % @function fup_case_infusingORholding_NOTrlock
+  % @description Used by fup when pump infusing or holding and infusion rate locked. Returned state shows locked and amends the display.
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_infusingORholding_rlock(st: (per_fup)): state =
     st WITH [ topline := locked,
               middisp := LAMBDA(x: imid_type): FALSE,
@@ -1541,13 +1945,26 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
              fndisp3 := fnull,
              device  := resetElapsed(device(st)) ]
 
-% Fast up chevron key associated with volume to be infused
-
+%%
+  % @function state_UP_vtbi
+  % @description used by fup to increment vtbi by step defined by the value of the vtbi
+  % @param {stepvol} d
+  % @param {ivols} v
+  % @returns {ivols} returns new value of vtbi
+%%
   state_UP_vtbi(d: stepvol, v: ivols): ivols =
     IF v<100 THEN trim_vtbi(floor(v) + d)
     ELSIF v>=100 AND v<1000 THEN trim_vtbi((floor(v/10) + d)*10)
     ELSE trim_vtbi((floor(v/100) + d) * 100) ENDIF
 
+ %%
+  % @function fup_case_dispvtbi_vtmode
+  % @description Used by fup to update vtbi when display vtbi in top line and in vtmode.
+  % @param {presstime} d pressing of key which accelerates the step augments the vtbi
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_dispvtbi_vtmode(d: presstime, st: (per_fup)): state =
     LET s: stepvol =
             IF d=0 AND current_sv(st) = small_step AND
@@ -1560,7 +1977,15 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                    device  := resetElapsed(device(st))]
 
 
-  fup_case_vtbitime_vttmode(d: presstime, st: (per_fup)): state =
+ %%
+  % @function fup_case_vtbitime_vttmode
+  % @description Used by fup to update vtbi when inputting vtbi over time in vttmode
+  % @param {presstime} d pressing of key which accelerates the step augments the vtbi
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+fup_case_vtbitime_vttmode(d: presstime, st: (per_fup)): state =
    LET s: stepvol =
             IF d=0 AND current_sv(st) = small_step AND
                ((newvtbi(st)<100 AND fractional(newvtbi(st)/10)=0) OR
@@ -1578,11 +2003,24 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
 
 % Fast up chevron key associated with time to infuse
 
+%%
+  % @function state_UP_time
+  % @description used by fup to increment time by step defined by the value of the time
+  % @param {steptime} s
+  % @param {itimes} v
+  % @returns {irates} returns new value of time
+%%
   state_UP_time(s: steptime, v: itimes): itimes =
     trim_time(floor(v/s)*s + s)
 
-
-
+  %%
+  % @function fup_case_vtbitime_ttmode
+  % @description Used by fup to update time when inputting vtbi over time in ttmode.
+  % @param {presstime} d pressing of key which accelerates the step augments the time
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_vtbitime_ttmode(d: presstime, st: (per_fup)): state =
   LET s: steptime =
             COND d=4 -> 10*small_step,
@@ -1599,22 +2037,48 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                    current_st := s,
                    device := resetElapsed(device(st))]
 
+ %%
+  % @function fup_case_dispvtbi_bagmode
+  % @description Used by fup to set the bags menu cursor to maximum; also intialises elapsed time.
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_dispvtbi_bagmode(st: (per_fup)): state =
     st WITH [ bagscursor := mbags,
               device := resetElapsed(device(st)) ]
 
+ %%
+  % @function fup_case_dispvtbi_tbagmode
+  % @description Used by fup to set the bags menu cursor (in vtbi over time) to maximum; also intialises elapsed time.
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_dispvtbi_tbagmode(st: (per_fup)): state =
     st WITH [ bagscursor := mbags,
               device := resetElapsed(device(st)) ]
 
 % Fast up chevron key associated with the options menu
-
+%%
+  % @function fup_case_options
+  % @description Used by fup to set the options menu cursor to zero; also intialises elapsed time.
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup_case_options(st: (per_fup)): state =
    st WITH [ qcursor := 0,
              device := resetElapsed(device(st)) ]
 
-% Fast up chevron key
 
+%%
+  % @function fup
+  % @description Fast up chevron key
+  % @param {per_fup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fup(st: (per_fup)): state =
          LET d: presstime = decrement(pressed(st), 1) IN
          (COND
@@ -1643,15 +2107,28 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
         ENDCOND) WITH [pressed := d,
                       which_press := fupb]
 
-% Slow up chevron key associated with infusion rate
 
+%%
+  % @function state_up_rate
+  % @description used by sup to increment rate by step defined by the value of the rate
+  % @param {steprate} d
+  % @param {irates} v
+  % @returns {irates} returns new value of infusion rate
+%%
   state_up_rate(d: steprate, v: irates): irates =
      IF    v < 100                 THEN trim_rate( floor((v*10) + d) / 10 )
      ELSIF v >= 100 AND v < 1000 THEN trim_rate( floor((v) + d) )
      ELSE                                 trim_rate( (floor(v/10) + d) * 10 ) ENDIF
 
 
-  sup_case_holding_NOTrlock(st: (per_sup)): state =
+%%
+  % @function sup_case_holding_NOTrlock
+  % @description  when pump holding and infusion rate not locked
+  % @param {per_sup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+ sup_case_holding_NOTrlock(st: (per_sup)): state =
    LET v: irates = device(st)`infusionrate,
        r: irates = state_up_rate(small_step, v)
         IN
@@ -1660,14 +2137,28 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
                                 ELSE -> holding ENDCOND,
                    current_sr := small_step]
 
-  sup_case_infusing_NOTrlock(st: (per_sup)): state =
+%%
+  % @function sup_case_infusing_NOTrlock
+  % @description Used by sup when pump infusing and infusion rate not locked
+  % @param {per_sup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+sup_case_infusing_NOTrlock(st: (per_sup)): state =
    LET v: irates = device(st)`infusionrate,
        r: irates = state_up_rate(small_step, v)
         IN
           st WITH [device := aug_rate(device(st), r),
                    current_sr := small_step]
 
-  sup_case_infusingORholding_rlock(st: (per_sup)): state =
+%%
+  % @function sup_case_infusingORholding_NOTrlock
+  % @description  when pump infusing or holding and infusion rate locked
+  % @param {per_sup} st
+  % @returns {state} shows locked and amends the display
+  % @memberof module:alaris2lnewmodes
+%%
+ sup_case_infusingORholding_rlock(st: (per_sup)): state =
     st WITH [ topline := locked,
 	      middisp := LAMBDA(x: imid_type): FALSE,
               fndisp1 := fnull,
@@ -1675,19 +2166,38 @@ key1_case_options_dsetvtbilocked(st: (per_key1)): state =
               fndisp3 := fnull,
               device := resetElapsed(device(st))]
 
- % Slow up chevron key associated with volume to be infused
-
- state_up_vtbi(d: stepvol, v: ivols): ivols =
+%%
+  % @function state_up_vtbi
+  % @description used by sup to increment vtbi by step defined by the value of the vtbi
+  % @param {stepvol} d
+  % @param {ivols} v
+  % @returns {ivols} returns new value of vtbi
+%%
+state_up_vtbi(d: stepvol, v: ivols): ivols =
      IF    v < 100                 THEN trim_vtbi( floor((v*10) + d) / 10 )
      ELSIF v >= 100 AND v < 1000 THEN trim_vtbi( floor((v) + d) )
      ELSE                                 trim_vtbi( (floor(v/10) + d) * 10 ) ENDIF
 
+ %%
+  % @function sup_case_dispvtbi_vtmode
+  % @description Used by sup when display vtbi in top line and in vtmode
+  % @param {per_sup} st
+  % @returns {state} updates vtbi
+  % @memberof module:alaris2lnewmodes
+%%
 sup_case_dispvtbi_vtmode(st: (per_sup)): state =
           st WITH [newvtbi := state_up_vtbi(small_step, newvtbi(st)),
                    current_sv := small_step,
                    device  := resetElapsed(device(st))]
 
-  sup_case_vtbitime_vttmode(st: (per_sup)): state =
+ %%
+  % @function sup_case_vtbitime_vttmode
+  % @description  when inputting vtbi over time in vttmode
+  % @param {per_sup} st
+  % @returns {state} updates temporary values vtbi and rate
+  % @memberof module:alaris2lnewmodes
+%%
+ sup_case_vtbitime_vttmode(st: (per_sup)): state =
     LET nv: ivols = state_up_vtbi(small_step, newvtbi(st))
         IN
           st WITH [newvtbi := nv,
@@ -1698,11 +2208,24 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
                    current_sv := small_step,
                    device  := resetElapsed(device(st))]
 
-% Slow up chevron key associated with time to infuse
-
+%%
+  % @function state_up_time
+  % @description used by sup to increment time by step defined by how long the chevron key has been pressed
+  % @param {steptime} s
+  % @param {itimes} v
+  % @returns {irates} returns new value of time
+%%
   state_up_time(s: steptime, v: itimes): itimes =
      trim_time(floor(v/s)*s + s)
 
+ %%
+  % @function sup_case_vtbitime_ttmode
+  % @description  when inputting vtbi over time in ttmode
+  % @param {presstime} d pressing of key which accelerates the step that augments the time
+  % @param {per_sup} st
+  % @returns {state} updates time
+  % @memberof module:alaris2lnewmodes
+%%
   sup_case_vtbitime_ttmode(d: presstime, st: {st: state | per_sup(st)}): state =
      LET s: steptime =
             COND
@@ -1716,25 +2239,42 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
           st WITH [newtime := nt,
                    newrate := IF
                                nt = 0 THEN 0
-			      % >>new edit<<
-                              %ELSE floor(newvtbi(st) / nt)
-                              ELSE newvtbi(st) / nt
+			      ELSE newvtbi(st) / nt
                               ENDIF,
                    current_st := small_step,
                    device  := resetElapsed(device(st))]
 
-  sup_case_dispvtbi_bagmode(st: (per_sup)): state =
+ %%
+  % @function sup_case_dispvtbi_bagmode
+  % @description  increments the bags menu cursor
+  % @param {per_sup} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
+ sup_case_dispvtbi_bagmode(st: (per_sup)): state =
     st WITH [ bagscursor := COND bagscursor(st) < mbags -> bagscursor(st) + 1,
                                  bagscursor(st) >= mbags -> bagscursor(st) ENDCOND,
               device := resetElapsed(device(st)) ]
 
+ %%
+  % @function sup_case_dispvtbi_tbagmode
+  % @description  increments the bags menu cursor (in vtbi over time)
+  % @param {per_sup} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
   sup_case_dispvtbi_tbagmode(st: (per_sup)): state =
     st WITH [ bagscursor := COND bagscursor(st) < mbags -> bagscursor(st) + 1,
                                  bagscursor(st) >= mbags -> bagscursor(st) ENDCOND,
               device := resetElapsed(device(st)) ]
 
-% Slow up chevron key associated with the options menu
-
+%%
+  % @function sup_case_options
+  % @description  decrements the options menu cursor
+  % @param {per_sup} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
   sup_case_options(st: (per_sup)): state =
     st WITH [ qcursor :=
                 IF qcursor(st) = 0 THEN 0
@@ -1742,6 +2282,13 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
                 ENDIF,
               device := resetElapsed(device(st)) ]
 
+%%
+  % @function sup
+  % @description Slow up chevron key
+  % @param {per_sup} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   sup(st: (per_sup)): state =
       LET d: presstime = decrement(pressed(st), 1) IN
         (COND
@@ -1773,13 +2320,29 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
         ENDCOND) WITH [pressed := d, which_press := supb]
 
 % The fast down button associated with infusion rate
- %-- the conditions for DN are apparently slightly different from those of the other buttons...
+%-- the conditions for DN are apparently slightly different from those of the other buttons...
+%%
+  % @function state_DN_rate
+  % @description used by fdown to decrement rate by step defined by the value of the rate
+  % @param {steprate} d
+  % @param {irates} v
+  % @returns {irates} returns new value of infusion rate
+%%
   state_DN_rate(d: steprate, v: irates): irates =
      IF    v < 100                THEN trim_rate( ceil_rate(v) - d)
      ELSIF v >= 100 AND v < 1000  THEN trim_rate( (ceil_rate(v/10) - d) * 10 )
      ELSE                                 trim_rate( (ceil_rate(v/100) - d) * 100 ) ENDIF
 
-  fdown_case_holding_NOTrlock(d: presstime, st: (per_fdown)): state =
+
+%%
+  % @function fdown_case_holding_NOTrlock
+  % @description  when pump holding and infusion rate not locked
+  % @param {presstime} d pressing of key which accelerates the step, decrements infusion rate
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+ fdown_case_holding_NOTrlock(d: presstime, st: (per_fdown)): state =
     LET v: irates = device(st)`infusionrate,
         s: steprate =
             COND
@@ -1795,6 +2358,14 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
                                 ELSE -> holding ENDCOND,
                    current_sr := s]
 
+%%
+  % @function fdown_case_infusing_NOTrlock
+  % @description Used by fdown when pump infusing and infusion rate not locked
+  % @param {presstime} d pressing of key which accelerates the step decrements the infusion rate
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fdown_case_infusing_NOTrlock(d: presstime, st: (per_fdown)): state =
     LET v: irates = device(st)`infusionrate,
         s: steprate =
@@ -1809,7 +2380,14 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
           st WITH [device := aug_rate(device(st), r),
                    current_sr := s]
 
-  fdown_case_infusingORholding_rlock(st: (per_fdown)): state =
+%%
+  % @function fdown_case_infusingORholding_NOTrlock
+  % @description Used by fdown when pump infusing or holding and infusion rate locked. The returned state shows locked and amends the display.
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+ fdown_case_infusingORholding_rlock(st: (per_fdown)): state =
     st WITH [ topline := locked,
               middisp := LAMBDA(x: imid_type): FALSE,
               fndisp1 := fnull,
@@ -1818,13 +2396,27 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
               device  := resetElapsed(device(st)) ]
 
 % The fast down button associated with volume to be infused
-
+%%
+  % @function state_DN_vtbi
+  % @description used by fdown to decrement vtbi by step defined by the value of the vtbi
+  % @param {stepvol} d
+  % @param {ivols} v
+  % @returns {ivols} returns new value of vtbi
+%%
    state_DN_vtbi(d: stepvol, v: ivols): ivols =
      IF    v < 100                THEN trim_vtbi( ceil_vtbi(v) - d)
      ELSIF v >= 100 AND v < 1000  THEN trim_vtbi( (ceil_vtbi(v/10) - d) * 10 )
      ELSE                                 trim_vtbi( (ceil_vtbi(v/100) - d) * 100 ) ENDIF
 
- fdown_case_dispvtbi_vtmode(d: presstime, st: (per_fdown)): state =
+ %%
+  % @function fdown_case_dispvtbi_vtmode
+  % @description Used by fdown to update vtbi when display vtbi in top line and in vtmode
+  % @param {presstime} d pressing of key which accelerates the step decreases the vtbi
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+fdown_case_dispvtbi_vtmode(d: presstime, st: (per_fdown)): state =
    LET s: stepvol =
             COND
               d=0 AND current_sv(st) = small_step AND
@@ -1838,6 +2430,14 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
                    device  := resetElapsed(device(st))]
 
 
+ %%
+  % @function fdown_case_vtbitime_vttmode
+  % @description Used by fdown to update vtbi when inputting vtbi over time in vttmode.
+  % @param {presstime} d pressing of key which accelerates the step decreases the vtbi
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fdown_case_vtbitime_vttmode(d: presstime, st: (per_fdown)): state =
      LET s: stepvol =
             COND
@@ -1858,13 +2458,35 @@ sup_case_dispvtbi_vtmode(st: (per_sup)): state =
 
 % The fast down button associated with time
 
+%%
+  % @function state_DN_time
+  % @description used by fup to decrease time by step defined by the value of the time
+  % @param {steptime} s
+  % @param {itimes} v
+  % @returns {itimes} returns new value of time
+%%
 state_DN_time(s: steptime, v: itimes): itimes =
      trim_time(ceiling(v/s)*s - s)
 
+%%
+  % @function state_dn_time
+  % @description used by sdown to decrement time by step defined by how long the chevron key has been pressed
+  % @param {steptime} s
+  % @param {itimes} v
+  % @returns {itimes} returns new value of time
+%%
 state_dn_time(s: steptime, v: itimes): itimes =
      trim_time(ceiling(v/s)*s - s)
 
-  fdown_case_vtbitime_ttmode(d: presstime, st: (per_fdown)): state =
+  %%
+  % @function fdown_case_vtbitime_ttmode
+  % @description  when inputting vtbi over time in ttmode
+  % @param {presstime} d pressing of key which accelerates the step decreases the time
+  % @param {per_fdown} st
+  % @returns {state} updates times
+  % @memberof module:alaris2lnewmodes
+%%
+ fdown_case_vtbitime_ttmode(d: presstime, st: (per_fdown)): state =
    LET s: steptime =
             COND
               d=4 -> 10*small_step,
@@ -1882,16 +2504,37 @@ state_dn_time(s: steptime, v: itimes): itimes =
                    device  := resetElapsed(device(st))]
 
 
+ %%
+  % @function fdown_case_dispvtbi_bagmode
+  % @description Used by fdown to set the bags menu cursor to minimum and intialises elapsed time
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fdown_case_dispvtbi_bagmode(st: (per_fdown)): state =
    st WITH [ bagscursor := 0,
              device := resetElapsed(device(st)) ]
 
-  fdown_case_dispvtbi_tbagmode(st: (per_fdown)): state =
+  %%
+  % @function fdown_case_dispvtbi_tbagmode
+  % @description Used by fdown to set the bags menu cursor (in vtbi over time) to minimum and initialises elapsed time
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+ fdown_case_dispvtbi_tbagmode(st: (per_fdown)): state =
    st WITH [ bagscursor := 0,
              device := resetElapsed(device(st)) ]
 
 % The fast down button associated with the options menu
 
+%%
+  % @function fdown_case_options
+  % @description Used by fdown to set the options menu cursor to max (depending on number of entries in menu) and initialises elapsed time
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   fdown_case_options(st: (per_fdown)): state =
    st WITH [ qcursor :=
                COND device(st)`infusing? AND NOT rdisabled(st) AND
@@ -1906,7 +2549,14 @@ state_dn_time(s: steptime, v: itimes): itimes =
 
 % The general fast down button
 
-  fdown(st: (per_fdown)): state =
+%%
+  % @function fdown
+  % @description Fast down chevron key
+  % @param {per_fdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+ fdown(st: (per_fdown)): state =
         LET d: presstime = decrement(pressed(st), 1) IN
         (COND
           ((topline(st)=holding) OR (topline(st)=setrate)) &
@@ -1935,13 +2585,27 @@ state_dn_time(s: steptime, v: itimes): itimes =
 
 % The slow down button associated with infusion rate
 
+%%
+  % @function state_dn_rate
+  % @description Used by sdown to decrement rate by step defined by the value of the rate. Returns new value of infusion rate.
+  % @param {steprate} d
+  % @param {irates} v
+  % @returns {irates}
+%%
  %-- note: dn(100) = 99 (and not 99.9)
   state_dn_rate(d: steprate, v: irates): irates =
      IF    v < 100                THEN trim_rate( (ceil_rate(v*10) - d) / 10 )
      ELSIF v >= 100 AND v < 1000  THEN trim_rate( ceil_rate(v - d) )
      ELSE                                 trim_rate( (ceil_rate(v/10) - d) * 10 ) ENDIF
 
-  sdown_case_holding_NOTrlock(st: (per_sdown)): state =
+%%
+  % @function sdown_case_holding_NOTrlock
+  % @description Used by sdown when pump holding and infusion rate not locked
+  % @param {per_sdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
+sdown_case_holding_NOTrlock(st: (per_sdown)): state =
     LET v: irates = device(st)`infusionrate,
         r: irates = state_dn_rate(small_step, v)
         IN
@@ -1950,6 +2614,13 @@ state_dn_time(s: steptime, v: itimes): itimes =
                                    ELSE -> holding ENDCOND,
                    current_sr := small_step]
 
+%%
+  % @function sdown_case_infusing_NOTrlock
+  % @description Used by sdown when pump infusing and infusion rate not locked
+  % @param {per_sdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   sdown_case_infusing_NOTrlock(st: (per_sdown)): state =
     LET v: irates = device(st)`infusionrate,
         r: irates = state_dn_rate(small_step, v)
@@ -1957,6 +2628,13 @@ state_dn_time(s: steptime, v: itimes): itimes =
           st WITH [device := aug_rate(device(st), r),
                    current_sr := small_step]
 
+  %%
+  % @function sdown_case_infusingORholding_NOTrlock
+  % @description  when pump infusing or holding and infusion rate locked
+  % @param {per_sdown} st
+  % @returns {state} shows locked and amends the display
+  % @memberof module:alaris2lnewmodes
+%%
   sdown_case_infusingORholding_rlock(st: (per_sdown)): state =
    st WITH [ topline := locked,
              middisp := LAMBDA(x: imid_type): FALSE,
@@ -1967,18 +2645,39 @@ state_dn_time(s: steptime, v: itimes): itimes =
 
 % The slow down button associated with volume to be infused
 %-- note: dn(100) = 99 (and not 99.9)
+
+%%
+  % @function state_dn_vtbi
+  % @description used by sdown to decrement vtbi by step defined by the value of the vtbi
+  % @param {stepvol} d
+  % @param {ivols} v
+  % @returns {ivols} returns new value of vtbi
+%%
   state_dn_vtbi(d: stepvol, v: ivols): ivols =
      IF    v < 100                THEN trim_vtbi( (ceil_vtbi(v*10) - d) / 10 )
      ELSIF v >= 100 AND v < 1000  THEN trim_vtbi( ceil_vtbi(v - d) )
      ELSE                                 trim_vtbi( (ceil_vtbi(v/10) - d) * 10 ) ENDIF
 
-
+ %%
+  % @function sdown_case_dispvtbi_vtmode
+  % @description Used by sdown to update vtbi when display vtbi in top line and in vtmode
+  % @param {per_sdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   sdown_case_dispvtbi_vtmode(st: (per_sdown)): state =
           st WITH [newvtbi := state_dn_vtbi(small_step, newvtbi(st)),
                    current_sv := small_step,
                    device  := resetElapsed(device(st))]
 
-  sdown_case_vtbitime_vttmode(st: (per_sdown)): state =
+ %%
+  % @function sdown_case_vtbitime_vttmode
+  % @description  when inputting vtbi over time in vttmode
+  % @param {per_sup} st
+  % @returns {state} updates temporary values vtbi and rate
+  % @memberof module:alaris2lnewmodes
+%%
+ sdown_case_vtbitime_vttmode(st: (per_sdown)): state =
     LET nv: ivols = state_dn_vtbi(small_step, newvtbi(st))
         IN
           st WITH [newvtbi := nv,
@@ -1990,6 +2689,14 @@ state_dn_time(s: steptime, v: itimes): itimes =
                    device  := resetElapsed(device(st))]
 
 % The slow down button associated with time
+ %%
+  % @function sdown_case_vtbitime_ttmode
+  % @description Used by sdown to update time when inputting vtbi over time in ttmode.
+  % @param {presstime} d pressing of key which accelerates the step that decreases the time
+  % @param {per_sdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   sdown_case_vtbitime_ttmode(d: presstime, st: (per_sdown)): state =
     LET s: steptime =
             COND
@@ -2008,18 +2715,39 @@ state_dn_time(s: steptime, v: itimes): itimes =
                    current_st := s,
                    device  := resetElapsed(device(st))]
 
-  sdown_case_dispvtbi_bagmode(st: (per_sdown)): state =
+ %%
+  % @function sdown_case_dispvtbi_bagmode
+  % @description  decrements the bags menu cursor
+  % @param {per_sdown} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
+sdown_case_dispvtbi_bagmode(st: (per_sdown)): state =
    st WITH [ bagscursor := COND bagscursor(st) > 0 -> bagscursor(st) - 1,
                                 bagscursor(st) = 0 -> bagscursor(st) ENDCOND,
              device := resetElapsed(device(st)) ]
 
-  sdown_case_dispvtbi_tbagmode(st: (per_sdown)): state =
+%%
+  % @function sdown_case_dispvtbi_tbagmode
+  % @description  decrements the bags menu cursor (in vtbi over time)
+  % @param {per_sdown} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
+ sdown_case_dispvtbi_tbagmode(st: (per_sdown)): state =
    st WITH [ bagscursor := COND bagscursor(st) > 0 -> bagscursor(st) - 1,
                                 bagscursor(st) = 0 -> bagscursor(st) ENDCOND,
              device := resetElapsed(device(st)) ]
 
 % The slow down button associated with options menu
 
+%%
+  % @function sdown_case_options
+  % @description  decrements the options menu cursor
+  % @param {per_sdown} st
+  % @returns {state} also intialises elapsed time
+  % @memberof module:alaris2lnewmodes
+%%
   sdown_case_options(st: (per_sdown)): state =
    st WITH [ qcursor := COND
                           qcursor(st) = dpdtls -> qcursor(st),
@@ -2028,8 +2756,13 @@ state_dn_time(s: steptime, v: itimes): itimes =
                              ELSE -> qcursor(st)+1 ENDCOND,
               device := resetElapsed(device(st)) ]
 
-% The general slow down function
-
+%%
+  % @function sdown
+  % @description slow down function
+  % @param {per_sdown} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
   sdown(st: (per_sdown)): state =
        LET d: presstime = decrement(pressed(st), 1) IN
         (COND
@@ -2057,59 +2790,143 @@ state_dn_time(s: steptime, v: itimes): itimes =
 	ENDCOND) WITH [pressed := d,
                        which_press := sdownb]
 
- % Releasing the chevron keys
+% Releasing the chevron keys
 
+%%
+  % @function per_release_chevron
+  % @description general permission for releasing chevron key
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
  per_release_chevron(st: state): boolean =
             per_chevron(st) OR (topline(st) = locked AND
                    ((entrymode(st) = rmode) OR (entrymode(st) = infusemode)) AND
                    rlock(st))
 
+%%
+  % @function per_release_fup
+  % @description specific permission for releasing fup key
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
  per_release_fup(st: state): boolean =
       which_press(st) = fupb AND pressed(st) < maxpress AND per_release_chevron(st)
 
+%%
+  % @function release_fup
+  % @description invokes release key
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
  release_fup(st:(per_release_fup)): state =
      release_key(st)
 
+%%
+  % @function per_release_sup
+  % @description specific permission for releasing fup key
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
  per_release_sup(st: state): boolean =
       which_press(st) = supb AND pressed(st) < maxpress AND per_release_chevron(st)
 
+%%
+  % @function release_sup
+  % @description invokes release key
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
  release_sup(st:(per_release_sup)): state =
      release_key(st)
 
 
+%%
+  % @function per_release_fdown
+  % @description specific permission for releasing fdown key
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
  per_release_fdown(st: state): boolean =
       which_press(st) = fdownb AND pressed(st) < maxpress AND per_release_chevron(st)
 
+%%
+  % @function release_fdown
+  % @description invokes release key
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
  release_fdown(st:(per_release_fdown)): state =
      release_key(st)
 
+%%
+  % @function per_release_sdown
+  % @description specific permission for releasing sdown key
+  % @param {state} st
+  % @returns {bool}
+  % @memberof module:alaris2lnewmodes
+%%
 per_release_sdown(st: state): boolean =
       which_press(st) = sdownb AND pressed(st) < maxpress AND per_release_chevron(st)
 
+%%
+  % @function release_sdown
+  % @description invokes release key
+  % @param {state} st
+  % @returns {state}
+  % @memberof module:alaris2lnewmodes
+%%
  release_sdown(st:(per_release_sdown)): state =
      release_key(st)
 
 %--- General theorems used in the analysis
 
-% QED Run time  = 99.66 secs. 18/1/17
+%%
+% @lemma check_chev_sup_permission
+% @description permitted to release, if chevron key pressed
+% @yelds QED
+% @stats Runtime 96.53 secs. 18/7/17
+%%
 check_chev_sup_permission: LEMMA
  FORALL (st: state):
       per_sup(st) IMPLIES per_release_sup(sup(st))
-% QED Run time  = 313.35 secs. 18/1/17
+%%
+% @lemma check_chev_fup_permission
+% @description permitted to release, if chevron key pressed
+% @yelds QED
+% @stats Run time  = 321.59 secs. 18/7/17
+%%
 check_chev_fup_permission: LEMMA
    FORALL (st: state):
       per_fup(st) IMPLIES per_release_fup(fup(st))
-% QED Run time  = 101.30 secs. 18/1/17
+
+%%
+% @lemma check_chev_sdown_permission
+% @description permitted to release, if chevron key pressed
+% @yelds QED
+% @stats Run time  = 100.36 secs. 18/7/17
+%%
 check_chev_sdown_permission: LEMMA
    FORALL (st: state):
       per_sdown(st) IMPLIES per_release_sdown(sdown(st))
-% QED Run time  = 538.67 secs. 18/1/17
+
+%%
+% @lemma check_chev_fdown_permission
+% @description permitted to release, if chevron key pressed
+% @yelds QED
+% @stats Run time  = 568.48 secs. 18/7/17
+%%
 check_chev_fdown_permission: LEMMA
    FORALL (st: state):
       per_fdown(st) IMPLIES per_release_fdown(fdown(st))
 
- END alaris_th
-</code></pre>
+ END alaris_th</code></pre>
         </article>
     </section>
 
@@ -2126,12 +2943,21 @@ check_chev_fdown_permission: LEMMA
         <li><a href="module-pump_th.html">pump_th</a></li>
         <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
     </ul>
+    <h3>Theorems</h3>
+    <ul>
+        <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+        <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+        <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+        <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+        <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+        <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+    <ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Wed Jul 12 2017 13:47:14 GMT+0100 (WEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Aug 25 2017 19:44:47 GMT+0100 (WEST)
 </footer>
 
 <script> prettyPrint(); </script>

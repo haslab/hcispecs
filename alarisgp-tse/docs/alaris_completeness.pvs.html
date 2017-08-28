@@ -1,4 +1,22 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_completeness.pvs</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+<div id="main">
+    <h1 class="page-title">Source: alaris_completeness.pvs</h1>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>%%
 % @module alaris_completeness
 % @author Michael Harrison and Paolo Masci (QMUL and Newcastle University)
 % @date April 2017
@@ -6,7 +24,7 @@
 %%
 alaris_completeness_pattern[
    maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -57,23 +75,23 @@ infuse_state(st: state): boolean =
   % @memberof module:alaris_completeness
   %%
 state_transitions(pre, post: state): boolean =
-  (per_sup(pre) & post = sup(pre)) 
-  OR (per_release_sup(pre) & post = release_sup(pre)) 
-  OR (per_fup(pre) & post = fup(pre)) 
-  OR (per_release_fup(pre) & post = release_fup(pre)) 
-  OR (per_sdown(pre) & post = sdown(pre)) 
-  OR (per_release_sdown(pre) & post = release_sdown(pre)) 
-  OR (per_fdown(pre) & post = fdown(pre)) 
-  OR (per_release_fdown(pre) & post = release_fdown(pre)) 
-  OR (per_tick(pre) & post = tick(pre)) 
-  OR (per_key1(pre) & post = key1(pre)) 
-  OR (per_key2(pre) & post = key2(pre)) 
-  OR (per_key3(pre) & post = key3(pre)) 
-  OR (per_query(pre) & post = query(pre)) 
-  OR (per_on(pre) & post = on(pre)) 
-  OR (per_run(pre) & post = run(pre)) 
-  OR (per_pause(pre) & post = pause(pre)) 
-  OR (per_switch(pre) & post = switch(pre)) 
+  (per_sup(pre) & post = sup(pre))
+  OR (per_release_sup(pre) & post = release_sup(pre))
+  OR (per_fup(pre) & post = fup(pre))
+  OR (per_release_fup(pre) & post = release_fup(pre))
+  OR (per_sdown(pre) & post = sdown(pre))
+  OR (per_release_sdown(pre) & post = release_sdown(pre))
+  OR (per_fdown(pre) & post = fdown(pre))
+  OR (per_release_fdown(pre) & post = release_fdown(pre))
+  OR (per_tick(pre) & post = tick(pre))
+  OR (per_key1(pre) & post = key1(pre))
+  OR (per_key2(pre) & post = key2(pre))
+  OR (per_key3(pre) & post = key3(pre))
+  OR (per_query(pre) & post = query(pre))
+  OR (per_on(pre) & post = on(pre))
+  OR (per_run(pre) & post = run(pre))
+  OR (per_pause(pre) & post = pause(pre))
+  OR (per_switch(pre) & post = switch(pre))
   OR (per_fit_set(pre) & post = fit_set(pre))
 
 
@@ -88,16 +106,16 @@ state_transitions(pre, post: state): boolean =
   % @memberof module:alaris_completeness
   %%
 state_transitions_release(pre, post: state): boolean =
-  (per_sup(pre) & post = release_sup(sup(pre))) OR  
-  (per_fup(pre) & post = release_fup(fup(pre))) OR  
-  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
-  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+  (per_sup(pre) & post = release_sup(sup(pre))) OR
+  (per_fup(pre) & post = release_fup(fup(pre))) OR
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR
   (per_tick(pre) & post = tick(pre)) OR
-  (per_key1(pre) & post = key1(pre)) OR  (per_key2(pre) & post = key2(pre)) OR (per_key3(pre) & post = key3(pre)) OR 
-  (per_query(pre) & post = query(pre)) OR 
-  (per_on(pre) & post = on(pre)) OR 
-  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & no_button_down(pre) & post = pause(pre)) OR 
-  (post = pre) OR (per_switch(pre) & post = switch(pre)) OR 
+  (per_key1(pre) & post = key1(pre)) OR  (per_key2(pre) & post = key2(pre)) OR (per_key3(pre) & post = key3(pre)) OR
+  (per_query(pre) & post = query(pre)) OR
+  (per_on(pre) & post = on(pre)) OR
+  (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & no_button_down(pre) & post = pause(pre)) OR
+  (post = pre) OR (per_switch(pre) & post = switch(pre)) OR
    (per_fit_set(pre) & post = fit_set(pre))
 
 % Completeness template
@@ -109,7 +127,7 @@ state_transitions_release(pre, post: state): boolean =
   % @function goal_infuse
   % @description predicate that is true when the entry mode is infusemode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 goal_infuse(st: state): boolean = entrymode(st) = infusemode
@@ -118,7 +136,7 @@ goal_infuse(st: state): boolean = entrymode(st) = infusemode
   % @function goal_infuse_line
   % @description predicate that is true when the top line shows a display associated with infusing
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 goal_infuse_line(st: state): boolean =
@@ -128,7 +146,7 @@ goal_infuse_line(st: state): boolean =
   % @function guard_infuse
   % @description predicate that is true when the device is infusing, the top line is not showing locked and the device is not showing VTBI in the top line in bag mode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 guard_infuse(st: state): boolean =
@@ -146,20 +164,20 @@ guard_infuse(st: state): boolean =
   % @memberof module:alaris_completeness
   %%
 state_nokey13_transitions_release(pre, post: state): boolean =
-    (per_sup(pre) & post = release_sup(sup(pre))) OR  
-  (per_fup(pre) & post = release_fup(fup(pre))) OR  
-  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR 
-  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR 
+    (per_sup(pre) & post = release_sup(sup(pre))) OR
+  (per_fup(pre) & post = release_fup(fup(pre))) OR
+  (per_sdown(pre) & post = release_sdown(sdown(pre))) OR
+  (per_fdown(pre) & post = release_fdown(fdown(pre))) OR
   (per_tick(pre) & post = tick(pre)) OR
   (per_key2(pre) & post = key2(pre)) OR
-  (per_query(pre) & post = query(pre)) OR 
+  (per_query(pre) & post = query(pre)) OR
   (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR (post = pre)
 
 %%
   % @function simple_guard_rmode
   % @description predicate that is true when the device is in paused state
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 simple_guard_rmode(st: state): boolean = paused_state(st)
@@ -168,7 +186,7 @@ simple_guard_rmode(st: state): boolean = paused_state(st)
   % @function simple_guard_hosr
   % @description predicate that is true when the device is in paused state
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 simple_guard_hosr(st: state): boolean = paused_state(st)
@@ -178,14 +196,14 @@ simple_guard_hosr(st: state): boolean = paused_state(st)
   % @description predicate that is true when the device is in paused state and not locked and not in bag mode
   % @description completeness (Section 6.1 templates paper)
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 guard_rmode(st: state): boolean =
-         paused_state(st) & 
+         paused_state(st) &
                   ((topline(st) /= locked) AND
 		    (topline(st) /= lockrate) AND
-                   NOT((topline(st) = dispvtbi) AND 
+                   NOT((topline(st) = dispvtbi) AND
                    ((entrymode(st) = bagmode) OR
 		      (entrymode(st) = tbagmode))))
 
@@ -194,16 +212,16 @@ guard_rmode(st: state): boolean =
   % @function goal_rmode
   % @description predicate that is true when entrymode = rmode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
-  %%	      
+  %%
 goal_rmode(st: state): boolean = (entrymode(st) = rmode)
 
 %%
   % @function goal_hosr
   % @description predicate that is true when the device shows a top line of holding or set rate
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 goal_hosr(st: state): boolean = ((topline(st) = holding) OR
@@ -213,7 +231,7 @@ goal_hosr(st: state): boolean = ((topline(st) = holding) OR
   % @function simple_completeness_rmode
   % @description predicate that is true if key1 or key3 lead to the rmode goal
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 simple_completeness_rmode(st: state): boolean =
@@ -225,7 +243,7 @@ simple_completeness_rmode(st: state): boolean =
   % @function simple_complete_to_hosr
   % @description predicate that is true when both key1 and key3 lead to holding or setrate tope line
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 simple_complete_to_hosr(st: state): boolean =
@@ -236,7 +254,7 @@ simple_complete_to_hosr(st: state): boolean =
   % @function comple_to_rmode
   % @description predicate that when key1 and key3 both lead to rmode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 comple_to_rmode(st: state): boolean =
@@ -248,7 +266,7 @@ comple_to_rmode(st: state): boolean =
   % @function complete_to_hosr
   % @description predicate that when key1 and key3 both lead to holding or setrate top lines
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 complete_to_hosr(st: state): boolean =
@@ -260,7 +278,7 @@ complete_to_hosr(st: state): boolean =
   % @function comple_to_infusemode
   % @description predicate that key3 both lead to infusemode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 comple_to_infusemode(st: state): boolean =
@@ -271,7 +289,7 @@ comple_to_infusemode(st: state): boolean =
   % @function complete_to_infuse
   % @description predicate that key3 both lead to top line of infusing
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 complete_to_infuse(st: state): boolean =
@@ -286,7 +304,7 @@ complete_to_infuse(st: state): boolean =
 simple_comp_rmode: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => simple_completeness_rmode(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         simple_completeness_rmode(pre))  => simple_completeness_rmode(post))
 
 %%
@@ -297,10 +315,10 @@ simple_comp_rmode: THEOREM
 simple_comp_pause: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => simple_complete_to_hosr(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         simple_complete_to_hosr(pre))  => simple_complete_to_hosr(post))
 
-%simple_comp_pause.2.6.1.5 :  
+%simple_comp_pause.2.6.1.5 :
 %
 %{-1}  ((topline(pre!1) = options) AND
 %        (fndisp1(pre!1) = fok) AND (entrymode(pre!1) = qmode))
@@ -313,8 +331,8 @@ simple_comp_pause: THEOREM
 %[2]   simple_complete_to_hosr(post!1)
 
 % Trying repeated skolemization, instantiation, and if-lifting,
-%this yields  8 subgoals: 
-%simple_comp_pause.2.6.1.5.1 :  
+%this yields  8 subgoals:
+%simple_comp_pause.2.6.1.5.1 :
 %
 %{-1}  options?(topline(pre!1))
 %{-2}  fok?(fndisp1(pre!1))
@@ -354,14 +372,14 @@ simple_comp_pause: THEOREM
 completemplate_to_rmode: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => comple_to_rmode(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         comple_to_rmode(pre))  => comple_to_rmode(post))
 
 %%%
 % @theorem univ_complete_to_holdingorsetrate
 % @description theorem: transition via key1 or key3 to holding or set rate: guard that in rmode
 % @yields generates counter-examples used in future theorems
-% 
+%
 %%
 univ_complete_to_holdingorsetrate: THEOREM
   FORALL (st: state):
@@ -378,7 +396,7 @@ univ_complete_to_holdingorsetrate: THEOREM
 complete_to_holdingorsetrate: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => complete_to_hosr(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         complete_to_hosr(pre))  => complete_to_hosr(post))
 
 %%
@@ -389,8 +407,8 @@ complete_to_holdingorsetrate: THEOREM
 %%
 no_other_to_rmode: THEOREM
   FORALL (pre, post: state):
-     (paused_state(pre) AND state_nokey13_transitions_release(pre, post) AND 
-      entrymode(pre) /= rmode AND (device(pre)`elapse < shorttimeout) AND 
+     (paused_state(pre) AND state_nokey13_transitions_release(pre, post) AND
+      entrymode(pre) /= rmode AND (device(pre)`elapse < shorttimeout) AND
       (topline(pre) /= volume)) IMPLIES entrymode(post) /= rmode
 
 %%
@@ -402,7 +420,7 @@ no_other_to_rmode: THEOREM
 completemplate_to_infusemode: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => comple_to_infusemode(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         comple_to_infusemode(pre))  => comple_to_infusemode(post))
 
 %%
@@ -410,11 +428,11 @@ completemplate_to_infusemode: THEOREM
 % @description theorem: this theorem proves that key3 takes to topline of infusing if the pump device is infusing
 % @yields QED
 % @stats Run time  = 1244.50 secs. 18/7/17
-%%	
+%%
 complete_to_infuse_thm: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => complete_to_infuse(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         complete_to_infuse(pre))  => complete_to_infuse(post))
 
 
@@ -422,7 +440,7 @@ complete_to_infuse_thm: THEOREM
   % @function guard_vtmode
   % @description this guard relates to completeness to vtmode, requires topline to be holding, setrate or infusing
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 guard_vtmode(st: state): boolean =
@@ -433,7 +451,7 @@ guard_vtmode(st: state): boolean =
   % @function goal_vtmode
   % @description the goal is that it reaches vtmode
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 goal_vtmode(st: state): boolean = entrymode(st) = vtmode
@@ -442,7 +460,7 @@ goal_vtmode(st: state): boolean = entrymode(st) = vtmode
   % @function comple_to_vtmode
   % @description if the guard is true and the goal is false then can reach the goal using key3
   % @param {state} st The state of the system
-  % @returns {bool} 
+  % @returns {bool}
   % @memberof module:alaris_completeness
   %%
 comple_to_vtmode(st: state): boolean =
@@ -458,7 +476,36 @@ comple_to_vtmode(st: state): boolean =
 complete_vtmode_thm: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => comple_to_vtmode(post)) AND
-     ((state_transitions_release(pre, post) AND 
+     ((state_transitions_release(pre, post) AND
         comple_to_vtmode(pre))  => comple_to_vtmode(post))
-	
-END alaris_completeness_pattern
+
+END alaris_completeness_pattern</code></pre>
+        </article>
+    </section>
+</div>
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+    <h3>Theorems</h3>
+    <ul>
+        <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+        <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+        <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+        <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+        <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+        <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+    <ul>
+</nav>
+<br class="clear">
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 20:26:54 GMT+0100 (WEST)
+</footer>
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Theorems: alaris_feedback</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Theorems: alaris_feedback</h1>
+        <section>
+            <header>
+            </header>
+            <article>
+                <div class="container-overview">
+                    <div class="description">
+                        Feedback theorems.<br>
+                        Templates:<br>
+                        State feedback:
+                        <em>FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND
+                        filter(s1) \neq filter(s2)
+                        \implies filter_p(s1) \neq filter_p(s2)</em><br>
+
+                        State feedback:
+                        <em>FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND
+                        filter(s1) \neq filter(s2)
+                        \implies visible_change_filter(s1, s2)</em><br>
+
+                        Action feedback:
+                        <em>FORALL a in S -> S, FORALL s in S : per(a)(s) AND
+                        guard(s) AND filter(s) \neq filter(a(s)) IMPLIES
+                        p_filter(s) \neq p_filter(a(s))</em>
+
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-author">Author:</dt>
+                        <dd class="tag-author">
+                            <ul>
+                                <li>Michael Harrison and Paolo Masci (QMUL and Newcastle University)</li>
+                            </ul>
+                        </dd>
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line2">line 2</a>
+                        </li></ul></dd>
+                    </dl>
+
+                </div>
+
+                <h3 class="subsection-title">Theorems</h3>
+                <h4 class="name" id="~action_feedback_switch"><span class="type-signature"> </span>action_feedback_switch<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    p_filter defined in terms of battery_light and ac_light
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line512">line 512</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 0.29 secs. 20/7/17
+                </div>
+
+                <h4 class="name" id="~action_feedback_tick"><span class="type-signature"> </span>action_feedback_tick<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    shows that if tick is permitted and the guard is true of initial state and the state after the action has occurred then the effect is visible.
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line577">line 577</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 1.55 secs. 20/7/17
+                </div>
+
+                <h4 class="name" id="~action_feedback_tick_vtbidone"><span class="type-signature"> </span>action_feedback_tick_vtbidone<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    shows that if tick is permitted and the guard is true of initial state then the topline shows vtbidone
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line609">line 609</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 0.93 secs. 2/8/17
+                </div>
+
+                <h4 class="name" id="~feedback_entrymode_theorem"><span class="type-signature"> </span>feedback_entrymode_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line466">line 466</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 625.14 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_entrymode_theorem_nochevrons"><span class="type-signature"> </span>feedback_entrymode_theorem_nochevrons<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of action feedback template without state filter
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line490">line 490</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 57.90 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_newrate_theorem"><span class="type-signature"> </span>feedback_newrate_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template without guard, and no visibility constraint on state before action
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line401">line 401</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 127.05 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_newtime_theorem"><span class="type-signature"> </span>feedback_newtime_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template without guard, and no visibility constraint on state before action
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line425">line 425</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 122.92 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_newvtbi_theorem"><span class="type-signature"> </span>feedback_newvtbi_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template without guard, and no visibility constraint on state before action
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line413">line 413</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 126.58 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_rate_theorem"><span class="type-signature"> </span>feedback_rate_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template with guard
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line193">line 193</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 131.07 secs. 18/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_time_theorem"><span class="type-signature"> </span>feedback_time_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template with guard
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line292">line 292</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 566.71 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_volume_theorem"><span class="type-signature"> </span>feedback_volume_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template with guard
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line334">line 334</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 444.85 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~feedback_vtbi_theorem"><span class="type-signature"> </span>feedback_vtbi_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template with guard
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line241">line 241</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 477.85 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~simple_feedback_rate_theorem"><span class="type-signature"> </span>simple_feedback_rate_theorem<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    instantiation of feedback template without guard, used as example in paper
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line179">line 179</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    CE
+                </div>
+                <h5>Counter Example:</h5>
+                <div class="param-desc">
+                    {-1}  device(pre!1)`powered_on? <br>
+                    {-2}  nob?(which_press(pre!1)) <br>
+                    {-3}  pressed(pre!1) = 5 <br>
+                    {-4}  fok?(fndisp1(pre!1)) <br>
+                    {-5}  middisp(pre!1)(7) <br>
+                    {-6}  vtbitime?(topline(pre!1)) <br>
+                    {-7}  ttmode?(entrymode(pre!1)) <br>
+                    {-8}  middisp(pre!1)(9) <br>
+                    {-9}  middisp(pre!1)(8) <br>
+                    {-10} newtime(pre!1) = 0 <br>
+                    {-11} post!1 = pre!1 WITH [ <br>
+                             topline := setrate, <br>
+                             middisp := LAMBDA (x: imid_type
+                                                      [maxrate, maxinfuse, infusemin, timeout,
+                                                       shorttimeout, maxtime, bat_max,
+                                                       bat_min]): (x = 0) OR (x = 1) OR (x = 3) OR (x = 2),<br>
+                                   fndisp1 := fvol,<br>
+                                   fndisp2 := fvtbi,<br>
+                                   fndisp3 := fnull,<br>
+                                   entrymode := rmode,<br>
+                                   device := device(pre!1)
+                                          WITH [infusionrate := 0,
+                                                time := 0,
+                                                vtbi := newvtbi(pre!1),
+                                                elapse := 0]] <br>
+                      |------- <br>
+                    {1}   device(pre!1)`infusing? <br>
+                    {2}   device(pre!1)`infusionrate = 0 <br>
+                    {3}   middisp(pre!1)(0) <br>
+                </div>
+
+                <h4 class="name" id="~tick_infusionrate_ge_vtbi"><span class="type-signature"> </span>tick_infusionrate_ge_vtbi<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    This proves that when VTBI is exhausted, tick is permitted, mains is connected and KVO mode is not set then topline shows vtbidone and the KVO mode is set
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line526">line 526</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 0.47 secs. 19/7/17
+                </div>
+
+                <h4 class="name" id="~tick_infusionrate_ge_vtbi_kvoflag"><span class="type-signature"> </span>tick_infusionrate_ge_vtbi_kvoflag<span class="signature"></span><span class="type-signature"></span></h4>
+                <div class="description">
+                    this specific theorem shows that when VTBI is exhausted, KVO mode is set, the pump is infusing and mains is connected then a tick does not change the top line and keeps KVO mode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line542">line 542</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 0.46 secs. 20/7/17
+                </div><br><br><br>
+
+                <h3 class="subsection-title">Functions used in the theorems</h3>
+                <h4 class="name" id=".filter_entrymode"><span class="type-signature"> </span>filter_entrymode<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the entrymode from the system
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line450">line 450</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_newrate"><span class="type-signature"> </span>filter_newrate<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the temporary infusion rate from the system
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line348">line 348</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_newtime"><span class="type-signature"> </span>filter_newtime<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the temporary time from the system
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line366">line 366</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_newvtbi"><span class="type-signature"> </span>filter_newvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the temporary vtbi from the system
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line357">line 357</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_rate"><span class="type-signature"> </span>filter_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {irates}</span></h4>
+                <div class="description">
+                    extract the infusion rate parameter from the state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line118">line 118</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">irates</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_time"><span class="type-signature"> </span>filter_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the time parameter from the pump state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line257">line 257</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_volume"><span class="type-signature"> </span>filter_volume<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the volume infused parameter from the pump state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line317">line 317</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".filter_vtbi"><span class="type-signature"> </span>filter_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                <div class="description">
+                    extract the vtbi parameter from the state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line208">line 208</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">ivols</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_entrymode"><span class="type-signature"> </span>guard_entrymode<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes top line of vtbi, vtbi over time, batterylow
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line439">line 439</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_entrymode_nochevrons"><span class="type-signature"> </span>guard_entrymode_nochevrons<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes top line of vtbi, vtbi over time
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line481">line 481</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_switch"><span class="type-signature"> </span>guard_switch<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    switch is permitted
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line504">line 504</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_tick"><span class="type-signature"> </span>guard_tick<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that requires infusing without KVO mode, mains connected and topline not vtbidone
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line559">line 559</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_tick_vtbidone"><span class="type-signature"> </span>guard_tick_vtbidone<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that requires vtbi exhausted, not KVO, infusing, mains connected and topline showing infusing
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line589">line 589</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_vis_rate"><span class="type-signature"> </span>guard_vis_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes top line of vtbi over time because temporary rate shown
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line136">line 136</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_vis_time"><span class="type-signature"> </span>guard_vis_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes a range of top lines
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line267">line 267</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_vis_volume"><span class="type-signature"> </span>guard_vis_volume<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes a range of top lines
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line307">line 307</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".guard_vis_vtbi"><span class="type-signature"> </span>guard_vis_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that excludes a range of top lines
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line226">line 226</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".p_filter_entrymode"><span class="type-signature"> </span>p_filter_entrymode<span class="signature">(st)</span><span class="type-signature"> &rarr; {iline}</span></h4>
+                <div class="description">
+                    extracts the top line
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line458">line 458</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">iline</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".state_transitions"><span class="type-signature"> </span>state_transitions<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true when the post state can be derived from the post state using the available actions
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>pre</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                        <tr>
+
+                            <td class="name"><code>post</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line50">line 50</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    True when pre and post states are related
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".state_transitions_nochevrons"><span class="type-signature"> </span>state_transitions_nochevrons<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true when the post state can be derived from the post state using the available actions, but not the chevron keys
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>pre</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                        <tr>
+
+                            <td class="name"><code>post</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line104">line 104</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    True when pre and post states are related
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".state_transitions_noton"><span class="type-signature"> </span>state_transitions_noton<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true when the post state can be derived from the post state using the available actions, with the exception of on
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>pre</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                        <tr>
+
+                            <td class="name"><code>post</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line78">line 78</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    True when pre and post states are related
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_newrate"><span class="type-signature"> </span>vis_filter_newrate<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if temporary parameter is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line375">line 375</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_newtime"><span class="type-signature"> </span>vis_filter_newtime<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if the temporary infusion pump parameter is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line393">line 393</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_newvtbi"><span class="type-signature"> </span>vis_filter_newvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if the temporary infusion pump parameter is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line384">line 384</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_rate"><span class="type-signature"> </span>vis_filter_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if infusion pump parameter is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line127">line 127</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_time"><span class="type-signature"> </span>vis_filter_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if infusion pump parameter or the temporary value  is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line283">line 283</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_volume"><span class="type-signature"> </span>vis_filter_volume<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if infusion pump parameter is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line326">line 326</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_filter_vtbi"><span class="type-signature"> </span>vis_filter_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if infusion pump parameter or the temporary value  is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line217">line 217</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_tick"><span class="type-signature"> </span>vis_tick<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if infusion rate, time and vtbi are visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line570">line 570</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+
+                <h4 class="name" id=".vis_vtbidone"><span class="type-signature"> </span>vis_vtbidone<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                <div class="description">
+                    predicate that is true if topline shows vtbidone
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class="name"><code>st</code></td>
+
+                            <td class="type">
+
+                                <span class="param-type">state</span>
+
+                            </td>
+
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href="alaris_feedback.pvs.html">alaris_feedback.pvs</a>, <a href="alaris_feedback.pvs.html#line601">line 601</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">boolean</span>
+                    </dd>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <nav>
+        <h2><a href="index.html">Alaris GP</a></h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-alaris_th.html">alaris_th</a></li>
+            <li><a href="module-pump_th.html">pump_th</a></li>
+            <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+        </ul>
+        <h3>Theorems</h3>
+        <ul>
+            <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+            <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+            <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+            <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+            <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+            <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+        <ul>
+    </nav>
+    <br class="clear">
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 19:49:49 GMT+0100 (WEST)
+    </footer>
+    <script> prettyPrint; </script>
+    <script src="scripts/linenumber.js"> </script>
+</body>
+</html>

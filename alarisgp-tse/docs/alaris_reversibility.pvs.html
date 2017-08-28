@@ -1,4 +1,32 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_reversibility.pvs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: alaris_reversibility.js</h1>
+
+
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>%%
 % @module alaris_reversibility
 % @author Michael Harrison and Paolo Masci (QMUL, UMinho Braga and Newcastle University)
 % @date April 2017
@@ -30,7 +58,7 @@ BEGIN
 % @lemma divbynratesx etc
 % @description set of lemmas needed to simplify proof
 % @yelds QED
-% @stats Run time  = 321.59 secs. 18/7/17
+% @returns  Run time  = 321.59 secs. 18/7/17
 %%
 
 %QED Run time  = 0.08 secs. 16/11/16
@@ -339,7 +367,7 @@ high_range_vols_du(v: ivols): boolean =
          (floor(v/10) = v/10)
 
 %%
-  % @function mid_range_vols_duf
+  % @function low_range_vols_duf
   % @description up followed by down low range for infusion volumes for fast chevrons (to avoid anomalous step) includes current step
   % @param {irates} v
   % @param {stepvol} d
@@ -409,7 +437,7 @@ range_time_ud_f(v: itimes, d: steptime): boolean =
         (floor(v/(d*10)) = v/(d*10)) AND (ceil_time(v/(d*10)) = v/(d*10))
 
 %%
-  % @function range_time_ud
+  % @function range_time_du
   % @description range for time for slow chevrons, up followed by time
   % @param {steptime} d
   % @param {itimes} v
@@ -435,10 +463,10 @@ range_time_du_f(v: itimes, d: steptime): boolean =
      (floor(v/(10*d)) = v/(10*d)) AND (ceil_time(v/(10*d)) = v/(10*d))
 
 %%
-% @theorem simpleupdown
+% @function simpleupdown
 % @description shows the relation between slow down followed by up in the ranges for rates
 % @yields QED
-% @stats Run time  = 2.01 secs. 20/7/17
+% @returns  Run time  = 2.01 secs. 20/7/17
 %%
 simpleupdown: THEOREM
      FORALL (v: irates):
@@ -451,10 +479,10 @@ simpleupdown: THEOREM
           IMPLIES  (state_up_rate(small_step, state_dn_rate(small_step, v)) = v))
 
 %%
-% @theorem simpleUPDOWNd
+% @function simpleUPDOWNd
 % @description shows the relation between fast down followed by up in the ranges for rates
 % @yields QED
-% @stats Run time  = 19.26 secs. 20/7/17
+% @returns  Run time  = 19.26 secs. 20/7/17
 % could also be considered consistency
 %%
 %QED Run time  = 25.74 secs. 10/7/17
@@ -469,10 +497,10 @@ simpleUPDOWNd: THEOREM
       (state_UP_rate(d, state_DN_rate(d, v)) = v))
 
 %%
-% @theorem Simpledownup
+% @function Simpledownup
 % @description shows the relation between slow up followed by down in the ranges for rates
 % @yields QED
-% @stats Run time  = 2.54 secs. 20/7/17
+% @returns  Run time  = 2.54 secs. 20/7/17
 %%
 Simpledownup: THEOREM
      FORALL (v: irates):
@@ -485,10 +513,10 @@ Simpledownup: THEOREM
       state_dn_rate(small_step, state_up_rate(small_step, v)) = v)
 
 %%
-% @theorem SimpleDOWNUPd
+% @function SimpleDOWNUPd
 % @description shows the relation between fast up followed by down in the ranges for rates
 % @yields QED
-% @stats Run time  = 9.73 secs. 20/7/17
+% @returns  Run time  = 9.73 secs. 20/7/17
 %%
 SimpleDOWNUPd: THEOREM
      FORALL (d: steprate, v: irates):
@@ -500,10 +528,10 @@ SimpleDOWNUPd: THEOREM
       state_DN_rate(d, state_UP_rate(d, v)) = v)
 
 %%
-% @theorem simpleupdownvtbi
+% @function simpleupdownvtbi
 % @description shows the relation between slow down followed by up in the ranges for vtbi
 % @yields QED
-% @stats Run time  = 1.75 secs. 20/7/17
+% @returns  Run time  = 1.75 secs. 20/7/17
 %%
 simpleupdownvtbi: THEOREM
      FORALL (v: ivols):
@@ -516,10 +544,10 @@ simpleupdownvtbi: THEOREM
           IMPLIES  (state_up_vtbi(small_step, state_dn_vtbi(small_step, v)) = v))
 
 %%
-% @theorem simpleUPDOWNvtbi
+% @function simpleUPDOWNdvtbi
 % @description shows the relation between fast down followed by up in the ranges for vtbi
 % @yields QED
-% @stats Run time  = 3.57 secs. 20/7/17
+% @returns  Run time  = 3.57 secs. 20/7/17
 %%
 simpleUPDOWNdvtbi: THEOREM
      FORALL (v: ivols, d: steprate):
@@ -533,10 +561,10 @@ simpleUPDOWNdvtbi: THEOREM
 
 
 %%
-% @theorem Simpledownupvtbi
+% @function Simpledownupvtbi
 % @description shows the relation between slow up followed by down in the ranges for vtbi
 % @yields QED
-% @stats Run time  = 2.59 secs. 20/7/17
+% @returns  Run time  = 2.59 secs. 20/7/17
 %%
 Simpledownupvtbi: THEOREM
      FORALL (v: ivols):
@@ -549,10 +577,10 @@ Simpledownupvtbi: THEOREM
       state_dn_vtbi(small_step, state_up_vtbi(small_step, v)) = v)
 
 %%
-% @theorem SimpleDOWNUPvtbi
+% @function SimpleDOWNUPdvtbi
 % @description shows the relation between fast up followed by down in the ranges for vtbi
 % @yields QED
-% @stats Run time  = 7.63 secs. 20/7/17
+% @returns  Run time  = 7.63 secs. 20/7/17
 %%
 SimpleDOWNUPdvtbi: THEOREM
      FORALL (d: steprate, v: ivols):
@@ -564,10 +592,10 @@ SimpleDOWNUPdvtbi: THEOREM
       state_DN_vtbi(d, state_UP_vtbi(d, v)) = v)
 
 %%
-% @theorem simpleupdowntime
+% @function simpleupdowntime
 % @description shows the relation between slow down followed by up for time
 % @yields QED
-% @stats Run time  = 0.41 secs. 20/7/17
+% @returns  Run time  = 0.41 secs. 20/7/17
 %%
 simpleupdowntime: THEOREM
      FORALL (v: itimes, d: steptime):
@@ -575,10 +603,10 @@ simpleupdowntime: THEOREM
           IMPLIES  (state_up_time(d, state_dn_time(d, v)) = v)
 
 %%
-% @theorem simpleUPDOWNtime
+% @function simpleUPDOWNdtime
 % @description shows the relation between fast down followed by up for time
 % @yields QED
-% @stats Run time  = 8.07 secs. 20/7/17
+% @returns  Run time  = 8.07 secs. 20/7/17
 %%
 simpleUPDOWNdtime: THEOREM
      FORALL (v: itimes, d: steptime):
@@ -586,10 +614,10 @@ simpleUPDOWNdtime: THEOREM
           IMPLIES  (state_UP_time(d, state_DN_time(d, v)) = v)
 
 %%
-% @theorem Simpledownuptime
+% @function Simpledownuptime
 % @description shows the relation between slow up followed by down for time
 % @yields QED
-% @stats Run time  = 0.43 secs. 20/7/17
+% @returns  Run time  = 0.43 secs. 20/7/17
 %%
 Simpledownuptime: THEOREM
      FORALL (v: itimes, d: steptime):
@@ -597,10 +625,10 @@ Simpledownuptime: THEOREM
       (state_dn_time(d, state_up_time(d, v)) = v)
 
 %%
-% @theorem SimpleDOWNUPtime
+% @function SimpleDOWNUPdtime
 % @description shows the relation between fast up followed by down for time
 % @yields QED
-% @stats Run time  = 9.00 secs. 20/7/17
+% @returns  Run time  = 9.00 secs. 20/7/17
 %%
 SimpleDOWNUPdtime: THEOREM
      FORALL (v: itimes, d: steptime):
@@ -826,10 +854,10 @@ guard_fdownfup_time(st: state, d: steptime): boolean =
         current_st(st) = d AND pressed(st) = maxpress
 
 %%
-% @theorem supsdown_rate
+% @function supsdown_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate
 % @yields counter-example see below
-% @stats
+% @returns  CE
 %%
 supsdown_rate: THEOREM
   FORALL (st: state):
@@ -865,10 +893,10 @@ supsdown_rate: THEOREM
 
 %% after adding to the guard maxrate > 1000
 %%
-% @theorem supsdown_rate
+% @function supsdown_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate with maxrate > 1000
 % @yields counter-example see below
-% @stats
+% @returns  CE
 %%
 
 % Trying repeated skolemization, instantiation, and if-lifting,
@@ -915,10 +943,10 @@ simple_low_range_rate(r: irates): bool =
    maxrate > 1000 AND r<100 AND (floor(r*10) = r*10) AND (ceil_rate(r*10) = r*10)
 
 %%
-% @theorem low_simplesupsdown_rate
+% @function low_simplesupsdown_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate with maxrate > 1000
 % @yields counter-example see below
-% @stats
+% @returns  CE
 %%
 
 low_simplesupsdown_rate: THEOREM
@@ -943,10 +971,10 @@ low_simplesupsdown_rate: THEOREM
 
 
 %%
-% @theorem low_supsdown
+% @function low_supsdown
 % @description instance of reversibility template for low range, range constraint and ready to enter rate
 % @yields QED
-% @stats Run time  = 204.50 secs. 21/7/17
+% @returns  Run time  = 204.50 secs. 21/7/17
 %%
 low_supsdown: THEOREM
   FORALL (st: state):
@@ -954,10 +982,10 @@ low_supsdown: THEOREM
     filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
 
 %%
-% @theorem mid_supsdown
+% @function mid_supsdown_rate
 % @description instance of reversibility template for middle range, range constraint and ready to enter rate
 % @yields QED
-% @stats Run time  = 219.89 secs. 21/7/17
+% @returns  Run time  = 219.89 secs. 21/7/17
 %%
 mid_supsdown_rate: THEOREM
   FORALL (st: state):
@@ -965,10 +993,10 @@ mid_supsdown_rate: THEOREM
     filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
 
 %%
-% @theorem high_supsdown_rate
+% @function high_supsdown_rate
 % @description instance of reversibility template for top range, range constraint and ready to enter rate
 % @yields QED
-% @stats Run time  = 233.05 secs. 21/7/17
+% @returns  Run time  = 233.05 secs. 21/7/17
 %%
 high_supsdown_rate: THEOREM
   FORALL (st: state):
@@ -976,10 +1004,10 @@ high_supsdown_rate: THEOREM
     filter_rate(release_sup(sup(release_sdown(sdown(st))))) = filter_rate(st)
 
 %%
-% @theorem low_fupfdown_rate
+% @function low_fupfdown_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 4825.87 secs. 21/7/17
+% @returns  Run time  = 4825.87 secs. 21/7/17
 %%
 low_fupfdown_rate: THEOREM
   FORALL (st: state):
@@ -987,10 +1015,10 @@ low_fupfdown_rate: THEOREM
     filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
 
 %%
-% @theorem mid_fupfdown_rate
+% @function mid_fupfdown_rate
 % @description instance of reversibility template for mid range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 151.50 secs. 21/7/17
+% @returns  Run time  = 151.50 secs. 21/7/17
 %%
 mid_fupfdown_rate: THEOREM
   FORALL (st: state):
@@ -998,10 +1026,10 @@ mid_fupfdown_rate: THEOREM
     filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
 
 %%
-% @theorem high_fupfdown_rate
+% @function high_fupfdown_rate
 % @description instance of reversibility template for high range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @statsRun time  = 258.65 secs. 21/7/17
+% @returns Run time  = 258.65 secs. 21/7/17
 %%
 high_fupfdown_rate: THEOREM
   FORALL (st: state):
@@ -1009,10 +1037,10 @@ high_fupfdown_rate: THEOREM
     filter_rate(release_fup(fup(release_fdown(fdown(st))))) = filter_rate(st)
 
 %%
-% @theorem low_sdownsup_rate
+% @function low_sdownsup_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 61.41 secs. 21/7/17
+% @returns  Run time  = 61.41 secs. 21/7/17
 %%
 low_sdownsup_rate: THEOREM
   FORALL (st: state):
@@ -1020,10 +1048,10 @@ low_sdownsup_rate: THEOREM
     filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
 
 %%
-% @theorem mid_sdownsup_rate
+% @function mid_sdownsup_rate
 % @description instance of reversibility template for mid range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 59.41 secs. 21/7/17
+% @returns  Run time  = 59.41 secs. 21/7/17
 %%
 mid_sdownsup_rate: THEOREM
   FORALL (st: state):
@@ -1031,10 +1059,10 @@ mid_sdownsup_rate: THEOREM
     filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
 
 %%
-% @theorem high_sdownsup_rate
+% @function high_sdownsup_rate
 % @description instance of reversibility template for high range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 78.66 secs. 21/7/17
+% @returns  Run time  = 78.66 secs. 21/7/17
 %%
 high_sdownsup_rate: THEOREM
   FORALL (st: state):
@@ -1042,10 +1070,10 @@ high_sdownsup_rate: THEOREM
     filter_rate(release_sdown(sdown(release_sup(sup(st))))) = filter_rate(st)
 
 %%
-% @theorem low_fdownfup_rate
+% @function low_fdownfup_rate
 % @description instance of reversibility template for low range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 71.63 secs. 21/7/17
+% @returns  Run time  = 71.63 secs. 21/7/17
 %%
 low_fdownfup_rate: THEOREM
   FORALL (st: state):
@@ -1053,10 +1081,10 @@ low_fdownfup_rate: THEOREM
     filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
 
 %%
-% @theorem mid_fdownfup_rate
+% @function mid_fdownfup_rate
 % @description instance of reversibility template for mid range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 73.09 secs. 21/7/17
+% @returns  Run time  = 73.09 secs. 21/7/17
 %%
 mid_fdownfup_rate: THEOREM
   FORALL (st: state):
@@ -1064,10 +1092,10 @@ mid_fdownfup_rate: THEOREM
     filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
 
 %%
-% @theorem high_fdownfup_rate
+% @function high_fdownfup_rate
 % @description instance of reversibility template for high range, range constraint and ready to enter rate. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 64.13 secs. 21/7/17
+% @returns  Run time  = 64.13 secs. 21/7/17
 %%
 high_fdownfup_rate: THEOREM
   FORALL (st: state):
@@ -1075,10 +1103,10 @@ high_fdownfup_rate: THEOREM
     filter_rate(release_fdown(fdown(release_fup(fup(st))))) = filter_rate(st)
 
 %%
-% @theorem low_supsdown_vtbi
+% @function low_supsdown_vtbi
 % @description instance of reversibility template for low range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 8.58 secs. 21/7/17
+% @returns  Run time  = 8.58 secs. 21/7/17
 %%
 low_supsdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1086,10 +1114,10 @@ low_supsdown_vtbi: THEOREM
     filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem mid_supsdown_vtbi
+% @function mid_supsdown_vtbi
 % @description instance of reversibility template for mid range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 12.52 secs. 21/7/17
+% @returns  Run time  = 12.52 secs. 21/7/17
 %%
 mid_supsdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1097,10 +1125,10 @@ mid_supsdown_vtbi: THEOREM
     filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem high_supsdown_vtbi
+% @function high_supsdown_vtbi
 % @description instance of reversibility template for high range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 13.54 secs. 21/7/17
+% @returns  Run time  = 13.54 secs. 21/7/17
 %%
 high_supsdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1108,10 +1136,10 @@ high_supsdown_vtbi: THEOREM
     filter_vtbi(release_sup(sup(release_sdown(sdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem low_fupfdown_vtbi
+% @function low_fupfdown_vtbi
 % @description instance of reversibility template for low range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 17.74 secs. 21/7/17
+% @returns  Run time  = 17.74 secs. 21/7/17
 %%
 low_fupfdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1119,10 +1147,10 @@ low_fupfdown_vtbi: THEOREM
     filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem low_fupfdown_vtbi
+% @function mid_fupfdown_vtbi
 % @description instance of reversibility template for mid range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 15.78 secs. 21/7/17
+% @returns  Run time  = 15.78 secs. 21/7/17
 %%
 mid_fupfdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1130,10 +1158,10 @@ mid_fupfdown_vtbi: THEOREM
     filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem high_fupfdown_vtbi
+% @function high_fupfdown_vtbi
 % @description instance of reversibility template for high range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 15.70 secs. 21/7/17
+% @returns  Run time  = 15.70 secs. 21/7/17
 %%
 high_fupfdown_vtbi: THEOREM
   FORALL (st: state):
@@ -1141,10 +1169,10 @@ high_fupfdown_vtbi: THEOREM
     filter_vtbi(release_fup(fup(release_fdown(fdown(st))))) = filter_vtbi(st)
 
 %%
-% @theorem low_sdownsup_vtbi
+% @function low_sdownsup_vtbi
 % @description instance of reversibility template for low range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 9.88 secs. 21/7/17
+% @returns  Run time  = 9.88 secs. 21/7/17
 %%
 low_sdownsup_vtbi: THEOREM
   FORALL (st: state):
@@ -1152,10 +1180,10 @@ low_sdownsup_vtbi: THEOREM
     filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem mid_sdownsup_vtbi
+% @function mid_sdownsup_vtbi
 % @description instance of reversibility template for mid range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 9.65 secs. 21/7/17
+% @returns  Run time  = 9.65 secs. 21/7/17
 %%
 mid_sdownsup_vtbi: THEOREM
   FORALL (st: state):
@@ -1163,10 +1191,10 @@ mid_sdownsup_vtbi: THEOREM
     filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem high_sdownsup_vtbi
+% @function high_sdownsup_vtbi
 % @description instance of reversibility template for high range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 10.19 secs. 21/7/17
+% @returns  Run time  = 10.19 secs. 21/7/17
 %%
 high_sdownsup_vtbi: THEOREM
   FORALL (st: state):
@@ -1174,10 +1202,10 @@ high_sdownsup_vtbi: THEOREM
     filter_vtbi(release_sdown(sdown(release_sup(sup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem low_fdownfup_vtbi
+% @function low_fdownfup_vtbi
 % @description instance of reversibility template for low range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 11.86 secs. 21/7/17
+% @returns  Run time  = 11.86 secs. 21/7/17
 %%
 low_fdownfup_vtbi: THEOREM
   FORALL (st: state):
@@ -1185,10 +1213,10 @@ low_fdownfup_vtbi: THEOREM
     filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem mid_fdownfup_vtbi
+% @function mid_fdownfup_vtbi
 % @description instance of reversibility template for mid range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 11.86 secs. 21/7/17
+% @returns  Run time  = 11.86 secs. 21/7/17
 %%
 mid_fdownfup_vtbi: THEOREM
   FORALL (st: state):
@@ -1196,10 +1224,10 @@ mid_fdownfup_vtbi: THEOREM
     filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem high_fdownfup_vtbi
+% @function high_fdownfup_vtbi
 % @description instance of reversibility template for high range, range constraint and ready to enter vtbi. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 11.42 secs. 21/7/17
+% @returns  Run time  = 11.42 secs. 21/7/17
 %%
 high_fdownfup_vtbi: THEOREM
   FORALL (st: state):
@@ -1207,20 +1235,20 @@ high_fdownfup_vtbi: THEOREM
     filter_vtbi(release_fdown(fdown(release_fup(fup(st))))) = filter_vtbi(st)
 
 %%
-% @theorem supsdown_time
+% @function supsdown_time
 % @description instance of reversibility template for range constraint and ready to enter time. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 15.61 secs. 21/7/17
+% @returns  Run time  = 15.61 secs. 21/7/17
 %%
 supsdown_time: THEOREM
   FORALL (st: state):
   guard_supsdown_time(st, small_step) AND range_time_ud(filter_time(st), small_step) IMPLIES
     filter_time(release_sup(sup(release_sdown(sdown(st))))) = filter_time(st)
 %%
-% @theorem fupfdown_time
+% @function fupfdown_time
 % @description instance of reversibility template for range constraint and ready to enter time. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 12.21 secs. 21/7/17
+% @returns  Run time  = 12.21 secs. 21/7/17
 %%
 fupfdown_time: THEOREM
   FORALL (st: state):
@@ -1228,10 +1256,10 @@ fupfdown_time: THEOREM
     filter_time(release_fup(fup(release_fdown(fdown(st))))) = filter_time(st)
 
 %%
-% @theorem sdownsup_time
+% @function sdownsup_time
 % @description instance of reversibility template for range constraint and ready to enter time. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 15.58 secs. 21/7/17
+% @returns  Run time  = 15.58 secs. 21/7/17
 %%
 sdownsup_time: THEOREM
   FORALL (st: state):
@@ -1239,10 +1267,10 @@ sdownsup_time: THEOREM
     filter_time(release_sdown(sdown(release_sup(sup(st))))) = filter_time(st)
 
 %%
-% @theorem fdownfup_time
+% @function fdownfup_time
 % @description instance of reversibility template for range constraint and ready to enter time. Note this version is constrained to an assumption that the chevron key is not held down.
 % @yields QED
-% @stats Run time  = 11.57 secs. 21/7/17
+% @returns  Run time  = 11.57 secs. 21/7/17
 %%
 fdownfup_time: THEOREM
   FORALL (st: state):
@@ -1250,4 +1278,41 @@ fdownfup_time: THEOREM
     filter_time(release_fdown(fdown(release_fup(fup(st))))) = filter_time(st)
 
 
-END alaris_reversibility_pattern
+END alaris_reversibility_pattern</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+    <h3>Theorems</h3>
+    <ul>
+        <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+        <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+        <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+        <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+        <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+        <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+    <ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 16:56:33 GMT+0100 (WEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

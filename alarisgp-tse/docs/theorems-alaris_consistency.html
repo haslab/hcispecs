@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Theorems: alaris_consistency</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Module: alaris_consistency</h1>
+        <section>
+            <header>
+            </header>
+            <article>
+                <div class="container-overview">
+                    <div class="description">
+                        Consistency theorems.<br>
+                        Consistency Templates:<br>
+                        <em>\forall a in A_c, s in S, m in MS
+                            guard(s, m) =>
+                            pre_filter(s, m) R post_filter(a(s), m)</em><br>
+                            where: A_c is a set of actions \subseteq S -> S<br><br>
+
+                            State consistency
+                            <em>\forall s in S: guard(s) => invariant(s)</em>
+                        </div>
+                        <dl class="details">
+                            <dt class="tag-author">Author:</dt>
+                            <dd class="tag-author">
+                                <ul>
+                                    <li>Michael Harrison and Paolo Masci (QMUL and Newcastle University)</li>
+                                </ul>
+                            </dd>
+                            <dt class="tag-source">Source:</dt>
+                            <dd class="tag-source"><ul class="dummy"><li>
+                                <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line2">line 2</a>
+                            </li></ul></dd>
+                        </dl>
+
+                    </div>
+
+                    <h3 class="subsection-title">Theorems</h3>
+                    <h4 class="name" id="~always_key1_invariant_theorem"><span class="type-signature">  </span>always_key1_invariant_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        key1 is only associated with a subset of displays
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line701">line 701</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 236.97 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~consistency_entrymode_theorem_chevronkeys"><span class="type-signature">  </span>consistency_entrymode_theorem_chevronkeys<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        instantiation of consistency template, for all chevrons
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line226">line 226</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 71.27 secs. 20/7/17
+                        could also be considered consistency
+                    </div>
+
+                    <h4 class="name" id="~consistency_entrymode_theorem_generalkey"><span class="type-signature">  </span>consistency_entrymode_theorem_generalkey<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        instantiation of consistency template, for all functions without chevrons or key1
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line210">line 210</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 1.78 secs. 20/7/17
+                        could also be considered consistency
+                    </div>
+
+                    <h4 class="name" id="~consistency_entrymode_theorem_nochevrons"><span class="type-signature">  </span>consistency_entrymode_theorem_nochevrons<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        instantiation of consistency template, for all functions without chevrons or key1
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line197">line 197</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 4.84 secs. 20/7/17
+                        could also be considered consistency
+                    </div>
+
+                    <h4 class="name" id="~consistency_ok_em"><span class="type-signature">  </span>consistency_ok_em<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        ok with key1 consistently updates parameter to temporary parameter depending on mmode
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line561">line 561</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 1.31 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~consistency_quit_em"><span class="type-signature">  </span>consistency_quit_em<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        quit with key3 consistently leaves pump parameters unchanged
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line633">line 633</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 1.87 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~consistent_fnkeyok_vt_theorem"><span class="type-signature">  </span>consistent_fnkeyok_vt_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        ok with key1 consistently updates vtbi to temporary value
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line457">line 457</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 0.91 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~consistent_ok_ttmode_theorem"><span class="type-signature">  </span>consistent_ok_ttmode_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        ok with key1 consistently updates time to temporary value
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line488">line 488</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 0.87 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~dispvtbimode_unchanged_parameters"><span class="type-signature">  </span>dispvtbimode_unchanged_parameters<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        no action that leaves top line dispvtbi changes the pump parameters
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line592">line 592</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 43.31 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~f1ok_consistent_theorem"><span class="type-signature">  </span>f1ok_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        ok is only associated with key1
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line677">line 677</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 151.13 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~f3quit_consistent_theorem"><span class="type-signature">  </span>f3quit_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        quit is only associated with key3
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line655">line 655</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 139.27 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~init_volume_goal_consistent_theorem"><span class="type-signature">  </span>init_volume_goal_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        uses function above in induction
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line361">line 361</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 136.26 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~ok_goal_consistent_theorem"><span class="type-signature">  </span>ok_goal_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        uses function above in induction
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line274">line 274</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 517.03 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~pump_parameters_untouched_theorem"><span class="type-signature">  </span>pump_parameters_untouched_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        consistently leaves pump parameters unchanged
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line422">line 422</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 16.66 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~quit_goal_consistent_theorem"><span class="type-signature">  </span>quit_goal_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        uses function above in induction
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line318">line 318</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 707.58 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~quit_pump_nochange_consistent_theorem"><span class="type-signature">  </span>quit_pump_nochange_consistent_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        consistently leaves pump parameters unchanged
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line408">line 408</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 136.26 secs. 20/7/17
+                    </div>
+
+                    <h4 class="name" id="~vtbitimemode_unchanged_parameters"><span class="type-signature">  </span>vtbitimemode_unchanged_parameters<span class="signature"> </span><span class="type-signature"></span></h4>
+                    <div class="description">
+                        no action that leaves top line vtbitime changes the pump parameters
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line606">line 606</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Yields:</h5>
+                    <div class="param-desc">
+                        QED
+                    </div>
+                    <h5>Stats:</h5>
+                    <div class="param-desc">
+                        Run time  = 93.33 secs. 20/7/17
+                    </div><br><br><br>
+
+
+                    <h3 class="subsection-title">Methods</h3>
+                    <h4 class="name" id=".alwayskey1_invariant"><span class="type-signature">  </span>alwayskey1_invariant<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key1 limited to a subset of function displays
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line690">line 690</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".dispvtbi_entry_ready"><span class="type-signature">  </span>dispvtbi_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        circumstances when ready to enter vtbi, in vtbi over rate
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line143">line 143</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".f1ok_invariant"><span class="type-signature">  </span>f1ok_invariant<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        OK only appears associated with key1
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line668">line 668</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".f3quit_invariant"><span class="type-signature">  </span>f3quit_invariant<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        Quit only appears associated with key3
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line646">line 646</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_entrymode"><span class="type-signature">  </span>filter_entrymode<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the entrymode from the system
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line179">line 179</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_newtime"><span class="type-signature">  </span>filter_newtime<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the temporary time from the system
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line471">line 471</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_newvtbi"><span class="type-signature">  </span>filter_newvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the temporary vtbi from the system
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line439">line 439</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_rate"><span class="type-signature">  </span>filter_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {irates}</span></h4>
+                    <div class="description">
+                        extract the infusion rate parameter from the state
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line382">line 382</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">irates</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_time"><span class="type-signature">  </span>filter_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the time parameter from the pump state
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line392">line 392</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".filter_vtbi"><span class="type-signature">  </span>filter_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the vtbi parameter from the state
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line400">line 400</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".goal_init_volume"><span class="type-signature">  </span>goal_init_volume<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        volume infused set to zero and return to rmode or infusemode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line341">line 341</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".goal_ok"><span class="type-signature">  </span>goal_ok<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        topline is either holding or set rate depending on value of infusion rate
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line253">line 253</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".goal_quit"><span class="type-signature">  </span>goal_quit<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        topline is either holding or set rate depending on value of infusion rate
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line297">line 297</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_em_ok"><span class="type-signature">  </span>guard_em_ok<span class="signature">(em, st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key1 permitted with okay parameterised by entrymode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>em</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">emodes</span>
+
+                                </td>
+
+                                <td class="description last">The entrymode</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line501">line 501</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_em_quit"><span class="type-signature">  </span>guard_em_quit<span class="signature">(em, st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key3 permitted with quit parameterised by entrymode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>em</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">emodes</span>
+
+                                </td>
+
+                                <td class="description last">The entrymode</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line624">line 624</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_entrymode"><span class="type-signature">  </span>guard_entrymode<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        predicate is true
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line188">line 188</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_fnkeyok"><span class="type-signature">  </span>guard_fnkeyok<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key1 permitted with okay and entrymode vtmode or ttmode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line448">line 448</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_init_volume"><span class="type-signature">  </span>guard_init_volume<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key2 permitted and volume in topline
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line331">line 331</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_ok"><span class="type-signature">  </span>guard_ok<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        function display 1 is okay, not infusing and excludes three toplines
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line239">line 239</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_ok_ttmode"><span class="type-signature">  </span>guard_ok_ttmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key1 permitted with okay and entrymode ttmode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line480">line 480</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_quit"><span class="type-signature">  </span>guard_quit<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        function display 3 is quit
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line287">line 287</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".guard_quit_pump_nochange"><span class="type-signature">  </span>guard_quit_pump_nochange<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        key 3 display quit
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line374">line 374</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".init_volume_goal_consistent"><span class="type-signature">  </span>init_volume_goal_consistent<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        formulation of consistency property key2 always leads to the volume init goal
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line352">line 352</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".ok_goal_consistent"><span class="type-signature">  </span>ok_goal_consistent<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        formulation of consistency peoperty key1 always leads to the ok goal
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line264">line 264</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".paused_state"><span class="type-signature">  </span>paused_state<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        predicate that is true when the device is in the paused Programmable state
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line40">line 40</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when state paused
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".quit_goal_consistent"><span class="type-signature">  </span>quit_goal_consistent<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        formulation of consistency property key3 always leads to the quit goal
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line308">line 308</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".rate_entry_ready"><span class="type-signature">  </span>rate_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        circumstances when ready to enter infusion rate
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line134">line 134</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".real_mode_filter"><span class="type-signature">  </span>real_mode_filter<span class="signature">(em, st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the relevant actual paramter depending on entrymode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>em</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">emodes</span>
+
+                                </td>
+
+                                <td class="description last">The entrymode</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line543">line 543</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".state_transitions"><span class="type-signature">  </span>state_transitions<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        predicate that is true when the post state can be derived from the post state using the available actions
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>pre</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>post</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line51">line 51</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when pre and post states are related
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".state_transitions_chevrons"><span class="type-signature">  </span>state_transitions_chevrons<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        predicate that is true when the post state can be derived from the post state using  the chevron keys
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>pre</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>post</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line108">line 108</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when pre and post states are related
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".state_transitions_nochevrons"><span class="type-signature">  </span>state_transitions_nochevrons<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        predicate that is true when the post state can be derived from the post state using the actions key2, key3, query, run, pause
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>pre</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>post</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line79">line 79</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when pre and post states are related
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".state_transitions_nochevrons_or_key1"><span class="type-signature">  </span>state_transitions_nochevrons_or_key1<span class="signature">(pre, post)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        predicate that is true when the post state can be derived from the post state using the actions key2, key3, query, tick
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>pre</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>post</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line94">line 94</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when pre and post states are related
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".switchedon?"><span class="type-signature">  </span>switched on?<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        Whether the device is powered on
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line124">line 124</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <div class="param-desc">
+                        True when powered on
+                    </div>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".temp_mode_filter"><span class="type-signature">  </span>temp_mode_filter<span class="signature">(em, st)</span><span class="type-signature"> &rarr; {ivols}</span></h4>
+                    <div class="description">
+                        extract the relevant temporary value depending on entrymode
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>em</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">emodes</span>
+
+                                </td>
+
+                                <td class="description last">The entrymode</td>
+                            </tr>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line513">line 513</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">ivols</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".time_entry_ready"><span class="type-signature">  </span>time_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        circumstances when ready to enter time, vtbi over time
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line166">line 166</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".vis_dispvtbi"><span class="type-signature">  </span>vis_dispvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        predicate that is true if topline shows dispvtbi
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line575">line 575</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".vis_vtbitime"><span class="type-signature">  </span>vis_vtbitime<span class="signature">(st)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+                    <div class="description">
+                        predicate that is true if topline shows vtbitime
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line584">line 584</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">boolean</span>
+                        </dd>
+                    </dl>
+
+                    <h4 class="name" id=".vtbitime_entry_ready"><span class="type-signature">  </span>vtbitime_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                    <div class="description">
+                        circumstances when ready to enter vtbi, vtbi over time
+                    </div>
+                    <h5>Parameters:</h5>
+                    <table class="params">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="name"><code>st</code></td>
+
+                                <td class="type">
+
+                                    <span class="param-type">state</span>
+
+                                </td>
+
+                                <td class="description last">The state of the system</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href="alaris_consistency.pvs.html">alaris_consistency.pvs</a>, <a href="alaris_consistency.pvs.html#line154">line 154</a>
+                        </li></ul></dd>
+                    </dl>
+                    <h5>Returns:</h5>
+                    <dl>
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <span class="param-type">bool</span>
+                        </dd>
+                    </dl>
+                </article>
+            </section>
+        </div>
+        <nav>
+            <h2><a href="index.html">Alaris GP</a></h2>
+            <h3>Modules</h3>
+            <ul>
+                <li><a href="module-alaris_th.html">alaris_th</a></li>
+                <li><a href="module-pump_th.html">pump_th</a></li>
+                <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+            </ul>
+            <h3>Theorems</h3>
+            <ul>
+                <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+                <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+                <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+                <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+                <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+                <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+            <ul>
+        </nav>
+        <br class="clear">
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 18:40:28 GMT+0100 (WEST)
+        </footer>
+        <script> prettyPrint ; </script>
+        <script src="scripts/linenumber.js"> </script>
+    </body>
+    </html>

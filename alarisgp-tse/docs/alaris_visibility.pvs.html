@@ -1,4 +1,22 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_visibility.js</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Source: alaris_visibility.js</h1>
+        <section>
+            <article>
+                <pre class="prettyprint source linenums"><code>%%
 % @module alaris_visibility
 % @author Michael Harrison and Paolo Masci (QMUL, UMinho Braga and Newcastle University)
 % @date April 2017
@@ -6,7 +24,7 @@
 %%
 alaris_visibility_pattern[
 maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -56,9 +74,9 @@ state_transitions(pre, post: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
-vtbi_entry_ready(st: state): boolean = 
+vtbi_entry_ready(st: state): boolean =
                  device(st)`powered_on? AND
-                  ((topline(st) = dispvtbi AND entrymode(st) = vtmode) OR 
+                  ((topline(st) = dispvtbi AND entrymode(st) = vtmode) OR
                    (topline(st) = vtbitime AND entrymode(st) = vttmode))
 
 %%
@@ -68,7 +86,7 @@ vtbi_entry_ready(st: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
-dispvtbi_entry_ready(st: state): boolean = 
+dispvtbi_entry_ready(st: state): boolean =
                   device(st)`powered_on? AND
                   (topline(st) = dispvtbi AND entrymode(st) = vtmode)
 
@@ -79,7 +97,7 @@ dispvtbi_entry_ready(st: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
-vtbitime_entry_ready(st: state): boolean = 
+vtbitime_entry_ready(st: state): boolean =
                   device(st)`powered_on? AND
                   NOT device(st)`infusing? AND
                    (topline(st) = vtbitime AND entrymode(st) = vttmode)
@@ -91,7 +109,7 @@ vtbitime_entry_ready(st: state): boolean =
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
-time_entry_ready(st: state): boolean = 
+time_entry_ready(st: state): boolean =
                   device(st)`powered_on? AND
                   NOT device(st)`infusing? AND
                    (topline(st) = vtbitime AND entrymode(st) = ttmode)
@@ -106,7 +124,7 @@ time_entry_ready(st: state): boolean =
 rate_entry_ready(st: state): boolean =
     device(st)`powered_on? AND
      NOT rlock(st) AND
-      ((entrymode(st) = rmode) OR (entrymode(st) = infusemode)) 
+      ((entrymode(st) = rmode) OR (entrymode(st) = infusemode))
 
 rate_entry_ready_locked(st: state): boolean =
     device(st)`powered_on? AND
@@ -122,7 +140,7 @@ paused(st: state): boolean =
 infusing_state(st: state): boolean =
     device(st)`powered_on? AND device(st)`infusing?
 
-%% 
+%%
   % @function holding_guard
   % @description set of top lines not included because they are also possible when infusing
   % @param {state} st The state of the system
@@ -136,7 +154,7 @@ holding_guard(st: state): boolean = (topline(st) /= locked) AND
 				    (topline(st) /= options) AND
 				    (topline(st) /= dispinfo)
 
-%% 
+%%
   % @function infusing_guard
   % @description set of top lines not included because they are also possible when holding
   % @param {state} st The state of the system
@@ -145,7 +163,7 @@ holding_guard(st: state): boolean = (topline(st) /= locked) AND
   %%
 infusing_guard(st: state): boolean = holding_guard(st)
 
-%% 
+%%
   % @function holding_filter
   % @description re-expresses pause for the template
   % @param {state} st The state of the system
@@ -154,7 +172,7 @@ infusing_guard(st: state): boolean = holding_guard(st)
   %%
 holding_filter(st:state): boolean = paused(st)
 
-%% 
+%%
   % @function infusing_filter
   % @description re-expresses infusing for the template
   % @param {state} st The state of the system
@@ -163,7 +181,7 @@ holding_filter(st:state): boolean = paused(st)
   %%
 infusing_filter(st: state): boolean = infusing_state(st)
 
-%% 
+%%
   % @function holding_p_filter
   % @description the disjunction of visible toplines for paused state
   % @param {state} st The state of the system
@@ -176,7 +194,7 @@ holding_p_filter(st: state): boolean =
       topline(st) = clearsetup OR topline(st) = attention OR
       topline(st) = lockrate OR topline(st) = setnotfitted)
 
-%% 
+%%
   % @function infusing_p_filter
   % @description the disjunction of visible toplines for infusing state
   % @param {state} st The state of the system
@@ -187,9 +205,9 @@ infusing_p_filter(st: state): boolean =
       (topline(st) = infusing) OR (topline(st) = dispkvo) OR
       (topline(st) = vtbidone)
 
-%% 
+%%
   % @function holding_visibility
-  % @description predicate that requires specific toplines to associated with holding 
+  % @description predicate that requires specific toplines to associated with holding
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
@@ -198,9 +216,9 @@ holding_visibility(st: state): boolean =
       holding_guard(st) IMPLIES
          (holding_filter(st) = holding_p_filter(st))
 
-%% 
+%%
   % @function infusing_visibility
-  % @description predicate that requires specific toplines to associated with infusing 
+  % @description predicate that requires specific toplines to associated with infusing
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
@@ -214,8 +232,8 @@ infusing_visibility(st: state): boolean =
 % @description proves that given the guard, a set of top lines indicate holding
 % @yields QED
 % @stats Run time  = 625.93 secs. 26/7/17
-%%  
-holding_visibility_theorem: THEOREM 
+%%
+holding_visibility_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => holding_visibility(pre)) AND
      (state_transitions(pre, post) AND holding_visibility(pre)
@@ -227,14 +245,14 @@ FORALL (pre, post: state):
 % @yields QED
 % @stats Run time  = 416.69 secs. 26/7/17
 %%
-infusing_visibility_theorem: THEOREM 
+infusing_visibility_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => infusing_visibility(pre)) AND
      (state_transitions(pre, post) AND infusing_visibility(pre)
           => infusing_visibility(post))
 
 
-%% 
+%%
   % @function run_filter
   % @description predicate that is true if infusing
   % @param {state} st The state of the system
@@ -244,7 +262,7 @@ FORALL (pre, post: state):
 run_filter(st: state): boolean =
     device(st)`powered_on? AND device(st)`infusing?
 
-%% 
+%%
   % @function run_p_filter
   % @description predicate that is true if the run light is switched on and the pause light is off
   % @param {state} st The state of the system
@@ -253,7 +271,7 @@ run_filter(st: state): boolean =
   %%
 run_p_filter(st: state): boolean =
      runlight(st) AND (NOT pauselight(st))
-%% 
+%%
   % @function pause_filter
   % @description predicate that is true if the device is paused
   % @param {state} st The state of the system
@@ -263,7 +281,7 @@ run_p_filter(st: state): boolean =
 pause_filter(st: state): boolean =
      device(st)`powered_on? AND (NOT device(st)`infusing?)
 
-%% 
+%%
   % @function pause_p_filter
   % @description predicate that is true if pause light is on and the run light is off
   % @param {state} st The state of the system
@@ -273,7 +291,7 @@ pause_filter(st: state): boolean =
 pause_p_filter(st: state): boolean =
       NOT runlight(st) AND pauselight(st)
 
-%% 
+%%
   % @function ac_on_filter
   % @description predicate that is true if powered on and ac connected
   % @param {state} st The state of the system
@@ -283,7 +301,7 @@ pause_p_filter(st: state): boolean =
 ac_on_filter(st: state): boolean =
       device(st)`powered_on? & device(st)`ac_connect
 
-%% 
+%%
   % @function ac_on_p_filter
   % @description predicate that is true if ac light is on
   % @param {state} st The state of the system
@@ -293,7 +311,7 @@ ac_on_filter(st: state): boolean =
 ac_on_p_filter(st: state): boolean =
       ac_light(st)
 
-%% 
+%%
   % @function battery_on_filter
   % @description predicate that is true if powered on and ac not connected
   % @param {state} st The state of the system
@@ -303,7 +321,7 @@ ac_on_p_filter(st: state): boolean =
 battery_on_filter(st: state): boolean =
       device(st)`powered_on? & NOT device(st)`ac_connect
 
-%% 
+%%
   % @function battery_on_p_filter
   % @description predicate that is true if the battery light is on
   % @param {state} st The state of the system
@@ -313,7 +331,7 @@ battery_on_filter(st: state): boolean =
 battery_on_p_filter(st: state): boolean =
        battery_light(st)
 
-%% 
+%%
   % @function visible_run
   % @description predicate that is true if run_filter is true iff run_p_filter true
   % @param {state} st The state of the system
@@ -323,7 +341,7 @@ battery_on_p_filter(st: state): boolean =
 visible_run(st: state): boolean =
     run_filter(st) = run_p_filter(st)
 
-%% 
+%%
   % @function visible_pause
   % @description predicate that is true if pause_filter is true iff pause_p_filter true
   % @param {state} st The state of the system
@@ -333,7 +351,7 @@ visible_run(st: state): boolean =
 visible_pause(st: state): boolean =
     pause_filter(st) = pause_p_filter(st)
 
-%% 
+%%
   % @function visible_ac_on
   % @description predicate that is true if ac_on_filter is true iff ac_on_p_filter true
   % @param {state} st The state of the system
@@ -343,7 +361,7 @@ visible_pause(st: state): boolean =
 visible_ac_on(st: state): boolean =
      ac_on_filter(st) = ac_on_p_filter(st)
 
-%% 
+%%
   % @function visible_battery_on
   % @description predicate that is true if battery_on_filter is true iff battery_on_p_filter true
   % @param {state} st The state of the system
@@ -353,7 +371,7 @@ visible_ac_on(st: state): boolean =
 visible_battery_on(st:state): boolean =
      battery_on_filter(st) = battery_on_p_filter(st)
 
-  
+
 %%
 % @theorem visible_run_theorem
 % @description proves that the appropriate lights indicate that the device is infusing
@@ -363,7 +381,7 @@ visible_battery_on(st:state): boolean =
 visible_run_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_run(pre)) AND
-       ((state_transitions(pre, post) AND visible_run(pre))  
+       ((state_transitions(pre, post) AND visible_run(pre))
                   => visible_run(post))
 
 %%
@@ -375,8 +393,8 @@ visible_run_theorem: THEOREM
 visible_pause_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_pause(pre)) AND
-       ((state_transitions(pre, post) AND visible_pause(pre))  
-                  => visible_pause(post)) 
+       ((state_transitions(pre, post) AND visible_pause(pre))
+                  => visible_pause(post))
 
 %%
 % @theorem visible_ac_on_theorem
@@ -387,8 +405,8 @@ visible_pause_theorem: THEOREM
 visible_ac_on_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_ac_on(pre)) AND
-       ((state_transitions(pre, post) AND visible_ac_on(pre))  
-                  => visible_ac_on(post)) 
+       ((state_transitions(pre, post) AND visible_ac_on(pre))
+                  => visible_ac_on(post))
 
 %%
 % @theorem visible_battery_on_theorem
@@ -399,10 +417,10 @@ visible_ac_on_theorem: THEOREM
 visible_battery_on_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_battery_on(pre)) AND
-       ((state_transitions(pre, post) AND visible_battery_on(pre))  
+       ((state_transitions(pre, post) AND visible_battery_on(pre))
                   => visible_battery_on(post))
 
-%% 
+%%
   % @function guard_vis_rmode
   % @description top line not locked
   % @param {state} st The state of the system
@@ -412,7 +430,7 @@ visible_battery_on_theorem: THEOREM
 guard_vis_rmode(st: state): boolean =
         topline(st) /= locked
 
-%% 
+%%
   % @function rmode_filter
   % @description entry mode is rmode
   % @param {state} st The state of the system
@@ -421,7 +439,7 @@ guard_vis_rmode(st: state): boolean =
   %%
 rmode_filter(st: state): boolean = entrymode(st) = rmode
 
-%% 
+%%
   % @function rmode_p_filter
   % @description top line is holding or top line is set rate
   % @param {state} st The state of the system
@@ -431,7 +449,7 @@ rmode_filter(st: state): boolean = entrymode(st) = rmode
 rmode_p_filter(st: state): boolean =
         (topline(st) = holding) OR (topline(st) = setrate)
 
-%% 
+%%
   % @function visible_rmode
   % @description visibility property relating to rmode
   % @param {state} st The state of the system
@@ -451,10 +469,10 @@ visible_rmode(st:state): boolean =
 visible_rmode_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_rmode(pre)) AND
-       ((state_transitions(pre, post) AND visible_rmode(pre))  
+       ((state_transitions(pre, post) AND visible_rmode(pre))
                   => visible_rmode(post))
 
-%% 
+%%
   % @function guard_vis_infusemode
   % @description top line not locked
   % @param {state} st The state of the system
@@ -464,7 +482,7 @@ visible_rmode_theorem: THEOREM
 guard_vis_infusemode(st: state): boolean =
         topline(st) /= locked
 
-%% 
+%%
   % @function infusemode_filter
   % @description entrymode is infusemode
   % @param {state} st The state of the system
@@ -473,7 +491,7 @@ guard_vis_infusemode(st: state): boolean =
   %%
 infusemode_filter(st: state): boolean = entrymode(st) = infusemode
 
-%% 
+%%
   % @function infusemode_p_filter
   % @description top line is infusing or dispkvo
   % @param {state} st The state of the system
@@ -483,7 +501,7 @@ infusemode_filter(st: state): boolean = entrymode(st) = infusemode
 infusemode_p_filter(st: state): boolean =
         (topline(st) = infusing) OR (topline(st) = dispkvo)
 
-%% 
+%%
   % @function visible_infusemode
   % @description visibility property for infusing
   % @param {state} st The state of the system
@@ -503,10 +521,10 @@ visible_infusemode(st:state): boolean =
 visible_infusemode_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_infusemode(pre)) AND
-       ((state_transitions(pre, post) AND visible_infusemode(pre))  
+       ((state_transitions(pre, post) AND visible_infusemode(pre))
                   => visible_infusemode(post))
 
-%% 
+%%
   % @function guard_vis_kvo
   % @description true, ie no guard
   % @param {state} st The state of the system
@@ -517,7 +535,7 @@ guard_vis_kvo(st: state): boolean = true
  %       topline(st) /= locked
 
 
-%% 
+%%
   % @function kvo_filter
   % @description infusemode with the kvoflag set
   % @param {state} st The state of the system
@@ -527,7 +545,7 @@ guard_vis_kvo(st: state): boolean = true
 kvo_filter(st: state): boolean =
        entrymode(st) = infusemode AND device(st)`kvoflag
 
-%% 
+%%
   % @function kvo_p_filter
   % @description topline shows kvo
   % @param {state} st The state of the system
@@ -537,7 +555,7 @@ kvo_filter(st: state): boolean =
 kvo_p_filter(st: state): boolean =
         (topline(st) = dispkvo)
 
-%% 
+%%
   % @function visible_kvo
   % @description the visibility property relating to kvo
   % @param {state} st The state of the system
@@ -557,10 +575,10 @@ visible_kvo(st:state): boolean =
 Visible_kvo_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_kvo(pre)) AND
-       ((state_transitions(pre, post) AND visible_kvo(pre))  
+       ((state_transitions(pre, post) AND visible_kvo(pre))
                   => visible_kvo(post))
 
-%% 
+%%
   % @function guard_vis_dispvtbi
   % @description true, ie no guard
   % @param {state} st The state of the system
@@ -569,9 +587,9 @@ Visible_kvo_theorem: THEOREM
   %%
 guard_vis_dispvtbi(st: state): boolean = true
 
-%% 
+%%
   % @function dispvtbi_filter
-  % @description entrymodes that can be related to top line of dispvtbi 
+  % @description entrymodes that can be related to top line of dispvtbi
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
@@ -581,7 +599,7 @@ dispvtbi_filter(st: state): boolean =
        entrymode(st) = bagmode OR
        entrymode(st) = tbagmode
 
-%% 
+%%
   % @function dispvtbi_p_filter
   % @description topline dispvtbi
   % @param {state} st The state of the system
@@ -591,7 +609,7 @@ dispvtbi_filter(st: state): boolean =
 dispvtbi_p_filter(st: state): boolean =
         topline(st) = dispvtbi
 
-%% 
+%%
   % @function visible_dispvtbi
   % @description the modes are visible via the top line
   % @param {state} st The state of the system
@@ -611,10 +629,10 @@ visible_dispvtbi(st:state): boolean =
 visible_dispvtbi_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_dispvtbi(pre)) AND
-       ((state_transitions(pre, post) AND visible_dispvtbi(pre))  
+       ((state_transitions(pre, post) AND visible_dispvtbi(pre))
                   => visible_dispvtbi(post))
 
-%% 
+%%
   % @function guard_vis_vtbitime
   % @description true, ie no guard
   % @param {state} st The state of the system
@@ -623,7 +641,7 @@ visible_dispvtbi_theorem: THEOREM
   %%
 guard_vis_vtbitime(st: state): boolean = true
 
-%% 
+%%
   % @function vtbitime_filter
   % @description entry modes associated with vtbitime
   % @param {state} st The state of the system
@@ -632,9 +650,9 @@ guard_vis_vtbitime(st: state): boolean = true
   %%
 vtbitime_filter(st: state): boolean =
        entrymode(st) = vttmode OR
-       entrymode(st) = ttmode 
+       entrymode(st) = ttmode
 
-%% 
+%%
   % @function vtbitime_p_filter
   % @description topline vtbitime
   % @param {state} st The state of the system
@@ -644,7 +662,7 @@ vtbitime_filter(st: state): boolean =
 vtbitime_p_filter(st: state): boolean =
         topline(st) = vtbitime
 
-%% 
+%%
   % @function visible_vtbitime
   % @description the modes are visible via the top line
   % @param {state} st The state of the system
@@ -664,10 +682,10 @@ visible_vtbitime(st:state): boolean =
 visible_vtbitime_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_vtbitime(pre)) AND
-       ((state_transitions(pre, post) AND visible_vtbitime(pre))  
+       ((state_transitions(pre, post) AND visible_vtbitime(pre))
                   => visible_vtbitime(post))
 
-%% 
+%%
   % @function guard_vis_nullmode
   % @description true, ie no guard
   % @param {state} st The state of the system
@@ -676,7 +694,7 @@ visible_vtbitime_theorem: THEOREM
   %%
 guard_vis_nullmode(st: state): boolean = true
 
-%% 
+%%
   % @function nullmode_filter
   % @description entry modes associated with nullmode
   % @param {state} st The state of the system
@@ -686,7 +704,7 @@ guard_vis_nullmode(st: state): boolean = true
 nullmode_filter(st: state): boolean =
        entrymode(st) = nullmode AND device(st)`powered_on?
 
-%% 
+%%
   % @function nullmode_p_filter
   % @description set of toplines associated with nullmode
   % @param {state} st The state of the system
@@ -704,7 +722,7 @@ nullmode_p_filter(st: state): boolean =
         topline(st) = lockrate OR
         topline(st) = setnotfitted
 
-%% 
+%%
   % @function visible_nullmode
   % @description the mode is visible via the top line
   % @param {state} st The state of the system
@@ -724,10 +742,10 @@ visible_nullmode(st:state): boolean =
 visible_nullmode_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_nullmode(pre)) AND
-       ((state_transitions(pre, post) AND visible_nullmode(pre))  
+       ((state_transitions(pre, post) AND visible_nullmode(pre))
                   => visible_nullmode(post))
 
-%% 
+%%
   % @function guard_vis_mode
   % @description true if infusion rate not locked
   % @param {state} st The state of the system
@@ -736,7 +754,7 @@ visible_nullmode_theorem: THEOREM
   %%
 guard_vis_qmode(st: state): boolean = NOT rlock(st)
 
-%% 
+%%
   % @function qmode_filter
   % @description entry mode is qmode
   % @param {state} st The state of the system
@@ -746,7 +764,7 @@ guard_vis_qmode(st: state): boolean = NOT rlock(st)
 qmode_filter(st: state): boolean =
        entrymode(st) = qmode
 
-%% 
+%%
   % @function qmode_p_filter
   % @description topline is options - ie options menu
   % @param {state} st The state of the system
@@ -756,13 +774,13 @@ qmode_filter(st: state): boolean =
 qmode_p_filter(st: state): boolean =
         topline(st) = options
 
-%% 
+%%
   % @function visible_qmode
   % @description the mode is visible via the top line
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%	
+  %%
 visible_qmode(st:state): boolean =
    guard_vis_qmode(st) IMPLIES
      (qmode_filter(st) = qmode_p_filter(st))
@@ -776,10 +794,10 @@ visible_qmode(st:state): boolean =
 visible_qmode_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_qmode(pre)) AND
-       ((state_transitions(pre, post) AND visible_qmode(pre))  
+       ((state_transitions(pre, post) AND visible_qmode(pre))
                   => visible_qmode(post))
 
-%% 
+%%
   % @function guard_vis_mode_rate
   % @description true if infusion rate not locked
   % @param {state} st The state of the system
@@ -788,7 +806,7 @@ visible_qmode_theorem: THEOREM
   %%
 guard_vis_rmode_rate(st: state): boolean = NOT rlock(st)
 
-%% 
+%%
   % @function rmode_rate_filter
   % @description entry mode is rmode
   % @param {state} st The state of the system
@@ -798,7 +816,7 @@ guard_vis_rmode_rate(st: state): boolean = NOT rlock(st)
 rmode_rate_filter(st: state): boolean =
        entrymode(st) = rmode
 
-%% 
+%%
   % @function rmode_rate_p_filter
   % @description the infusion pump rate variable is visible
   % @param {state} st The state of the system
@@ -808,13 +826,13 @@ rmode_rate_filter(st: state): boolean =
 rmode_rate_p_filter(st: state): boolean =
         middisp(st)(drate)
 
-%% 
+%%
   % @function part_visible_rmode_rate
   % @description rate is visible if entrymode is rmode
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%	
+  %%
 part_visible_rmode_rate(st:state): boolean =
    (guard_vis_rmode_rate(st) AND
      rmode_rate_filter(st)) => rmode_rate_p_filter(st)
@@ -828,10 +846,10 @@ part_visible_rmode_rate(st:state): boolean =
 visible_rmode_rate_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => part_visible_rmode_rate(pre)) AND
-       ((state_transitions(pre, post) AND part_visible_rmode_rate(pre))  
+       ((state_transitions(pre, post) AND part_visible_rmode_rate(pre))
                   => part_visible_rmode_rate(post))
 
-%% 
+%%
   % @function guard_vis_infusemode_rate
   % @description true if infusion rate not locked
   % @param {state} st The state of the system
@@ -840,7 +858,7 @@ visible_rmode_rate_theorem: THEOREM
   %%
 guard_vis_infusemode_rate(st: state): boolean = NOT rlock(st)
 
-%% 
+%%
   % @function infusemode_rate_filter
   % @description entry mode is infusemode
   % @param {state} st The state of the system
@@ -850,7 +868,7 @@ guard_vis_infusemode_rate(st: state): boolean = NOT rlock(st)
 infusemode_rate_filter(st: state): boolean =
        entrymode(st) = infusemode
 
-%% 
+%%
   % @function infusemode_rate_p_filter
   % @description the infusion pump rate variable is visible or kvorate if vtbi is exhausted
   % @param {state} st The state of the system
@@ -860,13 +878,13 @@ infusemode_rate_filter(st: state): boolean =
 infusemode_rate_p_filter(st: state): boolean =
         middisp(st)(drate) OR middisp(st)(dkvorate)
 
-%% 
+%%
   % @function part_visible_infusemode_rate
   % @description rate or kvorate is visible if entrymode is infusemode
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%	
+  %%
 part_visible_infusemode_rate(st:state): boolean =
    (guard_vis_infusemode_rate(st) AND
      infusemode_rate_filter(st)) => infusemode_rate_p_filter(st)
@@ -880,19 +898,19 @@ part_visible_infusemode_rate(st:state): boolean =
 visible_infusemode_rate_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => part_visible_infusemode_rate(pre)) AND
-       ((state_transitions(pre, post) AND part_visible_infusemode_rate(pre))  
+       ((state_transitions(pre, post) AND part_visible_infusemode_rate(pre))
                   => part_visible_infusemode_rate(post))
 
-%% 
+%%
   % @function guard_vis_vtvttmode_vtbi
-  % @description true 
+  % @description true
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
 guard_vis_vtvttmode_vtbi(st: state): boolean = true
 
-%% 
+%%
   % @function vtvttmode_vtbi_filter
   % @description entry mode is disjunction of vtbi entry modes
   % @param {state} st The state of the system
@@ -904,7 +922,7 @@ vtvttmode_vtbi_filter(st: state): boolean =
        (entrymode(st) = vttmode) OR
        (entrymode(st) = ttmode)
 
-%% 
+%%
   % @function vtvttmode_vtbi_p_filter
   % @description the temporary value of vtbi is visible
   % @param {state} st The state of the system
@@ -916,13 +934,13 @@ vtvttmode_vtbi_p_filter(st: state): boolean =
 
 
 
-%% 
+%%
   % @function visible_vtvttmode_vtbi
   % @description temp variable vtbi visible in vtbi entry modes
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%	
+  %%
 visible_vtvttmode_vtbi(st:state): boolean =
    guard_vis_vtvttmode_vtbi(st) =>
      (vtvttmode_vtbi_filter(st) = vtvttmode_vtbi_p_filter(st))
@@ -936,19 +954,19 @@ visible_vtvttmode_vtbi(st:state): boolean =
 visible_vtvttmode_vtbi_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_vtvttmode_vtbi(pre)) AND
-       ((state_transitions(pre, post) AND visible_vtvttmode_vtbi(pre))  
+       ((state_transitions(pre, post) AND visible_vtvttmode_vtbi(pre))
                   => visible_vtvttmode_vtbi(post))
 
-%% 
+%%
   % @function guard_vis_vtttmode_time
-  % @description true 
+  % @description true
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
   %%
 guard_vis_vtttmode_time(st: state): boolean = true
 
-%% 
+%%
   % @function vtttmode_time_filter
   % @description entry mode is disjunction of vtbi over time entry modes
   % @param {state} st The state of the system
@@ -959,7 +977,7 @@ vtttmode_time_filter(st: state): boolean =
        (entrymode(st) = vttmode) OR
        (entrymode(st) = ttmode)
 
-%% 
+%%
   % @function vtttmode_time_p_filter
   % @description the temporary value of time is visible
   % @param {state} st The state of the system
@@ -969,13 +987,13 @@ vtttmode_time_filter(st: state): boolean =
 vtttmode_time_p_filter(st: state): boolean =
         middisp(st)(dnewtime)
 
-%% 
+%%
   % @function visible_vtttmode_time
   % @description temp variable time visible in vtbi over time entry modes
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%		
+  %%
 visible_vtttmode_time(st:state): boolean =
    guard_vis_vtttmode_time(st) =>
      (vtttmode_time_filter(st) = vtttmode_time_p_filter(st))
@@ -989,10 +1007,10 @@ visible_vtttmode_time(st:state): boolean =
 visible_vtttmode_time_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => visible_vtttmode_time(pre)) AND
-       ((state_transitions(pre, post) AND visible_vtttmode_time(pre))  
+       ((state_transitions(pre, post) AND visible_vtttmode_time(pre))
                   => visible_vtttmode_time(post))
 
-%% 
+%%
   % @function pred_off_filter
   % @description power off
   % @param {state} st The state of the system
@@ -1002,7 +1020,7 @@ visible_vtttmode_time_theorem: THEOREM
 pred_off_filter(st: state): boolean =
           NOT device(st)`powered_on?
 
-%% 
+%%
   % @function pred_p_off_filter
   % @description the temporary value of time is visible
   % @param {state} st The state of the system
@@ -1013,13 +1031,13 @@ pred_p_off_filter(st: state): boolean =
           topline(st) = dispblank
 
 
-%% 
+%%
   % @function off_visibility
   % @description when device off, topline is blank
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_visibility
-  %%	
+  %%
 off_visibility(st: state): boolean =
    (pred_off_filter(st) = pred_p_off_filter(st))
 
@@ -1029,11 +1047,40 @@ off_visibility(st: state): boolean =
 % @yields QED
 % @stats Run time  = 179.48 secs. 27/7/17
 %%
-off_visibility_theorem: THEOREM 
+off_visibility_theorem: THEOREM
 FORALL (pre, post: state):
     (init?(pre)  => off_visibility(pre)) AND
      (state_transitions(pre, post) AND off_visibility(pre)
           => off_visibility(post))
 
 
-END alaris_visibility_pattern
+END alaris_visibility_pattern</code></pre>
+            </article>
+        </section>
+    </div>
+    <nav>
+        <h2><a href="index.html">Alaris GP</a></h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-alaris_th.html">alaris_th</a></li>
+            <li><a href="module-pump_th.html">pump_th</a></li>
+            <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+        </ul>
+        <h3>Theorems</h3>
+        <ul>
+            <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+            <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+            <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+            <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+            <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+            <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+        <ul>
+    </nav>
+    <br class="clear">
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 15:43:28 GMT+0100 (WEST)
+    </footer>
+    <script> prettyPrint(); </script>
+    <script src="scripts/linenumber.js"> </script>
+</body>
+</html>

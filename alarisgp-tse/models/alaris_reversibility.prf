@@ -33,6 +33,10 @@
      real_types nil)
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    shostak))
+ (simplefieldlemma 0
+  (simplefieldlemma-1 nil 3708754722 ("" (grind) nil nil)
+   ((real_times_real_is_real application-judgement "real" reals nil))
+   shostak))
  (range_time_ud_TCC1 0
   (range_time_ud_TCC1-1 nil 3659185769 ("" (subtype-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
@@ -828,7 +832,7 @@
     (strict_total_order? const-decl "bool" orders nil)
     (pred type-eq-decl nil defined_types nil)
     (total_order? const-decl "bool" orders nil)
-    (integer nonempty-type-from-decl nil integers nil) nil
+    (integer nonempty-type-from-decl nil integers nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (bigstep const-decl "nat" types_and_constants_th nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -1253,7 +1257,7 @@
     (floor const-decl "{i | i <= x & x < i + 1}" floor_ceil nil)
     (even? const-decl "bool" integers nil)
     (strict_total_order? const-decl "bool" orders nil)
-    (pred type-eq-decl nil defined_types nil) nil
+    (pred type-eq-decl nil defined_types nil)
     (real_le_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
     (ceiling_plus_int formula-decl nil floor_ceil nil)
@@ -1354,7 +1358,7 @@
     (nznum nonempty-type-eq-decl nil number_fields nil)
     (/= const-decl "boolean" notequal nil)
     (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    nil (total_order? const-decl "bool" orders nil)
+    (total_order? const-decl "bool" orders nil)
     (irreflexive? const-decl "bool" relations nil)
     (transitive? const-decl "bool" relations nil)
     (strict_order? const-decl "bool" orders nil)
@@ -2099,7 +2103,7 @@
    ((divbynrealpndx formula-decl nil alaris_reversibility_pattern nil)
     (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
     (nznum nonempty-type-eq-decl nil number_fields nil)
-    (/= const-decl "boolean" notequal nil) nil
+    (/= const-decl "boolean" notequal nil)
     (total_order? const-decl "bool" orders nil)
     (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
     (real_div_nzreal_is_real application-judgement "real" reals nil)
@@ -2115,7 +2119,7 @@
     (real_le_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
     (integer nonempty-type-from-decl nil integers nil)
-    (ivols type-eq-decl nil types_and_constants_th nil) nil
+    (ivols type-eq-decl nil types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (bigstep const-decl "nat" types_and_constants_th nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -2645,8 +2649,6 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_reversibility_pattern nil)
@@ -2813,8 +2815,6 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_reversibility_pattern nil)
@@ -2975,12 +2975,10 @@
      real_props nil)
     (decrement const-decl "presstime" alaris_th nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_reversibility_pattern nil)
     (bat_max formal-const-decl
@@ -3146,8 +3144,6 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_reversibility_pattern nil)
@@ -3513,8 +3509,1022 @@
     (abags type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil))
    nil))
+ (supsdown_rate_TCC1 0
+  (supsdown_rate_TCC1-1 nil 3710745292 ("" (subtype-tcc) nil nil)
+   ((switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
+   nil))
+ (supsdown_rate_TCC2 0
+  (supsdown_rate_TCC2-1 nil 3710745292
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
+    nil)
+   ((real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (> const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (even? const-decl "bool" integers nil)
+    (strict_total_order? const-decl "bool" orders nil)
+    (pred type-eq-decl nil defined_types nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (irreflexive? const-decl "bool" relations nil)
+    (transitive? const-decl "bool" relations nil)
+    (strict_order? const-decl "bool" orders nil)
+    (trichotomous? const-decl "bool" orders nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sdown const-decl "boolean" alaris_th nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil))
+   nil))
+ (supsdown_rate_TCC3 0
+  (supsdown_rate_TCC3-1 nil 3710745292 ("" (subtype-tcc) nil nil)
+   ((real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
+   nil))
+ (supsdown_rate_TCC4 0
+  (supsdown_rate_TCC4-1 nil 3710745292 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (state_up_rate const-decl "irates" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (sup_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sup_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (sup_case_infusingORholding_rlock const-decl "state" alaris_th nil)
+    (sup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (state_up_time const-decl "itimes" alaris_th nil)
+    (sup_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (sup_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sup_case_options const-decl "state" alaris_th nil)
+    (sup const-decl "state" alaris_th nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sup const-decl "boolean" alaris_th nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil))
+   nil))
+ (supsdown_rate 0
+  (supsdown_rate-1 nil 3710745293
+   ("" (skosimp*)
+    (("" (expand "guard_supsdown_rate")
+      (("" (expand "rate_entry_ready")
+        (("" (flatten)
+          (("" (split)
+            (("1" (flatten)
+              (("1" (split)
+                (("1" (expand "per_sdown")
+                  (("1" (expand "per_chevron")
+                    (("1" (flatten)
+                      (("1" (split)
+                        (("1" (split)
+                          (("1" (grind)
+                            (("1" (lemma "floor_plus_int")
+                              (("1"
+                                (inst?
+                                 :subst
+                                 (x
+                                  "10 * ((ceiling(10 * device(st!1)`infusionrate) - 1)/10)"
+                                  i
+                                  1))
+                                (("1"
+                                  (replace -1 7)
+                                  (("1"
+                                    (grind)
+                                    (("1"
+                                      (lemma "simplefieldlemma")
+                                      (("1"
+                                        (inst?
+                                         :subst
+                                         (x
+                                          "(ceiling(10 * device(st!1)`infusionrate) - 1)"
+                                          n
+                                          10))
+                                        (("1"
+                                          (replace -1 7)
+                                          (("1"
+                                            (lemma "floor_plus_int")
+                                            (("1"
+                                              (inst?
+                                               :subst
+                                               (x
+                                                "ceiling(10 * device(st!1)`infusionrate)"
+                                                i
+                                                -1))
+                                              (("1"
+                                                (replace -1 7)
+                                                (("1"
+                                                  (grind)
+                                                  (("1"
+                                                    (postpone)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("2" (postpone) nil nil)
+                             ("3" (postpone) nil nil)
+                             ("4" (postpone) nil nil)
+                             ("5" (postpone) nil nil)
+                             ("6" (postpone) nil nil)
+                             ("7" (postpone) nil nil)
+                             ("8" (postpone) nil nil)
+                             ("9" (postpone) nil nil)
+                             ("10" (postpone) nil nil)
+                             ("11" (postpone) nil nil)
+                             ("12" (postpone) nil nil)
+                             ("13" (postpone) nil nil)
+                             ("14" (postpone) nil nil)
+                             ("15" (postpone) nil nil)
+                             ("16" (postpone) nil nil)
+                             ("17" (postpone) nil nil)
+                             ("18" (postpone) nil nil))
+                            nil)
+                           ("2" (postpone) nil nil)
+                           ("3" (postpone) nil nil)
+                           ("4" (postpone) nil nil)
+                           ("5" (postpone) nil nil))
+                          nil)
+                         ("2" (postpone) nil nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil)
+                 ("2" (postpone) nil nil))
+                nil))
+              nil)
+             ("2" (postpone) nil nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   nil shostak))
+ (low_simplesupsdown_rate_TCC1 0
+  (low_simplesupsdown_rate_TCC1-1 nil 3710758415
+   ("" (subtype-tcc) nil nil)
+   ((switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (simple_low_range_rate const-decl "bool"
+     alaris_reversibility_pattern nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
+   nil))
+ (low_simplesupsdown_rate_TCC2 0
+  (low_simplesupsdown_rate_TCC2-1 nil 3710758415
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
+    nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (simple_low_range_rate const-decl "bool"
+     alaris_reversibility_pattern nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sdown const-decl "boolean" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
+   nil))
+ (low_simplesupsdown_rate_TCC3 0
+  (low_simplesupsdown_rate_TCC3-1 nil 3710758415
+   ("" (subtype-tcc) nil nil)
+   ((state_dn_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (simple_low_range_rate const-decl "bool"
+     alaris_reversibility_pattern nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
+   nil))
+ (low_simplesupsdown_rate_TCC4 0
+  (low_simplesupsdown_rate_TCC4-1 nil 3710758415
+   ("" (subtype-tcc) nil nil)
+   ((state_up_rate const-decl "irates" alaris_th nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (real_times_real_is_real application-judgement "real" reals nil)
+    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (simple_low_range_rate const-decl "bool"
+     alaris_reversibility_pattern nil)
+    (sup_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sup_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (sup_case_infusingORholding_rlock const-decl "state" alaris_th nil)
+    (sup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (state_up_time const-decl "itimes" alaris_th nil)
+    (sup_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (sup_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sup_case_options const-decl "state" alaris_th nil)
+    (sup const-decl "state" alaris_th nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sup const-decl "boolean" alaris_th nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil))
+   nil))
+ (low_simplesupsdown_rate 0
+  (low_simplesupsdown_rate-1 nil 3710758415
+   ("" (skosimp*)
+    (("" (expand "guard_supsdown_rate")
+      (("" (expand "rate_entry_ready")
+        (("" (flatten)
+          (("" (split)
+            (("1" (flatten)
+              (("1" (split)
+                (("1" (expand "per_sdown")
+                  (("1" (expand "per_chevron")
+                    (("1" (flatten)
+                      (("1" (split)
+                        (("1" (split)
+                          (("1" (grind)
+                            (("1" (postpone) nil nil)
+                             ("2" (postpone) nil nil))
+                            nil)
+                           ("2" (postpone) nil nil)
+                           ("3" (postpone) nil nil)
+                           ("4" (postpone) nil nil)
+                           ("5" (postpone) nil nil))
+                          nil)
+                         ("2" (postpone) nil nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil)
+                 ("2" (postpone) nil nil))
+                nil))
+              nil)
+             ("2" (postpone) nil nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   nil shostak))
  (low_supsdown_TCC1 0
-  (low_supsdown_TCC1-1 nil 3657975481 ("" (subtype-tcc) nil nil)
+  (low_supsdown_TCC1-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((switchedon? const-decl "bool" alaris_reversibility_pattern nil)
     (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
      nil)
@@ -3602,82 +4612,157 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (low_supsdown_TCC2 0
-  (low_supsdown_TCC2-1 nil 3657975481
-   ("" (skosimp*)
-    (("" (lemma "check_chev_sdown_permission")
-      (("" (inst? :subst (st "st!1"))
-        (("" (expand "guard_supsdown_rate") (("" (grind) nil nil))
-          nil))
-        nil))
-      nil))
+  (low_supsdown_TCC2-1 nil 3710746197
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
-   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_reversibility_pattern nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}"
-     alaris_reversibility_pattern nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_reversibility_pattern nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}"
-     alaris_reversibility_pattern nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
      nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+     nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
     (infusemin formal-const-decl
      "{infusemin: posreal | infusemin <= maxinfuse}"
      alaris_reversibility_pattern nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_reversibility_pattern
+    (timeout formal-const-decl "posnat" alaris_reversibility_pattern
      nil)
-    (maxrate formal-const-decl "posnat" alaris_reversibility_pattern
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}"
+     alaris_reversibility_pattern nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_reversibility_pattern nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}"
+     alaris_reversibility_pattern nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_reversibility_pattern nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
      nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
      nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number nonempty-type-decl nil numbers nil)
-    (check_chev_sdown_permission formula-decl nil alaris_th nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
     (guard_supsdown_rate const-decl "boolean"
      alaris_reversibility_pattern nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil))
+    (low_range_rate const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sdown const-decl "boolean" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil))
    nil))
  (low_supsdown_TCC3 0
-  (low_supsdown_TCC3-1 nil 3657975481 ("" (subtype-tcc) nil nil)
+  (low_supsdown_TCC3-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((state_dn_rate const-decl "irates" alaris_th nil)
     (trim_rate const-decl "irates" alaris_th nil)
     (real_gt_is_strict_total_order name-judgement
@@ -3776,7 +4861,7 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (low_supsdown_TCC4 0
-  (low_supsdown_TCC4-1 nil 3657975481 ("" (subtype-tcc) nil nil)
+  (low_supsdown_TCC4-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((state_up_rate const-decl "irates" alaris_th nil)
     (state_dn_rate const-decl "irates" alaris_th nil)
     (trim_rate const-decl "irates" alaris_th nil)
@@ -3964,6 +5049,8 @@
     (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
     (even_minus_even_is_even application-judgement "even_int" integers
      nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
     (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
     (mult_divides2 application-judgement "(divides(m))" divides nil)
     (mult_divides1 application-judgement "(divides(n))" divides nil)
@@ -4044,8 +5131,6 @@
     (ceil_rate const-decl "irates" alaris_th nil)
     (small_step const-decl "real" types_and_constants_th nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
-    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
     (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
      rationals nil)
     (rat_times_rat_is_rat application-judgement "rat" rationals nil)
@@ -4058,7 +5143,7 @@
     (simpleupdown formula-decl nil alaris_reversibility_pattern nil))
    shostak))
  (mid_supsdown_rate_TCC1 0
-  (mid_supsdown_rate_TCC1-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (mid_supsdown_rate_TCC1-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((switchedon? const-decl "bool" alaris_reversibility_pattern nil)
     (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
      nil)
@@ -4144,49 +5229,23 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (mid_supsdown_rate_TCC2 0
-  (mid_supsdown_rate_TCC2-1 nil 3658057440
-   ("" (skosimp*)
-    (("" (expand "guard_supsdown_rate")
-      (("" (lemma "check_chev_sdown_permission")
-        (("" (inst? :subst (st "st!1")) (("" (grind) nil nil)) nil))
-        nil))
-      nil))
+  (mid_supsdown_rate_TCC2-1 nil 3710746197
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
-   ((guard_supsdown_rate const-decl "boolean"
-     alaris_reversibility_pattern nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (check_chev_sdown_permission formula-decl nil alaris_th nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
     (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
     (number_field_pred const-decl "[number -> boolean]" number_fields
      nil)
     (number_field nonempty-type-from-decl nil number_fields nil)
     (real_pred const-decl "[number_field -> boolean]" reals nil)
     (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
     (rational_pred const-decl "[real -> boolean]" rationals nil)
     (rational nonempty-type-from-decl nil rationals nil)
     (integer_pred const-decl "[rational -> boolean]" integers nil)
     (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
     (nonneg_int nonempty-type-eq-decl nil integers nil)
     (> const-decl "bool" reals nil)
     (posnat nonempty-type-eq-decl nil integers nil)
@@ -4216,10 +5275,112 @@
      "{bat_max: posnat | bat_max + 1 < maxtime}"
      alaris_reversibility_pattern nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_reversibility_pattern nil))
+     alaris_reversibility_pattern nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (mid_range_rate const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sdown const-decl "boolean" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (real_plus_real_is_real application-judgement "real" reals nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (mid_supsdown_rate_TCC3 0
-  (mid_supsdown_rate_TCC3-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (mid_supsdown_rate_TCC3-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((state_dn_rate const-decl "irates" alaris_th nil)
     (real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
@@ -4314,7 +5475,7 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (mid_supsdown_rate_TCC4 0
-  (mid_supsdown_rate_TCC4-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (mid_supsdown_rate_TCC4-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((real_minus_real_is_real application-judgement "real" reals nil)
     (trim_rate const-decl "irates" alaris_th nil)
     (int_plus_int_is_int application-judgement "int" integers nil)
@@ -4512,6 +5673,10 @@
     (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
     (even_minus_even_is_even application-judgement "even_int" integers
      nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
     (real_plus_real_is_real application-judgement "real" reals nil)
     (real_ge_is_total_order name-judgement "(total_order?[real])"
@@ -4591,8 +5756,6 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
     (int_plus_int_is_int application-judgement "int" integers nil)
-    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
     (rat_times_rat_is_rat application-judgement "rat" rationals nil)
     (posint_times_posint_is_posint application-judgement "posint"
      integers nil)
@@ -4602,7 +5765,7 @@
     (simpleupdown formula-decl nil alaris_reversibility_pattern nil))
    shostak))
  (high_supsdown_rate_TCC1 0
-  (high_supsdown_rate_TCC1-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (high_supsdown_rate_TCC1-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((switchedon? const-decl "bool" alaris_reversibility_pattern nil)
     (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
      nil)
@@ -4690,49 +5853,23 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (high_supsdown_rate_TCC2 0
-  (high_supsdown_rate_TCC2-1 nil 3658057440
-   ("" (skosimp*)
-    (("" (expand "guard_supsdown_rate")
-      (("" (lemma "check_chev_sdown_permission")
-        (("" (inst? :subst (st "st!1")) (("" (grind) nil nil)) nil))
-        nil))
-      nil))
+  (high_supsdown_rate_TCC2-1 nil 3710746197
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
-   ((guard_supsdown_rate const-decl "boolean"
-     alaris_reversibility_pattern nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (check_chev_sdown_permission formula-decl nil alaris_th nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
     (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
     (number_field_pred const-decl "[number -> boolean]" number_fields
      nil)
     (number_field nonempty-type-from-decl nil number_fields nil)
     (real_pred const-decl "[number_field -> boolean]" reals nil)
     (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
     (rational_pred const-decl "[real -> boolean]" rationals nil)
     (rational nonempty-type-from-decl nil rationals nil)
     (integer_pred const-decl "[rational -> boolean]" integers nil)
     (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
     (nonneg_int nonempty-type-eq-decl nil integers nil)
     (> const-decl "bool" reals nil)
     (posnat nonempty-type-eq-decl nil integers nil)
@@ -4762,10 +5899,113 @@
      "{bat_max: posnat | bat_max + 1 < maxtime}"
      alaris_reversibility_pattern nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_reversibility_pattern nil))
+     alaris_reversibility_pattern nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (even_minus_odd_is_odd application-judgement "odd_int" integers
+     nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_dn_rate const-decl "irates" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (sdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (sdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (sdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sdown_case_options const-decl "state" alaris_th nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_key const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
+    (per_sup const-decl "bool" alaris_th nil)
+    (guard_supsdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (high_range_rate const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (per_release_chevron const-decl "boolean" alaris_th nil)
+    (per_release_sdown const-decl "boolean" alaris_th nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (real_plus_real_is_real application-judgement "real" reals nil)
+    (real_times_real_is_real application-judgement "real" reals nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (high_supsdown_rate_TCC3 0
-  (high_supsdown_rate_TCC3-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (high_supsdown_rate_TCC3-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((state_dn_rate const-decl "irates" alaris_th nil)
     (trim_rate const-decl "irates" alaris_th nil)
     (real_gt_is_strict_total_order name-judgement
@@ -4869,7 +6109,7 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (high_supsdown_rate_TCC4 0
-  (high_supsdown_rate_TCC4-1 nil 3658057440 ("" (subtype-tcc) nil nil)
+  (high_supsdown_rate_TCC4-1 nil 3710746197 ("" (subtype-tcc) nil nil)
    ((real_minus_real_is_real application-judgement "real" reals nil)
     (even_plus_even_is_even application-judgement "even_int" integers
      nil)
@@ -5067,6 +6307,8 @@
     (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
     (even_minus_even_is_even application-judgement "even_int" integers
      nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
@@ -5149,8 +6391,6 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
     (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
     (rat_times_rat_is_rat application-judgement "rat" rationals nil)
     (posint_times_posint_is_posint application-judgement "posint"
      integers nil)
@@ -5658,10 +6898,7 @@
                                           (expand "fdown")
                                           (("1"
                                             (lift-if)
-                                            (("1"
-                                              (lift-if)
-                                              (("1" (grind) nil nil))
-                                              nil))
+                                            (("1" (grind) nil nil))
                                             nil))
                                           nil))
                                         nil))
@@ -7446,7 +8683,25 @@
                                 nil)
                                ("2"
                                 (expand "guard_fupfdown_rate")
-                                (("2" (grind) nil nil))
+                                (("2"
+                                  (flatten)
+                                  (("2"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2"
+                                      (flatten)
+                                      (("2"
+                                        (split)
+                                        (("1"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2" (grind) nil nil))
+                                          nil)
+                                         ("2" (grind) nil nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
                                 nil))
                               nil)
                              ("2" (expand "guard_fupfdown_rate")
@@ -7557,87 +8812,85 @@
     (state type-eq-decl nil alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
     (release_key const-decl "state" alaris_th nil)
     (high_range_rate_f const-decl "boolean"
      alaris_reversibility_pattern nil)
     (aug_rate const-decl "pump" pump_th nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (fdown_case_infusingORholding_rlock const-decl "state" alaris_th
-     nil)
-    (resetElapsed const-decl "pump" pump_th nil)
-    (int_minus_int_is_int application-judgement "int" integers nil)
-    (real_gt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (real_minus_real_is_real application-judgement "real" reals nil)
-    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
-    (fdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
-    (state_DN_rate const-decl "irates" alaris_th nil)
-    (trim_rate const-decl "irates" alaris_th nil)
-    (ceil_rate const-decl "irates" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (big_step const-decl "real" types_and_constants_th nil)
-    (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
-    (decrement const-decl "presstime" alaris_th nil)
-    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (odd_minus_odd_is_even application-judgement "even_int" integers
-     nil)
-    (int_plus_int_is_int application-judgement "int" integers nil)
-    (nnint_plus_posint_is_posint application-judgement "posint"
-     integers nil)
-    (even_plus_even_is_even application-judgement "even_int" integers
-     nil)
-    (low_range_rate_f const-decl "boolean" alaris_reversibility_pattern
-     nil)
-    (guard_fupfdown_rate const-decl "boolean"
-     alaris_reversibility_pattern nil)
-    (per_fup const-decl "bool" alaris_th nil)
-    (per_fdown const-decl "bool" alaris_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
-     nil)
-    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
-    (state_UP_rate const-decl "irates" alaris_th nil)
-    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
-    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
-    (even_times_int_is_even application-judgement "even_int" integers
-     nil)
-    (mult_divides1 application-judgement "(divides(n))" divides nil)
-    (mult_divides2 application-judgement "(divides(m))" divides nil)
-    (even_minus_even_is_even application-judgement "even_int" integers
-     nil)
-    (real_times_real_is_real application-judgement "real" reals nil)
-    (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
-    (state_DN_vtbi const-decl "ivols" alaris_th nil)
-    (trim_vtbi const-decl "ivols" alaris_th nil)
-    (ceil_vtbi const-decl "ivols" alaris_th nil)
-    (fdown_case_options const-decl "state" alaris_th nil)
-    (dpdtls const-decl "nat" types_and_constants_th nil)
-    (fdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
-    (fdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
-    (fdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (fdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (state_DN_time const-decl "itimes" alaris_th nil)
+    (fdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
     (int_times_even_is_even application-judgement "even_int" integers
      nil)
-    (fdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
-    (state_DN_time const-decl "itimes" alaris_th nil)
-    (trim_time const-decl "itimes" alaris_th nil)
-    (fdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (fdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (fdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (fdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (fdown_case_options const-decl "state" alaris_th nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (state_DN_vtbi const-decl "ivols" alaris_th nil)
+    (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (real_times_real_is_real application-judgement "real" reals nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (state_UP_rate const-decl "irates" alaris_th nil)
+    (switchedon? const-decl "bool" alaris_reversibility_pattern nil)
+    (rate_entry_ready const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (per_fdown const-decl "bool" alaris_th nil)
+    (per_fup const-decl "bool" alaris_th nil)
+    (guard_fupfdown_rate const-decl "boolean"
+     alaris_reversibility_pattern nil)
+    (low_range_rate_f const-decl "boolean" alaris_reversibility_pattern
+     nil)
+    (even_plus_even_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (ceil_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (state_DN_rate const-decl "irates" alaris_th nil)
+    (fdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (resetElapsed const-decl "pump" pump_th nil)
+    (fdown_case_infusingORholding_rlock const-decl "state" alaris_th
+     nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
     (fdown const-decl "state" alaris_th nil)
     (fup_case_holding_NOTrlock const-decl "state" alaris_th nil)
     (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
@@ -7667,6 +8920,7 @@
     (pred type-eq-decl nil defined_types nil)
     (total_order? const-decl "bool" orders nil)
     (even? const-decl "bool" integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
     (per_release_fdown const-decl "boolean" alaris_th nil)
     (per_release_fup const-decl "boolean" alaris_th nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -12270,8 +13524,7 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -12344,7 +13597,6 @@
     (filter_rate const-decl "irates" alaris_reversibility_pattern nil)
     (high_range_rate_duf const-decl "boolean"
      alaris_reversibility_pattern nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (fdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
     (fdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
     (dpdtls const-decl "nat" types_and_constants_th nil)
@@ -12881,12 +14133,12 @@
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
     (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
      real_types nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
     (even_plus_even_is_even application-judgement "even_int" integers
      nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
-    (even_minus_even_is_even application-judgement "even_int" integers
-     nil)
     (sdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
     (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
     (simpleupdownvtbi formula-decl nil alaris_reversibility_pattern
@@ -13870,6 +15122,8 @@
     (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
     (even_plus_even_is_even application-judgement "even_int" integers
      nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
@@ -13923,8 +15177,6 @@
     (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
      real_types nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
-    (even_minus_even_is_even application-judgement "even_int" integers
-     nil)
     (simpleupdownvtbi formula-decl nil alaris_reversibility_pattern
      nil)
     (guard_supsdown_vtbi const-decl "boolean"
@@ -14427,8 +15679,7 @@
     (state type-eq-decl nil alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (high_range_vols_f const-decl "boolean"
      alaris_reversibility_pattern nil)
     (mid_range_vols_f const-decl "boolean" alaris_reversibility_pattern
@@ -14476,7 +15727,6 @@
     (per_fdown const-decl "bool" alaris_th nil)
     (decrement const-decl "presstime" alaris_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (resetElapsed const-decl "pump" pump_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
@@ -14996,8 +16246,7 @@
     (state type-eq-decl nil alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (high_range_vols_f const-decl "boolean"
      alaris_reversibility_pattern nil)
     (low_range_vols_f const-decl "boolean" alaris_reversibility_pattern
@@ -15045,7 +16294,6 @@
     (per_fdown const-decl "bool" alaris_th nil)
     (decrement const-decl "presstime" alaris_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (resetElapsed const-decl "pump" pump_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
@@ -15565,8 +16813,7 @@
     (state type-eq-decl nil alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (mid_range_vols_f const-decl "boolean" alaris_reversibility_pattern
      nil)
     (low_range_vols_f const-decl "boolean" alaris_reversibility_pattern
@@ -15614,7 +16861,6 @@
     (per_fdown const-decl "bool" alaris_th nil)
     (decrement const-decl "presstime" alaris_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (resetElapsed const-decl "pump" pump_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
@@ -17714,8 +18960,7 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (ivols type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -17793,7 +19038,6 @@
     (filter_vtbi const-decl "ivols" alaris_reversibility_pattern nil)
     (low_range_vols_duf const-decl "boolean"
      alaris_reversibility_pattern nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
     (release_fdown const-decl "state" alaris_th nil)
@@ -18298,8 +19542,7 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (ivols type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -18377,7 +19620,6 @@
     (filter_vtbi const-decl "ivols" alaris_reversibility_pattern nil)
     (mid_range_vols_duf const-decl "boolean"
      alaris_reversibility_pattern nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
     (release_fdown const-decl "state" alaris_th nil)
@@ -18882,8 +20124,7 @@
     (irates type-eq-decl nil types_and_constants_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (steprate type-eq-decl nil types_and_constants_th nil)
     (ivols type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -18961,7 +20202,6 @@
     (filter_vtbi const-decl "ivols" alaris_reversibility_pattern nil)
     (high_range_vols_duf const-decl "boolean"
      alaris_reversibility_pattern nil)
-    (big_step const-decl "real" types_and_constants_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown const-decl "state" alaris_th nil)
     (release_fdown const-decl "state" alaris_th nil)
@@ -19933,11 +21173,12 @@
         (("" (lemma "simpleUPDOWNdtime")
           (("" (inst? :subst (v "newtime(st!1)" d small_step))
             (("1" (grind)
-              (("1" (lemma "divbynratesndx")
-                (("1" (inst? :subst (n 10 x "newtime(st!1)" d 1))
+              (("1" (lemma "divbynrealndx")
+                (("1" (inst? :subst (x "newtime(st!1)" n 10 d 1))
                   (("1" (replace -1 2)
                     (("1" (lemma "floor_plus_int")
-                      (("1" (inst? :subst (i -1 x "newtime(st!1)/10"))
+                      (("1"
+                        (inst? :subst (x "newtime(st!1) / 10" i -1))
                         (("1" (replace -1 2)
                           (("1" (replace -19 2)
                             (("1" (assert) nil nil)) nil))
@@ -20024,7 +21265,7 @@
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
     (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (divbynratesndx formula-decl nil alaris_reversibility_pattern nil)
+    (divbynrealndx formula-decl nil alaris_reversibility_pattern nil)
     (minus_odd_is_odd application-judgement "odd_int" integers nil)
     (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
     (nznum nonempty-type-eq-decl nil number_fields nil)
@@ -20032,8 +21273,7 @@
     (integer nonempty-type-from-decl nil integers nil)
     (real_plus_real_is_real application-judgement "real" reals nil)
     (floor_plus_int formula-decl nil floor_ceil nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (posint_times_posint_is_posint application-judgement "posint"
      integers nil)
     (real_div_nzreal_is_real application-judgement "real" reals nil)
@@ -21097,10 +22337,10 @@
           (("" (inst? :subst (v "newtime(st!1)" d small_step))
             (("1" (grind)
               (("1" (lemma "divbynrealpndx")
-                (("1" (inst? :subst (n 10 x "newtime(st!1)" d 1))
+                (("1" (inst? :subst (x "newtime(st!1)" n 10 d 1))
                   (("1" (replace -1 2)
                     (("1" (lemma "ceiling_plus_int")
-                      (("1" (inst? :subst (i 1 x "newtime(st!1)/10"))
+                      (("1" (inst? :subst (x "newtime(st!1) / 10" i 1))
                         (("1" (replace -1 2)
                           (("1" (replace -19 2)
                             (("1" (assert) nil nil)) nil))
@@ -21192,8 +22432,7 @@
     (nznum nonempty-type-eq-decl nil number_fields nil)
     (integer nonempty-type-from-decl nil integers nil)
     (ceiling_plus_int formula-decl nil floor_ceil nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
     (posint_times_posint_is_posint application-judgement "posint"
      integers nil)
     (real_div_nzreal_is_real application-judgement "real" reals nil)

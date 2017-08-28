@@ -1,4 +1,23 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_feedback.pvs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+<div id="main">
+    <h1 class="page-title">Source: alaris_feedback.pvs</h1>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>%%
 % @module alaris_feedback
 % @author Michael Harrison and Paolo Masci (QMUL and Newcastle University)
 % @date April 2017
@@ -6,12 +25,12 @@
 %%
 
 % State feedback
-% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND 
+% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND
 % filter(s1) \neq filter(s2)
 % \implies filter_p(s1) \neq filter_p(s2)
 
 % State feedback
-% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND 
+% FORALL  s1, s2 in S, guard(s1) AND guard(s2) AND
 % filter(s1) \neq filter(s2)
 % \implies visible_change_filter(s1, s2)
 
@@ -23,7 +42,7 @@
 
 alaris_feedback_pattern[
    maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -37,8 +56,8 @@ BEGIN
     shorttimeoutLTtimeout: ASSUMPTION shorttimeout < timeout
     maxinfuseVal: ASSUMPTION maxinfuse >= 3000
   ENDASSUMING
-  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min] 
- 
+  IMPORTING alaris_th[maxrate, maxinfuse, infusemin, timeout, shorttimeout, maxtime, bat_max, bat_min]
+
 %%
   % @function state_transitions
   % @description predicate that is true when the post state can be derived from the post state using the available actions
@@ -48,23 +67,23 @@ BEGIN
   % @memberof module:alaris_feedback
   %%
 state_transitions(pre, post: state): boolean =
-  (per_sup(pre) & post = sup(pre)) 
-  OR (per_release_sup(pre) & post = release_sup(pre)) 
-  OR (per_fup(pre) & post = fup(pre)) 
-  OR (per_release_fup(pre) & post = release_fup(pre)) 
-  OR (per_sdown(pre) & post = sdown(pre)) 
-  OR (per_release_sdown(pre) & post = release_sdown(pre)) 
-  OR (per_fdown(pre) & post = fdown(pre)) 
-  OR (per_release_fdown(pre) & post = release_fdown(pre)) 
-  OR (per_tick(pre) & post = tick(pre)) 
-  OR (per_key1(pre) & post = key1(pre)) 
-  OR (per_key2(pre) & post = key2(pre)) 
-  OR (per_key3(pre) & post = key3(pre)) 
-  OR (per_query(pre) & post = query(pre)) 
-  OR (per_on(pre) & post = on(pre)) 
-  OR (per_run(pre) & post = run(pre)) 
-  OR (per_pause(pre) & post = pause(pre)) 
-  OR (per_switch(pre) & post = switch(pre)) 
+  (per_sup(pre) & post = sup(pre))
+  OR (per_release_sup(pre) & post = release_sup(pre))
+  OR (per_fup(pre) & post = fup(pre))
+  OR (per_release_fup(pre) & post = release_fup(pre))
+  OR (per_sdown(pre) & post = sdown(pre))
+  OR (per_release_sdown(pre) & post = release_sdown(pre))
+  OR (per_fdown(pre) & post = fdown(pre))
+  OR (per_release_fdown(pre) & post = release_fdown(pre))
+  OR (per_tick(pre) & post = tick(pre))
+  OR (per_key1(pre) & post = key1(pre))
+  OR (per_key2(pre) & post = key2(pre))
+  OR (per_key3(pre) & post = key3(pre))
+  OR (per_query(pre) & post = query(pre))
+  OR (per_on(pre) & post = on(pre))
+  OR (per_run(pre) & post = run(pre))
+  OR (per_pause(pre) & post = pause(pre))
+  OR (per_switch(pre) & post = switch(pre))
   OR (per_fit_set(pre) & post = fit_set(pre))
 
 %%
@@ -76,21 +95,21 @@ state_transitions(pre, post: state): boolean =
   % @memberof module:alaris_feedback
   %%
 state_transitions_noton(pre, post: state): boolean =
-  (per_sup(pre) & post = sup(pre)) OR  
+  (per_sup(pre) & post = sup(pre)) OR
   (per_release_sup(pre) & post = release_sup(pre)) OR
   (per_fup(pre) & post = fup(pre)) OR
-(per_release_fup(pre) & post = release_fup(pre)) OR  
- (per_sdown(pre) & post = sdown(pre)) OR 
+(per_release_fup(pre) & post = release_fup(pre)) OR
+ (per_sdown(pre) & post = sdown(pre)) OR
 (per_release_sdown(pre) & post = release_sdown(pre)) OR
-  (per_fdown(pre) & post = fdown(pre)) OR 
+  (per_fdown(pre) & post = fdown(pre)) OR
 (per_release_fdown(pre) & post = release_fdown(pre)) OR
 (per_tick(pre) & post = tick(pre)) OR
-  (per_key1(pre) & post = key1(pre)) OR  
-(per_key2(pre) & post = key2(pre)) OR 
-(per_key3(pre) & post = key3(pre)) OR 
+  (per_key1(pre) & post = key1(pre)) OR
+(per_key2(pre) & post = key2(pre)) OR
+(per_key3(pre) & post = key3(pre)) OR
   (per_query(pre) & post = query(pre)) OR
 (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre)) OR
-(per_switch(pre) & post = switch(pre)) OR 
+(per_switch(pre) & post = switch(pre)) OR
 (per_fit_set(pre) & post = fit_set(pre))
 
 %%
@@ -102,9 +121,9 @@ state_transitions_noton(pre, post: state): boolean =
   % @memberof module:alaris_feedback
   %%
 state_transitions_nochevrons(pre, post: state): boolean =
-  (per_key1(pre) & post = key1(pre)) OR  
-(per_key2(pre) & post = key2(pre)) OR 
-(per_key3(pre) & post = key3(pre)) OR 
+  (per_key1(pre) & post = key1(pre)) OR
+(per_key2(pre) & post = key2(pre)) OR
+(per_key3(pre) & post = key3(pre)) OR
   (per_query(pre) & post = query(pre)) OR
   (per_run(pre) & post = run(pre)) OR  (per_pause(pre) & post = pause(pre))
 
@@ -112,7 +131,7 @@ state_transitions_nochevrons(pre, post: state): boolean =
   % @function filter_rate
   % @description extract the infusion rate parameter from the state
   % @param {state} st The state of the system
-  % @returns {irates} 
+  % @returns {irates}
   % @memberof module:alaris_feedback
   %%
 filter_rate(st: state): irates = device(st)`infusionrate
@@ -121,7 +140,7 @@ filter_rate(st: state): irates = device(st)`infusionrate
   % @function vis_filter_rate
   % @description predicate that is true if infusion pump parameter is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_rate(st: state): boolean = middisp(st)(drate)
@@ -130,17 +149,17 @@ vis_filter_rate(st: state): boolean = middisp(st)(drate)
   % @function guard_vis_rate
   % @description predicate that excludes top line of vtbi over time because temporary rate shown
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_vis_rate(st: state): boolean =
-    NOT(topline(st) = vtbitime) 
+    NOT(topline(st) = vtbitime)
 
 %%
 % @theorem simple_feedback_rate_theorem
 % @description instantiation of feedback template without guard, used as example in paper
 % @yields counter-example below
-% @stats 
+% @stats
 %%
 %{-1}  device(pre!1)`powered_on?
 %{-2}  nob?(which_press(pre!1))
@@ -197,12 +216,12 @@ feedback_rate_theorem: THEOREM
       guard_vis_rate(post) AND
       filter_rate(pre) /= filter_rate(post)) =>
          vis_filter_rate(pre) AND vis_filter_rate(post)
-	 
+
 %%
   % @function filter_vtbi
   % @description extract the vtbi parameter from the state
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_vtbi(st: state): ivols = device(st)`vtbi
@@ -211,7 +230,7 @@ filter_vtbi(st: state): ivols = device(st)`vtbi
   % @function vis_filter_vtbi
   % @description predicate that is true if infusion pump parameter or the temporary value  is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_vtbi(st: state): boolean = middisp(st)(dvtbi) OR middisp(st)(dnewvtbi)
@@ -220,7 +239,7 @@ vis_filter_vtbi(st: state): boolean = middisp(st)(dvtbi) OR middisp(st)(dnewvtbi
   % @function guard_vis_vtbi
   % @description predicate that excludes a range of top lines
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_vis_vtbi(st: state): boolean =
@@ -245,13 +264,13 @@ feedback_vtbi_theorem: THEOREM
       guard_vis_vtbi(post) AND
       filter_vtbi(pre) /= filter_vtbi(post)) =>
          vis_filter_vtbi(pre) AND vis_filter_vtbi(post)
-	 
+
 
 %%
   % @function filter_time
   % @description extract the time parameter from the pump state
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_time(st: state): itimes =
@@ -261,10 +280,10 @@ filter_time(st: state): itimes =
   % @function guard_vis_time
   % @description predicate that excludes a range of top lines
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
-guard_vis_time(st: state): boolean = 
+guard_vis_time(st: state): boolean =
             (topline(st) /= vtbidone) AND
              (topline(st) /= batterylow) AND
 	     (topline(st) /= locked) AND
@@ -277,9 +296,9 @@ guard_vis_time(st: state): boolean =
   % @function vis_filter_time
   % @description predicate that is true if infusion pump parameter or the temporary value  is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
-  %%     
+  %%
 vis_filter_time(st: state): boolean =
         middisp(st)(dtime) OR middisp(st)(dnewtime)
 
@@ -301,7 +320,7 @@ feedback_time_theorem: THEOREM
   % @function guard_vis_volume
   % @description predicate that excludes a range of top lines
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_vis_volume(st: state): boolean = ((topline(st) /= vtbidone) AND
@@ -311,7 +330,7 @@ guard_vis_volume(st: state): boolean = ((topline(st) /= vtbidone) AND
   % @function filter_volume
   % @description extract the volume infused parameter from the pump state
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_volume(st: state): ivols = device(st)`volumeinfused
@@ -320,7 +339,7 @@ filter_volume(st: state): ivols = device(st)`volumeinfused
   % @function vis_filter_volume
   % @description predicate that is true if infusion pump parameter is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_volume(st: state): boolean = middisp(st)(dvol)
@@ -337,12 +356,12 @@ feedback_volume_theorem: THEOREM
           guard_vis_volume(post) AND
           (filter_volume(pre) /= filter_volume(post))) =>
            vis_filter_volume(pre) AND vis_filter_volume(post)
-% 
+%
 %%
   % @function filter_newrate
   % @description extract the temporary infusion rate from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_newrate(st: state): irates = newrate(st)
@@ -351,7 +370,7 @@ filter_newrate(st: state): irates = newrate(st)
   % @function filter_newvtbi
   % @description extract the temporary vtbi from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_newvtbi(st: state): ivols = newvtbi(st)
@@ -360,7 +379,7 @@ filter_newvtbi(st: state): ivols = newvtbi(st)
   % @function filter_newtime
   % @description extract the temporary time from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_newtime(st: state): itimes = newtime(st)
@@ -369,7 +388,7 @@ filter_newtime(st: state): itimes = newtime(st)
   % @function vis_filter_newrate
   % @description predicate that is true if temporary parameter is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_newrate(st: state): boolean = middisp(st)(dnewrate)
@@ -378,7 +397,7 @@ vis_filter_newrate(st: state): boolean = middisp(st)(dnewrate)
   % @function vis_filter_newvtbi
   % @description predicate that is true if the temporary infusion pump parameter is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_newvtbi(st: state): boolean = middisp(st)(dnewvtbi)
@@ -387,7 +406,7 @@ vis_filter_newvtbi(st: state): boolean = middisp(st)(dnewvtbi)
   % @function vis_filter_newtime
   % @description predicate that is true if the temporary infusion pump parameter is visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_filter_newtime(st: state): boolean = middisp(st)(dnewtime)
@@ -433,33 +452,33 @@ feedback_newtime_theorem: THEOREM
   % @function guard_entrymode
   % @description predicate that excludes top line of vtbi, vtbi over time, batterylow
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
-guard_entrymode(st: state): boolean = 
-            NOT((topline(st) = dispvtbi) OR (topline(st) = vtbitime) OR 
+guard_entrymode(st: state): boolean =
+            NOT((topline(st) = dispvtbi) OR (topline(st) = vtbitime) OR
                                    (topline(st) = batterylow))
 
 %%
   % @function filter_entrymode
   % @description extract the entrymode from the system
   % @param {state} st The state of the system
-  % @returns {ivols} 
+  % @returns {ivols}
   % @memberof module:alaris_feedback
   %%
 filter_entrymode(st: state): emodes = entrymode(st)
 %%
   % @function p_filter_entrymode
-  % @description extracts the top line 
+  % @description extracts the top line
   % @param {state} st The state of the system
-  % @returns {iline} 
+  % @returns {iline}
   % @memberof module:alaris_feedback
   %%
 p_filter_entrymode(st: state): iline = topline(st)
 
 %%
 % @theorem feedback_entrymode_theorem
-% @description instantiation of feedback template 
+% @description instantiation of feedback template
 % @yields QED
 % @stats Run time  = 625.14 secs. 19/7/17
 %%
@@ -475,14 +494,14 @@ feedback_entrymode_theorem: THEOREM
   % @function guard_entrymode_nochevrons
   % @description predicate that excludes top line of vtbi, vtbi over time
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_entrymode_nochevrons(st: state): boolean = NOT((topline(st) = dispvtbi) OR (topline(st) = vtbitime))
 
 %%
 % @theorem feedback_entrymode_theorem_nochevrons
-% @description instantiation of action feedback template without state filter 
+% @description instantiation of action feedback template without state filter
 % @yields QED
 % @stats Run time  = 57.90 secs. 19/7/17
 % could also be considered consistency
@@ -498,7 +517,7 @@ feedback_entrymode_theorem_nochevrons: THEOREM
   % @function guard_switch
   % @description switch is permitted
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_switch(st: state): boolean = per_switch(st)
@@ -528,7 +547,7 @@ tick_infusionrate_ge_vtbi: THEOREM
            (device(st)`infusionrate >= device(st)`vtbi &
 	   per_tick(st) &
 	   NOT device(st)`kvoflag &
-             device(st)`infusing? & device(st)`ac_connect) 
+             device(st)`infusing? & device(st)`ac_connect)
           IMPLIES
 	   (LET stprime = tick(st) IN
              (topline(stprime) = vtbidone & device(stprime)`kvoflag))
@@ -543,7 +562,7 @@ tick_infusionrate_ge_vtbi_kvoflag: THEOREM
        FORALL (st: state):
            (per_tick(st) AND
            (device(st)`infusionrate >= device(st)`vtbi) & device(st)`kvoflag &
-             device(st)`infusing? & device(st)`ac_connect) 
+             device(st)`infusing? & device(st)`ac_connect)
           IMPLIES
               LET stprime = tick(st) IN
 	        (topline(stprime) = topline(st) & device(stprime)`kvoflag)
@@ -553,17 +572,17 @@ tick_infusionrate_ge_vtbi_kvoflag: THEOREM
   % @function guard_tick
   % @description predicate that requires infusing without KVO mode, mains connected and topline not vtbidone
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
-guard_tick(st: state): boolean = device(st)`infusing? AND NOT device(st)`kvoflag AND 
+guard_tick(st: state): boolean = device(st)`infusing? AND NOT device(st)`kvoflag AND
                                device(st)`ac_connect AND topline(st) /= vtbidone
 
 %%
   % @function vis_tick
   % @description predicate that is true if infusion rate, time and vtbi are visible
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 
@@ -583,7 +602,7 @@ action_feedback_tick: THEOREM
   % @function guard_tick_vtbidone
   % @description predicate that requires vtbi exhausted, not KVO, infusing, mains connected and topline showing infusing
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 guard_tick_vtbidone(st: state): boolean =
@@ -595,7 +614,7 @@ guard_tick_vtbidone(st: state): boolean =
   % @function vis_vtbidone
   % @description predicate that is true if topline shows vtbidone
   % @param {state} st The state of the system
-  % @returns {boolean} 
+  % @returns {boolean}
   % @memberof module:alaris_feedback
   %%
 vis_vtbidone(st: state): boolean = topline(st) = vtbidone
@@ -612,4 +631,33 @@ action_feedback_tick_vtbidone: THEOREM
                vis_vtbidone(tick(st))
 
 
-END alaris_feedback_pattern
+END alaris_feedback_pattern</code></pre>
+        </article>
+    </section>
+</div>
+<nav>
+    <h2><a href="index.html">Alaris GP</a></h2>
+    <h3>Modules</h3>
+    <ul>
+        <li><a href="module-alaris_th.html">alaris_th</a></li>
+        <li><a href="module-pump_th.html">pump_th</a></li>
+        <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+    </ul>
+    <h3>Theorems</h3>
+    <ul>
+        <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+        <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+        <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+        <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+        <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+        <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+    <ul>
+</nav>
+<br class="clear">
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 19:49:49 GMT+0100 (WEST)
+</footer>
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

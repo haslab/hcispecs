@@ -1,26 +1,26 @@
 (alaris_th
  (IMP_pump_th_TCC1 0
-  (IMP_pump_th_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (IMP_pump_th_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil))
    nil))
  (IMP_pump_th_TCC2 0
-  (IMP_pump_th_TCC2-1 nil 3708424440 ("" (assuming-tcc) nil nil)
+  (IMP_pump_th_TCC2-1 nil 3710576304 ("" (assuming-tcc) nil nil)
    ((real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil))
    nil))
  (IMP_pump_th_TCC3 0
-  (IMP_pump_th_TCC3-1 nil 3708424440 ("" (assuming-tcc) nil nil)
+  (IMP_pump_th_TCC3-1 nil 3710576304 ("" (assuming-tcc) nil nil)
    ((real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil))
    nil))
  (IMP_pump_th_TCC4 0
-  (IMP_pump_th_TCC4-1 nil 3708424440 ("" (assuming-tcc) nil nil)
+  (IMP_pump_th_TCC4-1 nil 3710576304 ("" (assuming-tcc) nil nil)
    ((real_le_is_total_order name-judgement "(total_order?[real])"
      real_props nil))
    nil))
  (decrement_TCC1 0
-  (decrement_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (decrement_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
     (presstime type-eq-decl nil types_and_constants_th nil)
@@ -70,7 +70,7 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (trim_rate_TCC1 0
-  (trim_rate_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (trim_rate_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -88,7 +88,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (trim_vtbi_TCC1 0
-  (trim_vtbi_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (trim_vtbi_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -106,7 +106,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (trim_time_TCC1 0
-  (trim_time_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (trim_time_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -124,7 +124,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (init?_TCC1 0
-  (init?_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -167,7 +167,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC2 0
-  (init?_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -211,7 +211,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC3 0
-  (init?_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -256,7 +256,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC4 0
-  (init?_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -302,7 +302,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC5 0
-  (init?_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -349,7 +349,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC6 0
-  (init?_TCC6-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC6-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -397,7 +397,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC7 0
-  (init?_TCC7-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC7-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -446,7 +446,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC8 0
-  (init?_TCC8-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC8-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -496,7 +496,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC9 0
-  (init?_TCC9-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC9-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -546,7 +546,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC10 0
-  (init?_TCC10-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC10-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -597,7 +597,7 @@
     (dnewtime const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC11 0
-  (init?_TCC11-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC11-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -651,7 +651,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC12 0
-  (init?_TCC12-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC12-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -705,7 +705,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC13 0
-  (init?_TCC13-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC13-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -759,7 +759,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC14 0
-  (init?_TCC14-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC14-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -813,7 +813,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC15 0
-  (init?_TCC15-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC15-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -867,7 +867,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC16 0
-  (init?_TCC16-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC16-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -921,7 +921,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC17 0
-  (init?_TCC17-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC17-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -975,7 +975,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC18 0
-  (init?_TCC18-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC18-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -1029,7 +1029,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC19 0
-  (init?_TCC19-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC19-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -1083,7 +1083,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (init?_TCC20 0
-  (init?_TCC20-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (init?_TCC20-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -1137,7 +1137,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (release_key_TCC1 0
-  (release_key_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (release_key_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -1178,7 +1178,7 @@
     (small_step const-decl "real" types_and_constants_th nil))
    nil))
  (release_key_TCC2 0
-  (release_key_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (release_key_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -1219,11 +1219,11 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (switch_from_battery_low_TCC1 0
-  (switch_from_battery_low_TCC1-1 nil 3708424440
+  (switch_from_battery_low_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
-   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
     (imid_type type-eq-decl nil types_and_constants_th nil)
     (upto nonempty-type-eq-decl nil naturalnumbers nil)
@@ -1268,12 +1268,12 @@
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dvol const-decl "nat" types_and_constants_th nil))
+    (dtime const-decl "nat" types_and_constants_th nil))
    nil))
  (switch_from_battery_low_TCC2 0
-  (switch_from_battery_low_TCC2-1 nil 3708424440
+  (switch_from_battery_low_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((real_ge_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
@@ -1328,10 +1328,10 @@
     (dtime const-decl "nat" types_and_constants_th nil))
    nil))
  (switch_from_battery_low_TCC3 0
-  (switch_from_battery_low_TCC3-1 nil 3708424440
+  (switch_from_battery_low_TCC3-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil) nil nil))
  (switch_TCC1 0
-  (switch_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (switch_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1391,7 +1391,7 @@
     (per_switch const-decl "boolean" alaris_th nil))
    nil))
  (on_case_infusionstatusblank_TCC1 0
-  (on_case_infusionstatusblank_TCC1-1 nil 3708424440
+  (on_case_infusionstatusblank_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -1445,7 +1445,7 @@
     (dvol const-decl "nat" types_and_constants_th nil))
    nil))
  (on_case_infusionstatusNOTblank_TCC1 0
-  (on_case_infusionstatusNOTblank_TCC1-1 nil 3708424440
+  (on_case_infusionstatusNOTblank_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -1488,7 +1488,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (on_TCC1 0
-  (on_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (on_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1549,7 +1549,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (on_TCC2 0
-  (on_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (on_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1610,7 +1610,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (run_cond_NZ_TCC1 0
-  (run_cond_NZ_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (run_cond_NZ_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -1674,7 +1674,7 @@
     (per_start const-decl "bool" pump_th nil))
    nil))
  (run_TCC1 0
-  (run_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (run_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1738,7 +1738,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (run_TCC2 0
-  (run_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (run_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1802,7 +1802,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (pause_TCC1 0
-  (pause_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (pause_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -1875,7 +1875,7 @@
     (dtime const-decl "nat" types_and_constants_th nil))
    nil))
  (query_TCC1 0
-  (query_TCC1-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (query_TCC1-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -1945,7 +1945,7 @@
     (dlock const-decl "nat" types_and_constants_th nil))
    nil))
  (query_TCC2 0
-  (query_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (query_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -2015,7 +2015,7 @@
     (dlock const-decl "nat" types_and_constants_th nil))
    nil))
  (query_TCC3 0
-  (query_TCC3-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (query_TCC3-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -2077,7 +2077,7 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (query_TCC4 0
-  (query_TCC4-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (query_TCC4-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -2139,7 +2139,7 @@
     (no_button_down const-decl "bool" alaris_th nil))
    nil))
  (query_TCC5 0
-  (query_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (query_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2181,7 +2181,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC1 0
-  (per_tick_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2227,7 +2227,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC2 0
-  (per_tick_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2274,7 +2274,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC3 0
-  (per_tick_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2322,7 +2322,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC4 0
-  (per_tick_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2370,7 +2370,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC5 0
-  (per_tick_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2419,7 +2419,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC6 0
-  (per_tick_TCC6-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC6-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2469,7 +2469,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC7 0
-  (per_tick_TCC7-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC7-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2519,7 +2519,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC8 0
-  (per_tick_TCC8-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC8-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2569,7 +2569,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (per_tick_TCC9 0
-  (per_tick_TCC9-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC9-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2619,7 +2619,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (per_tick_TCC10 0
-  (per_tick_TCC10-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC10-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2669,7 +2669,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (per_tick_TCC11 0
-  (per_tick_TCC11-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC11-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2720,7 +2720,7 @@
     (dkvorate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_tick_TCC12 0
-  (per_tick_TCC12-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC12-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2771,7 +2771,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (per_tick_TCC13 0
-  (per_tick_TCC13-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_tick_TCC13-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -2822,11 +2822,11 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_case_holding_volume_etc_elapseLTtimeout_TCC1 0
-  (tick_case_holding_volume_etc_elapseLTtimeout_TCC1-1 nil 3708424440
+  (tick_case_holding_volume_etc_elapseLTtimeout_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil) nil nil))
  (tick_case_holding_volume_etc_elapseLTtimeoutlocked_TCC1 0
   (tick_case_holding_volume_etc_elapseLTtimeoutlocked_TCC1-1 nil
-   3708424440 ("" (cond-disjoint-tcc) nil nil)
+   3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (itimes type-eq-decl nil types_and_constants_th nil)
     (pausetime type-eq-decl nil types_and_constants_th nil)
@@ -2902,7 +2902,7 @@
    nil))
  (tick_case_holding_volume_etc_elapseLTtimeoutlocked_TCC2 0
   (tick_case_holding_volume_etc_elapseLTtimeoutlocked_TCC2-1 nil
-   3708424440 ("" (cond-disjoint-tcc) nil nil)
+   3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -2963,84 +2963,8 @@
     (state type-eq-decl nil alaris_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
- (tick_case_holding_volume_etc_elapseEQshorttimeout_TCC1 0
-  (tick_case_holding_volume_etc_elapseEQshorttimeout_TCC1-1 nil
-   3708424440 ("" (cond-disjoint-tcc) nil nil)
-   ((NOT const-decl "[bool -> bool]" booleans nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (pausetime type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (per_tick const-decl "boolean" pump_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (upto nonempty-type-eq-decl nil naturalnumbers nil)
-    (imid_type type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number nonempty-type-decl nil numbers nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dvol const-decl "nat" types_and_constants_th nil))
-   nil))
  (tick_TCC1 0
-  (tick_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3115,7 +3039,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC2 0
-  (tick_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3190,7 +3114,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC3 0
-  (tick_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3265,7 +3189,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC4 0
-  (tick_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3338,7 +3262,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC5 0
-  (tick_TCC5-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (tick_TCC5-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -3399,7 +3323,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (tick_TCC6 0
-  (tick_TCC6-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (tick_TCC6-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -3476,7 +3400,7 @@
      real_props nil))
    nil))
  (tick_TCC7 0
-  (tick_TCC7-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (tick_TCC7-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -3551,7 +3475,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (tick_TCC8 0
-  (tick_TCC8-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC8-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3624,7 +3548,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC9 0
-  (tick_TCC9-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC9-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3698,7 +3622,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC10 0
-  (tick_TCC10-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (tick_TCC10-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -3759,7 +3683,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (tick_TCC11 0
-  (tick_TCC11-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC11-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3834,7 +3758,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC12 0
-  (tick_TCC12-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (tick_TCC12-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
     (abags type-eq-decl nil types_and_constants_th nil)
@@ -3909,7 +3833,7 @@
     (per_tick const-decl "boolean" pump_th nil))
    nil))
  (tick_TCC13 0
-  (tick_TCC13-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (tick_TCC13-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -3986,7 +3910,7 @@
      real_props nil))
    nil))
  (tick_TCC14 0
-  (tick_TCC14-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (tick_TCC14-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -4061,7 +3985,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (per_key1_TCC1 0
-  (per_key1_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_key1_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -4101,11 +4025,57 @@
     (number nonempty-type-decl nil numbers nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil))
+   nil))
+ (per_key1_TCC2 0
+  (per_key1_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
+   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC2 0
-  (per_key1_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC3 0
+  (per_key1_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((/= const-decl "boolean" notequal nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -4145,13 +4115,14 @@
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC3 0
-  (per_key1_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC4 0
+  (per_key1_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((/= const-decl "boolean" notequal nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -4192,13 +4163,14 @@
     (number nonempty-type-decl nil numbers nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (dtime const-decl "nat" types_and_constants_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC4 0
-  (per_key1_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC5 0
+  (per_key1_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -4236,6 +4208,7 @@
      nil)
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
@@ -4245,8 +4218,8 @@
     (dnewvtbi const-decl "nat" types_and_constants_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC5 0
-  (per_key1_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC6 0
+  (per_key1_TCC6-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((/= const-decl "boolean" notequal nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -4286,6 +4259,7 @@
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
     (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (dtime const-decl "nat" types_and_constants_th nil)
@@ -4293,8 +4267,8 @@
     (no_button_down const-decl "bool" alaris_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC6 0
-  (per_key1_TCC6-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC7 0
+  (per_key1_TCC7-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -4335,14 +4309,15 @@
     (dnewrate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (dtime const-decl "nat" types_and_constants_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil))
    nil))
- (per_key1_TCC7 0
-  (per_key1_TCC7-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC8 0
+  (per_key1_TCC8-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -4383,6 +4358,7 @@
     (dnewvtbi const-decl "nat" types_and_constants_th nil)
     (dnewrate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (dtime const-decl "nat" types_and_constants_th nil)
@@ -4390,8 +4366,8 @@
     (no_button_down const-decl "bool" alaris_th nil)
     (dnewtime const-decl "nat" types_and_constants_th nil))
    nil))
- (per_key1_TCC8 0
-  (per_key1_TCC8-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+ (per_key1_TCC9 0
+  (per_key1_TCC9-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -4429,6 +4405,7 @@
      nil)
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
@@ -4440,7 +4417,7 @@
     (no_button_down const-decl "bool" alaris_th nil))
    nil))
  (key1_case_dispvtbi_vtmode_TCC1 0
-  (key1_case_dispvtbi_vtmode_TCC1-1 nil 3708424440
+  (key1_case_dispvtbi_vtmode_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -4501,7 +4478,7 @@
     (per_key1 const-decl "bool" alaris_th nil))
    nil))
  (key1_case_dispvtbi_vtmode_TCC2 0
-  (key1_case_dispvtbi_vtmode_TCC2-1 nil 3708424440
+  (key1_case_dispvtbi_vtmode_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -4579,7 +4556,7 @@
     (dvol const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_case_dispvtbi_vtmode_TCC3 0
-  (key1_case_dispvtbi_vtmode_TCC3-1 nil 3708424440
+  (key1_case_dispvtbi_vtmode_TCC3-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -4644,12 +4621,13 @@
     (dtime const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
  (key1_case_dispvtbi_vtmode_TCC4 0
-  (key1_case_dispvtbi_vtmode_TCC4-1 nil 3708424440
+  (key1_case_dispvtbi_vtmode_TCC4-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -4711,7 +4689,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key1_case_dispvtbi_bagmode_TCC1 0
-  (key1_case_dispvtbi_bagmode_TCC1-1 nil 3708424440
+  (key1_case_dispvtbi_bagmode_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -4740,6 +4718,7 @@
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
@@ -4782,7 +4761,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_case_dispvtbi_bagmode_TCC2 0
-  (key1_case_dispvtbi_bagmode_TCC2-1 nil 3708424440
+  (key1_case_dispvtbi_bagmode_TCC2-1 nil 3710576304
    ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
    ((boolean nonempty-type-decl nil booleans nil)
@@ -4868,11 +4847,12 @@
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_case_dispvtbi_tbagmode_TCC1 0
-  (key1_case_dispvtbi_tbagmode_TCC1-1 nil 3708424440
+  (key1_case_dispvtbi_tbagmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -4935,82 +4915,11 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key1_case_dispvtbi_tbagmode_TCC2 0
-  (key1_case_dispvtbi_tbagmode_TCC2-1 nil 3708424440
+  (key1_case_dispvtbi_tbagmode_TCC2-1 nil 3710576304
    ("" (skosimp*)
-    (("" (lift-if)
-      (("" (split)
-        (("1" (lemma "vtbi_over_time_lemma") (("1" (grind) nil nil))
-          nil)
-         ("2" (flatten)
-          (("2" (split)
-            (("1" (lemma "vtbi_over_time_lemma")
-              (("1" (grind) nil nil)) nil)
-             ("2" (flatten)
-              (("2" (split)
-                (("1" (lemma "vtbi_over_time_lemma")
-                  (("1" (grind) nil nil)) nil)
-                 ("2" (flatten)
-                  (("2" (split)
-                    (("1" (lemma "vtbi_over_time_lemma")
-                      (("1" (grind) nil nil)) nil)
-                     ("2" (flatten)
-                      (("2" (split)
-                        (("1" (lemma "vtbi_over_time_lemma")
-                          (("1" (grind) nil nil)) nil)
-                         ("2" (flatten)
-                          (("2" (split)
-                            (("1" (lemma "vtbi_over_time_lemma")
-                              (("1" (grind) nil nil)) nil)
-                             ("2" (flatten)
-                              (("2"
-                                (split)
-                                (("1"
-                                  (lemma "vtbi_over_time_lemma")
-                                  (("1" (grind) nil nil))
-                                  nil)
-                                 ("2"
-                                  (lemma "vtbi_over_time_lemma")
-                                  (("2" (grind) nil nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil))
-                      nil))
-                    nil))
-                  nil))
-                nil))
-              nil))
-            nil))
-          nil))
-        nil))
-      nil))
+    (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
-   ((nzreal_div_nzreal_is_nzreal application-judgement "nzreal"
-     real_types nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (= const-decl "[T, T -> boolean]" equalities nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (per_key1 const-decl "bool" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
      "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
@@ -5048,12 +4957,35 @@
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
     (vtbi_over_time_lemma formula-decl nil pump_th nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (IF const-decl "[boolean, T, T -> T]" if_def nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_key1 const-decl "bool" alaris_th nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (st!1 skolem-const-decl "(per_key1)" alaris_th nil)
     (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil))
+     real_props nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (key1_case_options_dlock_TCC1 0
-  (key1_case_options_dlock_TCC1-1 nil 3708424440
+  (key1_case_options_dlock_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -5118,12 +5050,13 @@
     (dtime const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
  (key1_TCC1 0
-  (key1_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key1_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5183,6 +5116,7 @@
     (per_key1 const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
@@ -5192,7 +5126,7 @@
     (dnewtime const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_TCC2 0
-  (key1_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (key1_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5252,6 +5186,7 @@
     (per_key1 const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
@@ -5261,7 +5196,7 @@
     (dnewtime const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_TCC3 0
-  (key1_TCC3-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key1_TCC3-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5321,6 +5256,7 @@
     (per_key1 const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
@@ -5330,7 +5266,7 @@
     (dnewtime const-decl "nat" types_and_constants_th nil))
    nil))
  (key1_TCC4 0
-  (key1_TCC4-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key1_TCC4-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5394,12 +5330,13 @@
     (dtime const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
  (key1_TCC5 0
-  (key1_TCC5-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (key1_TCC5-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5459,6 +5396,7 @@
     (per_key1 const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (drate const-decl "nat" types_and_constants_th nil)
     (dvtbi const-decl "nat" types_and_constants_th nil)
     (dtime const-decl "nat" types_and_constants_th nil)
@@ -5467,8 +5405,53 @@
     (dnewtime const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
+ (per_key2_TCC1 0
+  (per_key2_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
+   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil))
+   nil))
  (key2_case_volume_TCC1 0
-  (key2_case_volume_TCC1-1 nil 3708424440
+  (key2_case_volume_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -5527,11 +5510,12 @@
     (chev_buttons type-decl nil types_and_constants_th nil)
     (state type-eq-decl nil alaris_th nil)
     (per_key2 const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key2_case_volume_TCC2 0
-  (key2_case_volume_TCC2-1 nil 3708424440
+  (key2_case_volume_TCC2-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -5592,7 +5576,7 @@
     (per_key2 const-decl "bool" alaris_th nil))
    nil))
  (key2_case_volume_TCC3 0
-  (key2_case_volume_TCC3-1 nil 3708424440
+  (key2_case_volume_TCC3-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -5667,7 +5651,7 @@
     (drate const-decl "nat" types_and_constants_th nil))
    nil))
  (key2_case_volume_TCC4 0
-  (key2_case_volume_TCC4-1 nil 3708424440
+  (key2_case_volume_TCC4-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -5726,12 +5710,13 @@
     (chev_buttons type-decl nil types_and_constants_th nil)
     (state type-eq-decl nil alaris_th nil)
     (per_key2 const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
  (key2_case_volume_TCC5 0
-  (key2_case_volume_TCC5-1 nil 3708424440
+  (key2_case_volume_TCC5-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -5790,12 +5775,13 @@
     (chev_buttons type-decl nil types_and_constants_th nil)
     (state type-eq-decl nil alaris_th nil)
     (per_key2 const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
     (/= const-decl "boolean" notequal nil))
    nil))
  (key2_TCC1 0
-  (key2_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key2_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5853,11 +5839,12 @@
     (chev_buttons type-decl nil types_and_constants_th nil)
     (state type-eq-decl nil alaris_th nil)
     (per_key2 const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key2_TCC2 0
-  (key2_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (key2_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -5916,10 +5903,11 @@
     (state type-eq-decl nil alaris_th nil)
     (per_key2 const-decl "bool" alaris_th nil)
     (maxpress const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil))
+    (no_button_down const-decl "bool" alaris_th nil)
+    (dvol const-decl "nat" types_and_constants_th nil))
    nil))
  (per_key3_TCC1 0
-  (per_key3_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_key3_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -5963,7 +5951,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_attention_clearsetup_TCC1 0
-  (key3_case_attention_clearsetup_TCC1-1 nil 3708424440
+  (key3_case_attention_clearsetup_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -6039,7 +6027,7 @@
     (dtime const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_volume_TCC1 0
-  (key3_case_volume_TCC1-1 nil 3708424440
+  (key3_case_volume_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6104,7 +6092,7 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_volume_TCC2 0
-  (key3_case_volume_TCC2-1 nil 3708424440
+  (key3_case_volume_TCC2-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6165,7 +6153,7 @@
     (per_key3 const-decl "bool" alaris_th nil))
    nil))
  (key3_case_volume_TCC3 0
-  (key3_case_volume_TCC3-1 nil 3708424440
+  (key3_case_volume_TCC3-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -6242,7 +6230,7 @@
     (dkvorate const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_volume_TCC4 0
-  (key3_case_volume_TCC4-1 nil 3708424440
+  (key3_case_volume_TCC4-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6303,7 +6291,7 @@
     (per_key3 const-decl "bool" alaris_th nil))
    nil))
  (key3_case_volume_TCC5 0
-  (key3_case_volume_TCC5-1 nil 3708424440
+  (key3_case_volume_TCC5-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6368,7 +6356,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_case_volume_TCC6 0
-  (key3_case_volume_TCC6-1 nil 3708424440
+  (key3_case_volume_TCC6-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6433,7 +6421,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_case_dispvtbi_vtmode_TCC1 0
-  (key3_case_dispvtbi_vtmode_TCC1-1 nil 3708424440
+  (key3_case_dispvtbi_vtmode_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6498,7 +6486,7 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_dispvtbi_vtmode_TCC2 0
-  (key3_case_dispvtbi_vtmode_TCC2-1 nil 3708424440
+  (key3_case_dispvtbi_vtmode_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -6575,7 +6563,7 @@
     (dtime const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_case_dispvtbi_vtmode_TCC3 0
-  (key3_case_dispvtbi_vtmode_TCC3-1 nil 3708424440
+  (key3_case_dispvtbi_vtmode_TCC3-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6640,7 +6628,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_case_dispvtbi_vtmode_TCC4 0
-  (key3_case_dispvtbi_vtmode_TCC4-1 nil 3708424440
+  (key3_case_dispvtbi_vtmode_TCC4-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6705,7 +6693,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_case_optionsORdispinfo_TCC1 0
-  (key3_case_optionsORdispinfo_TCC1-1 nil 3708424440
+  (key3_case_optionsORdispinfo_TCC1-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6770,7 +6758,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_case_optionsORdispinfo_TCC2 0
-  (key3_case_optionsORdispinfo_TCC2-1 nil 3708424440
+  (key3_case_optionsORdispinfo_TCC2-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -6832,7 +6820,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_TCC1 0
-  (key3_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key3_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -6896,7 +6884,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_TCC2 0
-  (key3_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (key3_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -6960,7 +6948,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (key3_TCC3 0
-  (key3_TCC3-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (key3_TCC3-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -7024,7 +7012,7 @@
     (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (key3_TCC4 0
-  (key3_TCC4-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (key3_TCC4-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -7088,7 +7076,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (per_chevron_TCC1 0
-  (per_chevron_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7130,7 +7118,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC2 0
-  (per_chevron_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7173,7 +7161,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC3 0
-  (per_chevron_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7218,7 +7206,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC4 0
-  (per_chevron_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7263,7 +7251,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC5 0
-  (per_chevron_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7308,7 +7296,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC6 0
-  (per_chevron_TCC6-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC6-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7353,7 +7341,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC7 0
-  (per_chevron_TCC7-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC7-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7399,7 +7387,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC8 0
-  (per_chevron_TCC8-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC8-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7445,7 +7433,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC9 0
-  (per_chevron_TCC9-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC9-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7492,7 +7480,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (per_chevron_TCC10 0
-  (per_chevron_TCC10-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (per_chevron_TCC10-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7539,7 +7527,7 @@
     (dnewrate const-decl "nat" types_and_constants_th nil))
    nil))
  (fup_case_holding_NOTrlock_TCC1 0
-  (fup_case_holding_NOTrlock_TCC1-1 nil 3708424440
+  (fup_case_holding_NOTrlock_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -7581,13 +7569,12 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
     (big_step const-decl "real" types_and_constants_th nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil))
    nil))
  (fup_case_dispvtbi_vtmode_TCC1 0
-  (fup_case_dispvtbi_vtmode_TCC1-1 nil 3708424440
+  (fup_case_dispvtbi_vtmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -7629,13 +7616,12 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
     (big_step const-decl "real" types_and_constants_th nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil))
    nil))
  (fup_case_vtbitime_vttmode_TCC1 0
-  (fup_case_vtbitime_vttmode_TCC1-1 nil 3708424440
+  (fup_case_vtbitime_vttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -7661,7 +7647,6 @@
     (per_fup const-decl "bool" alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -7708,7 +7693,7 @@
      real_types nil))
    nil))
  (fup_case_vtbitime_vttmode_TCC2 0
-  (fup_case_vtbitime_vttmode_TCC2-1 nil 3708424440
+  (fup_case_vtbitime_vttmode_TCC2-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -7824,7 +7809,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (state_UP_time_TCC1 0
-  (state_UP_time_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (state_UP_time_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -7874,7 +7859,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (fup_case_vtbitime_ttmode_TCC1 0
-  (fup_case_vtbitime_ttmode_TCC1-1 nil 3708424440
+  (fup_case_vtbitime_ttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -7916,7 +7901,7 @@
     (small_step const-decl "real" types_and_constants_th nil))
    nil))
  (fup_case_vtbitime_ttmode_TCC2 0
-  (fup_case_vtbitime_ttmode_TCC2-1 nil 3708424440
+  (fup_case_vtbitime_ttmode_TCC2-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -7986,7 +7971,7 @@
     (real_times_real_is_real application-judgement "real" reals nil))
    nil))
  (fup_case_vtbitime_ttmode_TCC3 0
-  (fup_case_vtbitime_ttmode_TCC3-1 nil 3708424440
+  (fup_case_vtbitime_ttmode_TCC3-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -8094,7 +8079,7 @@
      real_props nil))
    nil))
  (fup_case_dispvtbi_bagmode_TCC1 0
-  (fup_case_dispvtbi_bagmode_TCC1-1 nil 3708424440
+  (fup_case_dispvtbi_bagmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -8136,7 +8121,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (fup_case_options_TCC1 0
-  (fup_case_options_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fup_case_options_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -8178,7 +8163,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (fup_TCC1 0
-  (fup_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (fup_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -8256,7 +8241,7 @@
     (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (fup_TCC2 0
-  (fup_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (fup_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -8334,7 +8319,7 @@
     (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (sup_case_vtbitime_vttmode_TCC1 0
-  (sup_case_vtbitime_vttmode_TCC1-1 nil 3708424440
+  (sup_case_vtbitime_vttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -8397,7 +8382,7 @@
     (/= const-decl "boolean" notequal nil))
    nil))
  (sup_case_vtbitime_vttmode_TCC2 0
-  (sup_case_vtbitime_vttmode_TCC2-1 nil 3708424440
+  (sup_case_vtbitime_vttmode_TCC2-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -8496,7 +8481,7 @@
     (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (sup_case_vtbitime_ttmode_TCC1 0
-  (sup_case_vtbitime_ttmode_TCC1-1 nil 3708424440
+  (sup_case_vtbitime_ttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -8538,7 +8523,7 @@
     (small_step const-decl "real" types_and_constants_th nil))
    nil))
  (sup_case_vtbitime_ttmode_TCC2 0
-  (sup_case_vtbitime_ttmode_TCC2-1 nil 3708424440
+  (sup_case_vtbitime_ttmode_TCC2-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -8608,7 +8593,7 @@
     (real_times_real_is_real application-judgement "real" reals nil))
    nil))
  (sup_case_vtbitime_ttmode_TCC3 0
-  (sup_case_vtbitime_ttmode_TCC3-1 nil 3708424440
+  (sup_case_vtbitime_ttmode_TCC3-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -8714,7 +8699,7 @@
      real_props nil))
    nil))
  (sup_case_dispvtbi_bagmode_TCC1 0
-  (sup_case_dispvtbi_bagmode_TCC1-1 nil 3708424440
+  (sup_case_dispvtbi_bagmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -8792,7 +8777,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (sup_case_dispvtbi_bagmode_TCC2 0
-  (sup_case_dispvtbi_bagmode_TCC2-1 nil 3708424440
+  (sup_case_dispvtbi_bagmode_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -8868,7 +8853,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (sup_case_dispvtbi_bagmode_TCC3 0
-  (sup_case_dispvtbi_bagmode_TCC3-1 nil 3708424440
+  (sup_case_dispvtbi_bagmode_TCC3-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -8944,7 +8929,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (sup_case_options_TCC1 0
-  (sup_case_options_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (sup_case_options_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -8986,7 +8971,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (sup_case_options_TCC2 0
-  (sup_case_options_TCC2-1 nil 3708424440
+  (sup_case_options_TCC2-1 nil 3710576304
    ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
    ((real_ge_is_total_order name-judgement "(total_order?[real])"
@@ -9087,7 +9072,7 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (sup_TCC1 0
-  (sup_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
+  (sup_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -9165,7 +9150,7 @@
     (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (sup_TCC2 0
-  (sup_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
+  (sup_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
@@ -9243,7 +9228,7 @@
     (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (fdown_case_holding_NOTrlock_TCC1 0
-  (fdown_case_holding_NOTrlock_TCC1-1 nil 3708424440
+  (fdown_case_holding_NOTrlock_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -9285,13 +9270,12 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
     (big_step const-decl "real" types_and_constants_th nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil))
    nil))
  (fdown_case_holding_NOTrlock_TCC2 0
-  (fdown_case_holding_NOTrlock_TCC2-1 nil 3708424440
+  (fdown_case_holding_NOTrlock_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -9375,7 +9359,7 @@
      real_types nil))
    nil))
  (fdown_case_dispvtbi_vtmode_TCC1 0
-  (fdown_case_dispvtbi_vtmode_TCC1-1 nil 3708424440
+  (fdown_case_dispvtbi_vtmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -9417,13 +9401,12 @@
     (small_step const-decl "real" types_and_constants_th nil)
     (fractional const-decl "{x | 0 <= x & x < 1}" floor_ceil nil)
     (big_step const-decl "real" types_and_constants_th nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
      real_types nil)
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil))
    nil))
  (fdown_case_dispvtbi_vtmode_TCC2 0
-  (fdown_case_dispvtbi_vtmode_TCC2-1 nil 3708424440
+  (fdown_case_dispvtbi_vtmode_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -9505,7 +9488,7 @@
      real_types nil))
    nil))
  (fdown_case_vtbitime_vttmode_TCC1 0
-  (fdown_case_vtbitime_vttmode_TCC1-1 nil 3708424440
+  (fdown_case_vtbitime_vttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -9530,7 +9513,6 @@
     (per_fdown const-decl "bool" alaris_th nil)
     (OR const-decl "[bool, bool -> bool]" booleans nil)
     (= const-decl "[T, T -> boolean]" equalities nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
     (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -9578,7 +9560,7 @@
      real_types nil))
    nil))
  (fdown_case_vtbitime_vttmode_TCC2 0
-  (fdown_case_vtbitime_vttmode_TCC2-1 nil 3708424440
+  (fdown_case_vtbitime_vttmode_TCC2-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -9695,7 +9677,7 @@
     (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil))
    nil))
  (fdown_case_vtbitime_ttmode_TCC1 0
-  (fdown_case_vtbitime_ttmode_TCC1-1 nil 3708424440
+  (fdown_case_vtbitime_ttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -9737,7 +9719,7 @@
     (small_step const-decl "real" types_and_constants_th nil))
    nil))
  (fdown_case_vtbitime_ttmode_TCC2 0
-  (fdown_case_vtbitime_ttmode_TCC2-1 nil 3708424440
+  (fdown_case_vtbitime_ttmode_TCC2-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((NOT const-decl "[bool -> bool]" booleans nil)
     (nat nonempty-type-eq-decl nil naturalnumbers nil)
@@ -9808,7 +9790,7 @@
     (real_times_real_is_real application-judgement "real" reals nil))
    nil))
  (fdown_case_vtbitime_ttmode_TCC3 0
-  (fdown_case_vtbitime_ttmode_TCC3-1 nil 3708424440
+  (fdown_case_vtbitime_ttmode_TCC3-1 nil 3710576304
    ("" (skosimp*)
     (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
@@ -9913,7 +9895,7 @@
      real_props nil))
    nil))
  (fdown_case_dispvtbi_bagmode_TCC1 0
-  (fdown_case_dispvtbi_bagmode_TCC1-1 nil 3708424440
+  (fdown_case_dispvtbi_bagmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -9955,7 +9937,7 @@
     (mbags const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC1 0
-  (fdown_case_options_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fdown_case_options_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -9997,7 +9979,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC2 0
-  (fdown_case_options_TCC2-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fdown_case_options_TCC2-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -10039,7 +10021,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC3 0
-  (fdown_case_options_TCC3-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fdown_case_options_TCC3-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -10081,7 +10063,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC4 0
-  (fdown_case_options_TCC4-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fdown_case_options_TCC4-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -10123,7 +10105,7 @@
     (dpdtls const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC5 0
-  (fdown_case_options_TCC5-1 nil 3708424440 ("" (subtype-tcc) nil nil)
+  (fdown_case_options_TCC5-1 nil 3710576304 ("" (subtype-tcc) nil nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
     (bat_max formal-const-decl
@@ -10165,7 +10147,7 @@
     (dlock const-decl "nat" types_and_constants_th nil))
    nil))
  (fdown_case_options_TCC6 0
-  (fdown_case_options_TCC6-1 nil 3708424440
+  (fdown_case_options_TCC6-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
    ((boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
@@ -10238,303 +10220,280 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (fdown_TCC1 0
-  (fdown_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
-   ((int_minus_int_is_int application-judgement "int" integers nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (per_fdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
+  (fdown_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_fdown const-decl "bool" alaris_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (fdown_TCC2 0
-  (fdown_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
-   ((int_minus_int_is_int application-judgement "int" integers nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
+  (fdown_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_fdown const-decl "bool" alaris_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
     (real_le_is_total_order name-judgement "(total_order?[real])"
      real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (per_fdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (state_dn_rate_TCC1 0
-  (state_dn_rate_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
-   ((real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
+  (state_dn_rate_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (big_step const-decl "real" types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
     (real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
-    (real_minus_real_is_real application-judgement "real" reals nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (bigstep const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (small_step const-decl "real" types_and_constants_th nil)
-    (= const-decl "[T, T -> boolean]" equalities nil)
-    (OR const-decl "[bool, bool -> bool]" booleans nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (>= const-decl "bool" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
    nil))
  (sdown_case_vtbitime_vttmode_TCC1 0
-  (sdown_case_vtbitime_vttmode_TCC1-1 nil 3708424440
+  (sdown_case_vtbitime_vttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
-   ((/= const-decl "boolean" notequal nil)
-    (small_step const-decl "real" types_and_constants_th nil)
-    (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (<= const-decl "bool" reals nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (NOT const-decl "[bool -> bool]" booleans nil))
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil))
    nil))
  (sdown_case_vtbitime_vttmode_TCC2 0
-  (sdown_case_vtbitime_vttmode_TCC2-1 nil 3708424440
-   ("" (subtype-tcc)
-    (("1" (lemma "vtbi_over_time_lemma") (("1" (grind) nil nil)) nil)
-     ("2" (lemma "vtbi_over_time_lemma") (("2" (grind) nil nil)) nil)
-     ("3" (lemma "vtbi_over_time_lemma") (("3" (grind) nil nil)) nil)
-     ("4" (lemma "vtbi_over_time_lemma") (("4" (grind) nil nil)) nil)
-     ("5" (lemma "vtbi_over_time_lemma") (("5" (grind) nil nil)) nil)
-     ("6" (lemma "vtbi_over_time_lemma") (("6" (grind) nil nil)) nil)
-     ("7" (lemma "vtbi_over_time_lemma") (("7" (grind) nil nil)) nil)
-     ("8" (lemma "vtbi_over_time_lemma") (("8" (grind) nil nil)) nil)
-     ("9" (lemma "vtbi_over_time_lemma") (("9" (grind) nil nil)) nil)
-     ("10" (lemma "vtbi_over_time_lemma") (("10" (grind) nil nil)) nil)
-     ("11" (lemma "vtbi_over_time_lemma") (("11" (grind) nil nil)) nil)
-     ("12" (lemma "vtbi_over_time_lemma") (("12" (grind) nil nil)) nil)
-     ("13" (lemma "vtbi_over_time_lemma") (("13" (grind) nil nil)) nil)
-     ("14" (lemma "vtbi_over_time_lemma") (("14" (grind) nil nil)) nil)
-     ("15" (lemma "vtbi_over_time_lemma") (("15" (grind) nil nil)) nil)
-     ("16" (lemma "vtbi_over_time_lemma") (("16" (grind) nil nil)) nil)
-     ("17" (lemma "vtbi_over_time_lemma") (("17" (grind) nil nil)) nil)
-     ("18" (lemma "vtbi_over_time_lemma") (("18" (grind) nil nil)) nil)
-     ("19" (lemma "vtbi_over_time_lemma") (("19" (grind) nil nil)) nil)
-     ("20" (lemma "vtbi_over_time_lemma") (("20" (grind) nil nil)) nil)
-     ("21" (lemma "vtbi_over_time_lemma") (("21" (grind) nil nil)) nil)
-     ("22" (lemma "vtbi_over_time_lemma") (("22" (grind) nil nil))
-      nil))
+  (sdown_case_vtbitime_vttmode_TCC2-1 nil 3710576304
+   ("" (skosimp*)
+    (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
    ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
      alaris_th nil)
@@ -10573,196 +10532,223 @@
      nil)
     (boolean nonempty-type-decl nil booleans nil)
     (number nonempty-type-decl nil numbers nil)
-    (small_step const-decl "real" types_and_constants_th nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (mult_divides2 application-judgement "(divides(m))" divides nil)
-    (mult_divides1 application-judgement "(divides(n))" divides nil)
-    (even_times_int_is_even application-judgement "even_int" integers
-     nil)
-    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
-    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (int_minus_int_is_int application-judgement "int" integers nil)
-    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
-    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (ceil_vtbi const-decl "ivols" alaris_th nil)
-    (trim_vtbi const-decl "ivols" alaris_th nil)
-    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (vtbi_over_time_lemma formula-decl nil pump_th nil)
     (real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
-    (= const-decl "[T, T -> boolean]" equalities nil)
-    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
-    (integer nonempty-type-from-decl nil integers nil)
-    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
-    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
     (IF const-decl "[boolean, T, T -> T]" if_def nil)
-    (IMPLIES const-decl "[bool, bool -> bool]" booleans nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (ceiling const-decl "{i | x <= i & i < x + 1}" floor_ceil nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
     (st!1 skolem-const-decl "(per_sdown)" alaris_th nil)
+    (IMPLIES const-decl "[bool, bool -> bool]" booleans nil)
     (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
     (even_minus_even_is_even application-judgement "even_int" integers
      nil)
-    (vtbi_over_time_lemma formula-decl nil pump_th nil))
+    (state_dn_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (ceil_vtbi const-decl "ivols" alaris_th nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil))
    nil))
  (sdown_case_vtbitime_ttmode_TCC1 0
-  (sdown_case_vtbitime_ttmode_TCC1-1 nil 3708424440
+  (sdown_case_vtbitime_ttmode_TCC1-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
-   ((small_step const-decl "real" types_and_constants_th nil)
-    (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (<= const-decl "bool" reals nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
+   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil))
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (small_step const-decl "real" types_and_constants_th nil))
    nil))
  (sdown_case_vtbitime_ttmode_TCC2 0
-  (sdown_case_vtbitime_ttmode_TCC2-1 nil 3708424440
+  (sdown_case_vtbitime_ttmode_TCC2-1 nil 3710576304
    ("" (subtype-tcc) nil nil)
-   ((real_times_real_is_real application-judgement "real" reals nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (/= const-decl "boolean" notequal nil)
-    (state_dn_time const-decl "itimes" alaris_th nil)
-    (small_step const-decl "real" types_and_constants_th nil)
-    (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (<= const-decl "bool" reals nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (= const-decl "[T, T -> boolean]" equalities nil)
-    (OR const-decl "[bool, bool -> bool]" booleans nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil))
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (small_step const-decl "real" types_and_constants_th nil)
+    (state_dn_time const-decl "itimes" alaris_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (real_times_real_is_real application-judgement "real" reals nil))
    nil))
  (sdown_case_vtbitime_ttmode_TCC3 0
-  (sdown_case_vtbitime_ttmode_TCC3-1 nil 3708424440
-   ("" (lemma "vtbi_over_time_lemma")
-    (("" (skosimp*)
-      (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
-      nil))
+  (sdown_case_vtbitime_ttmode_TCC3-1 nil 3710576304
+   ("" (skosimp*)
+    (("" (lemma "vtbi_over_time_lemma") (("" (grind) nil nil)) nil))
     nil)
-   ((real_lt_is_strict_total_order name-judgement
+   ((bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (vtbi_over_time_lemma formula-decl nil pump_th nil)
+    (real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
     (ivols type-eq-decl nil types_and_constants_th nil)
     (ibagscursor type-eq-decl nil types_and_constants_th nil)
@@ -10821,48 +10807,10 @@
     (real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
     (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (vtbi_over_time_lemma formula-decl nil pump_th nil)
-    (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (<= const-decl "bool" reals nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_th nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil))
+     real_props nil))
    nil))
  (sdown_case_dispvtbi_bagmode_TCC1 0
-  (sdown_case_dispvtbi_bagmode_TCC1-1 nil 3708424440
+  (sdown_case_dispvtbi_bagmode_TCC1-1 nil 3710576304
    ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
    ((real_gt_is_strict_total_order name-judgement
@@ -10965,238 +10913,236 @@
      "(strict_total_order?[real])" real_props nil))
    nil))
  (sdown_case_dispvtbi_bagmode_TCC2 0
-  (sdown_case_dispvtbi_bagmode_TCC2-1 nil 3708424440
+  (sdown_case_dispvtbi_bagmode_TCC2-1 nil 3710576304
    ("" (cond-disjoint-tcc) nil nil)
-   ((maxpress const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (real_gt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (maxpress const-decl "nat" types_and_constants_th nil))
    nil))
  (sdown_case_dispvtbi_bagmode_TCC3 0
-  (sdown_case_dispvtbi_bagmode_TCC3-1 nil 3708424440
+  (sdown_case_dispvtbi_bagmode_TCC3-1 nil 3710576304
    ("" (cond-coverage-tcc) nil nil)
-   ((real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (maxtime formal-const-decl
+     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
+     alaris_th nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
     (real_gt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (maxtime formal-const-decl
-     "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
-     alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
    nil))
  (sdown_case_options_TCC1 0
-  (sdown_case_options_TCC1-1 nil 3708424440 ("" (subtype-tcc) nil nil)
-   ((dlock const-decl "nat" types_and_constants_th nil)
-    (dpdtls const-decl "nat" types_and_constants_th nil)
-    (number nonempty-type-decl nil numbers nil)
-    (boolean nonempty-type-decl nil booleans nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (>= const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (<= const-decl "bool" reals nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
+  (sdown_case_options_TCC1-1 nil 3710576304 ("" (subtype-tcc) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (posint_plus_nnint_is_posint application-judgement "posint"
-     integers nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (NOT const-decl "[bool -> bool]" booleans nil))
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (<= const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (dpdtls const-decl "nat" types_and_constants_th nil)
+    (dlock const-decl "nat" types_and_constants_th nil))
    nil))
  (sdown_case_options_TCC2 0
-  (sdown_case_options_TCC2-1 nil 3708424440
-   ("" (skosimp*)
-    (("" (all-typepreds)
-      (("" (all-typepreds) (("" (grind) nil nil)) nil)) nil))
+  (sdown_case_options_TCC2-1 nil 3710576304
+   ("" (skosimp*) (("" (all-typepreds) (("" (grind) nil nil)) nil))
     nil)
    ((real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
@@ -11277,188 +11223,187 @@
     (dnewrate const-decl "nat" types_and_constants_th nil)
     (mbags const-decl "nat" types_and_constants_th nil)
     (strict_total_order? const-decl "bool" orders nil)
+    (irreflexive? const-decl "bool" relations nil)
+    (transitive? const-decl "bool" relations nil)
+    (strict_order? const-decl "bool" orders nil)
+    (trichotomous? const-decl "bool" orders nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (reflexive? const-decl "bool" relations nil)
+    (preorder? const-decl "bool" orders nil)
+    (antisymmetric? const-decl "bool" relations nil)
+    (partial_order? const-decl "bool" orders nil)
+    (dichotomous? const-decl "bool" orders nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
     (even_times_int_is_even application-judgement "even_int" integers
      nil)
-    (mult_divides1 application-judgement "(divides(n))" divides nil)
-    (mult_divides2 application-judgement "(divides(m))" divides nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (dichotomous? const-decl "bool" orders nil)
-    (partial_order? const-decl "bool" orders nil)
-    (antisymmetric? const-decl "bool" relations nil)
-    (preorder? const-decl "bool" orders nil)
-    (reflexive? const-decl "bool" relations nil)
-    (trichotomous? const-decl "bool" orders nil)
-    (strict_order? const-decl "bool" orders nil)
-    (transitive? const-decl "bool" relations nil)
-    (irreflexive? const-decl "bool" relations nil)
-    (even? const-decl "bool" integers nil)
-    (real_gt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
     (posint_plus_nnint_is_posint application-judgement "posint"
-     integers nil))
+     integers nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
    nil))
  (sdown_TCC1 0
-  (sdown_TCC1-1 nil 3708424440 ("" (cond-disjoint-tcc) nil nil)
-   ((int_minus_int_is_int application-judgement "int" integers nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
+  (sdown_TCC1-1 nil 3710576304 ("" (cond-disjoint-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
    nil))
  (sdown_TCC2 0
-  (sdown_TCC2-1 nil 3708424440 ("" (cond-coverage-tcc) nil nil)
-   ((int_minus_int_is_int application-judgement "int" integers nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_le_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (no_button_down const-decl "bool" alaris_th nil)
-    (drate const-decl "nat" types_and_constants_th nil)
-    (dvtbi const-decl "nat" types_and_constants_th nil)
-    (/= const-decl "boolean" notequal nil)
-    (dtime const-decl "nat" types_and_constants_th nil)
-    (dnewvtbi const-decl "nat" types_and_constants_th nil)
-    (dnewtime const-decl "nat" types_and_constants_th nil)
-    (dnewrate const-decl "nat" types_and_constants_th nil)
-    (per_chevron const-decl "bool" alaris_th nil)
-    (maxpress const-decl "nat" types_and_constants_th nil)
-    (nat nonempty-type-eq-decl nil naturalnumbers nil)
-    (per_sdown const-decl "bool" alaris_th nil)
-    (state type-eq-decl nil alaris_th nil)
-    (chev_buttons type-decl nil types_and_constants_th nil)
-    (iline type-decl nil types_and_constants_th nil)
-    (qcurse type-eq-decl nil types_and_constants_th nil)
-    (presstime type-eq-decl nil types_and_constants_th nil)
-    (o_menu type-eq-decl nil types_and_constants_th nil)
-    (ivols type-eq-decl nil types_and_constants_th nil)
-    (itimes type-eq-decl nil types_and_constants_th nil)
-    (irates type-eq-decl nil types_and_constants_th nil)
-    (imid type-eq-decl nil types_and_constants_th nil)
-    (ifunctions type-decl nil types_and_constants_th nil)
-    (emodes type-decl nil types_and_constants_th nil)
-    (pump type-eq-decl nil pump_th nil)
-    (stepvol type-eq-decl nil types_and_constants_th nil)
-    (steptime type-eq-decl nil types_and_constants_th nil)
-    (steprate type-eq-decl nil types_and_constants_th nil)
-    (abags type-eq-decl nil types_and_constants_th nil)
-    (ibagscursor type-eq-decl nil types_and_constants_th nil)
-    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
-     alaris_th nil)
-    (bat_max formal-const-decl
-     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
-    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
-    (numfield nonempty-type-eq-decl nil number_fields nil)
+  (sdown_TCC2-1 nil 3710576304 ("" (cond-coverage-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_int nonempty-type-eq-decl nil integers nil)
+    (> const-decl "bool" reals nil)
+    (posnat nonempty-type-eq-decl nil integers nil)
+    (maxrate formal-const-decl "posnat" alaris_th nil)
+    (maxinfuse formal-const-decl "posnat" alaris_th nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (<= const-decl "bool" reals nil)
+    (infusemin formal-const-decl
+     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
+    (timeout formal-const-decl "posnat" alaris_th nil)
+    (< const-decl "bool" reals nil)
+    (shorttimeout formal-const-decl
+     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
     (maxtime formal-const-decl
      "{maxtime: posnat | maxtime > timeout AND maxtime >= maxinfuse}"
      alaris_th nil)
-    (AND const-decl "[bool, bool -> bool]" booleans nil)
-    (shorttimeout formal-const-decl
-     "{shorttimeout: posnat | shorttimeout < timeout}" alaris_th nil)
-    (< const-decl "bool" reals nil)
-    (timeout formal-const-decl "posnat" alaris_th nil)
-    (infusemin formal-const-decl
-     "{infusemin: posreal | infusemin <= maxinfuse}" alaris_th nil)
-    (<= const-decl "bool" reals nil)
-    (posreal nonempty-type-eq-decl nil real_types nil)
-    (nonneg_real nonempty-type-eq-decl nil real_types nil)
-    (maxinfuse formal-const-decl "posnat" alaris_th nil)
-    (maxrate formal-const-decl "posnat" alaris_th nil)
-    (posnat nonempty-type-eq-decl nil integers nil)
-    (> const-decl "bool" reals nil)
-    (nonneg_int nonempty-type-eq-decl nil integers nil)
-    (>= const-decl "bool" reals nil)
-    (int nonempty-type-eq-decl nil integers nil)
-    (integer_pred const-decl "[rational -> boolean]" integers nil)
-    (rational nonempty-type-from-decl nil rationals nil)
-    (rational_pred const-decl "[real -> boolean]" rationals nil)
-    (real nonempty-type-from-decl nil reals nil)
-    (real_pred const-decl "[number_field -> boolean]" reals nil)
-    (number_field nonempty-type-from-decl nil number_fields nil)
-    (number_field_pred const-decl "[number -> boolean]" number_fields
-     nil)
-    (number nonempty-type-decl nil numbers nil)
-    (NOT const-decl "[bool -> bool]" booleans nil)
-    (bool nonempty-type-eq-decl nil booleans nil)
-    (boolean nonempty-type-decl nil booleans nil))
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (bat_max formal-const-decl
+     "{bat_max: posnat | bat_max + 1 < maxtime}" alaris_th nil)
+    (bat_min formal-const-decl "{bat_min: posnat | bat_min < bat_max}"
+     alaris_th nil)
+    (ibagscursor type-eq-decl nil types_and_constants_th nil)
+    (abags type-eq-decl nil types_and_constants_th nil)
+    (steprate type-eq-decl nil types_and_constants_th nil)
+    (steptime type-eq-decl nil types_and_constants_th nil)
+    (stepvol type-eq-decl nil types_and_constants_th nil)
+    (pump type-eq-decl nil pump_th nil)
+    (emodes type-decl nil types_and_constants_th nil)
+    (ifunctions type-decl nil types_and_constants_th nil)
+    (imid type-eq-decl nil types_and_constants_th nil)
+    (irates type-eq-decl nil types_and_constants_th nil)
+    (itimes type-eq-decl nil types_and_constants_th nil)
+    (ivols type-eq-decl nil types_and_constants_th nil)
+    (o_menu type-eq-decl nil types_and_constants_th nil)
+    (presstime type-eq-decl nil types_and_constants_th nil)
+    (qcurse type-eq-decl nil types_and_constants_th nil)
+    (iline type-decl nil types_and_constants_th nil)
+    (chev_buttons type-decl nil types_and_constants_th nil)
+    (state type-eq-decl nil alaris_th nil)
+    (per_sdown const-decl "bool" alaris_th nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (maxpress const-decl "nat" types_and_constants_th nil)
+    (per_chevron const-decl "bool" alaris_th nil)
+    (dnewrate const-decl "nat" types_and_constants_th nil)
+    (dnewtime const-decl "nat" types_and_constants_th nil)
+    (dnewvtbi const-decl "nat" types_and_constants_th nil)
+    (dtime const-decl "nat" types_and_constants_th nil)
+    (/= const-decl "boolean" notequal nil)
+    (dvtbi const-decl "nat" types_and_constants_th nil)
+    (drate const-decl "nat" types_and_constants_th nil)
+    (no_button_down const-decl "bool" alaris_th nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
    nil)))
 

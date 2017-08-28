@@ -1,4 +1,23 @@
-%%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: alaris_universality.pvs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Source: alaris_universality.pvs</h1>
+        <section>
+            <article>
+                <pre class="prettyprint source linenums"><code>%%
 % @module alaris_universality
 % @author Michael Harrison and Paolo Masci (QMUL, UMinho Braga and Newcastle University)
 % @date April 2017
@@ -7,7 +26,7 @@
 
 alaris_universality_pattern[
   maxrate  : posnat, %{maxrate: posnat | maxrate > 1000},
-   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma   
+   maxinfuse: posnat, %{maxinfuse: posnat |  maxinfuse >= 3000 }, % maxtime = maxinfuse needed for proving maxinfuse_over_time_lemma and vtbi_over_time_lemma
    infusemin: { infusemin: posreal | infusemin <= maxinfuse },
    timeout  : posnat,
    shorttimeout : {shorttimeout: posnat | shorttimeout < timeout},
@@ -49,14 +68,14 @@ state_transitions(pre, post: state): boolean =
     OR (per_fit_set(pre) & post = fit_set(pre))
 
 %state_transitions_noton(pre, post: state): boolean =
-%  (per_sup(pre) & post = sup(pre)) OR  
+%  (per_sup(pre) & post = sup(pre)) OR
 %  (per_release_sup(pre) & post = release_sup(pre)) OR
 %  (per_fup(pre) & post = fup(pre)) OR
-%  (per_release_fup(pre) & post = release_fup(pre)) OR  
-%  (per_sdown(pre) & post = sdown(pre)) OR 
+%  (per_release_fup(pre) & post = release_fup(pre)) OR
+%  (per_sdown(pre) & post = sdown(pre)) OR
 %  (per_release_sdown(pre) & post = release_sdown(pre)) OR
 
-%% 
+%%
   % @function guard_univ
   % @description there is no guard
   % @param {state} st The state of the system
@@ -66,7 +85,7 @@ state_transitions(pre, post: state): boolean =
 guard_univ_quit(st: state): boolean =
      true
 
-%% 
+%%
   % @function pred_filter_topline_Quit
   % @description top lines where quit is a possibility
   % @param {state} st The state of the system
@@ -80,7 +99,7 @@ pred_filter_topline_Quit(st: state): boolean =
  (topline(st) = volume) OR
  (topline(st) = dispinfo)
 
-%% 
+%%
   % @function pred_filter_quit
   % @description function display for key 3 is quit
   % @param {state} st The state of the system
@@ -90,7 +109,7 @@ pred_filter_topline_Quit(st: state): boolean =
 pred_filter_quit(st: state): boolean =
            fndisp3(st) = fquit
 
-%% 
+%%
   % @function universality_quit
   % @description key3 is quit for the range of displays
   % @param {state} st The state of the system
@@ -110,10 +129,10 @@ universality_quit(st:state): boolean =
 universality_quit_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_quit(pre)) AND
-       ((state_transitions(pre, post) AND universality_quit(pre))  
+       ((state_transitions(pre, post) AND universality_quit(pre))
                   => universality_quit(post))
 
-%% 
+%%
   % @function guard_univ_volume_keys
   % @description there is no guard
   % @param {state} st The state of the system
@@ -123,7 +142,7 @@ universality_quit_theorem: THEOREM
 guard_univ_volume_keys(st: state): boolean =
      true
 
-%% 
+%%
   % @function pred_filter_volume_keys
   % @description top line is volume
   % @param {state} st The state of the system
@@ -133,7 +152,7 @@ guard_univ_volume_keys(st: state): boolean =
 pred_filter_volume_keys(st: state): boolean =
  (topline(st) = volume)
 
-%% 
+%%
   % @function pred_filter_keys_volume
   % @description function keys display required for volume
   % @param {state} st The state of the system
@@ -145,7 +164,7 @@ pred_filter_keys_volume(st: state): boolean =
 	    fndisp2(st) = fclear AND
 	    fndisp3(st) = fquit)
 
-%% 
+%%
   % @function universality_volume_keys
   % @description requirement that same function keys always associated with top line of volume
   % @param {state} st The state of the system
@@ -165,11 +184,11 @@ universality_volume_keys(st:state): boolean =
 universality_volume_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_volume_keys(pre)) AND
-       ((state_transitions(pre, post) AND universality_volume_keys(pre))  
+       ((state_transitions(pre, post) AND universality_volume_keys(pre))
                   => universality_volume_keys(post))
 
 
-%% 
+%%
   % @function guard_univ_vtbi
   % @description not bag mode or updating time in "vtbi over time"
   % @param {state} st The state of the system
@@ -181,7 +200,7 @@ guard_univ_vtbi_keys(st: state): boolean =
      (entrymode(st) /= bagmode) AND
       (entrymode(st) /= ttmode)
 
-%% 
+%%
   % @function pred_filter_vtbi_keys
   % @description top line is vtbi or vtbi over time
   % @param {state} st The state of the system
@@ -192,7 +211,7 @@ pred_filter_vtbi_keys(st: state): boolean =
       (topline(st) = dispvtbi) OR
            (topline(st) = vtbitime)
 
-%% 
+%%
   % @function pred_filter_keys_vtbi
   % @description function keys always the same
   % @param {state} st The state of the system
@@ -203,7 +222,7 @@ pred_filter_keys_vtbi(st: state): boolean =
             (fndisp1(st) = fok AND fndisp2(st) = fbags AND
 	    fndisp3(st) = fquit)
 
-%% 
+%%
   % @function universality_vtbi_keys
   % @description requirement that same function keys always associated with top line of vtbi or vtbi over time
   % @param {state} st The state of the system
@@ -223,10 +242,10 @@ universality_vtbi_keys(st:state): boolean =
 universality_vtbi_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_vtbi_keys(pre)) AND
-       ((state_transitions(pre, post) AND universality_vtbi_keys(pre))  
+       ((state_transitions(pre, post) AND universality_vtbi_keys(pre))
                   => universality_vtbi_keys(post))
 
-%% 
+%%
   % @function guard_univ_bags_keys
   % @description not vtmode or vttmode
   % @param {state} st The state of the system
@@ -235,9 +254,9 @@ universality_vtbi_keys_theorem: THEOREM
   %%
 guard_univ_bags_keys(st: state): boolean =
      (entrymode(st) /= vtmode) AND
-     (entrymode(st) /= vttmode) 
+     (entrymode(st) /= vttmode)
 
-%% 
+%%
   % @function pred_filter_bags_keys
   % @description top line vtbi or vtbi over time
   % @param {state} st The state of the system
@@ -248,7 +267,7 @@ pred_filter_bags_keys(st: state): boolean =
       (topline(st) = dispvtbi) OR
            (topline(st) = vtbitime)
 
-%% 
+%%
   % @function pred_filter_keys_bags
   % @description function keys always the same
   % @param {state} st The state of the system
@@ -259,7 +278,7 @@ pred_filter_keys_bags(st: state): boolean =
             (fndisp1(st) = fok AND fndisp2(st) = fnull AND
 	    fndisp3(st) = fback)
 
-%% 
+%%
   % @function universality_bags_keys
   % @description vtbi or vtbi over time always the same keys
   % @param {state} st The state of the system
@@ -279,10 +298,10 @@ universality_bags_keys(st:state): boolean =
 universality_bags_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_bags_keys(pre)) AND
-       ((state_transitions(pre, post) AND universality_bags_keys(pre))  
+       ((state_transitions(pre, post) AND universality_bags_keys(pre))
                   => universality_bags_keys(post))
 
-%% 
+%%
   % @function guard_univ_hold_or_infuse_keys
   % @description trivially true
   % @param {state} st The state of the system
@@ -292,7 +311,7 @@ universality_bags_keys_theorem: THEOREM
 guard_univ_hold_or_infuse_keys(st: state): boolean =
     true
 
-%% 
+%%
   % @function pred_filter_hold_or_infuse_keys
   % @description top line holding, setrate or infusing
   % @param {state} st The state of the system
@@ -304,7 +323,7 @@ pred_filter_hold_or_infuse_keys(st: state): boolean =
       (topline(st) = holding) OR
       (topline(st) = setrate) OR
       (topline(st) = infusing)
-%% 
+%%
   % @function pred_filter_keys_hold_or_infuse
   % @description function key configuration
   % @param {state} st The state of the system
@@ -315,7 +334,7 @@ pred_filter_keys_hold_or_infuse(st: state): boolean =
         (fndisp1(st) = fvol AND fndisp2(st) = fvtbi AND
 	fndisp3(st) = fnull)
 
-%% 
+%%
   % @function universality_hold_or_infuse_keys
   % @description holding, setrate or infusing always the same keys
   % @param {state} st The state of the system
@@ -337,10 +356,10 @@ universality_hold_or_infuse_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_hold_or_infuse_keys(pre)) AND
        ((state_transitions(pre, post) AND
-       universality_hold_or_infuse_keys(pre))  
+       universality_hold_or_infuse_keys(pre))
                   => universality_hold_or_infuse_keys(post))
 
-%% 
+%%
   % @function guard_univ_query
   % @description trivially true
   % @param {state} st The state of the system
@@ -350,7 +369,7 @@ universality_hold_or_infuse_keys_theorem: THEOREM
 guard_univ_query_keys(st: state): boolean =
     true
 
-%% 
+%%
   % @function pred_filter_query_keys
   % @description topline is options
   % @param {state} st The state of the system
@@ -358,9 +377,9 @@ guard_univ_query_keys(st: state): boolean =
   % @memberof module:alaris_universality
   %%
 pred_filter_query_keys(st: state): boolean =
-      (topline(st) = options) 
+      (topline(st) = options)
 
-%% 
+%%
   % @function pred_filter_keys_query
   % @description function key configuration
   % @param {state} st The state of the system
@@ -371,7 +390,7 @@ pred_filter_keys_query(st: state): boolean =
        (fndisp1(st) = fok AND fndisp2(st) = fnull AND
         fndisp3(st) = fquit)
 
-%% 
+%%
   % @function universality_query_keys
   % @description topline of options always has same function configuration
   % @param {state} st The state of the system
@@ -393,10 +412,10 @@ universality_query_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_query_keys(pre)) AND
        ((state_transitions(pre, post) AND
-       universality_query_keys(pre))  
+       universality_query_keys(pre))
                   => universality_query_keys(post))
 
-%% 
+%%
   % @function guard_univ_neutral_keys
   % @description trivially true
   % @param {state} st The state of the system
@@ -406,8 +425,8 @@ universality_query_keys_theorem: THEOREM
 guard_univ_neutral_keys(st: state): boolean =
     true
 
-%% 
-  % @function pred_filter_neutral_keys
+%%
+  % @function pred_filter_neutral_keys_query
   % @description toplines when neutral
   % @param {state} st The state of the system
   % @returns {bool}
@@ -416,10 +435,10 @@ guard_univ_neutral_keys(st: state): boolean =
 pred_filter_neutral_keys(st: state): boolean =
       (topline(st) = vtbidone OR
        topline(st) = attention OR
-       topline(st) = batterylow OR 
-       topline(st) = setnotfitted) 
+       topline(st) = batterylow OR
+       topline(st) = setnotfitted)
 
-%% 
+%%
   % @function pred_filter_keys_neutral
   % @description function key configuration
   % @param {state} st The state of the system
@@ -430,7 +449,7 @@ pred_filter_keys_neutral(st: state): boolean =
        (fndisp1(st) = fnull AND fndisp2(st) = fnull AND
         fndisp3(st) = fcancel)
 
-%% 
+%%
   % @function universality_neutral_keys
   % @description neutral topline  always has same function configuration
   % @param {state} st The state of the system
@@ -452,10 +471,10 @@ universality_neutral_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_neutral_keys(pre)) AND
        ((state_transitions(pre, post) AND
-       universality_neutral_keys(pre))  
+       universality_neutral_keys(pre))
                   => universality_neutral_keys(post))
 
-%% 
+%%
   % @function guard_univ_dispkvo
   % @description trivially true
   % @param {state} st The state of the system
@@ -464,8 +483,8 @@ universality_neutral_keys_theorem: THEOREM
   %%
 guard_univ_dispkvo_keys(st: state): boolean =
     true
-    
-%% 
+
+%%
   % @function pred_filter_dispkvo_keys
   % @description topline = dispkvo
   % @param {state} st The state of the system
@@ -475,7 +494,7 @@ guard_univ_dispkvo_keys(st: state): boolean =
 pred_filter_dispkvo_keys(st: state): boolean =
      (topline(st) = dispkvo)
 
-%% 
+%%
   % @function pred_filter_keys_dispkvo
   % @description function key displays
   % @param {state} st The state of the system
@@ -485,7 +504,7 @@ pred_filter_dispkvo_keys(st: state): boolean =
 pred_filter_keys_dispkvo(st: state): boolean =
        (fndisp1(st) = fvol AND fndisp2(st) = fnull AND fndisp3(st) = fnull)
 
-%% 
+%%
   % @function universality_dispkvo_keys
   % @description kvo topline  always has same function configuration
   % @param {state} st The state of the system
@@ -507,8 +526,36 @@ universality_dispkvo_keys_theorem: THEOREM
    FORALL (pre, post: state):
        (init?(pre) => universality_dispkvo_keys(pre)) AND
        ((state_transitions(pre, post) AND
-       universality_dispkvo_keys(pre))  
+       universality_dispkvo_keys(pre))
                   => universality_dispkvo_keys(post))
 
-END alaris_universality_pattern
-
+END alaris_universality_pattern</code></pre>
+            </article>
+        </section>
+    </div>
+    <nav>
+        <h2><a href="index.html">Alaris GP</a></h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-alaris_th.html">alaris_th</a></li>
+            <li><a href="module-pump_th.html">pump_th</a></li>
+            <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+        </ul>
+        <h3>Theorems</h3>
+        <ul>
+            <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+            <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+            <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+            <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+            <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+            <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+        <ul>
+    </nav>
+    <br class="clear">
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Fri Aug 25 2017 23:04:29 GMT+0100 (WEST)
+    </footer>
+    <script> prettyPrint(); </script>
+    <script src="scripts/linenumber.js"> </script>
+</body>
+</html>

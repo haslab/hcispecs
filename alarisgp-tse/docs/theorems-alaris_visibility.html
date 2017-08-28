@@ -1,0 +1,3133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Theorems: alaris_visibility</title>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Theorems: alaris_visibility</h1>
+        <section>
+            <header>
+            </header>
+            <article>
+                <div class="container-overview">
+                    <div class="description">
+                        Visibility theorems.<br>
+                        The visibility template is:
+                        <em>\forall s1, s2 in S:  transit(s1, s2) & visible(s1) => visible(s2)</em><br>
+                        where visible(s) :=  filter(s) = p_filter_p(s)
+                    </div>
+                    <dl class="details">
+                        <dt class="tag-author">Author:</dt>
+                        <dd class="tag-author">
+                            <ul>
+                                <li>Michael Harrison and Paolo Masci (QMUL, UMinho Braga and Newcastle University)</li>
+                            </ul>
+                        </dd>
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source"><ul class="dummy"><li>
+                            <a href=" alaris_visibility.pvs.html">alaris_visibility.pvs</a>, <a href="alaris_visibility.pvs.html#line2">line 2</a>
+                        </li></ul></dd>
+                    </dl>
+                </div>
+
+                <h3 class="subsection-title">Theorems</h3>
+                <h4 class="name" id=".holding_visibility_theorem"><span class="type-signature">  </span>holding_visibility_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that given the guard, a set of top lines indicate holding
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line218">line 218</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 625.93 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".infusing_visibility_theorem"><span class="type-signature">  </span>infusing_visibility_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that a set of top lines indicate infusing
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line230">line 230</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 416.69 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".off_visibility_theorem"><span class="type-signature">  </span>off_visibility_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    topline blank when device off
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line1032">line 1032</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 179.48 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_ac_on_theorem"><span class="type-signature">  </span>visible_ac_on_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that the appropriate lights indicate that the device is switched on
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line387">line 387</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 184.29 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_battery_on_theorem"><span class="type-signature">  </span>visible_battery_on_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that the appropriate lights indicate that the device is on battery
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line399">line 399</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 243.53 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_dispvtbi_theorem"><span class="type-signature">  </span>visible_dispvtbi_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of vtbi modes
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line611">line 611</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 500.44 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_infusemode_theorem"><span class="type-signature">  </span>visible_infusemode_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of infusemode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line503">line 503</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 461.20 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_infusemode_rate_theorem"><span class="type-signature">  </span>visible_infusemode_rate_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of infusion rate in rmode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line880">line 880</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 210.93 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_kvo_theorem"><span class="type-signature">  </span>visible_kvo_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of kvo mode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line557">line 557</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 366.25 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_nullmode_theorem"><span class="type-signature">  </span>visible_nullmode_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of nullmode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line724">line 724</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 1156.71 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_pause_theorem"><span class="type-signature">  </span>visible_pause_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that the appropriate lights indicate that the device is paused
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line375">line 375</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 254.31 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_qmode_theorem"><span class="type-signature">  </span>visible_qmode_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of qmode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line776">line 776</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 291.96 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_rmode_rate_theorem"><span class="type-signature">  </span>visible_rmode_rate_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of infusion rate in rmode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line828">line 828</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 171.37 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_rmode_theorem"><span class="type-signature">  </span>visible_rmode_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that the visibility of rmode
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line451">line 451</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 359.42 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_run_theorem"><span class="type-signature">  </span>visible_run_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    proves that the appropriate lights indicate that the device is infusing
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line363">line 363</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 176.89 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_vtbitime_theorem"><span class="type-signature">  </span>visible_vtbitime_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of vtbi over time modes
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line664">line 664</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 405.82 secs. 26/7/17
+                </div>
+                <h4 class="name" id=".visible_vtttmode_time_theorem"><span class="type-signature">  </span>visible_vtttmode_time_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of temporary time in the vtbi over time emodes
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line989">line 989</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 143.09 secs. 27/7/17
+                </div>
+                <h4 class="name" id=".visible_vtvttmode_vtbi_theorem"><span class="type-signature">  </span>visible_vtvttmode_vtbi_theorem<span class="signature"> </span><span class="type-signature"></span></h4>
+                <div class="description">
+                    visibility of temporary vtbi in the vtbi emodes
+                </div>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line936">line 936</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Yields:</h5>
+                <div class="param-desc">
+                    QED
+                </div>
+                <h5>Stats:</h5>
+                <div class="param-desc">
+                    Run time  = 233.46 secs. 27/7/17
+                </div><br><br><br>
+
+                <h3 class="subsection-title">Functions used in the theorems</h3>
+                <h4 class="name" id=".ac_on_filter"><span class="type-signature">  </span>ac_on_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if powered on and ac connected
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line283">line 283</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".ac_on_p_filter"><span class="type-signature">  </span>ac_on_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if ac light is on
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line293">line 293</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".battery_on_filter"><span class="type-signature">  </span>battery_on_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if powered on and ac not connected
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line303">line 303</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".battery_on_p_filter"><span class="type-signature">  </span>battery_on_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if the battery light is on
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line313">line 313</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".dispvtbi_entry_ready"><span class="type-signature">  </span>dispvtbi_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    limits circumstances when ready to enter vtbi to the vtmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line71">line 71</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtbitime_entry_ready"><span class="type-signature">  </span>vtbitime_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    limits circumstances when ready to enter vtbi to the vttmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line82">line 82</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".dispvtbi_filter"><span class="type-signature">  </span>dispvtbi_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entrymodes that can be related to top line of dispvtbi
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line579">line 579</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".dispvtbi_p_filter"><span class="type-signature">  </span>dispvtbi_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    topline dispvtbi
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line591">line 591</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_dispvtbi"><span class="type-signature">  </span>guard_vis_dispvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true, ie no guard
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line570">line 570</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_infusemode"><span class="type-signature">  </span>guard_vis_infusemode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    top line not locked
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line464">line 464</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_infusemode_rate"><span class="type-signature">  </span>guard_vis_infusemode_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true if infusion rate not locked
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line841">line 841</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_kvo"><span class="type-signature">  </span>guard_vis_kvo<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true, ie no guard
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line516">line 516</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_mode"><span class="type-signature">  </span>guard_vis_mode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true if infusion rate not locked
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line737">line 737</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_mode_rate"><span class="type-signature">  </span>guard_vis_mode_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true if infusion rate not locked
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line789">line 789</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_nullmode"><span class="type-signature">  </span>guard_vis_nullmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true, ie no guard
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line677">line 677</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_rmode"><span class="type-signature">  </span>guard_vis_rmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    top line not locked
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line412">line 412</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_vtbitime"><span class="type-signature">  </span>guard_vis_vtbitime<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true, ie no guard
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line624">line 624</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_vtttmode_time"><span class="type-signature">  </span>guard_vis_vtttmode_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line949">line 949</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".guard_vis_vtvttmode_vtbi"><span class="type-signature">  </span>guard_vis_vtvttmode_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line893">line 893</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".holding_filter"><span class="type-signature">  </span>holding_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    re-expresses pause for the template
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line155">line 155</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".holding_guard"><span class="type-signature">  </span>holding_guard<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    set of top lines not included because they are also possible when infusing
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line132">line 132</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".holding_p_filter"><span class="type-signature">  </span>holding_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the disjunction of visible toplines for paused state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line173">line 173</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".holding_visibility"><span class="type-signature">  </span>holding_visibility<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that requires specific toplines to associated with holding
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line197">line 197</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusemode_filter"><span class="type-signature">  </span>infusemode_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entrymode is infusemode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line474">line 474</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusemode_p_filter"><span class="type-signature">  </span>infusemode_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    top line is infusing or dispkvo
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line483">line 483</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusemode_rate_filter"><span class="type-signature">  </span>infusemode_rate_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is infusemode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line850">line 850</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusemode_rate_p_filter"><span class="type-signature">  </span>infusemode_rate_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the infusion pump rate variable is visible or kvorate if vtbi is exhausted
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line860">line 860</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusing_filter"><span class="type-signature">  </span>infusing_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    re-expresses infusing for the template
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line164">line 164</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusing_guard"><span class="type-signature">  </span>infusing_guard<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    set of top lines not included because they are also possible when holding
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line146">line 146</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusing_p_filter"><span class="type-signature">  </span>infusing_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the disjunction of visible toplines for infusing state
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line186">line 186</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".infusing_visibility"><span class="type-signature">  </span>infusing_visibility<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that requires specific toplines to associated with infusing
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line208">line 208</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".kvo_filter"><span class="type-signature">  </span>kvo_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    infusemode with the kvoflag set
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line527">line 527</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".kvo_p_filter"><span class="type-signature">  </span>kvo_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    topline shows kvo
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line537">line 537</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".nullmode_filter"><span class="type-signature">  </span>nullmode_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry modes associated with nullmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line686">line 686</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".nullmode_p_filter"><span class="type-signature">  </span>nullmode_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    set of toplines associated with nullmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line696">line 696</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".off_visibility"><span class="type-signature">  </span>off_visibility<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    when device off, topline is blank
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line1023">line 1023</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".part_visible_infusemode_rate"><span class="type-signature">  </span>part_visible_infusemode_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    rate or kvorate is visible if entrymode is infusemode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line870">line 870</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".part_visible_rmode_rate"><span class="type-signature">  </span>part_visible_rmode_rate<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    rate is visible if entrymode is rmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line818">line 818</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".pause_filter"><span class="type-signature">  </span>pause_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if the device is paused
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line263">line 263</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".pause_p_filter"><span class="type-signature">  </span>pause_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if pause light is on and the run light is off
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line273">line 273</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".pred_off_filter"><span class="type-signature">  </span>pred_off_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    power off
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line1002">line 1002</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".pred_p_off_filter"><span class="type-signature">  </span>pred_p_off_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the temporary value of time is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line1012">line 1012</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".qmode_filter"><span class="type-signature">  </span>qmode_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is qmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line746">line 746</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".qmode_p_filter"><span class="type-signature">  </span>qmode_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    topline is options - ie options menu
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line756">line 756</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".rate_entry_ready"><span class="type-signature">  </span>rate_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    circumstances when ready to enter infusion rate
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line106">line 106</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".rmode_filter"><span class="type-signature">  </span>rmode_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is rmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line422">line 422</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".rmode_p_filter"><span class="type-signature">  </span>rmode_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    top line is holding or top line is set rate
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line431">line 431</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".rmode_rate_filter"><span class="type-signature">  </span>rmode_rate_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is rmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line798">line 798</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".rmode_rate_p_filter"><span class="type-signature">  </span>rmode_rate_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the infusion pump rate variable is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line808">line 808</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".run_filter"><span class="type-signature">  </span>run_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if infusing
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line244">line 244</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".run_p_filter"><span class="type-signature">  </span>run_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if the run light is switched on and the pause light is off
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line254">line 254</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".time_entry_ready"><span class="type-signature">  </span>time_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    circumstances when ready to enter time
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line94">line 94</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_ac_on"><span class="type-signature">  </span>visible_ac_on<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if ac_on_filter is true iff ac_on_p_filter true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line343">line 343</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_battery_on"><span class="type-signature">  </span>visible_battery_on<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if battery_on_filter is true iff battery_on_p_filter true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line353">line 353</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_dispvtbi"><span class="type-signature">  </span>visible_dispvtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the modes are visible via the top line
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line601">line 601</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_infusemode"><span class="type-signature">  </span>visible_infusemode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    visibility property for infusing
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line493">line 493</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_kvo"><span class="type-signature">  </span>visible_kvo<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the visibility property relating to kvo
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line547">line 547</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_nullmode"><span class="type-signature">  </span>visible_nullmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the mode is visible via the top line
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line714">line 714</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_pause"><span class="type-signature">  </span>visible_pause<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if pause_filter is true iff pause_p_filter true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line333">line 333</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_qmode"><span class="type-signature">  </span>visible_qmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the mode is visible via the top line
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line766">line 766</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_rmode"><span class="type-signature">  </span>visible_rmode<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    visibility property relating to rmode
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line441">line 441</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_run"><span class="type-signature">  </span>visible_run<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    predicate that is true if run_filter is true iff run_p_filter true
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line323">line 323</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_vtbitime"><span class="type-signature">  </span>visible_vtbitime<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the modes are visible via the top line
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line654">line 654</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_vtttmode_time"><span class="type-signature">  </span>visible_vtttmode_time<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    temp variable time visible in vtbi over time entry modes
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line979">line 979</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".visible_vtvttmode_vtbi"><span class="type-signature">  </span>visible_vtvttmode_vtbi<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    temp variable vtbi visible in vtbi entry modes
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line926">line 926</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtbi_entry_ready"><span class="type-signature">  </span>vtbi_entry_ready<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    circumstances when ready to enter vtbi
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line59">line 59</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtbitime_filter"><span class="type-signature">  </span>vtbitime_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry modes associated with vtbitime
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line633">line 633</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtbitime_p_filter"><span class="type-signature">  </span>vtbitime_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    topline vtbitime
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line644">line 644</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtttmode_time_filter"><span class="type-signature">  </span>vtttmode_time_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is disjunction of vtbi over time entry modes
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line958">line 958</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtttmode_time_p_filter"><span class="type-signature">  </span>vtttmode_time_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the temporary value of time is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line969">line 969</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtvttmode_vtbi_filter"><span class="type-signature">  </span>vtvttmode_vtbi_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    entry mode is disjunction of vtbi entry modes
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line902">line 902</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".vtvttmode_vtbi_p_filter"><span class="type-signature">  </span>vtvttmode_vtbi_p_filter<span class="signature">(st)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+                <div class="description">
+                    the temporary value of vtbi is visible
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>st</code></td>
+                            <td class="type">
+                                <span class="param-type">state</span>
+                            </td>
+                            <td class="description last">The state of the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                    <dt class="tag-source">Source:</dt>
+                    <dd class="tag-source"><ul class="dummy"><li>
+                        <a href=" alaris_visibility.pvs.html"> alaris_visibility.pvs</a>, <a href=" alaris_visibility.pvs.html#line914">line 914</a>
+                    </li></ul></dd>
+                </dl>
+                <h5>Returns:</h5>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">bool</span>
+                    </dd>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <nav>
+        <h2><a href="index.html">Alaris GP</a></h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-alaris_th.html">alaris_th</a></li>
+            <li><a href="module-pump_th.html">pump_th</a></li>
+            <li><a href="module-types_and_constants_th.html">types_and_constants_th</a></li>
+        </ul>
+        <h3>Theorems</h3>
+        <ul>
+            <li><a href="theorems-alaris_completeness.html">alaris_completeness</a></li>
+            <li><a href="theorems-alaris_consistency.html">alaris_consistency</a></li>
+            <li><a href="theorems-alaris_feedback.html">alaris_feedback</a></li>
+            <li><a href="theorems-alaris_reversibility.html">alaris_reversibility</a></li>
+            <li><a href="theorems-alaris_universality.html">alaris_universality</a></li>
+            <li><a href="theorems-alaris_visibility.html">alaris_visibility</a></li>
+        <ul>
+    </nav>
+    <br class="clear">
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.0-dev</a> on Sat Aug 26 2017 15:43:28 GMT+0100 (WEST)
+    </footer>
+    <script> prettyPrint ; </script>
+    <script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -71,7 +71,7 @@ tt, code, kbd, samp {
 
 #main {
     float: left;
-    width: 70%;
+    width: 84%;
 }
 
 article dl {
@@ -107,7 +107,7 @@ nav
     display: block;
     float: right;
     margin-top: 28px;
-    width: 30%;
+    width: 16%;
     box-sizing: border-box;
     border-left: 1px solid #ccc;
     padding-left: 16px;
@@ -334,7 +334,7 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 .prettyprint.linenums li.selected,
 .prettyprint.linenums li.selected *
 {
-  background-color: lightyellow;
+  background-color: lightsteelblue;
 }
 
 .prettyprint.linenums li *
