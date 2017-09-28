@@ -193,20 +193,20 @@ simple_guard_hosr(st: state): boolean = paused_state(st)
 
 %%
   % @function guard_rmode
-  % @description predicate that is true when the device is in paused state and not locked and not in bag mode
-  % @description completeness (Section 6.1 templates paper)
+  % @description predicate that is true when the device is in paused state and not locked and not in bag mode (Section 6.1 templates paper)
   % @param {state} st The state of the system
   % @returns {bool}
   % @memberof module:alaris_completeness
   %%
-guard_rmode(st: state): boolean =
-         paused_state(st) &
-                  ((topline(st) /= locked) AND
-		    (topline(st) /= lockrate) AND
-                   NOT((topline(st) = dispvtbi) AND
-                   ((entrymode(st) = bagmode) OR
-		      (entrymode(st) = tbagmode))))
-
+guard_rmode(st: state): boolean = paused_state(st) & ((topline(st) /= locked) AND (topline(st) /= lockrate) AND NOT((topline(st) = dispvtbi) AND ((entrymode(st) = bagmode) OR (entrymode(st) = tbagmode))))
+%%
+  % @function guard_hosr
+  % @description predicate that is true when the device is in paused state and not locked and not in bag mode (Section 6.1 templates paper)
+  % @param {state} st The state of the system
+  % @returns {bool}
+  % @memberof module:alaris_completeness
+  %%
+guard_hosr(st: state): boolean = paused_state(st) & ((topline(st) /= locked) AND (topline(st) /= lockrate) AND NOT((topline(st) = dispvtbi) AND ((entrymode(st) = bagmode) OR (entrymode(st) = tbagmode))))
 
 %%
   % @function goal_rmode
@@ -388,12 +388,12 @@ univ_complete_to_holdingorsetrate: THEOREM
 	 (per_key3(st) AND goal_hosr(key3(st))))
 
 %%
-% @theorem complete_to_holdingorsetrate
+% @theorem complete_to_pause
 % @description theorem: transition via key1 or key3 to top line display of holding or set rate, guard deals with counter examples: used in paper
 % @yields QED
-% @stats Run time  = 5061.11 secs. 18/7/17
+% @stats Run time  = 4243.84 secs. 20/9/17
 %%
-complete_to_holdingorsetrate: THEOREM
+complete_to_pause: THEOREM
   FORALL (pre, post: state):
     (init?(pre) AND post = on(pre) => complete_to_hosr(post)) AND
      ((state_transitions_release(pre, post) AND

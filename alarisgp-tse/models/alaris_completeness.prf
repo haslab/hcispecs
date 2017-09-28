@@ -1779,46 +1779,8 @@
     (state_transitions_release const-decl "boolean"
      alaris_completeness_pattern nil))
    shostak))
- (univ_complete_to_holdingorsetrate 0
-  (univ_complete_to_holdingorsetrate-1 nil 3687849408
-   ("" (skosimp*)
-    (("" (expand "guard_rmode")
-      (("" (expand "goal_hors")
-        (("" (flatten)
-          (("" (expand "paused_state")
-            (("" (expand "per_key1")
-              (("" (flatten)
-                (("" (split)
-                  (("1" (split)
-                    (("1" (propax) nil nil)
-                     ("2" (grind)
-                      (("1" (postpone) nil nil)
-                       ("2" (postpone) nil nil)
-                       ("3" (postpone) nil nil)
-                       ("4" (postpone) nil nil)
-                       ("5" (postpone) nil nil)
-                       ("6" (postpone) nil nil)
-                       ("7" (postpone) nil nil)
-                       ("8" (postpone) nil nil)
-                       ("9" (postpone) nil nil)
-                       ("10" (postpone) nil nil)
-                       ("11" (postpone) nil nil)
-                       ("12" (postpone) nil nil))
-                      nil)
-                     ("3" (postpone) nil nil) ("4" (postpone) nil nil))
-                    nil)
-                   ("2" (postpone) nil nil))
-                  nil))
-                nil))
-              nil))
-            nil))
-          nil))
-        nil))
-      nil))
-    nil)
-   nil shostak))
- (complete_to_holdingorsetrate 0
-  (complete_to_holdingorsetrate-1 nil 3687091004
+ (complete_to_pause 0
+  (complete_to_pause-1 nil 3714879602
    ("" (skosimp*)
     (("" (split)
       (("1" (grind) nil nil)
@@ -1827,85 +1789,18 @@
           (("2" (split)
             (("1" (expand "per_sup")
               (("1" (expand "per_chevron")
-                (("1" (flatten)
-                  (("1" (split)
-                    (("1" (split)
-                      (("1" (grind) nil nil) ("2" (grind) nil nil)
-                       ("3" (flatten)
-                        (("3" (split)
-                          (("1" (grind) nil nil) ("2" (grind) nil nil))
-                          nil))
-                        nil)
-                       ("4" (flatten)
-                        (("4" (split)
-                          (("1" (grind) nil nil)
-                           ("2" (flatten)
-                            (("2" (split)
-                              (("1" (grind) nil nil)
-                               ("2" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("5" (grind) nil nil))
-                      nil)
-                     ("2" (flatten)
-                      (("2" (split)
-                        (("1" (grind) nil nil) ("2" (grind) nil nil)
-                         ("3" (flatten)
-                          (("3" (split)
-                            (("1" (grind) nil nil)
-                             ("2" (grind) nil nil))
-                            nil))
-                          nil)
-                         ("4" (flatten)
-                          (("4" (split)
-                            (("1" (grind) nil nil)
-                             ("2" (flatten)
-                              (("2"
-                                (split)
-                                (("1" (grind) nil nil)
-                                 ("2" (grind) nil nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil)
-                         ("5" (grind) nil nil))
-                        nil))
-                      nil))
-                    nil))
-                  nil))
-                nil))
-              nil)
-             ("2" (expand "per_fup")
-              (("2" (expand "per_chevron")
-                (("2" (flatten)
-                  (("2" (split)
-                    (("1" (split)
+                (("1" (expand "release_sup")
+                  (("1" (expand "release_key")
+                    (("1" (expand "sup")
                       (("1" (flatten)
                         (("1" (split)
-                          (("1" (expand "release_fup")
-                            (("1" (expand "release_key")
+                          (("1" (split)
+                            (("1" (flatten)
                               (("1"
-                                (expand "fup")
+                                (lift-if)
                                 (("1"
-                                  (lift-if)
+                                  (split)
                                   (("1"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2" (grind) nil nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil)
-                           ("2" (expand "release_fup")
-                            (("2" (expand "release_key")
-                              (("2"
-                                (expand "fup")
-                                (("2"
-                                  (lift-if)
-                                  (("2"
                                     (split)
                                     (("1" (grind) nil nil)
                                      ("2"
@@ -1916,282 +1811,35 @@
                                          ("2"
                                           (split)
                                           (("1" (grind) nil nil)
-                                           ("2" (grind) nil nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("2" (expand "release_fup")
-                        (("2" (expand "release_key")
-                          (("2" (expand "fup")
-                            (("2" (lift-if)
-                              (("2"
-                                (flatten)
-                                (("2"
-                                  (split)
-                                  (("1" (grind) nil nil)
-                                   ("2"
-                                    (flatten)
-                                    (("2"
-                                      (split)
-                                      (("1" (grind) nil nil)
-                                       ("2"
-                                        (split)
-                                        (("1" (grind) nil nil)
-                                         ("2"
-                                          (flatten)
-                                          (("2"
-                                            (split)
-                                            (("1" (propax) nil nil)
-                                             ("2"
-                                              (split)
-                                              (("1" (grind) nil nil)
-                                               ("2"
-                                                (flatten)
-                                                (("2"
-                                                  (split)
-                                                  (("1"
-                                                    (flatten)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (propax)
-                                                    nil
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("3" (grind) nil nil)
-                       ("4" (flatten)
-                        (("4" (split)
-                          (("1" (grind) nil nil)
-                           ("2" (flatten)
-                            (("2" (split)
-                              (("1" (grind) nil nil)
-                               ("2" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("5" (grind) nil nil))
-                      nil)
-                     ("2" (flatten)
-                      (("2" (split)
-                        (("1" (expand "release_fup")
-                          (("1" (expand "release_key")
-                            (("1" (expand "fup")
-                              (("1"
-                                (lift-if)
-                                (("1"
-                                  (flatten)
-                                  (("1"
-                                    (split)
-                                    (("1"
-                                      (split)
-                                      (("1" (grind) nil nil)
-                                       ("2"
-                                        (flatten)
-                                        (("2"
-                                          (split)
-                                          (("1" (flatten) nil nil)
-                                           ("2"
-                                            (split)
-                                            (("1" (grind) nil nil)
-                                             ("2"
-                                              (flatten)
-                                              (("2"
-                                                (split)
-                                                (("1"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil)
-                                                 ("2"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil)
-                                     ("2"
-                                      (split)
-                                      (("1" (grind) nil nil)
-                                       ("2"
-                                        (flatten)
-                                        (("2"
-                                          (split)
-                                          (("1" (flatten) nil nil)
-                                           ("2"
-                                            (split)
-                                            (("1" (grind) nil nil)
-                                             ("2"
-                                              (flatten)
-                                              (("2"
-                                                (split)
-                                                (("1"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil)
-                                                 ("2"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil)
-                         ("2" (expand "release_fup")
-                          (("2" (expand "release_key")
-                            (("2" (expand "fup")
-                              (("2"
-                                (lift-if)
-                                (("2"
-                                  (flatten)
-                                  (("2"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1"
-                                          (flatten)
-                                          (("1"
-                                            (split)
-                                            (("1" (grind) nil nil)
-                                             ("2"
-                                              (flatten)
-                                              (("2"
-                                                (split)
-                                                (("1" (propax) nil nil)
-                                                 ("2"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil)
-                                         ("2"
-                                          (split)
-                                          (("1" (grind) nil nil)
                                            ("2"
                                             (flatten)
                                             (("2"
                                               (split)
-                                              (("1" (propax) nil nil)
+                                              (("1"
+                                                (split)
+                                                (("1" (grind) nil nil)
+                                                 ("2"
+                                                  (flatten)
+                                                  (("2"
+                                                    (split)
+                                                    (("1"
+                                                      (split)
+                                                      (("1"
+                                                        (grind)
+                                                        nil
+                                                        nil)
+                                                       ("2"
+                                                        (flatten)
+                                                        nil
+                                                        nil))
+                                                      nil)
+                                                     ("2"
+                                                      (propax)
+                                                      nil
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil)
                                                ("2"
                                                 (split)
                                                 (("1" (grind) nil nil)
@@ -2215,49 +1863,230 @@
                                           nil))
                                         nil))
                                       nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil)
-                         ("3" (grind) nil nil)
-                         ("4" (flatten)
-                          (("4" (split)
-                            (("1" (grind) nil nil)
-                             ("2" (flatten)
-                              (("2"
-                                (split)
-                                (("1" (grind) nil nil)
-                                 ("2" (grind) nil nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil)
-                         ("5" (expand "release_fup")
-                          (("5" (expand "release_key")
-                            (("5" (expand "fup")
-                              (("5"
-                                (lift-if)
-                                (("5"
-                                  (flatten)
-                                  (("5"
+                                    nil)
+                                   ("2"
                                     (split)
-                                    (("1"
-                                      (flatten)
-                                      (("1"
-                                        (split)
-                                        (("1" (grind) nil nil)
-                                         ("2" (grind) nil nil))
-                                        nil))
-                                      nil)
+                                    (("1" (grind) nil nil)
                                      ("2"
                                       (flatten)
                                       (("2"
                                         (split)
                                         (("1"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2" (flatten) nil nil))
+                                          nil)
+                                         ("2"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2"
+                                            (flatten)
+                                            (("2" (grind) nil nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("2" (flatten)
+                              (("2"
+                                (lift-if)
+                                (("2"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
                                           (flatten)
+                                          (("2" (grind) nil nil))
+                                          nil))
+                                        nil)
+                                       ("2"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2"
+                                            (split)
+                                            (("1" (propax) nil nil)
+                                             ("2"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2"
+                                                (flatten)
+                                                (("2"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (propax)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("3" (lift-if)
+                              (("3"
+                                (split)
+                                (("1" (grind) nil nil)
+                                 ("2" (grind) nil nil))
+                                nil))
+                              nil)
+                             ("4" (grind) nil nil)
+                             ("5" (lift-if)
+                              (("5"
+                                (flatten)
+                                (("5"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2"
+                                            (split)
+                                            (("1"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2" (grind) nil nil))
+                                              nil)
+                                             ("2"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2"
+                                                (flatten)
+                                                (("2"
+                                                  (split)
+                                                  (("1"
+                                                    (split)
+                                                    (("1"
+                                                      (grind)
+                                                      nil
+                                                      nil)
+                                                     ("2"
+                                                      (flatten)
+                                                      (("2"
+                                                        (grind)
+                                                        nil
+                                                        nil))
+                                                      nil))
+                                                    nil)
+                                                   ("2"
+                                                    (propax)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil)
+                                       ("2"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2" (grind) nil nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil)
+                           ("2" (lift-if)
+                            (("2" (split)
+                              (("1"
+                                (split)
+                                (("1" (grind) nil nil)
+                                 ("2"
+                                  (flatten)
+                                  (("2" (grind) nil nil))
+                                  nil))
+                                nil)
+                               ("2"
+                                (flatten)
+                                (("2"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2" (grind) nil nil))
+                                    nil))
+                                  nil))
+                                nil)
+                               ("3"
+                                (flatten)
+                                (("3"
+                                  (split)
+                                  (("1"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2"
+                                      (flatten)
+                                      (("2"
+                                        (split)
+                                        (("1"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2"
+                                            (flatten)
+                                            (("2"
+                                              (split)
+                                              (("1"
+                                                (split)
+                                                (("1" (grind) nil nil)
+                                                 ("2"
+                                                  (flatten)
+                                                  (("2"
+                                                    (grind)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil)
+                                               ("2" (grind) nil nil))
+                                              nil))
+                                            nil))
+                                          nil)
+                                         ("2" (grind) nil nil))
+                                        nil))
+                                      nil))
+                                    nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1" (grind) nil nil)
+                                       ("2"
+                                        (flatten)
+                                        (("2"
+                                          (split)
                                           (("1"
+                                            (split)
+                                            (("1" (grind) nil nil)
+                                             ("2" (grind) nil nil))
+                                            nil)
+                                           ("2"
                                             (split)
                                             (("1" (grind) nil nil)
                                              ("2"
@@ -2275,7 +2104,330 @@
                                                     (("2"
                                                       (split)
                                                       (("1"
+                                                        (split)
+                                                        (("1"
+                                                          (grind)
+                                                          nil
+                                                          nil)
+                                                         ("2"
+                                                          (flatten)
+                                                          (("2"
+                                                            (grind)
+                                                            nil
+                                                            nil))
+                                                          nil))
+                                                        nil)
+                                                       ("2"
+                                                        (propax)
+                                                        nil
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil)
+                                                 ("2" (grind) nil nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil)
+                               ("4"
+                                (flatten)
+                                (("4"
+                                  (split)
+                                  (("1"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2"
+                                      (flatten)
+                                      (("2"
+                                        (split)
+                                        (("1"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2"
+                                            (flatten)
+                                            (("2"
+                                              (split)
+                                              (("1"
+                                                (split)
+                                                (("1" (grind) nil nil)
+                                                 ("2"
+                                                  (flatten)
+                                                  (("2"
+                                                    (grind)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil)
+                                               ("2" (grind) nil nil))
+                                              nil))
+                                            nil))
+                                          nil)
+                                         ("2"
+                                          (split)
+                                          (("1" (grind) nil nil)
+                                           ("2"
+                                            (flatten)
+                                            (("2"
+                                              (split)
+                                              (("1"
+                                                (split)
+                                                (("1" (grind) nil nil)
+                                                 ("2"
+                                                  (flatten)
+                                                  (("2"
+                                                    (grind)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil)
+                                               ("2"
+                                                (split)
+                                                (("1" (grind) nil nil)
+                                                 ("2"
+                                                  (flatten)
+                                                  (("2"
+                                                    (grind)
+                                                    nil
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil)
+                                   ("2" (grind) nil nil))
+                                  nil))
+                                nil)
+                               ("5"
+                                (flatten)
+                                (("5"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2"
+                                            (split)
+                                            (("1"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2" (grind) nil nil))
+                                              nil)
+                                             ("2" (grind) nil nil))
+                                            nil))
+                                          nil))
+                                        nil)
+                                       ("2" (grind) nil nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil))
+                          nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil))
+                nil))
+              nil)
+             ("2" (expand "per_fup")
+              (("2" (expand "per_chevron")
+                (("2" (expand "release_fup")
+                  (("2" (expand "release_key")
+                    (("2" (expand "fup")
+                      (("2" (flatten)
+                        (("2" (lift-if)
+                          (("2" (split)
+                            (("1" (split)
+                              (("1"
+                                (split)
+                                (("1" (grind) nil nil)
+                                 ("2"
+                                  (flatten)
+                                  (("2"
+                                    (split)
+                                    (("1" (propax) nil nil)
+                                     ("2"
+                                      (split)
+                                      (("1" (grind) nil nil)
+                                       ("2" (grind) nil nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil)
+                               ("2"
+                                (flatten)
+                                (("2"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2" (grind) nil nil))
+                                          nil))
+                                        nil)
+                                       ("2"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2"
+                                            (split)
+                                            (("1" (propax) nil nil)
+                                             ("2"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2" (grind) nil nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil)
+                               ("3"
+                                (flatten)
+                                (("3"
+                                  (split)
+                                  (("1"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2" (grind) nil nil))
+                                    nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1" (grind) nil nil)
+                                       ("2"
+                                        (flatten)
+                                        (("2"
+                                          (split)
+                                          (("1"
+                                            (split)
+                                            (("1" (grind) nil nil)
+                                             ("2"
+                                              (flatten)
+                                              (("2"
+                                                (split)
+                                                (("1"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (flatten)
+                                                    (("2"
+                                                      (grind)
+                                                      nil
+                                                      nil))
+                                                    nil))
+                                                  nil)
+                                                 ("2"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (flatten)
+                                                    (("2"
+                                                      (split)
+                                                      (("1"
                                                         (flatten)
+                                                        (("1"
+                                                          (grind)
+                                                          nil
+                                                          nil))
+                                                        nil)
+                                                       ("2"
+                                                        (propax)
+                                                        nil
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil)
+                                           ("2"
+                                            (split)
+                                            (("1" (grind) nil nil)
+                                             ("2" (grind) nil nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil)
+                               ("4" (grind) nil nil)
+                               ("5"
+                                (flatten)
+                                (("5"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2" (grind) nil nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("2" (flatten)
+                              (("2"
+                                (split)
+                                (("1"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2"
+                                    (flatten)
+                                    (("2"
+                                      (split)
+                                      (("1" (propax) nil nil)
+                                       ("2"
+                                        (split)
+                                        (("1" (grind) nil nil)
+                                         ("2"
+                                          (flatten)
+                                          (("2"
+                                            (split)
+                                            (("1"
+                                              (split)
+                                              (("1" (grind) nil nil)
+                                               ("2"
+                                                (flatten)
+                                                (("2"
+                                                  (split)
+                                                  (("1"
+                                                    (split)
+                                                    (("1"
+                                                      (grind)
+                                                      nil
+                                                      nil)
+                                                     ("2"
+                                                      (flatten)
+                                                      (("2"
+                                                        (split)
                                                         (("1"
                                                           (split)
                                                           (("1"
@@ -2299,45 +2451,14 @@
                                                                     (("1"
                                                                       (split)
                                                                       (("1"
-                                                                        (grind)
+                                                                        (flatten)
                                                                         nil
                                                                         nil)
                                                                        ("2"
                                                                         (flatten)
                                                                         (("2"
-                                                                          (split)
-                                                                          (("1"
-                                                                            (grind)
-                                                                            nil
-                                                                            nil)
-                                                                           ("2"
-                                                                            (split)
-                                                                            (("1"
-                                                                              (grind)
-                                                                              nil
-                                                                              nil)
-                                                                             ("2"
-                                                                              (flatten)
-                                                                              (("2"
-                                                                                (split)
-                                                                                (("1"
-                                                                                  (split)
-                                                                                  (("1"
-                                                                                    (grind)
-                                                                                    nil
-                                                                                    nil)
-                                                                                   ("2"
-                                                                                    (grind)
-                                                                                    nil
-                                                                                    nil))
-                                                                                  nil)
-                                                                                 ("2"
-                                                                                  (grind)
-                                                                                  nil
-                                                                                  nil))
-                                                                                nil))
-                                                                              nil))
-                                                                            nil))
+                                                                          (grind)
+                                                                          nil
                                                                           nil))
                                                                         nil))
                                                                       nil)
@@ -2361,25 +2482,50 @@
                                                                 nil))
                                                               nil))
                                                             nil))
+                                                          nil)
+                                                         ("2"
+                                                          (grind)
+                                                          nil
                                                           nil))
-                                                        nil)
-                                                       ("2"
-                                                        (grind)
-                                                        nil
                                                         nil))
                                                       nil))
+                                                    nil)
+                                                   ("2"
+                                                    (propax)
+                                                    nil
                                                     nil))
-                                                  nil)
-                                                 ("2" (grind) nil nil))
+                                                  nil))
                                                 nil))
-                                              nil))
+                                              nil)
+                                             ("2" (grind) nil nil))
                                             nil))
-                                          nil)
-                                         ("2" (grind) nil nil))
+                                          nil))
                                         nil))
                                       nil))
                                     nil))
-                                  nil))
+                                  nil)
+                                 ("2"
+                                  (flatten)
+                                  (("2"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2" (grind) nil nil))
+                                    nil))
+                                  nil)
+                                 ("3"
+                                  (flatten)
+                                  (("3"
+                                    (split)
+                                    (("1"
+                                      (split)
+                                      (("1" (grind) nil nil)
+                                       ("2" (grind) nil nil))
+                                      nil)
+                                     ("2" (grind) nil nil))
+                                    nil))
+                                  nil)
+                                 ("4" (grind) nil nil)
+                                 ("5" (grind) nil nil))
                                 nil))
                               nil))
                             nil))
@@ -2392,99 +2538,25 @@
               nil)
              ("3" (expand "per_sdown")
               (("3" (expand "per_chevron")
-                (("3" (flatten)
-                  (("3" (split)
-                    (("1" (split)
-                      (("1" (expand "release_sdown")
-                        (("1" (expand "release_key")
-                          (("1" (expand "sdown")
-                            (("1" (lift-if)
+                (("3" (expand "release_sdown")
+                  (("3" (expand "release_key")
+                    (("3" (expand "sdown")
+                      (("3" (flatten)
+                        (("3" (lift-if)
+                          (("3" (split)
+                            (("1" (split)
                               (("1"
-                                (flatten)
-                                (("1"
-                                  (split)
-                                  (("1"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1" (flatten) nil nil)
-                                         ("2"
-                                          (split)
-                                          (("1" (grind) nil nil)
-                                           ("2"
-                                            (flatten)
-                                            (("2"
-                                              (split)
-                                              (("1" (grind) nil nil)
-                                               ("2" (grind) nil nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil)
-                                   ("2"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1" (flatten) nil nil)
-                                         ("2"
-                                          (split)
-                                          (("1" (grind) nil nil)
-                                           ("2" (grind) nil nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
+                                (split)
+                                (("1" (grind) nil nil)
+                                 ("2" (grind) nil nil))
+                                nil)
+                               ("2" (grind) nil nil)
+                               ("3" (grind) nil nil)
+                               ("4" (grind) nil nil)
+                               ("5" (grind) nil nil))
+                              nil)
+                             ("2" (grind) nil nil))
                             nil))
-                          nil))
-                        nil)
-                       ("2" (expand "release_sdown")
-                        (("2" (expand "release_key")
-                          (("2" (expand "sdown")
-                            (("2" (lift-if) (("2" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("3" (expand "release_sdown")
-                        (("3" (expand "release_key")
-                          (("3" (expand "sdown")
-                            (("3" (lift-if) (("3" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("4" (expand "release_sdown")
-                        (("4" (expand "release_key")
-                          (("4" (expand "sdown")
-                            (("4" (lift-if) (("4" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("5" (expand "release_sdown")
-                        (("5" (expand "release_key")
-                          (("5" (expand "sdown")
-                            (("5" (lift-if) (("5" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil))
-                      nil)
-                     ("2" (expand "release_sdown")
-                      (("2" (expand "release_key")
-                        (("2" (expand "sdown")
-                          (("2" (lift-if) (("2" (grind) nil nil)) nil))
                           nil))
                         nil))
                       nil))
@@ -2494,230 +2566,64 @@
               nil)
              ("4" (expand "per_fdown")
               (("4" (expand "per_chevron")
-                (("4" (flatten)
-                  (("4" (split)
-                    (("1" (split)
-                      (("1" (expand "release_fdown")
-                        (("1" (expand "release_key")
-                          (("1" (expand "fdown")
-                            (("1" (lift-if)
+                (("4" (expand "release_fdown")
+                  (("4" (expand "release_key")
+                    (("4" (expand "fdown")
+                      (("4" (flatten)
+                        (("4" (lift-if)
+                          (("4" (split)
+                            (("1" (split)
                               (("1"
-                                (flatten)
-                                (("1"
-                                  (split)
-                                  (("1"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1" (flatten) nil nil)
-                                         ("2"
-                                          (split)
-                                          (("1" (grind) nil nil)
-                                           ("2"
-                                            (flatten)
-                                            (("2"
-                                              (split)
-                                              (("1"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil)
-                                               ("2"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil)
-                                   ("2"
-                                    (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1" (flatten) nil nil)
-                                         ("2"
-                                          (split)
-                                          (("1" (grind) nil nil)
-                                           ("2"
-                                            (flatten)
-                                            (("2"
-                                              (split)
-                                              (("1"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil)
-                                               ("2"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("2" (expand "release_fdown")
-                        (("2" (expand "release_key")
-                          (("2" (expand "fdown")
-                            (("2" (lift-if)
-                              (("2"
+                                (split)
+                                (("1" (grind) nil nil)
+                                 ("2" (grind) nil nil))
+                                nil)
+                               ("2"
                                 (flatten)
                                 (("2"
+                                  (split)
+                                  (("1" (grind) nil nil)
+                                   ("2" (grind) nil nil))
+                                  nil))
+                                nil)
+                               ("3" (grind) nil nil)
+                               ("4" (grind) nil nil)
+                               ("5" (grind) nil nil))
+                              nil)
+                             ("2" (flatten)
+                              (("2"
+                                (split)
+                                (("1"
                                   (split)
                                   (("1" (grind) nil nil)
                                    ("2"
                                     (flatten)
                                     (("2"
                                       (split)
-                                      (("1"
-                                        (flatten)
-                                        (("1"
-                                          (split)
-                                          (("1" (grind) nil nil)
-                                           ("2"
-                                            (flatten)
-                                            (("2"
-                                              (split)
-                                              (("1" (propax) nil nil)
-                                               ("2"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil)
+                                      (("1" (propax) nil nil)
                                        ("2"
                                         (split)
                                         (("1" (grind) nil nil)
-                                         ("2"
-                                          (flatten)
-                                          (("2"
-                                            (split)
-                                            (("1" (propax) nil nil)
-                                             ("2"
-                                              (split)
-                                              (("1" (grind) nil nil)
-                                               ("2"
-                                                (flatten)
-                                                (("2"
-                                                  (split)
-                                                  (("1"
-                                                    (flatten)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (propax)
-                                                    nil
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
+                                         ("2" (grind) nil nil))
                                         nil))
                                       nil))
                                     nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("3" (grind) nil nil)
-                       ("4" (flatten)
-                        (("4" (split)
-                          (("1" (expand "release_fdown")
-                            (("1" (expand "release_key")
-                              (("1"
-                                (expand "fdown")
-                                (("1"
-                                  (lift-if)
-                                  (("1"
-                                    (flatten)
+                                  nil)
+                                 ("2"
+                                  (flatten)
+                                  (("2"
+                                    (split)
+                                    (("1" (grind) nil nil)
+                                     ("2"
+                                      (flatten)
+                                      (("2" (grind) nil nil))
+                                      nil))
+                                    nil))
+                                  nil)
+                                 ("3"
+                                  (flatten)
+                                  (("3"
+                                    (split)
                                     (("1"
                                       (split)
                                       (("1" (grind) nil nil)
@@ -2726,305 +2632,85 @@
                                         (("2"
                                           (split)
                                           (("1"
-                                            (flatten)
-                                            (("1"
-                                              (split)
-                                              (("1" (grind) nil nil)
-                                               ("2"
-                                                (flatten)
-                                                (("2"
+                                            (split)
+                                            (("1" (grind) nil nil)
+                                             ("2"
+                                              (flatten)
+                                              (("2"
+                                                (split)
+                                                (("1"
                                                   (split)
                                                   (("1"
-                                                    (split)
-                                                    (("1"
-                                                      (grind)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (flatten)
-                                                      (("2"
-                                                        (split)
-                                                        (("1"
-                                                          (flatten)
-                                                          (("1"
-                                                            (split)
-                                                            (("1"
-                                                              (grind)
-                                                              nil
-                                                              nil)
-                                                             ("2"
-                                                              (flatten)
-                                                              (("2"
-                                                                (split)
-                                                                (("1"
-                                                                  (propax)
-                                                                  nil
-                                                                  nil)
-                                                                 ("2"
-                                                                  (split)
-                                                                  (("1"
-                                                                    (grind)
-                                                                    nil
-                                                                    nil)
-                                                                   ("2"
-                                                                    (flatten)
-                                                                    (("2"
-                                                                      (split)
-                                                                      (("1"
-                                                                        (split)
-                                                                        (("1"
-                                                                          (grind)
-                                                                          nil
-                                                                          nil)
-                                                                         ("2"
-                                                                          (flatten)
-                                                                          (("2"
-                                                                            (split)
-                                                                            (("1"
-                                                                              (split)
-                                                                              (("1"
-                                                                                (grind)
-                                                                                nil
-                                                                                nil)
-                                                                               ("2"
-                                                                                (flatten)
-                                                                                (("2"
-                                                                                  (split)
-                                                                                  (("1"
-                                                                                    (propax)
-                                                                                    nil
-                                                                                    nil)
-                                                                                   ("2"
-                                                                                    (split)
-                                                                                    (("1"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil)
-                                                                                     ("2"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil))
-                                                                                    nil))
-                                                                                  nil))
-                                                                                nil))
-                                                                              nil)
-                                                                             ("2"
-                                                                              (split)
-                                                                              (("1"
-                                                                                (grind)
-                                                                                nil
-                                                                                nil)
-                                                                               ("2"
-                                                                                (flatten)
-                                                                                (("2"
-                                                                                  (split)
-                                                                                  (("1"
-                                                                                    (propax)
-                                                                                    nil
-                                                                                    nil)
-                                                                                   ("2"
-                                                                                    (split)
-                                                                                    (("1"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil)
-                                                                                     ("2"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil))
-                                                                                    nil))
-                                                                                  nil))
-                                                                                nil))
-                                                                              nil))
-                                                                            nil))
-                                                                          nil))
-                                                                        nil)
-                                                                       ("2"
-                                                                        (split)
-                                                                        (("1"
-                                                                          (grind)
-                                                                          nil
-                                                                          nil)
-                                                                         ("2"
-                                                                          (flatten)
-                                                                          (("2"
-                                                                            (split)
-                                                                            (("1"
-                                                                              (split)
-                                                                              (("1"
-                                                                                (grind)
-                                                                                nil
-                                                                                nil)
-                                                                               ("2"
-                                                                                (flatten)
-                                                                                (("2"
-                                                                                  (split)
-                                                                                  (("1"
-                                                                                    (propax)
-                                                                                    nil
-                                                                                    nil)
-                                                                                   ("2"
-                                                                                    (split)
-                                                                                    (("1"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil)
-                                                                                     ("2"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil))
-                                                                                    nil))
-                                                                                  nil))
-                                                                                nil))
-                                                                              nil)
-                                                                             ("2"
-                                                                              (split)
-                                                                              (("1"
-                                                                                (grind)
-                                                                                nil
-                                                                                nil)
-                                                                               ("2"
-                                                                                (flatten)
-                                                                                (("2"
-                                                                                  (split)
-                                                                                  (("1"
-                                                                                    (propax)
-                                                                                    nil
-                                                                                    nil)
-                                                                                   ("2"
-                                                                                    (split)
-                                                                                    (("1"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil)
-                                                                                     ("2"
-                                                                                      (grind)
-                                                                                      nil
-                                                                                      nil))
-                                                                                    nil))
-                                                                                  nil))
-                                                                                nil))
-                                                                              nil))
-                                                                            nil))
-                                                                          nil))
-                                                                        nil))
-                                                                      nil))
-                                                                    nil))
-                                                                  nil))
-                                                                nil))
-                                                              nil))
-                                                            nil))
-                                                          nil)
-                                                         ("2"
-                                                          (split)
-                                                          (("1"
-                                                            (grind)
-                                                            nil
-                                                            nil)
-                                                           ("2"
-                                                            (flatten)
-                                                            (("2"
-                                                              (split)
-                                                              (("1"
-                                                                (propax)
-                                                                nil
-                                                                nil)
-                                                               ("2"
-                                                                (split)
-                                                                (("1"
-                                                                  (grind)
-                                                                  nil
-                                                                  nil)
-                                                                 ("2"
-                                                                  (flatten)
-                                                                  (("2"
-                                                                    (split)
-                                                                    (("1"
-                                                                      (split)
-                                                                      (("1"
-                                                                        (grind)
-                                                                        nil
-                                                                        nil)
-                                                                       ("2"
-                                                                        (grind)
-                                                                        nil
-                                                                        nil))
-                                                                      nil)
-                                                                     ("2"
-                                                                      (grind)
-                                                                      nil
-                                                                      nil))
-                                                                    nil))
-                                                                  nil))
-                                                                nil))
-                                                              nil))
-                                                            nil))
-                                                          nil))
-                                                        nil))
-                                                      nil))
+                                                    (grind)
+                                                    nil
                                                     nil)
                                                    ("2"
                                                     (grind)
                                                     nil
                                                     nil))
-                                                  nil))
+                                                  nil)
+                                                 ("2" (grind) nil nil))
                                                 nil))
                                               nil))
                                             nil)
-                                           ("2" (grind) nil nil))
-                                          nil))
-                                        nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil)
-                           ("2" (expand "release_fdown")
-                            (("2" (expand "release_key")
-                              (("2"
-                                (expand "fdown")
-                                (("2"
-                                  (lift-if)
-                                  (("2" (grind) nil nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil)
-                       ("5" (expand "release_fdown")
-                        (("5" (expand "release_key")
-                          (("5" (expand "fdown")
-                            (("5" (lift-if) (("5" (grind) nil nil))
-                              nil))
-                            nil))
-                          nil))
-                        nil))
-                      nil)
-                     ("2" (flatten)
-                      (("2" (split)
-                        (("1" (expand "release_fdown")
-                          (("1" (expand "release_key")
-                            (("1" (expand "fdown")
-                              (("1"
-                                (lift-if)
-                                (("1"
-                                  (flatten)
-                                  (("1"
-                                    (split)
-                                    (("1"
-                                      (split)
-                                      (("1" (grind) nil nil)
-                                       ("2"
-                                        (flatten)
-                                        (("2"
-                                          (split)
-                                          (("1" (flatten) nil nil)
                                            ("2"
                                             (split)
                                             (("1" (grind) nil nil)
-                                             ("2" (grind) nil nil))
+                                             ("2"
+                                              (flatten)
+                                              (("2"
+                                                (split)
+                                                (("1"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (grind)
+                                                    nil
+                                                    nil))
+                                                  nil)
+                                                 ("2"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (flatten)
+                                                    (("2"
+                                                      (split)
+                                                      (("1"
+                                                        (split)
+                                                        (("1"
+                                                          (grind)
+                                                          nil
+                                                          nil)
+                                                         ("2"
+                                                          (flatten)
+                                                          (("2"
+                                                            (split)
+                                                            (("1"
+                                                              (propax)
+                                                              nil
+                                                              nil)
+                                                             ("2"
+                                                              (propax)
+                                                              nil
+                                                              nil))
+                                                            nil))
+                                                          nil))
+                                                        nil)
+                                                       ("2"
+                                                        (propax)
+                                                        nil
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
                                             nil))
                                           nil))
                                         nil))
@@ -3036,7 +2722,44 @@
                                         (flatten)
                                         (("2"
                                           (split)
-                                          (("1" (flatten) nil nil)
+                                          (("1"
+                                            (split)
+                                            (("1" (grind) nil nil)
+                                             ("2"
+                                              (flatten)
+                                              (("2"
+                                                (split)
+                                                (("1"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (flatten)
+                                                    (("2"
+                                                      (grind)
+                                                      nil
+                                                      nil))
+                                                    nil))
+                                                  nil)
+                                                 ("2"
+                                                  (split)
+                                                  (("1"
+                                                    (grind)
+                                                    nil
+                                                    nil)
+                                                   ("2"
+                                                    (flatten)
+                                                    (("2"
+                                                      (grind)
+                                                      nil
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil)
                                            ("2"
                                             (split)
                                             (("1" (grind) nil nil)
@@ -3055,8 +2778,15 @@
                                                     (("2"
                                                       (split)
                                                       (("1"
-                                                        (flatten)
-                                                        nil
+                                                        (split)
+                                                        (("1"
+                                                          (grind)
+                                                          nil
+                                                          nil)
+                                                         ("2"
+                                                          (grind)
+                                                          nil
+                                                          nil))
                                                         nil)
                                                        ("2"
                                                         (propax)
@@ -3065,27 +2795,7 @@
                                                       nil))
                                                     nil))
                                                   nil)
-                                                 ("2"
-                                                  (split)
-                                                  (("1"
-                                                    (grind)
-                                                    nil
-                                                    nil)
-                                                   ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
-                                                    nil))
-                                                  nil))
+                                                 ("2" (grind) nil nil))
                                                 nil))
                                               nil))
                                             nil))
@@ -3093,27 +2803,18 @@
                                         nil))
                                       nil))
                                     nil))
-                                  nil))
-                                nil))
-                              nil))
-                            nil))
-                          nil)
-                         ("2" (expand "release_fdown")
-                          (("2" (expand "release_key")
-                            (("2" (expand "fdown")
-                              (("2"
-                                (lift-if)
-                                (("2"
+                                  nil)
+                                 ("4"
                                   (flatten)
-                                  (("2"
+                                  (("4"
                                     (split)
-                                    (("1" (grind) nil nil)
-                                     ("2"
-                                      (flatten)
-                                      (("2"
-                                        (split)
-                                        (("1"
-                                          (flatten)
+                                    (("1"
+                                      (split)
+                                      (("1" (grind) nil nil)
+                                       ("2"
+                                        (flatten)
+                                        (("2"
+                                          (split)
                                           (("1"
                                             (split)
                                             (("1" (grind) nil nil)
@@ -3121,77 +2822,44 @@
                                               (flatten)
                                               (("2"
                                                 (split)
-                                                (("1" (propax) nil nil)
-                                                 ("2"
+                                                (("1"
                                                   (split)
                                                   (("1"
                                                     (grind)
                                                     nil
                                                     nil)
                                                    ("2"
-                                                    (flatten)
-                                                    (("2"
-                                                      (split)
-                                                      (("1"
-                                                        (flatten)
-                                                        nil
-                                                        nil)
-                                                       ("2"
-                                                        (propax)
-                                                        nil
-                                                        nil))
-                                                      nil))
+                                                    (grind)
+                                                    nil
                                                     nil))
-                                                  nil))
+                                                  nil)
+                                                 ("2" (grind) nil nil))
                                                 nil))
                                               nil))
-                                            nil))
-                                          nil)
-                                         ("2"
+                                            nil)
+                                           ("2" (grind) nil nil))
+                                          nil))
+                                        nil))
+                                      nil)
+                                     ("2"
+                                      (flatten)
+                                      (("2"
+                                        (split)
+                                        (("1"
                                           (split)
                                           (("1" (grind) nil nil)
-                                           ("2"
-                                            (flatten)
-                                            (("2"
-                                              (split)
-                                              (("1" (propax) nil nil)
-                                               ("2"
-                                                (split)
-                                                (("1" (grind) nil nil)
-                                                 ("2"
-                                                  (flatten)
-                                                  (("2"
-                                                    (split)
-                                                    (("1"
-                                                      (flatten)
-                                                      nil
-                                                      nil)
-                                                     ("2"
-                                                      (propax)
-                                                      nil
-                                                      nil))
-                                                    nil))
-                                                  nil))
-                                                nil))
-                                              nil))
-                                            nil))
-                                          nil))
+                                           ("2" (grind) nil nil))
+                                          nil)
+                                         ("2" (grind) nil nil))
                                         nil))
                                       nil))
                                     nil))
-                                  nil))
+                                  nil)
+                                 ("5" (grind) nil nil))
                                 nil))
                               nil))
                             nil))
-                          nil)
-                         ("3" (grind) nil nil)
-                         ("4" (flatten)
-                          (("4" (split)
-                            (("1" (grind) nil nil)
-                             ("2" (grind) nil nil))
-                            nil))
-                          nil)
-                         ("5" (grind) nil nil))
+                          nil))
                         nil))
                       nil))
                     nil))
@@ -3208,7 +2876,12 @@
                        ("5" (grind) nil nil) ("6" (grind) nil nil))
                       nil))
                     nil)
-                   ("2" (grind) nil nil))
+                   ("2" (flatten)
+                    (("2" (split)
+                      (("1" (grind) nil nil) ("2" (grind) nil nil)
+                       ("3" (grind) nil nil))
+                      nil))
+                    nil))
                   nil))
                 nil))
               nil)
@@ -3227,17 +2900,7 @@
                        ("5" (grind) nil nil))
                       nil))
                     nil)
-                   ("2" (flatten)
-                    (("2" (split)
-                      (("1" (grind) nil nil)
-                       ("2" (flatten)
-                        (("2" (split)
-                          (("1" (grind) nil nil) ("2" (grind) nil nil))
-                          nil))
-                        nil)
-                       ("3" (grind) nil nil))
-                      nil))
-                    nil))
+                   ("2" (grind) nil nil))
                   nil))
                 nil))
               nil)
@@ -3259,20 +2922,8 @@
                        ("3" (grind) nil nil) ("4" (grind) nil nil))
                       nil))
                     nil)
-                   ("2" (flatten)
-                    (("2" (split)
-                      (("1" (grind) nil nil) ("2" (grind) nil nil)
-                       ("3" (flatten)
-                        (("3" (split)
-                          (("1" (grind) nil nil) ("2" (grind) nil nil)
-                           ("3" (grind) nil nil))
-                          nil))
-                        nil)
-                       ("4" (grind) nil nil) ("5" (grind) nil nil)
-                       ("6" (grind) nil nil) ("7" (grind) nil nil))
-                      nil))
-                    nil)
-                   ("3" (grind) nil nil) ("4" (grind) nil nil))
+                   ("2" (grind) nil nil) ("3" (grind) nil nil)
+                   ("4" (grind) nil nil))
                   nil))
                 nil))
               nil)
@@ -3288,40 +2939,14 @@
               (("14" (flatten)
                 (("14" (split)
                   (("1" (grind) nil nil)
-                   ("2" (flatten)
-                    (("2" (expand "switch")
-                      (("2" (lift-if)
+                   ("2" (expand "switch")
+                    (("2" (lift-if)
+                      (("2" (flatten)
                         (("2" (split)
                           (("1" (grind) nil nil)
                            ("2" (flatten)
                             (("2" (split)
-                              (("1"
-                                (expand "switch_from_battery_low")
-                                (("1"
-                                  (flatten)
-                                  (("1"
-                                    (lift-if)
-                                    (("1"
-                                      (split)
-                                      (("1"
-                                        (flatten)
-                                        (("1"
-                                          (lift-if)
-                                          (("1"
-                                            (split)
-                                            (("1" (flatten) nil nil)
-                                             ("2"
-                                              (flatten)
-                                              (("2" (grind) nil nil))
-                                              nil))
-                                            nil))
-                                          nil))
-                                        nil)
-                                       ("2" (grind) nil nil))
-                                      nil))
-                                    nil))
-                                  nil))
-                                nil)
+                              (("1" (grind) nil nil)
                                ("2" (grind) nil nil))
                               nil))
                             nil))
@@ -3341,62 +2966,63 @@
    ((state_transitions_release const-decl "boolean"
      alaris_completeness_pattern nil)
     (per_chevron const-decl "bool" alaris_th nil)
-    (odd_minus_odd_is_even application-judgement "even_int" integers
-     nil)
-    (trim_time const-decl "itimes" alaris_th nil)
-    (state_up_time const-decl "itimes" alaris_th nil)
-    (sup_case_vtbitime_ttmode const-decl "state" alaris_th nil)
-    (nnint_plus_posint_is_posint application-judgement "posint"
-     integers nil)
-    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
-    (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
-    (sup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
-    (mbags const-decl "nat" types_and_constants_th nil)
-    (sup_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
-    (trim_vtbi const-decl "ivols" alaris_th nil)
-    (state_up_vtbi const-decl "ivols" alaris_th nil)
-    (sup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
-    (sup_case_infusing_NOTrlock const-decl "state" alaris_th nil)
-    (sup_case_options const-decl "state" alaris_th nil)
-    (posint_plus_nnint_is_posint application-judgement "posint"
-     integers nil)
+    (release_key const-decl "state" alaris_th nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
     (even_plus_even_is_even application-judgement "even_int" integers
      nil)
-    (real_div_nzreal_is_real application-judgement "real" reals nil)
-    (real_lt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
-    (real_gt_is_strict_total_order name-judgement
-     "(strict_total_order?[real])" real_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
     (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
      rationals nil)
-    (posreal_plus_nnreal_is_posreal application-judgement "posreal"
-     real_types nil)
-    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (decrement const-decl "presstime" alaris_th nil)
-    (trim_rate const-decl "irates" alaris_th nil)
-    (state_up_rate const-decl "irates" alaris_th nil)
-    (aug_rate const-decl "pump" pump_th nil)
-    (sup_case_holding_NOTrlock const-decl "state" alaris_th nil)
-    (sup_case_infusingORholding_rlock const-decl "state" alaris_th nil)
-    (sup const-decl "state" alaris_th nil)
-    (release_key const-decl "state" alaris_th nil)
-    (release_sup const-decl "state" alaris_th nil)
-    (real_ge_is_total_order name-judgement "(total_order?[real])"
-     real_props nil)
-    (int_minus_int_is_int application-judgement "int" integers nil)
-    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
-     real_types nil)
-    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
-    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
-     integers nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
     (even_times_int_is_even application-judgement "even_int" integers
      nil)
-    (mult_divides1 application-judgement "(divides(n))" divides nil)
-    (mult_divides2 application-judgement "(divides(m))" divides nil)
-    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (sup_case_holding_NOTrlock const-decl "state" alaris_th nil)
+    (aug_rate const-decl "pump" pump_th nil)
+    (state_up_rate const-decl "irates" alaris_th nil)
+    (trim_rate const-decl "irates" alaris_th nil)
+    (nnreal_div_posreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (posreal_plus_nnreal_is_posreal application-judgement "posreal"
+     real_types nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_div_nzreal_is_real application-judgement "real" reals nil)
+    (sup_case_infusingORholding_rlock const-decl "state" alaris_th nil)
+    (sup_case_infusing_NOTrlock const-decl "state" alaris_th nil)
+    (sup_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (mbags const-decl "nat" types_and_constants_th nil)
+    (sup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (state_up_vtbi const-decl "ivols" alaris_th nil)
+    (trim_vtbi const-decl "ivols" alaris_th nil)
+    (sup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (odd_plus_even_is_odd application-judgement "odd_int" integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (sup_case_vtbitime_ttmode const-decl "state" alaris_th nil)
+    (state_up_time const-decl "itimes" alaris_th nil)
+    (trim_time const-decl "itimes" alaris_th nil)
+    (decrement const-decl "presstime" alaris_th nil)
+    (odd_minus_odd_is_even application-judgement "even_int" integers
+     nil)
+    (sup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (sup_case_options const-decl "state" alaris_th nil)
+    (sup const-decl "state" alaris_th nil)
+    (release_sup const-decl "state" alaris_th nil)
     (per_sup const-decl "bool" alaris_th nil)
     (fup_case_options const-decl "state" alaris_th nil)
+    (fup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
     (state_UP_time const-decl "itimes" alaris_th nil)
     (fup_case_vtbitime_ttmode const-decl "state" alaris_th nil)
     (int_times_even_is_even application-judgement "even_int" integers
@@ -3404,13 +3030,10 @@
     (real_plus_real_is_real application-judgement "real" reals nil)
     (rat_minus_rat_is_rat application-judgement "rat" rationals nil)
     (fup_case_vtbitime_vttmode const-decl "state" alaris_th nil)
-    (fup_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
-    (state_UP_vtbi const-decl "ivols" alaris_th nil)
-    (fup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fup_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
+    (fup_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
+    (state_UP_vtbi const-decl "ivols" alaris_th nil)
     (fup_case_infusing_NOTrlock const-decl "state" alaris_th nil)
-    (release_fup const-decl "state" alaris_th nil)
-    (fup const-decl "state" alaris_th nil)
     (real_minus_real_is_real application-judgement "real" reals nil)
     (fup_case_holding_NOTrlock const-decl "state" alaris_th nil)
     (state_UP_rate const-decl "irates" alaris_th nil)
@@ -3420,6 +3043,8 @@
      real_types nil)
     (fup_case_infusingORholding_rlock const-decl "state" alaris_th nil)
     (minus_odd_is_odd application-judgement "odd_int" integers nil)
+    (fup const-decl "state" alaris_th nil)
+    (release_fup const-decl "state" alaris_th nil)
     (per_fup const-decl "bool" alaris_th nil)
     (dpdtls const-decl "nat" types_and_constants_th nil)
     (sdown_case_options const-decl "state" alaris_th nil)
@@ -3432,8 +3057,6 @@
     (sdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (sdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
     (sdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
-    (release_sdown const-decl "state" alaris_th nil)
-    (sdown const-decl "state" alaris_th nil)
     (even_minus_even_is_even application-judgement "even_int" integers
      nil)
     (nonneg_ceiling_is_nat application-judgement "nat" floor_ceil nil)
@@ -3442,35 +3065,37 @@
     (ceil_rate const-decl "irates" alaris_th nil)
     (sdown_case_infusingORholding_rlock const-decl "state" alaris_th
      nil)
+    (sdown const-decl "state" alaris_th nil)
+    (release_sdown const-decl "state" alaris_th nil)
     (per_sdown const-decl "bool" alaris_th nil)
     (fdown_case_options const-decl "state" alaris_th nil)
-    (fdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
+    (fdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
     (state_DN_time const-decl "itimes" alaris_th nil)
     (fdown_case_vtbitime_ttmode const-decl "state" alaris_th nil)
-    (fdown_case_dispvtbi_tbagmode const-decl "state" alaris_th nil)
+    (fdown_case_vtbitime_vttmode const-decl "state" alaris_th nil)
     (state_DN_vtbi const-decl "ivols" alaris_th nil)
     (fdown_case_dispvtbi_vtmode const-decl "state" alaris_th nil)
     (fdown_case_dispvtbi_bagmode const-decl "state" alaris_th nil)
     (fdown_case_infusing_NOTrlock const-decl "state" alaris_th nil)
-    (release_fdown const-decl "state" alaris_th nil)
-    (fdown const-decl "state" alaris_th nil)
     (fdown_case_holding_NOTrlock const-decl "state" alaris_th nil)
     (state_DN_rate const-decl "irates" alaris_th nil)
     (posrat_div_posrat_is_posrat application-judgement "posrat"
      rationals nil)
     (fdown_case_infusingORholding_rlock const-decl "state" alaris_th
      nil)
+    (fdown const-decl "state" alaris_th nil)
+    (release_fdown const-decl "state" alaris_th nil)
     (per_fdown const-decl "bool" alaris_th nil)
-    (tick_case_infuse_and_infusionrateLvtbi const-decl "pump" pump_th
-     nil)
     (tick_case_infuse_and_infusionrateGEvtbi_kvoflag const-decl "pump"
      pump_th nil)
-    (tick_case_infuse_infusionrateLTvtbi const-decl "state" alaris_th
-     nil)
     (tick_case_infuse_infusionrateEQvtbi_kvoflag const-decl "state"
      alaris_th nil)
+    (tick_case_infuse_and_infusionrateLvtbi const-decl "pump" pump_th
+     nil)
     (tick_case_infuse_and_infusionrateGEvtbi_NOTkvoflag const-decl
      "pump" pump_th nil)
+    (tick_case_infuse_infusionrateLTvtbi const-decl "state" alaris_th
+     nil)
     (tick_case_infuse_infusionrateEQvtbi_notkvoflag const-decl "state"
      alaris_th nil)
     (tick_case_infuse_infusionrateLTvtbilocked const-decl "state"
@@ -3584,7 +3209,7 @@
     (on_case_infusionstatusNOTblank const-decl "state" alaris_th nil)
     (on const-decl "state" alaris_th nil)
     (paused_state const-decl "boolean" alaris_completeness_pattern nil)
-    (guard_rmode const-decl "boolean" alaris_completeness_pattern nil)
+    (guard_hosr const-decl "boolean" alaris_completeness_pattern nil)
     (goal_hosr const-decl "boolean" alaris_completeness_pattern nil)
     (no_button_down const-decl "bool" alaris_th nil)
     (per_key1 const-decl "bool" alaris_th nil)
